@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="description" content="Crypto Currency Tracker Dashboard">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="author" content="Mihail-Vlad Prajescu">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Crypto Dash </title>
+
+
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 5%;
+	font-family: sans-serif;
+	background-image: url(https://source.unsplash.com/1920x1080/?gradient);
+	background-repeat: no-repeat;
+	background-size: 110%;
+	
+	/*
+	https://source.unsplash.com/3840x2160/?gradient
+	https://source.unsplash.com/3840x2160/?abstract
+	https://source.unsplash.com/1920x1080/?gradient
+	https://source.unsplash.com/1920x1080/?abstract
+	
+	*/
+}
+
+
+
+
+
+
+.bottomright {
+	position: fixed;
+	right: 0px; bottom: 10px;
+	height:34px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: -10px;
+	padding-bottom: 15px;
+	font-size: 18px;
+	line-height: 18px;
+	text-decoration: none;
+	
+}
+
+.bottomright a {
+	text-decoration: none; 
+	color: #000;
+	outline: none;
+	padding: 15px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.bottomright a:hover{
+	box-shadow: 0px 2px 1px white inset, 0px 0px 20px #2196f3, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+	transition: 0.6s;
+	padding: 15px;
+}
+
+.bottomright a:focus{
+	box-shadow: 0px 2px 1px white inset, 0px 0px 20px #2196f3, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+	transition: 0.6s;
+	padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="blurred-box">
+</div>
+
+<header>
+  <h1>CryptoDash</h1>
+</header>
+
+<nav>
+  <ul>
+	  <li><a href="#">LINK 1</a></li>
+	  <li><a href="#">LINK 2</a></li>
+	  <li><a href="#">LINK 3</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h2>Section Title</h2>
+  <article>
+    <h3>Article Heading</h3>
+    <p>Article content.... lorem ipsum si imet delor</p>
+  </article>
+</section>
+
+<footer>
+  <p>&copy; 2016 NROnline. All rights reserved.</p>
+</footer>
+
+
+
+<div class="bottomright ">
+	<p> <a href="https://github.com/mprajescu/crypto-dash">CryptoDash v1 <span id="date"></span></a></p>
+</div>
+
+</body>
+
+
+<script type="text/javascript">
+
+// Sets a variable in local storage
+//localStorage.setItem('myCat', 'Tom');
+
+// User Settings
+// Default Items
+
+// Background color
+
+
+// Reads a variable from local storage
+//const cat = localStorage.getItem('myCat');
+
+// Removes a variable from local storage
+//localStorage.removeItem('myCat');
+
+// Clears all local storage
+// Will be a button
+//localStorage.clear();
+
+// Copyright date bottom right 
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+
+document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+
+</script>
+
+</html>
