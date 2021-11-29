@@ -12,7 +12,6 @@
 
 
 
-
 <style>
 
 * {
@@ -20,12 +19,14 @@
 }
 
 body {
-    margin: 5%;
+    margin: 2%;
 	font-family: sans-serif;
-	background-image: url(https://source.unsplash.com/1920x1080/?gradient);
+    background-position: center center;
+    background-attachment: fixed;
+	background-image: url(https://source.unsplash.com/3840x2160/?abstract);
 	background-repeat: no-repeat;
 	background-size: 110%;
-	
+	background-color: #000;
 	/*
 	https://source.unsplash.com/3840x2160/?gradient
 	https://source.unsplash.com/3840x2160/?abstract
@@ -36,6 +37,46 @@ body {
 }
 
 
+
+.grid {
+    position: relative;
+}
+.item {
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    padding: 15px;
+    z-index: 1;
+    background: #fff;
+    
+    border-radius: 20px;
+    box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07)
+    ;
+
+}
+
+.item.muuri-item-dragging {
+    z-index: 3;
+}
+.item.muuri-item-releasing {
+    z-index: 2;
+}
+.item.muuri-item-hidden {
+    z-index: 0;
+}
+.item-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
 
 
@@ -80,9 +121,62 @@ body {
 
 
 
+/* CSS Loader */
 
 
-
+#loader{
+    width:100px;
+    height:80px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-40px;
+    margin-left:-50px;
+  }
+  
+  .inner{
+    -webkit-animation:rotate 0.8s linear infinite;
+    -moz-animation:rotate 0.8s linear infinite;
+    animation:rotate 0.8s linear infinite;
+    margin-top:20px;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    position:absolute;
+  }
+  
+  .rotate-one{
+    left:50%;
+    margin-left:-25px;
+    border-top:2px solid #1f6d8f;
+  }
+  
+  .rotate-two{
+    top:-10px;
+    left:30px;
+    border-left:2px solid #1f6d8f;
+  }
+  
+  .rotate-three{
+    top:-10px;
+    right:30px;
+    border-right:2px solid #1f6d8f;
+  }
+  
+  @-webkit-keyframes rotate{
+    0%{-webkit-transform:rotateZ(0deg);}
+    100%{-webkit-transform:rotateZ(360deg);}
+  }
+  
+  @-moz-keyframes rotate{
+    0%{-moz-transform:rotateZ(0deg);}
+    100%{-moz-transform:rotateZ(360deg);}
+  }
+  
+  @keyframes rotate{
+    0%{transform:rotateZ(0deg);}
+    100%{transform:rotateZ(360deg);}
+  }
 
 
 
@@ -106,49 +200,125 @@ body {
 
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+
 
 
 </head>
 
 <body>
 
-<div class="blurred-box">
+
+<div id="loader">
+    <div class="inner rotate-one"></div>
+    <div class="inner rotate-two"></div>
+    <div class="inner rotate-three"></div>
 </div>
 
-<header>
-  <h1>CryptoDash</h1>
-</header>
-
-<nav>
-  <ul>
-	  <li><a href="#">LINK 1</a></li>
-	  <li><a href="#">LINK 2</a></li>
-	  <li><a href="#">LINK 3</a></li>
-  </ul>
-</nav>
-
-<section>
-  <h2>Section Title</h2>
-  <article>
-    <h3>Article Heading</h3>
-    <p>Article content.... lorem ipsum si imet delor</p>
-  </article>
-</section>
-
-<footer>
-  <p>&copy; 2016 NROnline. All rights reserved.</p>
-</footer>
+<div id="cryptodashcontent" style="opacity: 0;">
 
 
+    <div class="grid">
+        <div class="item" crypto-dash-id="1">
+          <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            This can be anything.
+            <!-- Safe zone ends -->
+          </div>
+        </div>
+      
+        <div class="item" crypto-dash-id="2">
+          <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+              Yippee!
+            </div>
+            <!-- Safe zone ends -->
+          </div>
+        </div>
 
-<div class="bottomright ">
-	<p> <a href="https://github.com/mprajescu/crypto-dash">CryptoDash v1 <span id="date"></span></a></p>
+        <div class="item" crypto-dash-id="3">
+            <div class="item-content">
+              <!-- Safe zone, enter your custom markup -->
+              <div class="my-custom-content">
+                Yippee!
+              </div>
+              <!-- Safe zone ends -->
+            </div>
+        </div>
+
+        <div class="item" crypto-dash-id="4">
+            <div class="item-content">
+                <!-- Safe zone, enter your custom markup -->
+                <div class="my-custom-content">
+                Yippee!
+                </div>
+                <!-- Safe zone ends -->
+            </div>
+        </div>
+
+        <div class="item" crypto-dash-id="5">
+            <div class="item-content">
+                <!-- Safe zone, enter your custom markup -->
+                <div class="my-custom-content">
+                Yippee!
+                </div>
+                <!-- Safe zone ends -->
+            </div>
+        </div>
+
+    </div>
+
+
+
+  
+    
+    
+    
+    <div class="bottomright ">
+        <p> <a href="https://github.com/mprajescu/crypto-dash">CryptoDash v1 <span id="date"></span></a></p>
+    </div>
+
+
 </div>
+
+
+
 
 </body>
 
 
 <script type="text/javascript">
+
+// Loader
+
+const loader = document.querySelector('#loader');
+
+window.addEventListener('load', (event) => {
+
+const fadeEffect = setInterval(() => {
+    // if we don't set opacity 1 in CSS, then
+    // it will be equaled to "" -- that's why
+    // we check it, and if so, set opacity to 1
+    if (!loader.style.opacity) {
+        loader.style.opacity = 1;
+        cryptodashcontent.style.opacity = 0;
+    }
+    if (loader.style.opacity > 0) {
+        loader.style.opacity -= 0.1;
+        cryptodashcontent.style.opacity += 1;
+        
+        
+    } else {
+      clearInterval(fadeEffect);
+    }
+
+  }, 100);
+
+ 
+
+});
 
 // Sets a variable in local storage
 //localStorage.setItem('myCat', 'Tom');
@@ -176,6 +346,65 @@ m = n.getMonth() + 1;
 d = n.getDate();
 
 document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+
+// GRID
+
+initGrid();
+
+function initGrid() {
+  var grid = new Muuri('.grid', {
+    
+    dragEnabled: true,
+    layoutOnInit: false
+
+  }).on('move', function () {
+    saveLayout(grid);
+  });
+
+  var layout = window.localStorage.getItem('layout');
+  if (layout) {
+    loadLayout(grid, layout);
+  } else {
+    grid.layout(true);
+  }
+}
+
+function serializeLayout(grid) {
+  var itemIds = grid.getItems().map(function (item) {
+    return item.getElement().getAttribute('crypto-dash-id');
+  });
+  return JSON.stringify(itemIds);
+}
+
+function saveLayout(grid) {
+  var layout = serializeLayout(grid);
+  window.localStorage.setItem('layout', layout);
+}
+
+function loadLayout(grid, serializedLayout) {
+  var layout = JSON.parse(serializedLayout);
+  var currentItems = grid.getItems();
+  var currentItemIds = currentItems.map(function (item) {
+    return item.getElement().getAttribute('crypto-dash-id')
+  });
+  var newItems = [];
+  var itemId;
+  var itemIndex;
+
+  for (var i = 0; i < layout.length; i++) {
+    itemId = layout[i];
+    itemIndex = currentItemIds.indexOf(itemId);
+    if (itemIndex > -1) {
+      newItems.push(currentItems[itemIndex])
+    }
+  }
+
+  grid.sort(newItems, {layout: 'instant'});
+}
+
+
+//https://github.com/haltu/muuri#grid-option-showeasing
+
 
 </script>
 
