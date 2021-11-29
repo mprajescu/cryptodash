@@ -19,7 +19,9 @@
 }
 
 body {
-    margin: 2%;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 0px !important;
 	font-family: sans-serif;
     background-position: center center;
     background-attachment: fixed;
@@ -40,26 +42,30 @@ body {
 
 .grid {
     position: relative;
+    
 }
 .item {
     display: block;
     position: absolute;
     width: 300px;
     height: 300px;
-    margin: 30px;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 15px;
     z-index: 1;
     background: #fff;
     
     border-radius: 20px;
     box-shadow:
-    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-    100px 100px 80px rgba(0, 0, 0, 0.07)
-    ;
+    0px 0px 1.1px rgba(0, 0, 0, 0.02),
+    0px 0px 2.7px rgba(0, 0, 0, 0.028),
+    0px 0px 5px rgba(0, 0, 0, 0.035),
+    0px 0px 8.9px rgba(0, 0, 0, 0.042),
+    0px 0px 16.7px rgba(0, 0, 0, 0.05),
+    0px 0px 40px rgba(0, 0, 0, 0.07)
+  ;
 
 }
 
@@ -77,46 +83,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
-
-
-
-.bottomright {
-	position: fixed;
-	right: 0px; bottom: 10px;
-	height:34px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-top: -10px;
-	padding-bottom: 15px;
-	font-size: 18px;
-	line-height: 18px;
-	text-decoration: none;
-	
-}
-
-.bottomright a {
-	text-decoration: none; 
-	color: #000;
-	outline: none;
-	padding: 15px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
-.bottomright a:hover{
-	box-shadow: 0px 2px 1px white inset, 0px 0px 20px #2196f3, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
-	transition: 0.6s;
-	padding: 15px;
-}
-
-.bottomright a:focus{
-	box-shadow: 0px 2px 1px white inset, 0px 0px 20px #2196f3, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
-	transition: 0.6s;
-	padding: 15px;
-}
-
-
 
 
 
@@ -181,12 +147,241 @@ body {
 
 
 
+ /* Side Bar */
+
+ 
+
+
+.side-bar[data-position="right"]{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  min-height: 100%;
+  width: 64px;
+  
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  
+}
+
+.side-bar[data-position="left"]{
+  position: absolute;
+  left: 300px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  min-height: 100%;
+  width: 64px;
+  
+  
+  
+
+
+}
+
+.side-bar-item {
+  color: white;
+  height: 64px;
+  width: 64px;
+  
+  line-height: 64px;
+  text-align: center;
+  font-size: 40px;
+ 
+}
+
+.side-bar-item.bottom {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .50);
+	backdrop-filter: blur(10px);
+  border-top-right-radius: 20px;
+}
+
+.heading {
+  /*
+  font-weight: 700;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  
+  height: 44px;
+  */
+  color: white;
+  line-height: 64px;
+  padding-left: 10px;
+  background-color: rgba(0, 0, 0, .25);
+  border-top-right-radius: 20px;
+}
+
+.panel {
+  color: white;
+  padding: 10px;
+  width: 280px;
+}
+
+.footer {
+  /*
+  font-weight: 700;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  
+  height: 44px;
+  */
+  color: white;
+  line-height: 64px;
+  padding-left: 10px;
+  position: absolute;
+  bottom: 0;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, .25);
+  width: 100%;
+}
+.footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.side-bar-item:hover {
+  background: #43a;
+  cursor: pointer;
+  
+}
+
+
+
+.side-panel {
+  z-index: 999;
+  left: -300px;
+  position: absolute;
+  min-width: 300px;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, .50);
+	backdrop-filter: blur(10px);
+  border-top-right-radius: 20px;
+  display: inline-block;
+}
+
+.side-panel.open{
+  animation-name: sidebar-open;
+  animation-duration: .25s;
+  left: 0;
+  
+}
+
+.side-panel.close{
+  animation-name: sidebar-close;
+  animation-duration: .25s;
+  left: -300px;
+}
+
+/* Keyframes */
+@keyframes sidebar-open {
+  0% {
+    left: -300px;
+  }
+  
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes sidebar-close {
+  0% {
+    left: 0;
+  }
+  
+  100% {
+    left: -300px;
+  }
+}
 
 
 
 
+/* Modal */
 
 
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border-radius: 6px;
+	width: 70%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.6s;
+	animation-name: animatetop;
+	animation-duration: 0.6s
+  
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0} 
+	to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.modal-close {
+	color: white;
+	float: right;
+	font-size: 38px;
+	font-weight: bold;
+	padding-top: 12px;
+}
+
+.modal-close:hover, .modal-close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 2px 20px;
+	background-color: #E72222;
+	color: white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.modal-body {
+	padding: 2px 16px;
+	font-size: 18px;
+}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
 
 
 
@@ -199,7 +394,7 @@ body {
 
 
 </style>
-
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
 
@@ -217,6 +412,48 @@ body {
 </div>
 
 <div id="cryptodashcontent" style="opacity: 0;">
+
+
+  <div class="side-panel" id="side-panel">
+    <div id="sidepanel-heading" class="heading">
+      <span id="content-heading">Crypto Dash</span>
+    </div>
+    <div id="content-frame" style="height: 90%; border:none; display: block; width: 400px; position: absolute;" >
+      
+      <div class="panel">
+        <button>Save Config</button>
+        <button>Reset Config</button>
+        <button>Load Config</button>
+      
+      
+      Background type
+      Background Resolution
+      Background Color 
+      Grid Element Size (slider)
+      
+
+      </div>
+      
+    </div>
+    <div class="footer"><a href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash v1 <span id="date"></span></a></div>
+    
+
+
+    <div class="side-bar " data-position="left" >
+      <!--
+      <div class="side-bar-item"><i class="fa fa-user"></i></div>
+      <div class="side-bar-item"><i class="fa fa-users"></i></div>
+      <div class="side-bar-item"><i class="fa fa-comments-o"></i></div>
+      <div class="side-bar-item"><i class="fa fa-folder-o"></i></div>
+      <div class="side-bar-item"><i class="fa fa-file-code-o"></i></div>
+        -->
+
+      <div class="side-bar-item bottom" id="show_hide"><i class="fa fa-angle-double-right"></i></div>
+    </div>
+  </div>
+
+
+
 
 
     <div class="grid">
@@ -274,12 +511,7 @@ body {
 
   
     
-    
-    
-    <div class="bottomright ">
-        <p> <a href="https://github.com/mprajescu/crypto-dash">CryptoDash v1 <span id="date"></span></a></p>
-    </div>
-
+  
 
 </div>
 
@@ -404,6 +636,33 @@ function loadLayout(grid, serializedLayout) {
 
 
 //https://github.com/haltu/muuri#grid-option-showeasing
+
+
+
+
+
+
+
+let EventHandler = {
+  ShowHideSideBar: function () {
+      if (document.getElementById("side-panel").className.indexOf("open") !== -1) {
+          document.getElementById("side-panel").className = "side-panel";
+          document.getElementById("side-panel").className += " close";
+          document.getElementById('show_hide').childNodes[0].className = "fa fa-angle-double-right";
+          return;
+      }
+      document.getElementById("side-panel").className = "side-panel";
+      document.getElementById("side-panel").className += " open";
+      document.getElementById('show_hide').childNodes[0].className = "fa fa-angle-double-left";
+  }
+};
+window.onload = () => {
+  document.getElementById('show_hide').onclick = EventHandler.ShowHideSideBar;
+};
+
+
+
+
 
 
 </script>
