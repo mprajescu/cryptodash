@@ -8,6 +8,9 @@
 <meta name="author" content="Mihail-Vlad Prajescu">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
 <title> Crypto Dash </title>
 
 
@@ -19,9 +22,12 @@
 }
 
 body {
-    margin-left: 60px;
-    margin-right: 60px;
+  /*
+    margin-left: 40px;
+    margin-right: 40px;
     margin-top: 0px !important;
+    */
+    margin: 40px;
 	font-family: sans-serif;
     background-position: center center;
     background-attachment: fixed;
@@ -47,13 +53,10 @@ body {
 .item {
     display: block;
     position: absolute;
-    width: 300px;
-    height: 300px;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 15px;
+    width: 420px;
+    height: 420px;
+    margin: 20px;
+    padding: 10px;
     z-index: 1;
     background: #fff;
     
@@ -145,248 +148,20 @@ body {
   }
 
 
+  /* Custom Bootstrap 
 
-
- /* Side Bar */
-
- 
-
-
-.side-bar[data-position="right"]{
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  min-height: 100%;
-  width: 64px;
-  
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  
-}
-
-.side-bar[data-position="left"]{
-  position: absolute;
-  left: 300px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  min-height: 100%;
-  width: 64px;
-  
-  
-  
-
-
-}
-
-.side-bar-item {
-  color: white;
-  height: 64px;
-  width: 64px;
-  
-  line-height: 64px;
-  text-align: center;
-  font-size: 40px;
- 
-}
-
-.side-bar-item.bottom {
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .50);
+  .offcanvas {
+    background-color: rgba(0, 0, 0, .50);
 	backdrop-filter: blur(10px);
-  border-top-right-radius: 20px;
-}
-
-.heading {
-  /*
-  font-weight: 700;
-  padding: 10px;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
   
-  height: 44px;
-  */
-  color: white;
-  line-height: 64px;
-  padding-left: 10px;
-  background-color: rgba(0, 0, 0, .25);
-  border-top-right-radius: 20px;
-}
+  }*/
 
-.panel {
-  color: white;
-  padding: 10px;
-  width: 280px;
-}
-
-.footer {
-  /*
-  font-weight: 700;
-  padding: 10px;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  
-  height: 44px;
-  */
-  color: white;
-  line-height: 64px;
-  padding-left: 10px;
-  position: absolute;
-  bottom: 0;
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, .25);
-  width: 100%;
-}
-.footer a {
-  text-decoration: none;
-  color: white;
-}
-
-.side-bar-item:hover {
-  background: #43a;
-  cursor: pointer;
-  
-}
-
-
-
-.side-panel {
-  z-index: 999;
-  left: -300px;
-  position: absolute;
-  min-width: 300px;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, .50);
-	backdrop-filter: blur(10px);
-  border-top-right-radius: 20px;
-  display: inline-block;
-}
-
-.side-panel.open{
-  animation-name: sidebar-open;
-  animation-duration: .25s;
-  left: 0;
-  
-}
-
-.side-panel.close{
-  animation-name: sidebar-close;
-  animation-duration: .25s;
-  left: -300px;
-}
-
-/* Keyframes */
-@keyframes sidebar-open {
-  0% {
-    left: -300px;
+  #settingsbutton {
+    top: -2px;
+    left: calc(50vw - 40px);
+    z-index: 800;
+    position: fixed;
   }
-  
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes sidebar-close {
-  0% {
-    left: 0;
-  }
-  
-  100% {
-    left: -300px;
-  }
-}
-
-
-
-
-/* Modal */
-
-
-/* The Modal (background) */
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	padding-top: 100px; /* Location of the box */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-	position: relative;
-	background-color: #fefefe;
-	margin: auto;
-	padding: 0;
-	border-radius: 6px;
-	width: 70%;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-	-webkit-animation-name: animatetop;
-	-webkit-animation-duration: 0.6s;
-	animation-name: animatetop;
-	animation-duration: 0.6s
-  
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-	from {top:-300px; opacity:0} 
-	to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-	from {top:-300px; opacity:0}
-	to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.modal-close {
-	color: white;
-	float: right;
-	font-size: 38px;
-	font-weight: bold;
-	padding-top: 12px;
-}
-
-.modal-close:hover, .modal-close:focus {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.modal-header {
-	padding: 2px 20px;
-	background-color: #E72222;
-	color: white;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
-.modal-body {
-	padding: 2px 16px;
-	font-size: 18px;
-}
-
-.modal-footer {
-	padding: 2px 16px;
-	background-color: #5cb85c;
-	color: white;
-}
-
-
-
-
-
 
 
 
@@ -414,41 +189,312 @@ body {
 <div id="cryptodashcontent" style="opacity: 0;">
 
 
-  <div class="side-panel" id="side-panel">
-    <div id="sidepanel-heading" class="heading">
-      <span id="content-heading">Crypto Dash</span>
-    </div>
-    <div id="content-frame" style="height: 90%; border:none; display: block; width: 400px; position: absolute;" >
-      
-      <div class="panel">
-        <button>Save Config</button>
-        <button>Reset Config</button>
-        <button>Load Config</button>
-      
-      
-      Background type
-      Background Resolution
-      Background Color 
-      Grid Element Size (slider)
-      
-
+  <div class="grid row">
+    <div class="item bg-light col" crypto-dash-id="BTC">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        <button type="button" class="btn box-close-item" aria-label="Close"> <i class="fa fa-close"></i></button>
+        Bitcoin 
+        <!-- Safe zone ends -->
       </div>
-      
     </div>
-    <div class="footer"><a href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash v1 <span id="date"></span></a></div>
-    
+  
+    <div class="item bg-light col" crypto-dash-id="ETH">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        <div class="my-custom-content">
+          <button type="button" class="btn box-close-item" aria-label="Close"> <i class="fa fa-close"></i></button>
+          Etherium
+        </div>
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="ADA">
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+          <div class="my-custom-content">
+            Cardano 
+          </div>
+          <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="CAKE">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+              PancakeSwap 
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="KAT">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+              Kambria 
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
 
 
-    <div class="side-bar " data-position="left" >
-      <!--
-      <div class="side-bar-item"><i class="fa fa-user"></i></div>
-      <div class="side-bar-item"><i class="fa fa-users"></i></div>
-      <div class="side-bar-item"><i class="fa fa-comments-o"></i></div>
-      <div class="side-bar-item"><i class="fa fa-folder-o"></i></div>
-      <div class="side-bar-item"><i class="fa fa-file-code-o"></i></div>
-        -->
+    <div class="item bg-light col" crypto-dash-id="XRP">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        XRP
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+  
+    <div class="item bg-light col" crypto-dash-id="DOGE">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        <div class="my-custom-content">
+          Dodgecoin 
+        </div>
+        <!-- Safe zone ends -->
+      </div>
+    </div>
 
-      <div class="side-bar-item bottom" id="show_hide"><i class="fa fa-angle-double-right"></i></div>
+    <div class="item bg-light col" crypto-dash-id="SHIB">
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+          <div class="my-custom-content">
+            Shiba Inu
+          </div>
+          <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="XMR">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+              Monero
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="10">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="11">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        This can be anything.
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+  
+    <div class="item bg-light col" crypto-dash-id="12">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        <div class="my-custom-content">
+          Yippee!
+        </div>
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="13">
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+          <div class="my-custom-content">
+            Yippee!
+          </div>
+          <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="14">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="15">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="16">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        This can be anything.
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+  
+    <div class="item bg-light col" crypto-dash-id="17">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        <div class="my-custom-content">
+          Yippee!
+        </div>
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="18">
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+          <div class="my-custom-content">
+            Yippee!
+          </div>
+          <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="19">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="20">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="21">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        This can be anything.
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+  
+    <div class="item bg-light col" crypto-dash-id="22">
+      <div class="item-content">
+        <!-- Safe zone, enter your custom markup -->
+        <div class="my-custom-content">
+          Yippee!
+        </div>
+        <!-- Safe zone ends -->
+      </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="23">
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+          <div class="my-custom-content">
+            Yippee!
+          </div>
+          <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="24">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+    <div class="item bg-light col" crypto-dash-id="25">
+        <div class="item-content">
+            <!-- Safe zone, enter your custom markup -->
+            <div class="my-custom-content">
+            Yippee!
+            </div>
+            <!-- Safe zone ends -->
+        </div>
+    </div>
+
+  </div>
+
+
+  <button id="settingsbutton" class="btn btn-lg btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidemenu" aria-controls="sidemenu">
+    <i class="fa fa-cog"></i>
+  </button>
+  
+  <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidemenu" aria-labelledby="sidemenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="sidemenuLabel">Crypto Dashboard</h5>
+      <button id="sidemenuclose" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      
+      <div class="form-check form-switch">
+        <label class="form-check-label" for="lightSwitch"> Dark Mode </label>
+        <input class="form-check-input" type="checkbox" id="lightSwitch"/>
+      </div>
+
+      <label for="itemSizeRanger" class="form-label">Grid Size <span class="badge bg-secondary" id="gridsizeSpan">Dudu</span> </label>
+      <input type="range" class="form-range" min="190" max="570" step="10" id="itemSizeRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="VALUE">
+
+
+      <label for="cryptodashConfig" class="form-label">Configuration</label>
+      <div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">
+        <button type="button" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resetcryptodashconfigmodal"><i class="fa fa-recycle"></i></button>
+        <button type="button" class="btn btn-primary"><i class="fa fa-upload"></i></button>
+      </div>
+
+
+        <button class="btn btn-primary">Background type</button>
+        <button class="btn btn-primary">Background Resolution</button>
+        <button class="btn btn-primary">Background Color </button>
+        <button class="btn btn-primary">Grid Element Size (slider)</button>
+      
+      
+      
+      
+      
+
+      <a href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash v1 <span id="date"></span></a>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="resetcryptodashconfigmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetcryptodashconfigmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-light" id="resetcryptodashconfigmodalmodalcontent">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resetcryptodashconfigmodallabel">Confirm</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="resetcryptodashconfigmodalclose"></button>
+        </div>
+        <div class="modal-body">
+          Do you want to remove the local storage configuration for Crypto Dash?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" onclick="resetCryptoDashConfig()" data-bs-dismiss="modal">Yes</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -456,56 +502,12 @@ body {
 
 
 
-    <div class="grid">
-        <div class="item" crypto-dash-id="1">
-          <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            This can be anything.
-            <!-- Safe zone ends -->
-          </div>
-        </div>
-      
-        <div class="item" crypto-dash-id="2">
-          <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-              Yippee!
-            </div>
-            <!-- Safe zone ends -->
-          </div>
-        </div>
+  
 
-        <div class="item" crypto-dash-id="3">
-            <div class="item-content">
-              <!-- Safe zone, enter your custom markup -->
-              <div class="my-custom-content">
-                Yippee!
-              </div>
-              <!-- Safe zone ends -->
-            </div>
-        </div>
 
-        <div class="item" crypto-dash-id="4">
-            <div class="item-content">
-                <!-- Safe zone, enter your custom markup -->
-                <div class="my-custom-content">
-                Yippee!
-                </div>
-                <!-- Safe zone ends -->
-            </div>
-        </div>
 
-        <div class="item" crypto-dash-id="5">
-            <div class="item-content">
-                <!-- Safe zone, enter your custom markup -->
-                <div class="my-custom-content">
-                Yippee!
-                </div>
-                <!-- Safe zone ends -->
-            </div>
-        </div>
 
-    </div>
+    
 
 
 
@@ -519,6 +521,8 @@ body {
 
 
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <script type="text/javascript">
@@ -547,8 +551,6 @@ const fadeEffect = setInterval(() => {
     }
 
   }, 100);
-
- 
 
 });
 
@@ -579,27 +581,55 @@ d = n.getDate();
 
 document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
 
+
+function resetCryptoDashConfig() {
+  localStorage.clear();
+  location.reload();
+}
+
+
 // GRID
 
-initGrid();
 
-function initGrid() {
-  var grid = new Muuri('.grid', {
-    
-    dragEnabled: true,
-    layoutOnInit: false
+var grid = new Muuri('.grid', {
+  
+  dragEnabled: true,
+  layoutOnInit: false
 
-  }).on('move', function () {
-    saveLayout(grid);
+}).on('move', function () {
+  saveLayout(grid);
+});
+
+var layout = window.localStorage.getItem('layout');
+var cardItemWidth = window.localStorage.getItem('cardItemWidth');
+var cardItemHeight = window.localStorage.getItem('cardItemHeight');
+if (layout) {
+  loadLayout(grid, layout);
+} else {
+  grid.layout(true);
+}
+
+if (cardItemWidth && cardItemHeight) {
+  document.querySelectorAll(".item").forEach((element) => {
+    element.style.width = cardItemWidth;
+    element.style.height = cardItemHeight;
   });
 
-  var layout = window.localStorage.getItem('layout');
-  if (layout) {
-    loadLayout(grid, layout);
-  } else {
-    grid.layout(true);
-  }
+  var itemSizeRanger = document.getElementById("itemSizeRanger");
+
+  itemSizeRanger.value = cardItemWidth.substring(0, cardItemWidth.length - 2);
+  grid.refreshItems();
+  grid.layout();
+} else {
+  var itemSizeRanger = document.getElementById("itemSizeRanger");
+  
+
+  itemSizeRanger.value = 420;
+  itemSizeRanger.title = itemSizeRanger.value;
+  //document.getElementById("gridsizeSpan").innerHTML(itemSizeRanger.value);
 }
+
+
 
 function serializeLayout(grid) {
   var itemIds = grid.getItems().map(function (item) {
@@ -643,27 +673,177 @@ function loadLayout(grid, serializedLayout) {
 
 
 
-let EventHandler = {
-  ShowHideSideBar: function () {
-      if (document.getElementById("side-panel").className.indexOf("open") !== -1) {
-          document.getElementById("side-panel").className = "side-panel";
-          document.getElementById("side-panel").className += " close";
-          document.getElementById('show_hide').childNodes[0].className = "fa fa-angle-double-right";
-          return;
-      }
-      document.getElementById("side-panel").className = "side-panel";
-      document.getElementById("side-panel").className += " open";
-      document.getElementById('show_hide').childNodes[0].className = "fa fa-angle-double-left";
+
+
+(function () {
+  let lightSwitch = document.getElementById("lightSwitch");
+  if (!lightSwitch) {
+    return;
   }
-};
-window.onload = () => {
-  document.getElementById('show_hide').onclick = EventHandler.ShowHideSideBar;
-};
+  
+  /**
+   * @function darkmode
+   * @summary: changes the theme to 'dark mode' and save settings to local stroage.
+   * Basically, replaces/toggles every CSS class that has '-light' class with '-dark'
+   */
+  function darkMode() {
+    document.querySelectorAll(".bg-light").forEach((element) => {
+      element.className = element.className.replace(/-light/g, "-dark");
+    });
+
+    document.body.classList.add("bg-dark");
+    document.getElementById("sidemenuclose").classList.add("bg-light");
+    document.getElementById("sidemenuclose").classList.remove("bg-dark");
+    document.getElementById("settingsbutton").classList.add("btn-dark");
+    document.getElementById("settingsbutton").classList.remove("btn-light");
+
+    //reset config modal close button & modal
+    document.getElementById("resetcryptodashconfigmodalclose").classList.add("bg-light");
+    document.getElementById("resetcryptodashconfigmodalclose").classList.remove("bg-dark");
+    document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.add("bg-dark");
+    document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.remove("bg-light");
+
+
+
+    document.querySelectorAll(".box-close-item").forEach((element) => {
+      element.classList.add("btn-light");
+      element.classList.remove("btn-dark");
+    });
+
+    if (document.body.classList.contains("text-dark")) {
+      document.body.classList.replace("text-dark", "text-light");
+    } else {
+      document.body.classList.add("text-light");
+    }
+    
+    
+
+    // set light switch input to true
+    if (! lightSwitch.checked) {
+      lightSwitch.checked = true;
+    }
+    localStorage.setItem("lightSwitch", "dark");
+  }
+
+  /**
+   * @function lightmode
+   * @summary: changes the theme to 'light mode' and save settings to local stroage.
+   */
+  function lightMode() {
+    document.querySelectorAll(".bg-dark").forEach((element) => {
+      element.className = element.className.replace(/-dark/g, "-light");
+    });
+
+    document.body.classList.add("bg-light");
+    document.getElementById("settingsbutton").classList.add("btn-light");
+    document.getElementById("settingsbutton").classList.remove("btn-dark");
+
+    document.querySelectorAll(".box-close-item").forEach((element) => {
+      element.classList.add("btn-dark");
+      element.classList.remove("btn-light");
+    });
+    
+
+    if (document.body.classList.contains("text-light")) {
+      document.body.classList.replace("text-light", "text-dark");
+    } else {
+      document.body.classList.add("text-dark");
+    }
+    
+    
+
+    if (lightSwitch.checked) {
+      lightSwitch.checked = false;
+    }
+    localStorage.setItem("lightSwitch", "light");
+  }
+  
+  /**
+   * @function onToggleMode
+   * @summary: the event handler attached to the switch. calling @darkMode or @lightMode depending on the checked state.
+   */
+  function onToggleMode() {
+    if (lightSwitch.checked) {
+      darkMode();
+
+    } else {
+      lightMode();
+    }
+  }
+  
+  /**
+   * @function getSystemDefaultTheme
+   * @summary: get system default theme by media query
+   */
+  function getSystemDefaultTheme() {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkThemeMq.matches) {
+      return "dark";
+    }
+    return "light";
+  }
+
+  function setup() {
+    var settings = localStorage.getItem("lightSwitch");
+    if (settings == null) {
+      settings = getSystemDefaultTheme();
+    }
+    
+    if (settings == "dark") {
+      document.getElementById("sidemenuclose").classList.add("bg-light");
+      lightSwitch.checked = true;
+      
+
+    }
+    
+    lightSwitch.addEventListener("change", onToggleMode);
+    onToggleMode();
+  }
+  
+  setup();
+  
+})();
 
 
 
 
 
+
+
+
+
+
+// Sldier to change width
+
+var itemSizeRanger = document.getElementById("itemSizeRanger");
+
+
+
+itemSizeRanger.oninput = function() {
+  
+  document.querySelectorAll(".item").forEach((element) => {
+    
+    element.style.width = itemSizeRanger.value + "px";
+    
+    element.style.height = itemSizeRanger.value + "px";
+    
+    
+
+  });
+  
+  //console.log("setting item width to: " + itemSizeRanger.value + "px");
+  //console.log("setting item height to: " + itemSizeRanger.value + "px");
+  
+  localStorage.setItem('cardItemWidth', itemSizeRanger.value + "px");
+  localStorage.setItem('cardItemHeight', itemSizeRanger.value + "px");
+
+  itemSizeRanger.title = itemSizeRanger.value;
+  //document.getElementById("gridsizeSpan").innerHTML(itemSizeRanger.value);
+
+  grid.refreshItems();
+  grid.layout();
+  
+}
 
 </script>
 
