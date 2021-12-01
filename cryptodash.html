@@ -161,14 +161,33 @@ body {
   }*/
 
   #settingsbutton {
-    top: -2px;
-    left: calc(50vw - 40px);
+    top: 5px;
+    /*left: calc(50vw - 40px);*/
+    left: 5px;
     z-index: 800;
+    border-radius: 50%;
     position: fixed;
+    box-shadow:
+    0px 0px 1.1px rgba(0, 0, 0, 0.02),
+    0px 0px 2.7px rgba(0, 0, 0, 0.028),
+    0px 0px 5px rgba(0, 0, 0, 0.035),
+    0px 0px 8.9px rgba(0, 0, 0, 0.042),
+    0px 0px 16.7px rgba(0, 0, 0, 0.05),
+    0px 0px 40px rgba(0, 0, 0, 0.07)
+  ;
   }
 
 
-
+#sidemenu{
+  box-shadow:
+    0px 0px 1.1px rgba(0, 0, 0, 0.02),
+    0px 0px 2.7px rgba(0, 0, 0, 0.028),
+    0px 0px 5px rgba(0, 0, 0, 0.035),
+    0px 0px 8.9px rgba(0, 0, 0, 0.042),
+    0px 0px 16.7px rgba(0, 0, 0, 0.05),
+    0px 0px 40px rgba(0, 0, 0, 0.07)
+  ;
+}
 
 
 
@@ -197,7 +216,7 @@ body {
     <div class="item bg-light col" crypto-dash-id="BTC">
       <div class="item-content">
         <!-- Safe zone, enter your custom markup -->
-        <button type="button" class="btn box-close-item" aria-label="Close"> <i class="fa fa-close"></i></button>
+        <button type="button" class="btn box-close-item btn-sm" aria-label="Close"> <i class="fa fa-close"></i></button>
         Bitcoin 
         <!-- Safe zone ends -->
       </div>
@@ -207,7 +226,7 @@ body {
       <div class="item-content">
         <!-- Safe zone, enter your custom markup -->
         <div class="my-custom-content">
-          <button type="button" class="btn box-close-item" aria-label="Close"> <i class="fa fa-close"></i></button>
+          <button type="button" class="btn box-close-item btn-sm" aria-label="Close"> <i class="fa fa-close"></i></button>
           Etherium
         </div>
         <!-- Safe zone ends -->
@@ -456,27 +475,35 @@ body {
         <input class="form-check-input" type="checkbox" id="lightSwitch"/>
       </div>
 
-      <label for="itemSizeRanger" class="form-label">Grid Size <span class="badge bg-secondary" id="gridsizeSpan">Dudu</span> </label>
+      <label for="itemSizeRanger" class="form-label badge bg-secondary">Grid Size </label>
       <input type="range" class="form-range" min="190" max="570" step="10" id="itemSizeRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="VALUE">
 
-
-      <label for="cryptodashConfig" class="form-label">Configuration</label>
-      <div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">
-        <button type="button" class="btn btn-primary"><i class="fa fa-save"></i></button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resetcryptodashconfigmodal"><i class="fa fa-recycle"></i></button>
-        <button type="button" class="btn btn-primary"><i class="fa fa-upload"></i></button>
-      </div>
-
-
-        <button class="btn btn-primary">Background type</button>
-        <button class="btn btn-primary">Background Resolution</button>
-        <button class="btn btn-primary">Background Color </button>
-        <button class="btn btn-primary">Grid Element Size (slider)</button>
       
+      
+      <label for="cryptodashbackground" class="form-label badge bg-secondary">CryptoDash Background</label>
+      <div id="cryptodashbackground" class="d-grid gap-2"> 
+        <button class="btn btn-outline-dark btn-sm">Background type</button>
+        <button class="btn btn-outline-dark btn-sm">Background Resolution</button>
+        <button class="btn btn-outline-dark btn-sm">Background Color </button>
+        <button class="btn btn-outline-dark btn-sm">Grid Element Size (slider)</button>
+
+      </div>
+        
+      <hr>
+
+      <label for="cryptodashConfig" class="form-label badge bg-secondary">CryptoDash Configuration</label>
+      <div id="cryptodashsettings" class="d-grid gap-2">
+        
+        <div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">
+          <button type="button" class="btn btn-outline-dark btn-sm"><i class="fa fa-save"></i> Save</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#resetcryptodashconfigmodal"><i class="fa fa-recycle"></i> Reset</button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><i class="fa fa-upload"></i> Upload</button>
+        </div>
+      </div>
       
       
         <div id="cryptodashabout" class="d-grid gap-2">
-          <a class="btn btn-outline-primary btn-sm" href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash v1 <span id="date"></span></a>
+          <a class="btn btn-outline-dark btn-sm" href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash v1 <span id="date"></span></a>
         </div>
       
 
@@ -800,7 +827,9 @@ function loadLayout(grid, serializedLayout) {
     document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.add("bg-dark");
     document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.remove("bg-light");
 
-
+    document.querySelectorAll(".btn-outline-dark").forEach((element) => {
+      element.className = element.className.replace(/-dark/g, "-light");
+    });
 
     document.querySelectorAll(".box-close-item").forEach((element) => {
       element.classList.add("btn-light");
@@ -838,6 +867,10 @@ function loadLayout(grid, serializedLayout) {
     document.querySelectorAll(".box-close-item").forEach((element) => {
       element.classList.add("btn-dark");
       element.classList.remove("btn-light");
+    });
+
+    document.querySelectorAll(".btn-outline-light").forEach((element) => {
+      element.className = element.className.replace(/-light/g, "-dark");
     });
     
 
