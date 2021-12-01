@@ -501,13 +501,49 @@ body {
 
 
 
-
+  <!-- Modal -->
+<div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
   
 
 
 
 
-    
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <i class="fa fa-warning"></i>
+      <strong class="me-auto">Browser not supported!</strong>
+      
+      
+    </div>
+    <div class="toast-body">
+      <p>Your browser doesn't support a stable version of IndexedDB.</p>
+      <div class="mt-2 pt-2 border-top">
+        <p class="mb-0">You can use one of these browsers: 
+          <a class="btn btn-primary" href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>
+          <a class="btn btn-primary" href="https://www.google.com/intl/en_us/chrome/">Google Chrome</a>
+          <a class="btn btn-primary" href="https://www.mozilla.org/en-GB/firefox/new/">Mozilla Firefox</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>   
 
 
 
@@ -573,6 +609,49 @@ const fadeEffect = setInterval(() => {
 // Will be a button
 //localStorage.clear();
 
+
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl)
+})
+
+
+
+// Indexed DB Checks
+/*
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || 
+window.msIndexedDB;
+ 
+window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || 
+window.msIDBTransaction;
+window.IDBKeyRange = window.IDBKeyRange || 
+window.webkitIDBKeyRange || window.msIDBKeyRange
+ 
+//if (!window.indexedDB) {
+
+if (window.indexedDB) {
+
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function (toastEl) {
+    return new bootstrap.Toast(toastEl)
+  })
+
+  var myToastEl = document.getElementById('liveToast')
+  var myToast = bootstrap.Toast.getInstance(myToastEl)
+  Toast.show()
+  
+  //alert.close()
+
+  // window.alert("Your browser doesn't support a stable version of IndexedDB.")
+}
+*/
+
+
+
+
+
+
+
 // Copyright date bottom right 
 n =  new Date();
 y = n.getFullYear();
@@ -586,6 +665,18 @@ function resetCryptoDashConfig() {
   localStorage.clear();
   location.reload();
 }
+
+
+
+
+
+
+
+  
+
+
+
+
 
 
 // GRID
