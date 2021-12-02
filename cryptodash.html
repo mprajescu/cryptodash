@@ -473,7 +473,7 @@ body {
 
 
   <button id="settingsbutton" class="btn btn-lg btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidemenu" aria-controls="sidemenu">
-    <i class="fa fa-cog"></i>
+    <i class="fa fa-cog fa-spin"></i>
   </button>
   
   <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidemenu" aria-labelledby="sidemenuLabel">
@@ -555,10 +555,10 @@ body {
   <!-- Modal -->
 <div class="modal fade" id="mycrypto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="mycryptolabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content bg-light" id="mycryptomodalcontent">
       <div class="modal-header">
         <h5 class="modal-title" id="mycryptolabel">Cryptocoins</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="mycryptogmodalclose"></button>
       </div>
       <div class="modal-body">
         
@@ -877,7 +877,11 @@ function loadLayout(grid, serializedLayout) {
     document.getElementById("resetcryptodashconfigmodalclose").classList.remove("bg-dark");
     document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.add("bg-dark");
     document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.remove("bg-light");
-
+	document.getElementById("mycryptomodalcontent").classList.add("bg-dark");
+    document.getElementById("mycryptomodalcontent").classList.remove("bg-light");
+	document.getElementById("mycryptogmodalclose").classList.add("bg-light");
+    document.getElementById("mycryptogmodalclose").classList.remove("bg-dark");
+	
     document.querySelectorAll(".btn-outline-dark").forEach((element) => {
       element.className = element.className.replace(/-dark/g, "-light");
     });
