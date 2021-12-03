@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
 <meta charset="UTF-8">
 <meta name="description" content="Crypto Currency Tracker Dashboard">
-<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="keywords" content="HTML, CSS, JavaScript, Crypto">
 <meta name="author" content="Mihail-Vlad Prajescu">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -67,11 +67,11 @@ body {
   bottom: 5px;
 }
 
-.grid {
+.cryptodash-grid {
     position: relative;
     
 }
-.cryptodash-item {
+.cryptodash-tracker {
     display: block;
     position: absolute;
     width: 420px;
@@ -226,252 +226,13 @@ body {
     <div class="inner rotate-three"></div>
 </div>
 
-<div id="cryptodashcontent" style="opacity: 0;">
+<div id="CryptoDashContent" style="opacity: 0;">
 
 
-  <div class="grid row">
-    <div class="cryptodash-item bg-light col" crypto-dash-id="BTC">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        <button type="button" class="btn box-close-item btn-sm" aria-label="Close"> <i class="fa fa-close"></i></button>
-        Bitcoin 
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-  
-    <div class="cryptodash-item bg-light col" crypto-dash-id="ETH">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        <div class="my-custom-content">
-          <button type="button" class="btn box-close-item btn-sm" aria-label="Close"> <i class="fa fa-close"></i></button>
-          Etherium
-        </div>
-        <!-- Safe zone ends -->
-      </div>
-    </div>
+  <div class="cryptodash-grid row" id="CryptoDashContentTrackers">
 
-    <div class="cryptodash-item bg-light col" crypto-dash-id="ADA">
-        <div class="item-content">
-          <!-- Safe zone, enter your custom markup -->
-          <div class="my-custom-content">
-            Cardano 
-          </div>
-          <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="CAKE">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-              PancakeSwap 
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="KAT">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-              Kambria 
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="XRP">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        XRP
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-  
-    <div class="cryptodash-item bg-light col" crypto-dash-id="DOGE">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        <div class="my-custom-content">
-          Dodgecoin 
-        </div>
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="SHIB">
-        <div class="item-content">
-          <!-- Safe zone, enter your custom markup -->
-          <div class="my-custom-content">
-            Shiba Inu
-          </div>
-          <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="XMR">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-              Monero
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="10">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="11">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        This can be anything.
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-  
-    <div class="cryptodash-item bg-light col" crypto-dash-id="12">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        <div class="my-custom-content">
-          Yippee!
-        </div>
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="13">
-        <div class="item-content">
-          <!-- Safe zone, enter your custom markup -->
-          <div class="my-custom-content">
-            Yippee!
-          </div>
-          <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="14">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="15">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="16">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        This can be anything.
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-  
-    <div class="cryptodash-item bg-light col" crypto-dash-id="17">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        <div class="my-custom-content">
-          Yippee!
-        </div>
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="18">
-        <div class="item-content">
-          <!-- Safe zone, enter your custom markup -->
-          <div class="my-custom-content">
-            Yippee!
-          </div>
-          <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="19">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="20">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="21">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        This can be anything.
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-  
-    <div class="cryptodash-item bg-light col" crypto-dash-id="22">
-      <div class="item-content">
-        <!-- Safe zone, enter your custom markup -->
-        <div class="my-custom-content">
-          Yippee!
-        </div>
-        <!-- Safe zone ends -->
-      </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="23">
-        <div class="item-content">
-          <!-- Safe zone, enter your custom markup -->
-          <div class="my-custom-content">
-            Yippee!
-          </div>
-          <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="24">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
-
-    <div class="cryptodash-item bg-light col" crypto-dash-id="25">
-        <div class="item-content">
-            <!-- Safe zone, enter your custom markup -->
-            <div class="my-custom-content">
-            Yippee!
-            </div>
-            <!-- Safe zone ends -->
-        </div>
-    </div>
+    
+    
 
   </div>
 
@@ -491,7 +252,7 @@ body {
       <div id="cryptodash-setup" class="d-grid gap-2">
         
         <div id="cryptodash-setup-buttons" class="btn-group" role="group" aria-label="CryptoDash Setup">
-          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#mycrypto"> Manage Crypto</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#manageCryptoDashCoinsModal"> Manage Trackers</button>
           <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#myapiconnection"> Data Source</button>
           
         </div>
@@ -521,12 +282,12 @@ body {
 	  <hr>
 	  
       <div class="form-check form-switch">
-        <label class="form-check-label" for="lightSwitch"> Dark Mode </label>
-        <input class="form-check-input" type="checkbox" id="lightSwitch"/>
+        <label class="form-check-label" for="CryptoDashLightSwitch"> Dark Mode </label>
+        <input class="form-check-input" type="checkbox" id="CryptoDashLightSwitch"/>
       </div>
 
 		
-      <label for="itemSizeRanger" class="form-label badge bg-secondary">Grid Size </label>
+      <label for="itemSizeRanger" class="form-label badge bg-secondary">Grid Size <span id="gridsizeSpan"></span> </label>
       <input type="range" class="form-range" min="190" max="570" step="1" id="itemSizeRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="VALUE">
 
       <hr>
@@ -551,15 +312,18 @@ body {
       <div id="cryptodashsettings" class="d-grid gap-2">
         
         <div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">
-          <button type="button" class="btn btn-outline-dark btn-sm"><i class="fa fa-save"></i> Save</button>
-          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#resetcryptodashconfigmodal"><i class="fa fa-recycle"></i> Reset</button>
-          <button type="button" class="btn btn-outline-dark btn-sm"><i class="fa fa-upload"></i> Upload</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Save</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#resetCryptoDashConfigModal"><i class="fa fa-recycle"></i> Reset</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" onclick="uploadCryptoDashConfig()"><i class="fa fa-upload"></i> Upload</button>
+          
+          
+
         </div>
       </div>
       
       
         <div id="cryptodashabout" class="d-grid gap-2">
-          <a class="btn btn-outline-dark btn-sm" href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash v1 <span id="date"></span></a>
+          <a class="btn btn-outline-dark btn-sm" href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash <span id="date"></span></a>
         </div>
       
 
@@ -568,61 +332,97 @@ body {
   </div>
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="resetcryptodashconfigmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetcryptodashconfigmodallabel" aria-hidden="true">
+  <!-- Reset Config Modal Modal -->
+  <div class="modal fade" id="resetCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetCryptoDashConfigModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-light" id="resetcryptodashconfigmodalmodalcontent">
+      <div class="modal-content bg-light" id="resetCryptoDashConfigModalContent">
         <div class="modal-header">
-          <h5 class="modal-title" id="resetcryptodashconfigmodallabel">Confirm</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="resetcryptodashconfigmodalclose"></button>
+          <h5 class="modal-title" id="resetCryptoDashConfigModalLabel">Reset Crypto Dashboard Configuration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="resetCryptoDashConfigModalClose"></button>
         </div>
         <div class="modal-body">
-          Do you want to remove the local storage configuration for Crypto Dash?
+          <p>Are you sure you want reset the configuration?</p>
+      
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-primary" onclick="resetCryptoDashConfig()" data-bs-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-outline-dark btn-sm me-auto" onclick="resetCryptoDashConfig()" data-bs-dismiss="modal"><i class="fa fa-recycle"></i> Reset</button>
+          <button type="button" class="btn btn-outline-dark btn-sm me-auto" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Save Config File</button>           
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal">Cancel</button>
+          
+           
+          
+          
+          
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Upload Config Modal-->
+  <div class="modal fade" id="uploadCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="uploadCryptoDashConfigModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-light" id="uploadCryptoDashConfigModalContent">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadCryptoDashConfigModalLabel">Upload Crypto Dash Config File</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="uploadCryptoDashConfigModalClose"></button>
+        </div>
+
+        <form id="uploadCryptoDashConfigForm">
+
+          <div class="modal-body">
+            <input class="form-control bg-light" type="file" id="uploadCryptoDashConfigInput" accept=".json" >
+          </div>
+          <div class="modal-footer">
+            
+            
+            <button type="submit" class="btn btn-outline-dark btn-sm me-auto">Upload</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal">Cancel</button>
+          </div>
+
+        </form>
+        
+
+      </div>
+    </div>
+  </div>
+
+  
+    
+  
 
 
 
   <!-- Modal -->
-<div class="modal fade" id="mycrypto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="mycryptolabel" aria-hidden="true">
+<div class="modal fade" id="manageCryptoDashCoinsModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="manageCryptoDashCoinsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-light" id="mycryptomodalcontent">
+    <div class="modal-content bg-light" id="manageCryptoDashCoinsModalContent">
       <div class="modal-header">
-        <h5 class="modal-title" id="mycryptolabel">Cryptocoins</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="mycryptogmodalclose"></button>
+        <h5 class="modal-title" id="manageCryptoDashCoinsModalLabel">Crypto Coins Trackers</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashCoinsModalClose"></button>
       </div>
       <div class="modal-body">
         
-		
-		
-			<select id="select-tags" multiple placeholder="Search and add coins to be tracked">
-				
-					<option value="BTC">Bitcoin</option>
-					<option value="ETH">Etherium</option>
-					<option value="XRP">Ripple</option>
-					<option value="CAKE">PancakeSwap</option>
-					<option value="DOGE">Dodgecoin</option>
-					<option value="KAT">Kambria</option>
-					<option value="SHIB">Shiba Inu</option>
-					<option value="XMR">Monero</option>
-				
-			</select>
-		
+      <p> Search and add coins to be tracked </p>
+      
+        <select id="CryptoDashCoinsSelector" multiple placeholder="">
+            <!--
+            <option value="BTC">Bitcoin</option>
+            <option value="ETH">Etherium</option>
+            <option value="XRP">Ripple</option>
+            <option value="CAKE">PancakeSwap</option>
+            <option value="DOGE">Dodgecoin</option>
+            <option value="KAT">Kambria</option>
+            <option value="SHIB">Shiba Inu</option>
+            <option value="XMR">Monero</option>
+            -->
+          
+        </select>
+        
 		
 		
 		
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+    
     </div>
   </div>
 </div>
@@ -682,11 +482,11 @@ const fadeEffect = setInterval(() => {
     // we check it, and if so, set opacity to 1
     if (!loader.style.opacity) {
         loader.style.opacity = 1;
-        cryptodashcontent.style.opacity = 0;
+        CryptoDashContent.style.opacity = 0;
     }
     if (loader.style.opacity > 0) {
         loader.style.opacity -= 0.1;
-        cryptodashcontent.style.opacity += 1;
+        CryptoDashContent.style.opacity += 1;
         
         
     } else {
@@ -754,28 +554,9 @@ if (window.indexedDB) {
 */
 
 
-// Select Side menu
-	new TomSelect("#select-tags",{
-		plugins: ['remove_button'],
-		create: false,
-		sortField: {
-			field: 'text',
-			direction: 'asc'
-		},
-		onItemAdd:function(){
-			this.setTextboxValue('');
-			this.refreshOptions();
-		},
-		render:{
-			option:function(data,escape){
-			console.log(data);
-				return '<div class="d-flex"><span>' + escape(data.text) + ' (' + escape(data.value) + ')</span> </div>';
-			},
-			item:function(data,escape){
-				return '<div>' + escape(data.value) + '</div>';
-			}
-		}
-	});
+
+
+
 	
 
 
@@ -790,15 +571,145 @@ d = n.getDate();
 document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
 
 
+
+// generate file to be downloaded 
+function downloader(content, fileName, contentType) {
+  const a = document.createElement("a");
+  const file = new Blob([content], { type: contentType });
+  a.href = URL.createObjectURL(file);
+  a.download = fileName;
+  a.click();
+}
+
+// add Crypto Dash configuration Date to Local Storage
+function setCryptoDashConfigDate() {
+  const CryptoDashConfigDate = d + "-" + m + "-" + y;
+  localStorage.setItem('CryptoDashConfigDate', CryptoDashConfigDate);
+}
+
+// reset the Crypto Dash configuration
 function resetCryptoDashConfig() {
   localStorage.clear();
   location.reload();
 }
 
+// save the Crypto Dash configuration
+
+function saveCryptoDashConfig(){
+  const CryptoDashConfig = JSON.stringify(localStorage);
+  const CryptoDashConfigFileName = "CryptoDashConfig" + "-" + d + "-" + m + "-" + y +".json";
+  downloader(CryptoDashConfig, CryptoDashConfigFileName, "text/plain");
+  
+}
+
+function uploadCryptoDashConfig(){
+
+  // define modal
+  var uploadCryptoDashConfigModal = new bootstrap.Modal(document.getElementById('uploadCryptoDashConfigModal'))
+
+  // show modal
+  uploadCryptoDashConfigModal.show(uploadCryptoDashConfigModal);
+
+  let CryptoDashConfigForm = document.querySelector("#uploadCryptoDashConfigForm");
+  let CryptoDashConfigFile = document.querySelector("#uploadCryptoDashConfigInput");
 
 
+  CryptoDashConfigForm.addEventListener('submit', CryptoDashUploadHandler);
+
+  function CryptoDashConfigProcessor (event) {
+    let CryptoDashConfig = JSON.parse(event.target.result);
+    //let json = (str);
+    //console.log('string', str);
+    //console.log(CryptoDashConfig);
+    localStorage.clear();
+    Object.keys(CryptoDashConfig).forEach(function(value){
+      //console.log(k + ' - ' + CryptoDashConfig[k]);
+
+      localStorage.setItem(value, CryptoDashConfig[value]);
+
+    });
+    
+    location.reload();
 
 
+  }
+    
+  
+
+  function CryptoDashUploadHandler (event) {
+
+    // Stop the form from reloading the page
+    event.preventDefault();
+
+    // If there's no file, do nothing
+    if (!CryptoDashConfigFile.value.length) return;
+
+    // Create a new FileReader() object
+    let CryptoDashFileReader = new FileReader();
+
+    // Setup the callback event to run when the file is read
+    CryptoDashFileReader.onload = CryptoDashConfigProcessor;
+
+    // Read the file
+    CryptoDashFileReader.readAsText(CryptoDashConfigFile.files[0]);
+
+
+  }
+
+    
+
+    
+
+    
+
+  }
+
+  
+
+  
+
+
+ // Select Side menu
+var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
+  plugins: ['remove_button'],
+  create: false,
+  options: [
+    { value: "BTC", text: "Bitcoin" },
+    { value: "ETH", text: "Etherium" },
+    { value: "XRP", text: "Ripple" },
+    { value: "CAKE", text: "PancakeSwap" },
+    { value: "DOGE", text: "Dodgecoin" },
+    { value: "KAT", text: "Kambria" },
+    { value: "SHIB", text: "Shiba Inu" },
+    { value: "XMR", text: "Monero" },
+  ],
+  searchField: ['text','value'],
+  sortField: {
+    field: 'text',
+    direction: 'asc'
+  },
+  onItemAdd:function(value, item){
+    this.setTextboxValue('');
+    this.refreshOptions();
+    createCryptoDashTracker(value);
+    console.log("changed Crypto Dash coin selection and added the " + value + " Tracker");
+    
+  },
+  onItemRemove:function(value){
+    this.refreshOptions();
+    removeCryptoDashTracker(value);
+    console.log("changed Crypto Dash coin selection and removed the " + value + " Tracker");
+  },
+  render:{
+    option:function(data,escape){
+    //console.log(data);
+      return '<div class="d-flex"><span>' + escape(data.text) + ' (' + escape(data.value) + ')</span> </div>';
+    },
+    item:function(data,escape){
+      return '<div>' + escape(data.text) + ' (' + escape(data.value) + ') </div>';
+    }
+  }
+});
 
 
   
@@ -811,61 +722,66 @@ function resetCryptoDashConfig() {
 // GRID
 
 
-var grid = new Muuri('.grid', {
+var CryptoDashGrid = new Muuri('.cryptodash-grid', {
   
   dragEnabled: true,
   layoutOnInit: false
 
 }).on('move', function () {
-  saveLayout(grid);
+  saveCryptoDashLayout(CryptoDashGrid);
 });
 
-var layout = window.localStorage.getItem('layout');
-var cardItemWidth = window.localStorage.getItem('cardItemWidth');
-var cardItemHeight = window.localStorage.getItem('cardItemHeight');
-if (layout) {
-  loadLayout(grid, layout);
+var CryptoDashLayout = window.localStorage.getItem('CryptoDashLayout');
+var CryptoDashTrackerWidth = window.localStorage.getItem('CryptoDashTrackerWidth');
+var CryptoDashTrackerHeight = window.localStorage.getItem('CryptoDashTrackerHeight');
+
+if (CryptoDashLayout) {
+  loadCryptoDashLayout(CryptoDashGrid, CryptoDashLayout);
 } else {
-  grid.layout(true);
+  CryptoDashGrid.layout(true);
 }
 
-if (cardItemWidth && cardItemHeight) {
-  document.querySelectorAll(".cryptodash-item").forEach((element) => {
-    element.style.width = cardItemWidth;
-    element.style.height = cardItemHeight;
+if (CryptoDashTrackerWidth && CryptoDashTrackerHeight) {
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    element.style.width = CryptoDashTrackerWidth;
+    element.style.height = CryptoDashTrackerHeight;
   });
 
   var itemSizeRanger = document.getElementById("itemSizeRanger");
 
-  itemSizeRanger.value = cardItemWidth.substring(0, cardItemWidth.length - 2);
-  grid.refreshItems();
-  grid.layout();
+  itemSizeRanger.value = CryptoDashTrackerWidth.substring(0, CryptoDashTrackerWidth.length - 2);
+  itemSizeRanger.title = itemSizeRanger.value + 'px';
+  document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title; 
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout(true);
 } else {
   var itemSizeRanger = document.getElementById("itemSizeRanger");
   
 
   itemSizeRanger.value = 420;
-  itemSizeRanger.title = itemSizeRanger.value;
-  //document.getElementById("gridsizeSpan").innerHTML(itemSizeRanger.value);
+  itemSizeRanger.title = itemSizeRanger.value + 'px';
+  document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title;
 }
 
 
 
-function serializeLayout(grid) {
-  var itemIds = grid.getItems().map(function (item) {
+function serializeCryptoDashLayout(CryptoDashGrid) {
+  var itemIds = CryptoDashGrid.getItems().map(function (item) {
     return item.getElement().getAttribute('crypto-dash-id');
   });
   return JSON.stringify(itemIds);
 }
 
-function saveLayout(grid) {
-  var layout = serializeLayout(grid);
-  window.localStorage.setItem('layout', layout);
+function saveCryptoDashLayout(CryptoDashGrid) {
+  var CryptoDashLayout = serializeCryptoDashLayout(CryptoDashGrid);
+  window.localStorage.setItem('CryptoDashLayout', CryptoDashLayout);
+  setCryptoDashConfigDate();
 }
 
-function loadLayout(grid, serializedLayout) {
-  var layout = JSON.parse(serializedLayout);
-  var currentItems = grid.getItems();
+/*
+function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout) {
+  var CryptoDashLayout = JSON.parse(serializedCryptoDashLayout);
+  var currentItems = CryptoDashGrid.getItems();
   var currentItemIds = currentItems.map(function (item) {
     return item.getElement().getAttribute('crypto-dash-id')
   });
@@ -873,17 +789,42 @@ function loadLayout(grid, serializedLayout) {
   var itemId;
   var itemIndex;
 
-  for (var i = 0; i < layout.length; i++) {
-    itemId = layout[i];
+  for (var i = 0; i < CryptoDashLayout.length; i++) {
+    itemId = CryptoDashLayout[i];
     itemIndex = currentItemIds.indexOf(itemId);
     if (itemIndex > -1) {
       newItems.push(currentItems[itemIndex])
     }
+    console.log(itemId);
+    generateCryptoDashTracker(itemId);
+    
   }
+  
 
-  grid.sort(newItems, {layout: 'instant'});
+  CryptoDashGrid.sort(newItems, {CryptoDashLayout: 'instant'});
 }
+*/
 
+
+
+function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
+
+  var CryptoDashLayout = JSON.parse(serializedCryptoDashLayout);
+
+  for (var i = 0; i < CryptoDashLayout.length; i++) {
+    itemId = CryptoDashLayout[i];
+       
+    console.log("loaded layout of " + itemId + " Tracker");
+    CryptoDashCoinsSelector.addItem(itemId);
+    
+  }
+  
+
+  //CryptoDashGrid.sort(newItems, {CryptoDashLayout: 'instant'});
+
+
+  
+}
 
 //https://github.com/haltu/muuri#grid-option-showeasing
 
@@ -896,8 +837,8 @@ function loadLayout(grid, serializedLayout) {
 
 
 (function () {
-  let lightSwitch = document.getElementById("lightSwitch");
-  if (!lightSwitch) {
+  let CryptoDashLightSwitch = document.getElementById("CryptoDashLightSwitch");
+  if (!CryptoDashLightSwitch) {
     return;
   }
   
@@ -918,15 +859,23 @@ function loadLayout(grid, serializedLayout) {
     document.getElementById("settingsbutton").classList.remove("btn-light");
 
     //reset config modal close button & modal
-    document.getElementById("resetcryptodashconfigmodalclose").classList.add("bg-light");
-    document.getElementById("resetcryptodashconfigmodalclose").classList.remove("bg-dark");
-    document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.add("bg-dark");
-    document.getElementById("resetcryptodashconfigmodalmodalcontent").classList.remove("bg-light");
-	document.getElementById("mycryptomodalcontent").classList.add("bg-dark");
-    document.getElementById("mycryptomodalcontent").classList.remove("bg-light");
-	document.getElementById("mycryptogmodalclose").classList.add("bg-light");
-    document.getElementById("mycryptogmodalclose").classList.remove("bg-dark");
-	
+    document.getElementById("resetCryptoDashConfigModalClose").classList.add("bg-light");
+    document.getElementById("resetCryptoDashConfigModalClose").classList.remove("bg-dark");
+    document.getElementById("resetCryptoDashConfigModalContent").classList.add("bg-dark");
+    document.getElementById("resetCryptoDashConfigModalContent").classList.remove("bg-light");
+	  document.getElementById("manageCryptoDashCoinsModalContent").classList.add("bg-dark");
+    document.getElementById("manageCryptoDashCoinsModalContent").classList.remove("bg-light");
+	  document.getElementById("manageCryptoDashCoinsModalClose").classList.add("bg-light");
+    document.getElementById("manageCryptoDashCoinsModalClose").classList.remove("bg-dark");
+    document.getElementById("uploadCryptoDashConfigModalContent").classList.add("bg-dark");
+    document.getElementById("uploadCryptoDashConfigModalContent").classList.remove("bg-light");
+	  document.getElementById("uploadCryptoDashConfigModalClose").classList.add("bg-light");
+    document.getElementById("uploadCryptoDashConfigModalClose").classList.remove("bg-dark");
+    document.getElementById("uploadCryptoDashConfigInput").classList.add("text-light");
+    document.getElementById("uploadCryptoDashConfigInput").classList.remove("text-dark");
+
+    
+
     document.querySelectorAll(".btn-outline-dark").forEach((element) => {
       element.className = element.className.replace(/-dark/g, "-light");
     });
@@ -945,10 +894,11 @@ function loadLayout(grid, serializedLayout) {
     
 
     // set light switch input to true
-    if (! lightSwitch.checked) {
-      lightSwitch.checked = true;
+    if (! CryptoDashLightSwitch.checked) {
+      CryptoDashLightSwitch.checked = true;
     }
-    localStorage.setItem("lightSwitch", "dark");
+    localStorage.setItem("CryptoDashLightSwitch", "dark");
+    setCryptoDashConfigDate();
   }
 
   /**
@@ -963,6 +913,8 @@ function loadLayout(grid, serializedLayout) {
     document.body.classList.add("bg-light");
     document.getElementById("settingsbutton").classList.add("btn-light");
     document.getElementById("settingsbutton").classList.remove("btn-dark");
+    document.getElementById("uploadCryptoDashConfigInput").classList.add("text-dark");
+    document.getElementById("uploadCryptoDashConfigInput").classList.remove("text-light");
 
     document.querySelectorAll(".box-close-item").forEach((element) => {
       element.classList.add("btn-dark");
@@ -982,10 +934,11 @@ function loadLayout(grid, serializedLayout) {
     
     
 
-    if (lightSwitch.checked) {
-      lightSwitch.checked = false;
+    if (CryptoDashLightSwitch.checked) {
+      CryptoDashLightSwitch.checked = false;
     }
-    localStorage.setItem("lightSwitch", "light");
+    localStorage.setItem("CryptoDashLightSwitch", "light");
+    setCryptoDashConfigDate();
   }
   
   /**
@@ -993,7 +946,7 @@ function loadLayout(grid, serializedLayout) {
    * @summary: the event handler attached to the switch. calling @darkMode or @lightMode depending on the checked state.
    */
   function onToggleMode() {
-    if (lightSwitch.checked) {
+    if (CryptoDashLightSwitch.checked) {
       darkMode();
 
     } else {
@@ -1014,19 +967,19 @@ function loadLayout(grid, serializedLayout) {
   }
 
   function setup() {
-    var settings = localStorage.getItem("lightSwitch");
+    var settings = localStorage.getItem("CryptoDashLightSwitch");
     if (settings == null) {
       settings = getSystemDefaultTheme();
     }
     
     if (settings == "dark") {
       document.getElementById("sidemenuclose").classList.add("bg-light");
-      lightSwitch.checked = true;
+      CryptoDashLightSwitch.checked = true;
       
 
     }
     
-    lightSwitch.addEventListener("change", onToggleMode);
+    CryptoDashLightSwitch.addEventListener("change", onToggleMode);
     onToggleMode();
   }
   
@@ -1049,31 +1002,125 @@ var itemSizeRanger = document.getElementById("itemSizeRanger");
 
 
 
-itemSizeRanger.oninput = function() {
+itemSizeRanger.onchange = function() {
+  // update all trackers in dom with the updated size
   
-  document.querySelectorAll(".cryptodash-item").forEach((element) => {
-    
-    element.style.width = itemSizeRanger.value + "px";
-    
-    element.style.height = itemSizeRanger.value + "px";
-    
-    
-
-  });
   
-  //console.log("setting item width to: " + itemSizeRanger.value + "px");
-  //console.log("setting item height to: " + itemSizeRanger.value + "px");
-  
-  localStorage.setItem('cardItemWidth', itemSizeRanger.value + "px");
-  localStorage.setItem('cardItemHeight', itemSizeRanger.value + "px");
+  // update grid size info
+  itemSizeRanger.title = itemSizeRanger.value + 'px';
+  document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title;
 
-  itemSizeRanger.title = itemSizeRanger.value;
-  //document.getElementById("gridsizeSpan").innerHTML(itemSizeRanger.value);
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
 
-  grid.refreshItems();
-  grid.layout();
+  localStorage.setItem('CryptoDashTrackerWidth', itemSizeRanger.value + "px");
+  localStorage.setItem('CryptoDashTrackerHeight', itemSizeRanger.value + "px");
+  setCryptoDashConfigDate();
   
 }
+
+itemSizeRanger.oninput = function() {
+  
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    element.style.width = itemSizeRanger.value + "px";
+    element.style.height = itemSizeRanger.value + "px";
+  });
+
+  itemSizeRanger.title = itemSizeRanger.value + 'px';
+  document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title;
+
+  ryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+}
+
+
+function createCryptoDashTracker(coinAbr) {
+
+  var CryptoDashContentTrackers = document.getElementById("CryptoDashContentTrackers");
+  var Tracker = document.createElement("div");
+  var TrackerItemContent = document.createElement("div");
+  var TrackerItemContentTitle = document.createElement("H1");
+  var TrackerAttribute = document.createAttribute("crypto-dash-id");
+  var TrackerIDAttribute = document.createAttribute("id");
+
+  Tracker.classList.add("cryptodash-tracker");
+  Tracker.classList.add("bg-light");
+  Tracker.classList.add("col");
+  TrackerItemContent.classList.add("item-content");
+
+  TrackerAttribute.value = coinAbr;
+  TrackerIDAttribute.value = coinAbr;
+  
+  Tracker.setAttributeNode(TrackerAttribute);
+  Tracker.setAttributeNode(TrackerIDAttribute);
+  TrackerItemContentTitle.innerText = coinAbr;
+  TrackerItemContent.appendChild(TrackerItemContentTitle);
+  Tracker.appendChild(TrackerItemContent);
+
+
+  // add the Tracker to the screen 
+  CryptoDashContentTrackers.appendChild(Tracker);
+  CryptoDashGrid.add(Tracker);
+
+  // get current Tracker size
+  var CurrentCryptoDashTrackerWidth = window.localStorage.getItem('CryptoDashTrackerWidth');
+  var CurrentCryptoDashTrackerHeight = window.localStorage.getItem('CryptoDashTrackerHeight');
+
+
+  Tracker.style.width = CurrentCryptoDashTrackerWidth;
+  Tracker.style.height = CurrentCryptoDashTrackerHeight;
+
+  // reszie the Trackers to be the same size
+  /*
+  if (CurrentCryptoDashTrackerWidth && CurrentCryptoDashTrackerHeight) {
+    document.querySelectorAll(".cryptodash-Tracker").forEach((element) => {
+      element.style.width = CurrentCryptoDashTrackerWidth;
+      element.style.height = CurrentCryptoDashTrackerHeight;
+    });
+  };
+*/
+  
+  
+  CryptoDashGrid.synchronize();
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+  saveCryptoDashLayout(CryptoDashGrid);
+  
+
+}
+
+function removeCryptoDashTracker(coinAbr) {
+
+  // get current layout and position of element
+  var CurrentCryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+  var itemIndex = CurrentCryptoDashLayout.indexOf(coinAbr);
+
+  // remove element from layout
+  CurrentCryptoDashLayout.splice(itemIndex, 1);
+
+  // save the updated layout
+  var UpdatedCryptoDashLayout = JSON.stringify(CurrentCryptoDashLayout);
+  window.localStorage.setItem('CryptoDashLayout', UpdatedCryptoDashLayout);
+
+  // get the current Tracker
+  var Tracker = document.getElementById(coinAbr);
+
+  // remove Tracker from grid and dom
+  CryptoDashGrid.remove(Tracker);
+  Tracker.remove();
+  
+  // sync grid
+
+  CryptoDashGrid.synchronize();
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+  
+
+  
+
+}
+
+
 
 </script>
 
