@@ -1208,31 +1208,102 @@ function createCryptoDashTracker(coinAbr) {
   var TrackerPrice = document.createElement("H1");
   var TrackerPriceIDAttribute = document.createAttribute("id");
 
+  var TrackerHighestValue24 = document.createElement("p");
+  var TrackerLowestValue24 = document.createElement("p");
+  var TrackerHighestValue24IDAttribute = document.createAttribute("id");
+  var TrackerLowestValue24IDAttribute = document.createAttribute("id");
+
+  var TrackerHighestValueHour = document.createElement("p");
+  var TrackerLowestValueHour = document.createElement("p");
+  var TrackerHighestValueHourIDAttribute = document.createAttribute("id");
+  var TrackerLowestValueHourIDAttribute = document.createAttribute("id");
+
+  var TrackerChangeValue24 = document.createElement("p");
+  var TrackerChangePCTValue24 = document.createElement("p");
+  var TrackerChangeValue24IDAttribute = document.createAttribute("id");
+  var TrackerChangePCTValue24IDAttribute = document.createAttribute("id");
+
+  var TrackerChangeValueHour = document.createElement("p");
+  var TrackerChangePCTValueHour = document.createElement("p");
+  var TrackerChangeValueHourIDAttribute = document.createAttribute("id");
+  var TrackerChangePCTValueHourIDAttribute = document.createAttribute("id");
+
+  var TrackerImg = document.createElement("img");
+  var TrackerImgIDAttribute = document.createAttribute("id");
+  var TrackerImgSRCAttribute = document.createAttribute("src");
+
+  var TrackerUpdateTime = document.createElement("p");
+  var TrackerUpdateTimeIDAttribute = document.createAttribute("id");
+
+
   Tracker.classList.add("cryptodash-tracker");
   if(CryptoDashLightSwitch && CryptoDashLightSwitch === "dark") {
     Tracker.classList.add("bg-dark");
   } else {
     Tracker.classList.add("bg-light");
   }
-  
 
   Tracker.classList.add("col");
   TrackerItemContent.classList.add("cryptodash-tracker-content");
-
-  
-        
 
   TrackerAttribute.value = coinAbr;
   TrackerIDAttribute.value = coinAbr;
   TrackerPriceIDAttribute.value = coinAbr + "-price";
   
+  TrackerHighestValue24IDAttribute.value = coinAbr + "-high24";
+  TrackerLowestValue24IDAttribute.value = coinAbr + "-low24";
+
+  TrackerHighestValueHourIDAttribute.value = coinAbr + "-highhour";
+  TrackerLowestValueHourIDAttribute.value = coinAbr + "-lowhour";
+
+  TrackerChangeValue24IDAttribute.value = coinAbr + "-change24";
+  TrackerChangePCTValue24IDAttribute.value = coinAbr + "-changepct24";
+
+  TrackerChangeValueHourIDAttribute.value = coinAbr + "-changehour";
+  TrackerChangePCTValueHourIDAttribute.value = coinAbr + "-changepcthour";
+
+  TrackerImgIDAttribute.value = coinAbr + "-img";
+  TrackerImgSRCAttribute.value = "";
+  
+  TrackerUpdateTimeIDAttribute.value = coinAbr + "-updatetime";
+
   Tracker.setAttributeNode(TrackerAttribute);
   Tracker.setAttributeNode(TrackerIDAttribute);
+
   TrackerPrice.setAttributeNode(TrackerPriceIDAttribute);
+
+  TrackerHighestValue24.setAttributeNode(TrackerHighestValue24IDAttribute);
+  TrackerLowestValue24.setAttributeNode(TrackerLowestValue24IDAttribute);
+
+  TrackerHighestValueHour.setAttributeNode(TrackerHighestValueHourIDAttribute);
+  TrackerLowestValueHour.setAttributeNode(TrackerLowestValueHourIDAttribute);
+
+  TrackerChangeValue24.setAttributeNode(TrackerChangeValue24IDAttribute);
+  TrackerChangePCTValue24.setAttributeNode(TrackerChangePCTValue24IDAttribute);
+
+  TrackerChangeValueHour.setAttributeNode(TrackerChangeValueHourIDAttribute);
+  TrackerChangePCTValueHour.setAttributeNode(TrackerChangePCTValueHourIDAttribute);
+
+  TrackerImg.setAttributeNode(TrackerImgIDAttribute);
+  TrackerImg.setAttributeNode(TrackerImgSRCAttribute);
+
+  TrackerUpdateTime.setAttributeNode(TrackerUpdateTimeIDAttribute);
+
   TrackerItemContentTitle.innerText = coinAbr;
   
   TrackerItemContent.appendChild(TrackerItemContentTitle);
   TrackerItemContent.appendChild(TrackerPrice);
+  TrackerItemContent.appendChild(TrackerHighestValue24);
+  TrackerItemContent.appendChild(TrackerLowestValue24);
+  TrackerItemContent.appendChild(TrackerHighestValueHour);
+  TrackerItemContent.appendChild(TrackerLowestValueHour);
+  TrackerItemContent.appendChild(TrackerChangeValue24);
+  TrackerItemContent.appendChild(TrackerChangePCTValue24);
+  TrackerItemContent.appendChild(TrackerChangeValueHour);
+  TrackerItemContent.appendChild(TrackerChangePCTValueHour);
+  TrackerItemContent.appendChild(TrackerImg);
+  TrackerItemContent.appendChild(TrackerUpdateTime);
+
   Tracker.appendChild(TrackerItemContent);
 
 
@@ -1324,7 +1395,7 @@ async function manualCryptoDashFetchTrackerData() {
   var CryptoDashRefreshButton = document.getElementById('cryptodash-refresh-button');
   document.getElementById('cryptodash-refresh-icon').classList.add("fa-spin");
   
-  var coins = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+  var CryptoDashtrackerInfo = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
 
   // get the API key from local storage 
   // api key stored when interracting with data source
@@ -1332,28 +1403,29 @@ async function manualCryptoDashFetchTrackerData() {
 
   console.log("this is the apikey: " + apiKey);
 
-  if(!coins) {
-    console.log("no layout");
-  } else if(coins === "[]") {
-    console.log("no layout");
+  if(!CryptoDashtrackerInfo) {
+    console.log("Nothing is tracked");
+  } else if(CryptoDashtrackerInfo === "[]") {
+    console.log("Nothing is tracked");
   } else {
 
 
     
 
+    // mapping the array with the tracker info
   
-    var preparedCoins = coins.map(function(value) {
+    var preparedCryptoDashtrackerInfo = CryptoDashtrackerInfo.map(function(value) {
       return value;
     }).join(',');
     
-    //console.log(preparedCoins);
-    
+  
+    // to define 
     var priceCurrency = "USD,EUR,GBP";
     
     
     try {
      
-      const response = await fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + preparedCoins + '&tsyms=' + priceCurrency)
+      const response = await fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + preparedCryptoDashtrackerInfo + '&tsyms=' + priceCurrency)
       //https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -1398,7 +1470,33 @@ async function manualCryptoDashFetchTrackerData() {
         //TrackerPrice.innerText = data['DISPLAY'][cryptoDashTrackerID][mycurrency]['PRICE'];
         //CurrentTracker.firstChild.appendChild(TrackerPrice);
         
-      
+        document.getElementById(cryptoDashTrackerID + "-high24").innerHTML = "24 Hour High: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['HIGH24HOUR'];
+        document.getElementById(cryptoDashTrackerID + "-low24").innerHTML = "24 Hour Low: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['LOW24HOUR'];
+        document.getElementById(cryptoDashTrackerID + "-highhour").innerHTML = "Last Hour High: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['HIGHHOUR'];
+        document.getElementById(cryptoDashTrackerID + "-lowhour").innerHTML = "Last Hour Low: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['LOWHOUR'];
+        
+        document.getElementById(cryptoDashTrackerID + "-change24").innerHTML = "Change in last 24 Hours: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGE24HOUR'];
+        document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "Change in last 24 Hours (PCT): " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'];
+        document.getElementById(cryptoDashTrackerID + "-changehour").innerHTML = "Change in last Hour: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEHOUR'];
+        document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "Change in last Hour (PCT): " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'];
+
+
+        var CryptoDashDataSourceURL = "https://www.cryptocompare.com" + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['IMAGEURL'];
+
+
+
+        var CryptoDashTrackerImg = document.getElementById(cryptoDashTrackerID + "-img");
+        CryptoDashTrackerImg.src = CryptoDashDataSourceURL;
+        
+       
+
+        var unixTimestamp = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['LASTUPDATE'];
+        var lastupdate = new Date(unixTimestamp*1000);
+        var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear()+ " "+lastupdate.getHours()+ ":" +lastupdate.getMinutes()+ ":" +lastupdate.getSeconds();
+        
+
+        document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = showlastupdate;
+        
       
       });
 
