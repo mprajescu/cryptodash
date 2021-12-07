@@ -56,7 +56,10 @@
 body {
   
 	font-family: sans-serif;
-	margin: 40px;
+	margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 
   background-size: 110%;
   background: #282537 no-repeat center fixed;  
@@ -2546,6 +2549,53 @@ function stopAutoCryptoDashFetchTrackerData() {
 
 })();
 
+
+
+
+
+
+// window erorr 
+
+/*
+window.onerror = function(msg, url, line, col, error) {
+  // Note that col & error are new to the HTML 5 spec and may not be 
+  // supported in every browser.  It worked for me in Chrome.
+  var extra = !col ? '' : '\ncolumn: ' + col;
+  extra += !error ? '' : '\nerror: ' + error;
+
+  // You can view the information in an alert to see things working like this:
+  alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+
+
+  Toastify({
+    text: ` <div class="toast-body bordered "> <p>Error: ` + msg + `</p> </div> `,
+    duration: 10000,
+    className: "tracker-backdrop-blur",
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    escapeMarkup: false,
+    
+    style: {
+      boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+      borderRadius: "20px",
+    },
+
+    onClick: function(){} // Callback after click
+  }).showToast();
+
+
+  // TODO: Report this error via ajax so you can keep track
+  //       of what pages have JS issues
+
+  var suppressErrorAlert = true;
+  // If you return true, then error alerts (like in older versions of 
+  // Internet Explorer) will be suppressed.
+  return suppressErrorAlert;
+};
+*/
 
 </script>
 
