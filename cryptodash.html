@@ -17,7 +17,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.bootstrap5.min.css" type="text/css">
 
 <!-- FontAwesome 4.6.3 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+
+<!-- Toastify Javascript -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" type="text/css">
+
+
+
 
 <!-- Muuri 0.9.5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
@@ -27,6 +33,9 @@
 
 <!-- Big Number JS 9.0.1 JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/9.0.1/bignumber.min.js" integrity="sha512-3dEpIO2t/6beQ77U/aYgVqJpmSkcvWuTFO4WhCQrSi2tSQV3U+k4plwSKlVOxKibsnd6Z/0evmClsMl4LVZ7Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Toastify JS-->
+<script  src="https://cdn.jsdelivr.net/npm/toastify-js" type="text/javascript"></script>
 
 <!-- Maybe implement themes in the future -->
 <!-- Themes from https://bootswatch.com/ -->
@@ -517,7 +526,9 @@ p[id$="updatetime"] {
   ;
 }
 
-
+.toastify {
+  background-image: unset;
+}
 
 </style>
 
@@ -543,24 +554,33 @@ p[id$="updatetime"] {
   </div>
 
   <!-- Settings button -->
-  <button id="cryptodash-settings-button" class="btn btn-lg btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-settings-menu" aria-controls="cryptodash-settings-menu">
+  <button id="cryptodash-settings-button" class="btn btn-lg btn-light backdrop-blur" type="button" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-settings-menu" aria-controls="cryptodash-settings-menu">
     <i class="fa fa-cog fa-spin"></i>
   </button>
 
   <!-- Refresh button -->
-  <button id="cryptodash-refresh-button" class="btn btn-lg btn-light" type="button" aria-controls="refresh" onclick="manualCryptoDashFetchTrackerData()" hidden>
+  <button id="cryptodash-refresh-button" class="btn btn-lg btn-light backdrop-blur" type="button" aria-controls="refresh" onclick="manualCryptoDashFetchTrackerData()" hidden>
     <i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>
   </button>
 
   <!-- Clock -->
-  <button id="cryptodash-clock" class="btn btn-lg btn-light" type="button" aria-controls="cryptodash-clock">
+  <button id="cryptodash-clock" class="btn btn-lg backdrop-blur" type="button" aria-controls="cryptodash-clock">
     <i class="fa fa-clock-o"></i> 
   </button>
   
   <!-- Crypto Dash Settings Panel -->
   <div class="offcanvas offcanvas-start backdrop-blur" tabindex="-1" id="cryptodash-settings-menu" aria-labelledby="CryptoDashSettingsMenuLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="CryptoDashSettingsMenuLabel">Crypto Dashboard</h5>
+      <h5 class="offcanvas-title" id="CryptoDashSettingsMenuLabel">
+
+      <!-- Dark/Light Mode -->
+      <div class="form-check form-switch" >
+        <label class="form-check-label" for="CryptoDashLightSwitch"> Crypto Dashboard </label>
+        <input class="form-check-input" type="checkbox" id="CryptoDashLightSwitch"/>
+      </div>
+
+    </h5>
+      
       <button id="cryptodash-settings-menu-close" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -574,11 +594,11 @@ p[id$="updatetime"] {
       <ul class="nav nav-pills nav-justified mb-3" id="cryptodash-settings-tab" role="tablist">
         <!-- Tracker and Data Button-->
         <li class="nav-item" role="presentation">
-          <button class="nav-link btn-sm active" id="cryptodash-tracker-tab-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-tab" type="button" role="tab" aria-controls="cryptodash-tracker-tab" aria-selected="true">Trackers</button>
+          <button class="btn btn-outline-dark btn-lg active" id="cryptodash-tracker-tab-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-tab" type="button" role="tab" aria-controls="cryptodash-tracker-tab" aria-selected="true">Trackers</button>
         </li>
         <!-- Customization Button-->
         <li class="nav-item" role="presentation">
-          <button class="nav-link btn-sm" id="cryptodash-design-tab-button" data-bs-toggle="pill" data-bs-target="#cryptodash-design-tab" type="button" role="tab" aria-controls="cryptodash-design-tab" aria-selected="false">Design</button>
+          <button class="btn btn-outline-dark btn-lg" id="cryptodash-design-tab-button" data-bs-toggle="pill" data-bs-target="#cryptodash-design-tab" type="button" role="tab" aria-controls="cryptodash-design-tab" aria-selected="false">Design</button>
         </li>
       </ul>
 
@@ -589,7 +609,7 @@ p[id$="updatetime"] {
         <div class="tab-pane fade show active" id="cryptodash-tracker-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-tab-button">
           
           <!-- Crpyto Dash Tracker -->
-          <label for="cryptodash-setup" class="form-label badge bg-secondary">CryptoDash Setup</label>
+          <label for="cryptodash-setup" class="form-label badge bg-secondary">Crypto Setup</label>
 
           <div id="cryptodash-setup" class="d-grid gap-2">
             <div id="cryptodash-setup-buttons" class="btn-group" role="group" aria-label="Trackers and Data Source">
@@ -622,13 +642,14 @@ p[id$="updatetime"] {
           <hr>
 
           <!-- Automatic Refresh Switch and Time Poll Interval Slider-->
+          <label for="refreshRanger" class="form-label badge bg-secondary">Refresh rate (seconds): <span id="dataRefreshSpan"></span> </label>
           <div class="form-check form-switch">
             <label class="form-check-label" for="CryptoDashDataRefreshSwitch"> Data Auto Refresh </label>
             <input class="form-check-input" type="checkbox" id="CryptoDashDataRefreshSwitch"/>
           </div>
 
-          <label for="refreshRanger" class="form-label badge bg-secondary">Refresh rate (minutes): <span id="dataRefreshSpan"></span> </label>
-          <input type="range" class="form-range" min="60" max="600" step="60" id="refreshRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="VALUE" disabled>
+          
+          <input type="range" class="form-range" min="60" max="1800" step="60" id="refreshRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="VALUE" disabled>
           
 
 
@@ -639,26 +660,11 @@ p[id$="updatetime"] {
           
           <!-- Customization -->
 
-          <!-- Dark/Light Mode -->
-          <div class="form-check form-switch">
-            <label class="form-check-label" for="CryptoDashLightSwitch"> Dark Mode </label>
-            <input class="form-check-input" type="checkbox" id="CryptoDashLightSwitch"/>
-          </div>
+          
 
-          <!-- Frosted Settings Menu -->
-          <div class="form-check form-switch">
-            <label class="form-check-label" for="CryptoDashFrostedDesign"> Frosted Design </label>
-            <input class="form-check-input" type="checkbox" id="CryptoDashFrostedDesign"/>
-          </div>
-
-          <!-- Show Clock -->
-          <div class="form-check form-switch">
-            <label class="form-check-label" for="CryptoDashClockToggle"> Clock </label>
-            <input class="form-check-input" type="checkbox" id="CryptoDashClockToggle"/>
-          </div>
 
           <!-- Grid Size -->
-          <label for="itemSizeRanger" class="form-label badge bg-secondary">Grid Size: <span id="gridsizeSpan"></span> </label>
+          <label for="itemSizeRanger" class="form-label badge bg-secondary">Tracker Size: <span id="gridsizeSpan"></span> </label>
           <input type="range" class="form-range" min="265" max="570" step="1" id="itemSizeRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="VALUE">
 
           <hr>
@@ -746,7 +752,7 @@ p[id$="updatetime"] {
       <hr>
 
       <!-- Configuration Options -->
-      <label for="cryptodashConfig" class="form-label badge bg-secondary">Configuration</label>
+      <label for="cryptodashConfig" class="form-label badge bg-secondary">Configuration Backup</label>
       <div id="cryptodashsettings" class="d-grid gap-2">
         <div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">
           <button type="button" class="btn btn-outline-dark btn-sm" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Save</button>
@@ -755,7 +761,7 @@ p[id$="updatetime"] {
         </div>
       </div>
       
-      <hr>
+      
       <div id="cryptodash-about" class="d-grid gap-2">
         <a class="btn btn-outline-dark btn-sm" href="https://github.com/mprajescu/cryptodash"><i class="fa fa-github"></i> CryptoDash <span id="cryptodash-date"></span></a>
       </div>
@@ -831,7 +837,7 @@ p[id$="updatetime"] {
   <div class="modal-dialog">
     <div class="modal-content bg-light backdrop-blur" id="manageCryptoDashCoinsModalContent">
       <div class="modal-header">
-        <h5 class="modal-title" id="manageCryptoDashCoinsModalLabel">Crypto Coins Trackers</h5>
+        <h5 class="modal-title" id="manageCryptoDashCoinsModalLabel">Crypto Trackers</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashCoinsModalClose"></button>
       </div>
       <div class="modal-body">
@@ -863,33 +869,63 @@ p[id$="updatetime"] {
   
 
 
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+  <!-- Position it: -->
+  <!-- - `.toast-container` for spacing between toasts -->
+  <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+  <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+  <div class="toast-container position-absolute top-0 end-0 p-3">
+
+    <div class="position-fixed top-0 end-0 m-4" style="z-index: 999">
+      <div id="liveToast" class="toast backdrop-blur" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header ">
+          
+          <strong class="me-auto"> <i class="fa fa-warning"></i> Browser not supported!</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          
+        </div>
+        <div class="toast-body  ">
+          <p>Your browser doesn't support a stable version of IndexedDB. You can use one of these browsers below.</p>
+          <div class="mt-2 pt-2">
+            <div class="btn-group" role="group" aria-label="Browsers">
+              <a class="btn btn-outline-dark btn-sm" href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.google.com/intl/en_us/chrome/">Google Chrome</a>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.mozilla.org/en-GB/firefox/new/">Mozilla Firefox</a>
+            </div>
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>   
 
 
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
-  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <i class="fa fa-warning"></i>
-      <strong class="me-auto">Browser not supported!</strong>
-      
-      
-    </div>
-    <div class="toast-body">
-      <p>Your browser doesn't support a stable version of IndexedDB.</p>
-      <div class="mt-2 pt-2 border-top">
-        <p class="mb-0">You can use one of these browsers: 
-          <a class="btn btn-primary" href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>
-          <a class="btn btn-primary" href="https://www.google.com/intl/en_us/chrome/">Google Chrome</a>
-          <a class="btn btn-primary" href="https://www.mozilla.org/en-GB/firefox/new/">Mozilla Firefox</a>
-        </p>
+    <div class="position-fixed top-0 end-0 m-4" style="z-index: 999">
+      <div id="toast1" class="toast backdrop-blur" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header ">
+          
+          <strong class="me-auto"> <i class="fa fa-warning"></i> Browser not supported!</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          
+        </div>
+        <div class="toast-body  ">
+          <p>Your browser doesn't support a stable version of IndexedDB. You can use one of these browsers below.</p>
+          <div class="mt-2 pt-2">
+            <div class="btn-group" role="group" aria-label="Browsers">
+              <a class="btn btn-outline-dark btn-sm" href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.google.com/intl/en_us/chrome/">Google Chrome</a>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.mozilla.org/en-GB/firefox/new/">Mozilla Firefox</a>
+            </div>
+              
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>   
-
-
-
   
-    
+    </div>
+  </div>
+
   
 
 </div>
@@ -913,6 +949,10 @@ var CryptoDashCurrency = window.localStorage.getItem('CryptoDashCurrency');
 
 
 
+
+
+
+
 // cryptodash-loader
 const CryptoDashLoader = document.querySelector('#cryptodash-loader');
 const CryptoDashContent = document.getElementById('cryptodash-content');
@@ -932,7 +972,7 @@ window.addEventListener('load', (event) => {
 
     if (CryptoDashLoader.style.opacity > 0) {
       CryptoDashLoader.style.opacity -= 0.1;
-      CryptoDashContent.style.opacity += 1;
+      CryptoDashContent.style.opacity = 1;
             
     } else {
       clearInterval(fadeEffect);
@@ -943,6 +983,78 @@ window.addEventListener('load', (event) => {
 });
 
 
+// Indexed DB Checks
+
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || 
+window.msIndexedDB;
+ 
+window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || 
+window.msIDBTransaction;
+window.IDBKeyRange = window.IDBKeyRange || 
+window.webkitIDBKeyRange || window.msIDBKeyRange
+ 
+//if (!window.indexedDB) {
+
+if (!window.indexedDB) {
+
+  /*
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function(toastEl) {
+  // Creates an array of toasts (it only initializes them)
+    return new bootstrap.Toast(toastEl) // No need for options; use the default options
+  });
+  toastList.forEach(toast => toast.show()); // This show them
+  //CryptoDashLoader.style.display = "block";
+  //CryptoDashContent.style.display = "none";
+  //alert.close()
+
+  document.getElementById("liveToast").classList.add("show");
+  document.getElementById("liveToast").classList.remove("hide");
+
+  */
+
+  Toastify({
+    text: ` 
+    <div class="toast-body bordered ">
+    <p class="">Your browser does not support a stable version of IndexedDB. <br> You can use one of these browsers below.</p>
+          <div class="mt-2 pt-2">
+            <div class="btn-group" role="group" aria-label="Browsers">
+              <a class="btn btn-outline-dark btn-sm" href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.google.com/intl/en_us/chrome/">Google Chrome</a>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.mozilla.org/en-GB/firefox/new/">Mozilla Firefox</a>
+            </div>
+              
+          </div>
+          </div>`
+    
+    ,
+    duration: -1,
+    className: "tracker-backdrop-blur",
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    escapeMarkup: false,
+    
+    style: {
+      /*
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+      */
+      boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+      borderRadius: "20px",
+      
+    },
+    
+    
+
+
+    onClick: function(){} // Callback after click
+  }).showToast();
+
+
+  // window.alert("Your browser doesn't support a stable version of IndexedDB.")
+}
 
 
 
@@ -1088,7 +1200,36 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     this.setTextboxValue('');
     this.refreshOptions();
     createCryptoDashTracker(value);
-    // console.log("changed Crypto Dash coin selection and added the " + value + " Tracker");  
+    // console.log("changed Crypto Dash coin selection and added the " + value + " Tracker");
+    
+    Toastify({
+      text: ` <div class="toast-body bordered "> <p>Added ` + value + ` tracker successfully. </p> </div> `
+      
+      ,
+      duration: 3000,
+      className: "tracker-backdrop-blur",
+      newWindow: true,
+      close: false,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      escapeMarkup: false,
+      
+      style: {
+        /*
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        */
+        boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+        borderRadius: "20px",
+        
+      },
+      
+      
+  
+  
+      onClick: function(){} // Callback after click
+    }).showToast();
+
   },
   onItemRemove:function(value){
     this.refreshOptions();
@@ -1385,9 +1526,9 @@ function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
 var autoRefreshRanger = document.getElementById("refreshRanger");
 
 autoRefreshRanger.onchange = function() {
-  autoRefreshRanger.title = autoRefreshRanger.value;
+  autoRefreshRanger.title = autoRefreshRanger.value / 10;
   window.localStorage.setItem('CryptoDashAutoRefresh', autoRefreshRanger.value );
-  document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 60;
+  document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10;
 }
 
 autoRefreshRanger.oninput = function() {
@@ -1396,8 +1537,8 @@ autoRefreshRanger.oninput = function() {
 
   stopAutoCryptoDashFetchTrackerData();
   autoCryptoDashFetchTrackerData();
-  autoRefreshRanger.title = autoRefreshRanger.value;
-  document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 60;
+  autoRefreshRanger.title = autoRefreshRanger.value / 10;
+  document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10;
 
   
 }
@@ -1648,6 +1789,34 @@ function autoCryptoDashFetchTrackerData(){
 
   var refreshCryptoDashDataInterval = autoRefreshRanger.value;
   autoDataPull = setInterval(manualCryptoDashFetchTrackerData, refreshCryptoDashDataInterval * 100);
+
+  Toastify({
+    text: ` <div class="toast-body bordered "> <p>Refreshing data automatically, every ` + refreshCryptoDashDataInterval / 10 + ` seconds. </p> </div> `
+    
+    ,
+    duration: 3000,
+    className: "tracker-backdrop-blur",
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    escapeMarkup: false,
+    
+    style: {
+      /*
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+      */
+      boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+      borderRadius: "20px",
+      
+    },
+    
+    
+
+
+    onClick: function(){} // Callback after click
+  }).showToast();
 } 
 
 
@@ -1663,6 +1832,37 @@ async function manualCryptoDashFetchTrackerData() {
   var apiKey="123";
 
   console.log("this is the apikey: " + apiKey);
+
+   Toastify({
+    text: ` <div class="toast-body bordered "> <p>Refreshing... </p> </div> `
+    
+    ,
+    duration: 3000,
+    className: "tracker-backdrop-blur",
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    escapeMarkup: false,
+    
+    style: {
+      /*
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+      */
+      boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+      borderRadius: "20px",
+      
+    },
+    
+    
+
+
+    onClick: function(){} // Callback after click
+  }).showToast();
+
+
+
 
   if(!CryptoDashtrackerInfo) {
     console.log("Nothing is tracked");
@@ -1756,7 +1956,7 @@ async function manualCryptoDashFetchTrackerData() {
 
         var CryptoDashDataSourceURL = "https://www.cryptocompare.com" + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['IMAGEURL'];
 
-
+        var CurrentCryptoDashTracker = document.getElementById(cryptoDashTrackerID);
 
         var CryptoDashTrackerImg = document.getElementById(cryptoDashTrackerID + "-img");
         CryptoDashTrackerImg.src = CryptoDashDataSourceURL;
@@ -1767,7 +1967,7 @@ async function manualCryptoDashFetchTrackerData() {
 
         var unixTimestamp = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['LASTUPDATE'];
         var lastupdate = new Date(unixTimestamp*1000);
-        var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear()+ " "+lastupdate.getHours()+ ":" +lastupdate.getMinutes()+ ":" +lastupdate.getSeconds();
+        var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear() + " " + lastupdate.toLocaleTimeString();
         
 
         document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = showlastupdate;
@@ -1791,6 +1991,37 @@ async function manualCryptoDashFetchTrackerData() {
 
     } catch(e) {
       console.log(e);
+
+      Toastify({
+        text: ` <div class="toast-body bordered "> <p>Error: ` + e + ` </p> </div> `
+        
+        ,
+        duration: 10000,
+        className: "tracker-backdrop-blur",
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        escapeMarkup: false,
+        
+        style: {
+          /*
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          */
+          boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+          borderRadius: "20px",
+          
+        },
+        
+        
+    
+    
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+
+
     }
 
     //return data;
@@ -1804,6 +2035,7 @@ async function manualCryptoDashFetchTrackerData() {
 
 function stopAutoCryptoDashFetchTrackerData() {
   clearInterval(autoDataPull);
+
 }
 
 // Data auto refresh switch
@@ -1822,7 +2054,7 @@ function stopAutoCryptoDashFetchTrackerData() {
 
     
     var autoRefreshRanger = document.getElementById("refreshRanger");
-    document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 60;
+    document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10;
 
     var CryptoDashAutoRefresh = window.localStorage.getItem('CryptoDashAutoRefresh');
 
@@ -1832,7 +2064,7 @@ function stopAutoCryptoDashFetchTrackerData() {
       // trigger the data pull with auto refresh
       autoCryptoDashFetchTrackerData();
 
-      document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefresh / 60;
+      document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefresh / 10;
 
     } else {
       autoRefreshRanger.value = 0;
@@ -1897,6 +2129,27 @@ function stopAutoCryptoDashFetchTrackerData() {
       window.localStorage.setItem("CryptoDashCurrency", "USD");
       CryptoDashCurrency = window.localStorage.getItem("CryptoDashCurrency");
       manualCryptoDashFetchTrackerData();
+
+      Toastify({
+        text: ` <div class="toast-body bordered "> <p>Currency set to USD. </p> </div> `,
+        duration: 3000,
+        className: "tracker-backdrop-blur",
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        escapeMarkup: false,
+        
+        style: {
+          boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+          borderRadius: "20px",
+        },
+    
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+
     }
   }
 
@@ -1905,6 +2158,27 @@ function stopAutoCryptoDashFetchTrackerData() {
       window.localStorage.setItem("CryptoDashCurrency", "EUR");
       CryptoDashCurrency = window.localStorage.getItem("CryptoDashCurrency");
       manualCryptoDashFetchTrackerData();
+
+
+      Toastify({
+        text: ` <div class="toast-body bordered "> <p>Currency set to EUR. </p> </div> `,
+        duration: 3000,
+        className: "tracker-backdrop-blur",
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        escapeMarkup: false,
+        
+        style: {
+          boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+          borderRadius: "20px",
+        },
+    
+        onClick: function(){} // Callback after click
+      }).showToast();
+
     }
   }
 
@@ -1913,6 +2187,25 @@ function stopAutoCryptoDashFetchTrackerData() {
       window.localStorage.setItem("CryptoDashCurrency", "GBP");
       CryptoDashCurrency = window.localStorage.getItem("CryptoDashCurrency");
       manualCryptoDashFetchTrackerData();
+
+      Toastify({
+        text: ` <div class="toast-body bordered "> <p>Currency set to GBP. </p> </div> `,
+        duration: 3000,
+        className: "tracker-backdrop-blur",
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        escapeMarkup: false,
+        
+        style: {
+          boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+          borderRadius: "20px",
+        },
+    
+        onClick: function(){} // Callback after click
+      }).showToast();
     }
   }
 
