@@ -60,7 +60,7 @@ body {
   margin-right: 40px;
   margin-top: 60px;
   margin-bottom: 40px;
-
+  
   background-size: 110%;
   background: #282537 no-repeat center fixed;  
   background-image: -webkit-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
@@ -80,6 +80,10 @@ body {
 	backdrop-filter: blur(10px);
   
 } */
+
+.btn {
+  border: 0px !important;
+}
 
 :root {
   --frosted-bg-color: rgba(255, 255, 255, 0.25);
@@ -211,21 +215,35 @@ body {
   border-radius: 50%;
 }
 
+.cryptodash-tracker-content h1 {
+  font-size: 2em;
+}
+.cryptodash-tracker-content h2 {
+  font-size: 1.2em;
+}
+
 p[id$="updatetime"] {
-  bottom: 0px;
+  bottom: -20px;
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -10px;
+  margin-right: -10px;
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 100%;
+  font-size: 0.8em;
+  
 }
 
 
 #cryptodash-currency {
   text-align: center;
 }
+
+.cryptodash-datasources {
+  text-align: center;
+}
+
 /* FROSTED 
 .bg-light {
     --bs-bg-opacity: 0; <------
@@ -250,9 +268,9 @@ p[id$="updatetime"] {
 
   animation: pulsate-red 5s ease-out, grow 2.5s ease-out;
 
-  box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
--webkit-box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
--moz-box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+-webkit-box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 
         /* outer right cyan */
 }
@@ -310,11 +328,11 @@ p[id$="updatetime"] {
 }
  
 /* if backdrop support: very transparent and blurred */
-@supports ((-webkit-backdrop-filter: blur(4em)) or (backdrop-filter: blur(4em))) {
+@supports ((-webkit-backdrop-filter: blur(1em)) or (backdrop-filter: blur(1em))) {
   .backdrop-blur {
     background-color: var(--frosted-bg-color);
-    -webkit-backdrop-filter: blur(4em);
-    backdrop-filter: blur(4em);
+    -webkit-backdrop-filter: blur(1em);
+    backdrop-filter: blur(1em);
   }
 }
 
@@ -480,7 +498,7 @@ p[id$="updatetime"] {
   /*left: calc(50vw - 40px);*/
   left: -2px;
   z-index: 800;
-  border-bottom-right-radius: 50%;
+  border-bottom-right-radius: 20px;
   position: fixed;
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
@@ -497,7 +515,7 @@ p[id$="updatetime"] {
   top: -2px;
   right: -2px;
   z-index: 800;
-  border-bottom-left-radius: 50%;
+  border-bottom-left-radius: 20px;
   position: fixed;
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
@@ -617,7 +635,7 @@ p[id$="updatetime"] {
           <div id="cryptodash-setup" class="d-grid gap-2">
             <div id="cryptodash-setup-buttons" class="btn-group" role="group" aria-label="Trackers and Data Source">
 
-              <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#myapiconnection"> Data Source</button>  
+              <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#manageCryptoDashDataSourceModal"> Data Source</button>  
               <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#manageCryptoDashCoinsModal"> Manage Trackers</button>
       
             </div>
@@ -702,8 +720,8 @@ p[id$="updatetime"] {
               
               <div class="d-grid gap-2"> 
 
-                <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-simple-color">Default Colors </button> 
-                <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-custom-color">Random Colors </button>
+                <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-simple-color">Default </button> 
+                <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-custom-color">Random </button>
             
             
         
@@ -864,6 +882,71 @@ p[id$="updatetime"] {
 		
 		
 		
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade " id="manageCryptoDashDataSourceModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="manageCryptoDashDataSourceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-light backdrop-blur" id="manageCryptoDashDataSourceModalContent">
+      <div class="modal-header">
+        <h5 class="modal-title" id="manageCryptoDashDataSourceModalLabel">Data Sources</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashDataSourceModalClose"></button>
+      </div>
+      <div class="modal-body">
+              
+     
+        <p>Please take into consideration that when a refresh or an auto refresh is done, even a manual data refresh, it will count towards your API Requests.</p>
+        <p>You can calculate and see your API calls in realtime on Crypto Compare or Coin Market Cap.</p>
+        <p>Before getting the API Key and use it, make sure you understand that having the auto refresh rate sooner would use more requests.</p>
+
+        <hr>
+        <!-- datasource Selector -->
+        <a href="https://cryptocompare.com" target="_blank"><label for="cryptodash-datasource-cryptocompare" class="form-label badge bg-secondary">Crypto Compare</label></a>
+        
+        <div id="cryptodash-datasource-cryptocompare" class="gap-2 cryptodash-datasources"> 
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-cryptocompare-free" value="CryptoCompareFree" checked>
+            <label class="form-check-label" for="cryptodash-datasource-cryptocompare-free">Free (default)</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-cryptocompare-api" value="CryptoCompareAPI">
+            <label class="form-check-label" for="cryptodash-datasource-cryptocompare-api">API</label>
+          </div>
+        </div>  
+
+        <hr>
+
+        <a href="https://coinmarketcap.com" target="_blank"><label for="cryptodash-datasource-coinmarketcap" class="form-label badge bg-secondary">Coin Market Cap</label></a>
+        
+        <div id="cryptodash-datasource-coinmarketcap" class="gap-2 cryptodash-datasources"> 
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-coinmarketcap-api" value="CoinMarketCapAPI">
+            <label class="form-check-label" for="cryptodash-datasource-coinmarketcap-api">API</label>
+          </div>
+        </div> 
+
+        <hr>
+        <div id="" class="d-grid gap-2">
+          <div class="btn-group" role="group" aria-label="Get API Keys">
+            <a href="https://min-api.cryptocompare.com/pricing" target="_blank" class="btn btn-outline-dark btn-sm ">Get a Crypto Compare API Key</a>
+            <a href="https://coinmarketcap.com/api/pricing/" target="_blank" class="btn btn-outline-dark btn-sm">Get a Coin Market Cap API Key</a>
+              </div>
+          </div>
+        
+        
+		
+      </div>
+      <div class="modal-footer">
+        
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="cryptodash-apikey">API KEY</span>
+          <input type="text" class="form-control" placeholder="API Key" aria-label="API Key" aria-describedby="cryptodash-apikey" disabled>
+        </div>
+        
       </div>
     
     </div>
@@ -1166,6 +1249,194 @@ function uploadCryptoDashConfig(){
 
 }
 
+
+
+
+function pullCryptoDashCoinList() {
+
+  Toastify({
+    text: ` <div class="toast-body bordered "> <p> Please wait while getting the list of coins from Crypto Compare. </p> </div> `
+    
+    ,
+    duration: 3000,
+    className: "tracker-backdrop-blur",
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    escapeMarkup: false,
+    
+    style: {
+      /*
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+      */
+      boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+      borderRadius: "20px",
+      
+    },
+    
+    
+
+
+    onClick: function(){} // Callback after click
+  }).showToast();
+
+  
+  const myRequest = 'https://min-api.cryptocompare.com/data/all/coinlist';
+
+  fetch(myRequest)
+  .then(response => {
+      const data = response.json();
+     if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+     return data;
+  })
+  .then(data => {
+      /* process your data further */
+
+      var CryptoDashCoinListData = JSON.stringify(data);
+
+
+      CryptoDashCoinsSelector.clear();
+      CryptoDashCoinsSelector.clearOptions();
+      CryptoDashCoinsSelector.refreshItems();
+
+      for (var property in data['Data']) {
+        //console.log(`${property}: ${data['Data'][property]['FullName']}`);
+
+        if(data['Data'][property]['PlatformType'] === "blockchain" || data['Data'][property]['PlatformType'] === "token" ) {
+          CryptoDashCoinsSelector.addOption({
+            value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'],
+            //value: data['Data'][property]['Symbol'], text: data['Data'][property]['Name'],
+            //value: data['Data'][property]['Symbol'], text: data['Data'][property]['FullName'],
+          });
+
+          
+          
+
+
+        }
+        //CryptoDashCoinsSelector.refreshItems();
+
+        
+      };
+
+      var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+
+      if(CryptoDashLayout && CryptoDashLayout !== "[]") {
+          
+        for (var i = 0; i < CryptoDashLayout.length; i++) {
+          var itemId = CryptoDashLayout[i];
+          CryptoDashCoinsSelector.addItem(itemId);
+        }
+            
+        CryptoDashCoinsSelector.refreshItems();
+        CryptoDashGrid.layout(true);
+
+        manualCryptoDashFetchTrackerData();
+
+        updateCrpytoDashTrackerFontSize();
+      }
+      
+
+      
+      Toastify({
+        text: ` <div class="toast-body bordered "> <p> List successfully pulled. </p> </div> `
+        
+        ,
+        duration: 3000,
+        className: "tracker-backdrop-blur",
+        newWindow: true,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        escapeMarkup: false,
+        
+        style: {
+          /*
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          */
+          boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+          borderRadius: "20px",
+          
+        },
+        
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+
+  })
+  .catch(error => {
+    console.error(error)
+  
+    Toastify({
+      text: ` <div class="toast-body bordered "> <p>Error: ` + error + ` </p> </div> `
+      
+      ,
+      duration: 10000,
+      className: "tracker-backdrop-blur",
+      newWindow: true,
+      close: false,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      escapeMarkup: false,
+      
+      style: {
+        /*
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        */
+        boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
+        borderRadius: "20px",
+        
+      },
+  
+      onClick: function(){} // Callback after click
+    }).showToast();
+  });
+
+
+    
+
+   
+
+    //window.localStorage.removeItem('CryptoDashCoinListData');
+
+    //window.localStorage.setItem('CryptoDashCoinListData', CryptoDashCoinListData );
+    /*
+    data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR']
+    
+   
+*/
+    
+
+  
+
+  //Symbol
+  //CoinName
+  //IsTrading (true) rule to add to the list
+  //AssetWebsiteUrl 
+
+    /*
+    CryptoDashCoinsSelector.addOption({
+      value: "BTC", text: "Bitcoin"
+
+    })
+    */
+
+
+  
+
+
+
+
+}
+
+
+
   
 function CryptoDashNumberToPlainString(num) {
   return (''+ +num).replace(/(-?)(\d*)\.?(\d*)e([+-]\d+)/,
@@ -1176,7 +1447,12 @@ function CryptoDashNumberToPlainString(num) {
     });
 }
 
-  
+function updateCrpytoDashTrackerFontSize() {
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    window.fitText( element, 1.2 );
+  });
+}
+
 
 
 // Selecter from the tracker in the settings menu
@@ -1184,7 +1460,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
   plugins: ['remove_button'],
   create: false,
   // Find dynamic list of all coins based on all coin list from data source
-  options: [
+ /* options: [
     { value: "BTC", text: "Bitcoin" },
     { value: "ETH", text: "Etherium" },
     { value: "XRP", text: "Ripple" },
@@ -1193,7 +1469,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     { value: "KAT", text: "Kambria" },
     { value: "SHIB", text: "Shiba Inu" },
     { value: "XMR", text: "Monero" },
-  ],
+  ], */
   searchField: ['text','value'],
   sortField: {
     field: 'text',
@@ -1203,8 +1479,9 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     this.setTextboxValue('');
     this.refreshOptions();
     createCryptoDashTracker(value);
+    updateCrpytoDashTrackerFontSize();
     // console.log("changed Crypto Dash coin selection and added the " + value + " Tracker");
-    
+    //manualCryptoDashFetchTrackerData();
     Toastify({
       text: ` <div class="toast-body bordered "> <p>Added ` + value + ` tracker successfully. </p> </div> `
       
@@ -1224,6 +1501,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
         */
         boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
         borderRadius: "20px",
+        
         
       },
       
@@ -1250,7 +1528,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
   }
 });
 
-
+//pullCryptoDashCoinList();
 
 // GRID
 
@@ -1263,9 +1541,35 @@ var CryptoDashGrid = new Muuri('.cryptodash-grid', {
   saveCryptoDashLayout(CryptoDashGrid);
 });
 
+
+
+
+
 var CryptoDashLayout = window.localStorage.getItem('CryptoDashLayout');
 var CryptoDashTrackerWidth = window.localStorage.getItem('CryptoDashTrackerWidth');
 var CryptoDashTrackerHeight = window.localStorage.getItem('CryptoDashTrackerHeight');
+
+
+try {
+  //adddlert("Welcome guest!");
+
+  pullCryptoDashCoinList();
+
+  
+
+
+
+
+}
+catch(error) {
+  //document.getElementById("cryptodash-clock").innerHTML = error.message;
+
+  console.log(error);
+
+
+}
+
+
 
 if (CryptoDashLayout) {
   loadCryptoDashLayout(CryptoDashGrid, CryptoDashLayout);
@@ -1278,6 +1582,7 @@ if (CryptoDashLayout) {
 
   } else {
     document.getElementById("cryptodash-refresh-button").removeAttribute("hidden");
+    
   }
 
 } else {
@@ -1310,10 +1615,13 @@ if (CryptoDashTrackerWidth && CryptoDashTrackerHeight) {
 
 function serializeCryptoDashLayout(CryptoDashGrid) {
   var itemIds = CryptoDashGrid.getItems().map(function (item) {
+    //console.log(item);
     return item.getElement().getAttribute('crypto-dash-id');
   });
+  //console.log(JSON.stringify(itemIds));
   return JSON.stringify(itemIds);
 }
+
 
 function saveCryptoDashLayout(CryptoDashGrid) {
   var CryptoDashLayout = serializeCryptoDashLayout(CryptoDashGrid);
@@ -1324,25 +1632,20 @@ function saveCryptoDashLayout(CryptoDashGrid) {
 
 function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
 
-  var CryptoDashLayout = JSON.parse(serializedCryptoDashLayout);
-
+  var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+          
   for (var i = 0; i < CryptoDashLayout.length; i++) {
-    itemId = CryptoDashLayout[i];
-       
-    //console.log("loaded layout of " + itemId + " Tracker");
-
+    var itemId = CryptoDashLayout[i];
     CryptoDashCoinsSelector.addItem(itemId);
-    
   }
-  
+          
+  CryptoDashGrid.layout(true);
   
 }
 
 
 
-
-
-
+// dark and light mode
 (function () {
   let CryptoDashLightSwitch = document.getElementById("CryptoDashLightSwitch");
   if (!CryptoDashLightSwitch) {
@@ -1378,6 +1681,9 @@ function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
     document.getElementById("manageCryptoDashCoinsModalContent").classList.remove("bg-light");
 	  document.getElementById("manageCryptoDashCoinsModalClose").classList.add("bg-light");
     document.getElementById("manageCryptoDashCoinsModalClose").classList.remove("bg-dark");
+    document.getElementById("manageCryptoDashDataSourceModalClose").classList.add("bg-light");
+    document.getElementById("manageCryptoDashDataSourceModalClose").classList.remove("bg-dark");
+    
     document.getElementById("uploadCryptoDashConfigModalContent").classList.add("bg-dark");
     document.getElementById("uploadCryptoDashConfigModalContent").classList.remove("bg-light");
 	  document.getElementById("uploadCryptoDashConfigModalClose").classList.add("bg-light");
@@ -1393,6 +1699,8 @@ function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
     //  element.classList.add("text-black-50");
     //});
 
+    //document.querySelector('body').style.setProperty('text-shadow', "0px 0px 2px #000");
+      
     document.documentElement.style.setProperty('--frosted-bg-color', "rgba(0, 0, 0, 0.25)");
     document.documentElement.style.setProperty('--frosted-tracker-bg-color', "rgba(128, 128, 128, 0.25)");
     
@@ -1449,6 +1757,8 @@ function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
     //document.querySelectorAll(".option:not(.active)").forEach((element) => {
     //  element.classList.add("text-dark");
     //});
+
+    //document.querySelector('body').style.setProperty('text-shadow', "0px 0px 1px #000");
 
     document.documentElement.style.setProperty('--frosted-bg-color', "rgba(255, 255, 255, 0.50)");
     document.documentElement.style.setProperty('--frosted-tracker-bg-color', "rgba(255, 255, 255, 0.50)");
@@ -1542,7 +1852,8 @@ autoRefreshRanger.oninput = function() {
   autoCryptoDashFetchTrackerData();
   autoRefreshRanger.title = autoRefreshRanger.value / 10;
   document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10;
-
+  document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i> Auto`;
+  
   
 }
 
@@ -1560,6 +1871,8 @@ itemSizeRanger.onchange = function() {
   // update grid size info
   itemSizeRanger.title = itemSizeRanger.value + 'px';
   document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title;
+
+  
 
   CryptoDashGrid.refreshItems();
   CryptoDashGrid.layout();
@@ -1580,6 +1893,10 @@ itemSizeRanger.oninput = function() {
   itemSizeRanger.title = itemSizeRanger.value + 'px';
   document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title;
 
+  
+  updateCrpytoDashTrackerFontSize(); 
+   
+
   CryptoDashGrid.refreshItems();
   CryptoDashGrid.layout();
 }
@@ -1595,6 +1912,7 @@ function createCryptoDashTracker(coinAbr) {
   var TrackerItemContentIDAttribute = document.createAttribute("id");
 
   var TrackerItemContentTitle = document.createElement("H1");
+  var TrackerNameIDAttribute = document.createAttribute("id");
 
   var TrackerAttribute = document.createAttribute("crypto-dash-id");
 
@@ -1646,6 +1964,7 @@ function createCryptoDashTracker(coinAbr) {
   
   TrackerAttribute.value = coinAbr;
   TrackerIDAttribute.value = coinAbr;
+  TrackerNameIDAttribute.value = coinAbr + "-name";
   TrackerItemContentIDAttribute.value = coinAbr + "-content";
   TrackerPriceIDAttribute.value = coinAbr + "-price";
   
@@ -1670,7 +1989,7 @@ function createCryptoDashTracker(coinAbr) {
   Tracker.setAttributeNode(TrackerIDAttribute);
 
   TrackerItemContent.setAttributeNode(TrackerItemContentIDAttribute);
-
+  TrackerItemContentTitle.setAttributeNode(TrackerNameIDAttribute);
   TrackerPrice.setAttributeNode(TrackerPriceIDAttribute);
 
   TrackerHighestValue24.setAttributeNode(TrackerHighestValue24IDAttribute);
@@ -1740,6 +2059,7 @@ function createCryptoDashTracker(coinAbr) {
   
   // show refresh button
   document.getElementById("cryptodash-refresh-button").removeAttribute("hidden");
+  //manualCryptoDashFetchTrackerData();
 
 }
 
@@ -1820,7 +2140,9 @@ function autoCryptoDashFetchTrackerData(){
 
     onClick: function(){} // Callback after click
   }).showToast();
+  document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i> Auto`;
 } 
+
 
 
 async function manualCryptoDashFetchTrackerData() {
@@ -2269,8 +2591,8 @@ function stopAutoCryptoDashFetchTrackerData() {
     document.getElementById("cryptodash-bg-abstract-tab").classList.remove("active", "show");
 
     // Change tab background button status
-    document.getElementById("cryptodash-bg-simple-color").innerHTML = 'Default Colors';
-    document.getElementById("cryptodash-bg-custom-color").innerHTML = 'Random Colors';
+    document.getElementById("cryptodash-bg-simple-color").innerHTML = 'Default';
+    document.getElementById("cryptodash-bg-custom-color").innerHTML = 'Random';
     document.getElementById("cryptodash-bg-gradient-hd").innerHTML = '<i class="fa fa-check"></i> HD (1920x1080)';
     document.getElementById("cryptodash-bg-gradient-4k").innerHTML = '4K (3840x2160)';
     document.getElementById("cryptodash-bg-abstract-hd").innerHTML = 'HD (1920x1080)';
@@ -2421,8 +2743,8 @@ function stopAutoCryptoDashFetchTrackerData() {
     document.getElementById("cryptodash-bg-abstract-tab").classList.remove("active", "show");
     
     // Change tab background button status
-    document.getElementById("cryptodash-bg-simple-color").innerHTML = 'Default Colors';
-    document.getElementById("cryptodash-bg-custom-color").innerHTML = '<i class="fa fa-check"></i> Random Colors (' + hexColorName + ')';    
+    document.getElementById("cryptodash-bg-simple-color").innerHTML = 'Default';
+    document.getElementById("cryptodash-bg-custom-color").innerHTML = '<i class="fa fa-check"></i> Random (' + hexColorName + ')';    
     document.getElementById("cryptodash-bg-gradient-hd").innerHTML = 'HD (1920x1080)';
     document.getElementById("cryptodash-bg-gradient-4k").innerHTML = '4K (3840x2160)';
     document.getElementById("cryptodash-bg-abstract-hd").innerHTML = 'HD (1920x1080)';
@@ -2504,7 +2826,7 @@ function stopAutoCryptoDashFetchTrackerData() {
       document.getElementById("cryptodash-bg-simple-tab").classList.add("active", "show");
       document.getElementById("cryptodash-bg-gradient-tab").classList.remove("active", "show");
       document.getElementById("cryptodash-bg-abstract-tab").classList.remove("active", "show");
-      document.getElementById("cryptodash-bg-simple-color").innerHTML = '<i class="fa fa-check"></i> Default Colors';
+      document.getElementById("cryptodash-bg-simple-color").innerHTML = '<i class="fa fa-check"></i> Default';
 
     } 
     
@@ -2527,7 +2849,7 @@ function stopAutoCryptoDashFetchTrackerData() {
       document.getElementById("cryptodash-bg-gradient-tab").classList.remove("active", "show");
       document.getElementById("cryptodash-bg-abstract-tab").classList.remove("active", "show");
 
-      document.getElementById("cryptodash-bg-custom-color").innerHTML = '<i class="fa fa-check"></i> Random Color (' + CryptoDashBackground + ')';    
+      document.getElementById("cryptodash-bg-custom-color").innerHTML = '<i class="fa fa-check"></i> Random (' + CryptoDashBackground + ')';    
 
     }
 
@@ -2596,6 +2918,68 @@ window.onerror = function(msg, url, line, col, error) {
   return suppressErrorAlert;
 };
 */
+
+
+/* Font resize 
+https://github.com/adactio/FitText.js
+*/
+
+(function(){
+
+  var addEvent = function (el, type, fn) {
+    if (el.addEventListener)
+      el.addEventListener(type, fn, false);
+		else
+			el.attachEvent('on'+type, fn);
+  };
+  
+  var extend = function(obj,ext){
+    for(var key in ext)
+      if(ext.hasOwnProperty(key))
+        obj[key] = ext[key];
+    return obj;
+  };
+
+  window.fitText = function (el, kompressor, options) {
+
+    var settings = extend({
+      'minFontSize' : -1/0,
+      'maxFontSize' : 1/0
+    },options);
+
+    var fit = function (el) {
+      var compressor = kompressor || 1;
+
+      var resizer = function () {
+        el.style.fontSize = Math.max(Math.min(el.clientWidth / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)) + 'px';
+      };
+
+      // Call once to set.
+      resizer();
+
+      // Bind events
+      // If you have any js library which support Events, replace this part
+      // and remove addEvent function (or use original jQuery version)
+      addEvent(window, 'resize', resizer);
+      addEvent(window, 'orientationchange', resizer);
+    };
+
+    if (el.length)
+      for(var i=0; i<el.length; i++)
+        fit(el[i]);
+    else
+      fit(el);
+
+    // return set of elements
+    return el;
+  };
+})();
+
+
+updateCrpytoDashTrackerFontSize();
+
+
+
 
 </script>
 
