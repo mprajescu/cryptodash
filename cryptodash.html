@@ -209,9 +209,9 @@ body {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background-color: var(--frosted-tracker-bg-color);
-  /*backdrop-filter: blur(2px); */
-  backdrop-filter: blur(45px);
+  /*background-color: var(--frosted-tracker-bg-color);
+  backdrop-filter: blur(2px); 
+  backdrop-filter: blur(45px);*/
   border-radius: 40px;
   padding: 10px;
 }
@@ -754,8 +754,8 @@ p[id$="updatetime"] {
             <div class="col-6">
               
               <div class="form-check form-switch">
-                <label class="form-check-label" for="frostedTheme"> Frosted Theme </label>
-                <input class="form-check-input" type="checkbox" id="frostedTheme" checked/>
+                <label class="form-check-label" for="frostedCryptoDashTheme"> Frosted Theme </label>
+                <input class="form-check-input" type="checkbox" id="frostedCryptoDashTheme" checked/>
               </div>
 
             </div>
@@ -951,7 +951,7 @@ p[id$="updatetime"] {
   <!-- Reset Config Modal Modal -->
   <div class="modal fade" id="resetCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetCryptoDashConfigModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-light backdrop-blur" id="resetCryptoDashConfigModalContent">
+      <div class="modal-content bg-light" id="resetCryptoDashConfigModalContent">
         <div class="modal-header">
           <h5 class="modal-title" id="resetCryptoDashConfigModalLabel">Reset Crypto Dashboard Configuration</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="resetCryptoDashConfigModalClose"></button>
@@ -977,7 +977,7 @@ p[id$="updatetime"] {
   <!-- Upload Config Modal-->
   <div class="modal fade " id="uploadCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="uploadCryptoDashConfigModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-light backdrop-blur" id="uploadCryptoDashConfigModalContent">
+      <div class="modal-content bg-light" id="uploadCryptoDashConfigModalContent">
         <div class="modal-header">
           <h5 class="modal-title" id="uploadCryptoDashConfigModalLabel">Restore Crypto Dash Configuration</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="uploadCryptoDashConfigModalClose"></button>
@@ -1012,7 +1012,7 @@ p[id$="updatetime"] {
   <!-- Modal -->
 <div class="modal fade " id="manageCryptoDashCoinsModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="manageCryptoDashCoinsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-light backdrop-blur" id="manageCryptoDashCoinsModalContent">
+    <div class="modal-content bg-light" id="manageCryptoDashCoinsModalContent">
       <div class="modal-header">
         <h5 class="modal-title" id="manageCryptoDashCoinsModalLabel"><i class="fa fa-th-large "></i> Trackers</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashCoinsModalClose"></button>
@@ -1047,7 +1047,7 @@ p[id$="updatetime"] {
 <!-- Modal -->
 <div class="modal fade " id="manageCryptoDashDataSourceModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="manageCryptoDashDataSourceModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-light backdrop-blur" id="manageCryptoDashDataSourceModalContent">
+    <div class="modal-content bg-light" id="manageCryptoDashDataSourceModalContent">
       <div class="modal-header">
         <h5 class="modal-title" id="manageCryptoDashDataSourceModalLabel"><i class="fa fa-database "></i> Data Sources</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashDataSourceModalClose"></button>
@@ -1457,7 +1457,7 @@ function pullCryptoDashCoinList() {
               updateCryptoDashTrackerFontSize();
             }
             
-            showCryptoDashNotification('<i class="fa fa-info-circle"></i>List of coins successfully retreived', 3000);
+            showCryptoDashNotification('<i class="fa fa-info-circle"></i> List of coins successfully retreived', 3000);
 
           }
           
@@ -1765,6 +1765,33 @@ function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
 function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotificationDuration, CryptoDashNotificationClose) {
 
   var settings = localStorage.getItem("CryptoDashLightSwitch");
+  var settingsFrosted = window.localStorage.getItem("CryptoDashFrostedThemeSwitch");
+
+  if (settingsFrosted == null) {
+    window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+    var frostedStatus = "tracker-backdrop-blur ";
+  }
+  
+  if (settingsFrosted == "Frosted") {
+    var frostedStatus = "tracker-backdrop-blur ";
+  }
+
+  if (settingsFrosted == "Defrosted") {
+
+    if (settings == null) {
+      var frostedStatus = "bg-light ";
+    }
+    
+    if (settings == "dark") {
+      var frostedStatus = "bg-dark ";
+    }
+  
+    if (settings == "light") {
+      var frostedStatus = "bg-light ";
+    }
+    
+  }
+  
 
   if (settings == null) {
     var color = "text-dark";
@@ -1786,7 +1813,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
   Toastify({
     text: ` <div class="bordered" style="display: inline-block;"><div >` + CryptoDashNotificationText + `</div></div>`,
     duration: CryptoDashNotificationDuration,
-    className: "tracker-backdrop-blur " + color,
+    className: frostedStatus + color,
     newWindow: true,
     close: CryptoDashNotificationClose,
     gravity: "bottom", // `top` or `bottom`
@@ -2067,6 +2094,7 @@ itemSizeRanger.oninput = function() {
 
 function createCryptoDashTracker(coinAbr) {
 
+
   var CryptoDashContentTrackers = document.getElementById("CryptoDashContentTrackers");
   var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
   var Tracker = document.createElement("div");
@@ -2117,7 +2145,36 @@ function createCryptoDashTracker(coinAbr) {
   var TrackerUpdateTimeIDAttribute = document.createAttribute("id");
 
 
-  Tracker.classList.add("cryptodash-tracker", "tracker-backdrop-blur");
+  var settings = window.localStorage.getItem("CryptoDashFrostedThemeSwitch");
+    if (settings == null) {
+      window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+      Tracker.classList.add("cryptodash-tracker", "tracker-backdrop-blur");
+    }
+    
+    if (settings == "Frosted") {
+      Tracker.classList.add("cryptodash-tracker", "tracker-backdrop-blur");
+
+      if(CryptoDashLightSwitch && CryptoDashLightSwitch === "dark") {
+        Tracker.classList.remove("bg-dark");
+      } else {
+        Tracker.classList.remove("bg-light");
+      }
+
+
+    }
+
+    if (settings == "Defrosted") {
+      Tracker.classList.add("cryptodash-tracker");
+
+      if(CryptoDashLightSwitch && CryptoDashLightSwitch === "dark") {
+        Tracker.classList.add("bg-dark");
+      } else {
+        Tracker.classList.add("bg-light");
+      }
+
+    }
+
+  
   
   /*
   if(CryptoDashLightSwitch && CryptoDashLightSwitch === "dark") {
@@ -2266,6 +2323,11 @@ var refreshCryptoDashDataInterval = window.localStorage.getItem("CryptoDashAutoR
 // if interval not available set 60 
 if(!refreshCryptoDashDataInterval){
   window.localStorage.setItem('CryptoDashAutoRefresh', '60' );
+
+  refreshCryptoDashDataInterval = window.localStorage.getItem("CryptoDashAutoRefresh");
+
+  document.getElementById('refreshRanger').title = refreshCryptoDashDataInterval / 10;
+  document.getElementById('refreshRanger').value = refreshCryptoDashDataInterval;
 }
 
 
@@ -2481,8 +2543,9 @@ async function manualCryptoDashFetchTrackerData() {
   if (CryptoDashDataSource === "CryptoCompareFree" ) {
     
     try {
+      console.log(CryptoDashTrackerInfo);
      
-      if(!CryptoDashTrackerInfo || CryptoDashTrackerInfo === "[]") {
+      if(!CryptoDashTrackerInfo || CryptoDashTrackerInfo === "[]" || CryptoDashTrackerInfo.length == "0") {
         
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Data Refresh Error</strong> <br>` + `Nothing is currently tracked`, -1, true);
 
@@ -2942,6 +3005,8 @@ function stopAutoCryptoDashFetchTrackerData() {
 
       document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefresh / 10 + "s";
 
+      document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i> Auto`;
+
     } else {
       autoRefreshRanger.value = 0;
       autoRefreshRanger.title = autoRefreshRanger.value;
@@ -2960,6 +3025,7 @@ function stopAutoCryptoDashFetchTrackerData() {
     localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
     showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh manually`, 3000);
     document.getElementById("dataRefreshSpan").innerHTML = "N/A"; 
+    document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>`;
     stopAutoCryptoDashFetchTrackerData();
   }
 
@@ -3493,7 +3559,7 @@ function stopAutoCryptoDashFetchTrackerData() {
 
 })();
 
-
+// set API Key Input Field with saved API Key Data from Local Storage
 (function () {
   var CryptoDashDataSourceAPIKeyInput = document.getElementById("cryptodash-apikey");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
@@ -3504,15 +3570,162 @@ function stopAutoCryptoDashFetchTrackerData() {
     } else {
       CryptoDashDataSourceAPIKeyInput.value = CryptoDashDataSourceAPIKey;
 
-      
-
+  
     }
 
 
-
-  
-
 })();
+
+// frosting and defrosting the interface
+(function () {
+
+  var frostedCryptoDashThemeInput = document.getElementById("frostedCryptoDashTheme");
+
+  var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
+
+  if (!frostedCryptoDashThemeInput) {
+    return;
+  }
+
+  function frostCryptoDash() {
+
+    if (frostedCryptoDashThemeInput.checked) {
+      frostedCryptoDashThemeInput.checked = true;
+    }
+    localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Frosted the theme`, 3000);
+    
+    // add frosting
+
+    // .offcanvas backdrop-blur class
+    document.querySelectorAll(".offcanvas").forEach((element) => {
+      element.classList.add("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.remove("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.remove("bg-light");
+      }
+
+    });
+
+    // .cryptodash-tracker tracker-backdrop-blur
+    document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+      element.classList.add("tracker-backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.remove("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.remove("bg-light");
+      }
+
+      CryptoDashGrid.synchronize();
+      CryptoDashGrid.refreshItems();
+      CryptoDashGrid.layout();
+
+    });
+   
+    // #cryptodash-settings-button backdrop-blur
+    document.querySelector("#cryptodash-settings-button").classList.add("backdrop-blur");
+
+    // #cryptodash-refresh-button backdrop-blur
+    document.querySelector("#cryptodash-refresh-button").classList.add("backdrop-blur");
+
+    // # cryptodash-clock backdrop-blur
+    document.querySelector("#cryptodash-clock").classList.add("backdrop-blur");
+
+
+  }
+
+  function defrostCryptoDash() {
+
+    if (frostedCryptoDashThemeInput.checked) {
+      frostedCryptoDashThemeInput.checked = false;
+    }
+    localStorage.setItem("CryptoDashFrostedThemeSwitch", "Defrosted");
+    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Defrosted the theme`, 3000);
+    
+    // remove frosting
+    
+    // .offcanvas backdrop-blur class
+    document.querySelectorAll(".offcanvas").forEach((element) => {
+      element.classList.remove("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.add("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("bg-light");
+      }
+
+    });
+
+    // .cryptodash-tracker tracker-backdrop-blur
+    document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+      element.classList.remove("tracker-backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.add("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("bg-light");
+      }
+
+      CryptoDashGrid.synchronize();
+      CryptoDashGrid.refreshItems();
+      CryptoDashGrid.layout();
+      
+
+    });
+   
+    // #cryptodash-settings-button backdrop-blur
+    document.querySelector("#cryptodash-settings-button").classList.remove("backdrop-blur");
+
+    // #cryptodash-refresh-button backdrop-blur
+    document.querySelector("#cryptodash-refresh-button").classList.remove("backdrop-blur");
+
+    // # cryptodash-clock backdrop-blur
+    document.querySelector("#cryptodash-clock").classList.remove("backdrop-blur");
+
+  }
+
+
+  function onToggleMode() {
+    if (frostedCryptoDashThemeInput.checked) {
+      frostCryptoDash();
+    } else {
+      defrostCryptoDash();
+    }
+  }
+
+
+  function setup() {
+    var settings = window.localStorage.getItem("CryptoDashFrostedThemeSwitch");
+    if (settings == null) {
+      window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+    }
+    
+    if (settings == "Frosted") {
+      frostedCryptoDashThemeInput.checked = true;
+    }
+
+    if (settings == "Defrosted") {
+      frostedCryptoDashThemeInput.checked = false;
+    }
+    
+    frostedCryptoDashThemeInput.addEventListener("change", onToggleMode);
+    onToggleMode();
+  }
+
+  setup();
+})();
+
 
 function setCryptoDashDataSourceAPIKey() {
   var CryptoDashDataSourceAPIKey = document.getElementById("cryptodash-apikey");
