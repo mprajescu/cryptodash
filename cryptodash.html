@@ -2039,7 +2039,7 @@ autoRefreshRanger.onchange = function() {
   window.localStorage.setItem('CryptoDashAutoRefresh', autoRefreshRanger.value );
   document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10 + "s";
 
-  showCryptoDashNotification("Auto refresh set to " + autoRefreshRanger.title + " s", 3000);
+  showCryptoDashNotification('<i class="fa fa-info-circle"></i> Auto refresh set to ' + autoRefreshRanger.title + ' s', 3000);
 
 }
 
@@ -2548,6 +2548,20 @@ async function manualCryptoDashFetchTrackerData() {
       if(!CryptoDashTrackerInfo || CryptoDashTrackerInfo === "[]" || CryptoDashTrackerInfo.length == "0") {
         
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Data Refresh Error</strong> <br>` + `Nothing is currently tracked`, -1, true);
+
+        document.getElementById("refreshRanger").disabled = true;
+
+        var CryptoDashDataRefreshSwitch = document.getElementById("CryptoDashDataRefreshSwitch");
+
+        if (CryptoDashDataRefreshSwitch.checked) {
+          CryptoDashDataRefreshSwitch.checked = false;
+        }
+        localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh manually`, 3000);
+        document.getElementById("dataRefreshSpan").innerHTML = "N/A"; 
+        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>`;
+        stopAutoCryptoDashFetchTrackerData();
+
 
         console.log("Nothing is tracked");
 
