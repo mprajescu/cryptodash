@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.bootstrap5.min.css" type="text/css">
 
 <!-- FontAwesome 4.6.3 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 
 <!-- Toastify Javascript -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" type="text/css">
@@ -25,6 +25,8 @@
 <!-- Pace JS CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
 
+<!-- Animate.style CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <!-- Pace JS -->
 <script data-pace-options='{ "ajax": false }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
@@ -40,6 +42,9 @@
 
 <!-- Toastify JS-->
 <script  src="https://cdn.jsdelivr.net/npm/toastify-js" type="text/javascript"></script>
+
+<!-- Apex Charts JS-->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <!-- Maybe implement themes in the future -->
 <!-- Themes from https://bootswatch.com/ -->
@@ -86,12 +91,16 @@ body {
 } */
 
 /* Custom Bootstrap */
-.btn {
+.btn:not(#cryptodash-apikey-button) {
   border: 0px !important;
 }
 .modal-body, .modal-footer, .tab-content label:not(.badge) {
   font-size: 0.875rem;
 }
+.modal-content {
+  border-radius: 1rem;
+}
+
 
 :root {
   --frosted-bg-color: rgba(255, 255, 255, 0.25);
@@ -112,6 +121,8 @@ body {
      
   background-size: cover;
 }
+
+
 
 .cryptodash-bg-custom {
   background-size: 110%;
@@ -176,11 +187,11 @@ body {
   position: absolute;
   /* background: #ffffff; */
   width: 420px;
-  height: 420px;
+  height: 210px;
   margin: 20px;
-  padding: 10px;
+  padding: 5px;
   z-index: 1;
-  border-radius: 40px;
+  border-radius: 1rem;
   box-shadow:  0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
@@ -191,7 +202,7 @@ body {
 
 /* Tracker content style */
 .cryptodash-tracker-content {
-  border-radius: 40px;
+  border-radius: 1rem;
   position: relative;
   width: 100%;
   height: 100%;
@@ -199,10 +210,13 @@ body {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  padding:10px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.cryptodash-tracker::before {
+.cryptodash-tracker:before {
   content: "";
   position: absolute;
   top: 0px;
@@ -212,37 +226,77 @@ body {
   /*background-color: var(--frosted-tracker-bg-color);
   backdrop-filter: blur(2px); 
   backdrop-filter: blur(45px);*/
-  border-radius: 40px;
-  padding: 10px;
+  border-radius: 1rem;
+  padding: 5px;
 }
 
 .cryptodash-tracker-content img {
-  width: 60px;
+  /*width: 60px; */
+  width: calc(100% - 85%);
+  height: auto;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: calc(100% - 92%);
+  right: calc(100% - 96%);
   border-radius: 50%;
 }
+.cryptodash-tracker-content p:not(p[id$="updatetime"]) {
+  font-size: 0.7em;
+  margin-bottom: 0px !important;
+  
+}
+
+p[id$="changepct24"] {
+  bottom: calc(100% - 81%);
+  position: absolute;
+}
+
+p[id$="changepcthour"] {
+  bottom: calc(100% - 97%);
+  position: absolute;
+}
+
+
 
 .cryptodash-tracker-content h1 {
-  font-size: 1.6em;
+  font-size: 1.3em;
   font-weight: bold;
 }
 .cryptodash-tracker-content h2 {
   font-size: 1.2em;
+  margin-bottom: 0.2rem;
 }
 
+/*
 p[id$="updatetime"] {
-  bottom: -20px;
+  bottom: -20px; 
   position: absolute;
   margin-left: -10px;
   margin-right: -10px;
-  align-items: center;
-  justify-content: center;
+  
   text-align: center;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 0.6em;
   
+} */
+
+p[id$="updatetime"] {
+  bottom: calc(100% - 97%);
+  /*right: calc(100% - 98%);*/
+  right: 10px;
+  position: absolute;
+  
+  left: auto;
+  text-align: center; 
+  margin-bottom: 0px !important;
+  font-size: 0.7em;
+  
+}
+.apexcharts-canvas {
+  background: none !important;
+}
+
+#cryptodash-chart-menu {
+  height: calc(100vh); 
 }
 
 
@@ -269,10 +323,21 @@ p[id$="updatetime"] {
 .cryptodash-positive {
   
   /*animation: pulsate-green 1.5s ease-in infinite, grow 0.75s alternate infinite ease-in; */
-  animation: pulsate-green 1.5s ease-in infinite;
-  box-shadow:  0px 0px 40px 10px rgba(5, 255, 0, 0.3),0px 0px 30px -30px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(5, 255, 0, 0.3),0px 0px 30px -30px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(5, 255, 0, 0.3),0px 0px 30px -30px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+  animation: pulsate-img-green 1.5s ease-in infinite;
+  box-shadow:  0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);  
+
+  
+}
+
+.cryptodash-content-positive {
+  
+  /*animation: pulsate-green 1.5s ease-in infinite, grow 0.75s alternate infinite ease-in; */
+  animation: pulsate-in-green 1.5s ease-in infinite;
+  box-shadow:  inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 10px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 10px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 10px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); 
 
   
 }
@@ -284,50 +349,90 @@ p[id$="updatetime"] {
 .cryptodash-negative {
 
   animation: pulsate-red 5s ease-out, grow 2.5s ease-out;
-
+  box-shadow:  0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); 
+  /*
   box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 -webkit-box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 -moz-box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-
+  */
         /* outer right cyan */
 }
 
 
 @keyframes pulsate-green {
-  0%   { box-shadow:  0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+  0%   { box-shadow:  0px 0px 20px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -30px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 20px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -30px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -30px rgba(0, 0, 255, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+
+  50%  { box-shadow:  0px 0px 30px 20px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 20px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 20px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 0, 255, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2); }
+
+  100% { box-shadow:  0px 0px 20px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -30px rgba(0, 0, 255, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 20px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -30px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -30px rgba(0, 0, 255, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+}
+
+@keyframes pulsate-img-green {
+  0%   { box-shadow:  0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
     
-  25%  { box-shadow:  0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2); }  
+  25%  { box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }  
 
-  50%  { box-shadow:  0px 0px 40px 20px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 20px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 20px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2); }
+  50%  { box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
 
-  75%  { box-shadow:  0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -20px rgba(0, 255, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2); } 
+  75%  { box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); } 
 
-  100% { box-shadow:  0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(0, 255, 0, 0.7),0px 0px 30px -10px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+  100% { box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+}
+
+@keyframes pulsate-in-green {
+  0%   { box-shadow:  inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+    
+  25%  { box-shadow:  inset 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }  
+
+  50%  { box-shadow:  inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+
+  75%  { box-shadow:  inset 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 3px rgba(0, 255, 0, 0.7),0px 0px 20px 3px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); } 
+
+  100% { box-shadow:  inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0px 0px 10px 1px rgba(0, 255, 0, 0.7),0px 0px 20px 1px rgba(0, 255, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
 }
 
 
+
 @keyframes pulsate-red {
-  0%   { box-shadow:  0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+  0%   { box-shadow:  0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
 
-  50%  { box-shadow:  0px 0px 40px 40px rgba(255, 0, 0, 0.7),0px 0px 30px -10px rgba(255, 0, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 40px rgba(255, 0, 0, 0.7),0px 0px 30px -10px rgba(255, 0, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 40px rgba(255, 0, 0, 0.7),0px 0px 30px -10px rgba(255, 0, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2); }
+  50%  { box-shadow:  0px 0px 30px 20px rgba(255, 0, 0, 0.7),0px 0px 30px -10px rgba(255, 0, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 20px rgba(255, 0, 0, 0.7),0px 0px 30px -10px rgba(255, 0, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 20px rgba(255, 0, 0, 0.7),0px 0px 30px -10px rgba(255, 0, 0, 0.2),0px 0px 6px 5px rgba(0, 0, 0, 0.2); }
 
-  100% { box-shadow:  0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 40px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
+  100% { box-shadow:  0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.7),0px 0px 30px -30px rgba(255, 0, 0, 0.2),0px 0px 6px 3px rgba(0, 0, 0, 0.2); }
 }
 
 
@@ -336,6 +441,68 @@ p[id$="updatetime"] {
   0%   {transform: scale(1);}
   100% {transform: scale(1.1);}
 }
+
+.test {
+  background: linear-gradient(45deg  #00ff00,#ffff00, 
+		#00ff00,#ffff00);
+} 
+
+
+
+.block {
+	background: linear-gradient(0deg, #000, #272727);
+}
+
+.block:before, .block:after {
+	
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(60deg, #386641, #00ff00, #ffff00, 
+		#00ff00,#ffff00, #6a994e, #386641);
+	background-size: 600%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 600% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(10px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -536,7 +703,7 @@ p[id$="updatetime"] {
   /*left: calc(50vw - 40px);*/
   left: -2px;
   z-index: 800;
-  border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 1rem;
   position: fixed;
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
@@ -553,7 +720,7 @@ p[id$="updatetime"] {
   top: -2px;
   right: -2px;
   z-index: 800;
-  border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 1rem;
   position: fixed;
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
@@ -569,11 +736,13 @@ p[id$="updatetime"] {
 /* Settings Button */
 #cryptodash-clock {
   top: -2px;
-  left: calc(50vw - 80px);
+  left: calc(50vw - 70px);
   /* left: 5px;*/
   z-index: 800;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  width: 140px;
+  text-align: center;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   position: fixed;
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
@@ -590,7 +759,7 @@ p[id$="updatetime"] {
   padding: 10px;
   margin: 10px;
   box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 1rem;
   transition: all .2s ease-in-out;
   width: 300px;
 }
@@ -720,7 +889,7 @@ p[id$="updatetime"] {
           </div>
 
           
-          <input type="range" class="form-range" min="60" max="1800" step="60" id="refreshRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="" disabled>
+          <input type="range" class="form-range" min="110" max="1800" step="60" id="refreshRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="" disabled>
           
 
 
@@ -911,7 +1080,7 @@ p[id$="updatetime"] {
       <label for="cryptodashConfig" class="form-label badge bg-secondary"><i class="fa fa-cog "></i> Backup Settings</label>
       <div id="cryptodashsettings" class="d-grid gap-2">
         <div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">
-          <button type="button" class="btn btn-outline-dark btn-sm" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Backup</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Save Backup</button>
           <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#resetCryptoDashConfigModal"><i class="fa fa-recycle"></i> Reset Dash</button>
           <button type="button" class="btn btn-outline-dark btn-sm" onclick="uploadCryptoDashConfig()"><i class="fa fa-upload"></i> Restore</button>
         </div>
@@ -932,7 +1101,7 @@ p[id$="updatetime"] {
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="CryptoDashChartMenuLabel">
 
-      Crypto Dashboard
+      Charts
 
     </h5>
       
@@ -940,7 +1109,7 @@ p[id$="updatetime"] {
     </div>
     <div class="offcanvas-body">
       
-      <div id="blurrr">
+      <div id="blurry">
 
 
       </div>
@@ -950,20 +1119,20 @@ p[id$="updatetime"] {
 
   <!-- Reset Config Modal Modal -->
   <div class="modal fade" id="resetCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetCryptoDashConfigModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content bg-light" id="resetCryptoDashConfigModalContent">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content backdrop-blur" id="resetCryptoDashConfigModalContent">
         <div class="modal-header">
-          <h5 class="modal-title" id="resetCryptoDashConfigModalLabel">Reset Crypto Dashboard Configuration</h5>
+          <h5 class="modal-title" id="resetCryptoDashConfigModalLabel"><i class="fa fa-recycle"></i> Reset Crypto Dash</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="resetCryptoDashConfigModalClose"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want reset the configuration?</p>
-      
+          <p>Are you sure you want reset the Crypto Dash?</p>
+          <p>You can also save a backup of the configuration in case you want to restore at a later time.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-dark btn-sm me-auto" onclick="resetCryptoDashConfig()" data-bs-dismiss="modal"><i class="fa fa-recycle"></i> Reset</button>
-          <button type="button" class="btn btn-outline-dark btn-sm me-auto" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Save Config File</button>           
-          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-outline-dark btn-sm me-auto" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> Save Backup</button>           
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
           
            
           
@@ -976,24 +1145,29 @@ p[id$="updatetime"] {
 
   <!-- Upload Config Modal-->
   <div class="modal fade " id="uploadCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="uploadCryptoDashConfigModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content bg-light" id="uploadCryptoDashConfigModalContent">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content backdrop-blur" id="uploadCryptoDashConfigModalContent">
         <div class="modal-header">
-          <h5 class="modal-title" id="uploadCryptoDashConfigModalLabel">Restore Crypto Dash Configuration</h5>
+          <h5 class="modal-title" id="uploadCryptoDashConfigModalLabel"><i class="fa fa-upload"></i> Restore Crypto Dash</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="uploadCryptoDashConfigModalClose"></button>
         </div>
 
         <form id="uploadCryptoDashConfigForm">
 
           <div class="modal-body">
-            <label for="uploadCryptoDashConfigInput" class="form-label">Choose CryptoDash</label>
-            <input class="form-control bg-light" type="file" id="uploadCryptoDashConfigInput" accept=".cd" >
+
+            <p>Select your Crypto Dash backup file then click restore.</p>
+
+            <label for="uploadCryptoDashConfigInput" class="form-label">Crypto Dash Backup File</label>
+            <input class="form-control bg-light" type="file" id="uploadCryptoDashConfigInput" accept=".cdbackup" >
           </div>
+
+
           <div class="modal-footer">
             
             
-            <button type="submit" class="btn btn-outline-dark btn-sm me-auto"><i class="fa fa-upload"></i> Upload & Restore</button>
-            <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-outline-dark btn-sm me-auto"><i class="fa fa-upload"></i> Restore</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
           </div>
 
         </form>
@@ -1011,8 +1185,8 @@ p[id$="updatetime"] {
 
   <!-- Modal -->
 <div class="modal fade " id="manageCryptoDashCoinsModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="manageCryptoDashCoinsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content bg-light" id="manageCryptoDashCoinsModalContent">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content backdrop-blur" id="manageCryptoDashCoinsModalContent">
       <div class="modal-header">
         <h5 class="modal-title" id="manageCryptoDashCoinsModalLabel"><i class="fa fa-th-large "></i> Trackers</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashCoinsModalClose"></button>
@@ -1046,8 +1220,8 @@ p[id$="updatetime"] {
 
 <!-- Modal -->
 <div class="modal fade " id="manageCryptoDashDataSourceModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="manageCryptoDashDataSourceModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content bg-light" id="manageCryptoDashDataSourceModalContent">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content backdrop-blur" id="manageCryptoDashDataSourceModalContent">
       <div class="modal-header">
         <h5 class="modal-title" id="manageCryptoDashDataSourceModalLabel"><i class="fa fa-database "></i> Data Sources</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="manageCryptoDashDataSourceModalClose"></button>
@@ -1137,7 +1311,7 @@ p[id$="updatetime"] {
       </div>
       <div class="modal-footer">
         
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <span class="input-group-text"><i class="fa fa-key"></i></span>
           <input type="text" id="cryptodash-apikey" class="form-control" placeholder="API Key" aria-label="API Key" aria-describedby="cryptodash-apikey" disabled>
           <button class="btn btn-sm btn-outline-dark" type="button" id="cryptodash-apikey-button" onclick="setCryptoDashDataSourceAPIKey()" disabled>Update</button>
@@ -1303,7 +1477,7 @@ function resetCryptoDashConfig() {
 // save the Crypto Dash configuration
 function saveCryptoDashConfig(){
   const CryptoDashConfig = JSON.stringify(window.localStorage);
-  const CryptoDashConfigFileName = "CryptoDashConfig" + "-" + CryptoDashCurrentDateDay + "-" + CryptoDashCurrentDateMonth + "-" + CryptoDashCurrentDateYear +".cd";
+  const CryptoDashConfigFileName = "CryptoDash" + "-" + CryptoDashCurrentDateDay + "-" + CryptoDashCurrentDateMonth + "-" + CryptoDashCurrentDateYear +".cdbackup";
   CryptoDashDownloader(CryptoDashConfig, CryptoDashConfigFileName, "text/plain");
   
 }
@@ -1455,6 +1629,8 @@ function pullCryptoDashCoinList() {
               manualCryptoDashFetchTrackerData();
 
               updateCryptoDashTrackerFontSize();
+
+              updateCryptoDashCoinSelectorCloseButton();
             }
             
             showCryptoDashNotification('<i class="fa fa-info-circle"></i> List of coins successfully retreived', 3000);
@@ -1553,9 +1729,11 @@ function pullCryptoDashCoinList() {
                 manualCryptoDashFetchTrackerData();
 
                 updateCryptoDashTrackerFontSize();
+
+                updateCryptoDashCoinSelectorCloseButton();
               }
               
-              showCryptoDashNotification('<i class="fa fa-info-circle"></i>List of coins successfully retreived', 3000);
+              showCryptoDashNotification('<i class="fa fa-info-circle"></i> List of coins successfully retreived', 3000);
 
             }
 
@@ -1601,17 +1779,38 @@ function pullCryptoDashCoinList() {
 
 }
 
+
+function updateCryptoDashCoinSelectorCloseButton() {
+  var CryptoDashCoinSelectorCloseButton = document.querySelector(".clear-button");
+  CryptoDashCoinSelectorCloseButton.innerHTML = '<i class="fa fa-close"></i>';
+
+
+  document.querySelectorAll("a.remove").forEach((element) => {
+    element.innerHTML = '<i class="fa fa-close"></i>';
+  });
   
+}
+
+
 function updateCryptoDashTrackerFontSize() {
   document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
-    window.fitText( element, 1.2 );
+    window.fitText( element, 1.35 );
   });
 }
 
 // Selecter from the tracker in the settings menu
 var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
-  plugins: ['remove_button'],
+  //plugins: ['remove_button'],
+  plugins: {
+		'remove_button':{
+			title:'Remove this tracker',
+		},
+    'clear_button':{
+			'title':'Remove all selected trackers',
+		},
+	},
   maxItems: 32,
+  maxOptions: 2500,
   create: false,
   // Find dynamic list of all coins based on all coin list from data source
  /* options: [
@@ -1637,7 +1836,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     // console.log("changed Crypto Dash coin selection and added the " + value + " Tracker");
     //manualCryptoDashFetchTrackerData();
 
-    showCryptoDashNotification("Tracker "+ value + " added successfully", 3000);
+    showCryptoDashNotification('<i class="fa fa-info-circle "></i>' + " Tracker "+ value + " added successfully", 3000);
 
     
 
@@ -1645,7 +1844,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
   onItemRemove:function(value){
     this.refreshOptions();
     removeCryptoDashTracker(value);
-    showCryptoDashNotification("Tracker "+ value + " removed successfully", 3000);
+    showCryptoDashNotification('<i class="fa fa-info-circle "></i>' + " Tracker "+ value + " removed successfully", 3000);
     //console.log("changed Crypto Dash coin selection and removed the " + value + " Tracker");
   },
   render:{
@@ -1677,16 +1876,19 @@ var CryptoDashTrackerWidth = window.localStorage.getItem('CryptoDashTrackerWidth
 var CryptoDashTrackerHeight = window.localStorage.getItem('CryptoDashTrackerHeight');
 
 
+
+/*
 try {
-  pullCryptoDashCoinList();
+  
 }
 catch(e) {
   console.error(e);
+  console.log("something happened");
   showCryptoDashNotification(e, 3000);
 
 }
 
-
+*/
 
 if (CryptoDashLayout) {
   loadCryptoDashLayout(CryptoDashGrid, CryptoDashLayout);
@@ -1853,6 +2055,11 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     //document.body.classList.add("bg-dark");
     document.getElementById("cryptodash-settings-menu-close").classList.add("bg-light");
     document.getElementById("cryptodash-settings-menu-close").classList.remove("bg-dark");
+    document.getElementById("cryptodash-chart-menu-close").classList.add("bg-light");
+    document.getElementById("cryptodash-chart-menu-close").classList.remove("bg-dark");
+    
+
+
     document.getElementById("cryptodash-settings-button").classList.add("btn-dark");
     document.getElementById("cryptodash-settings-button").classList.remove("btn-light");
     document.getElementById("cryptodash-refresh-button").classList.add("btn-dark");
@@ -1863,24 +2070,24 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     //reset config modal close button & modal
     document.getElementById("resetCryptoDashConfigModalClose").classList.add("bg-light");
     document.getElementById("resetCryptoDashConfigModalClose").classList.remove("bg-dark");
-    document.getElementById("resetCryptoDashConfigModalContent").classList.add("bg-dark");
-    document.getElementById("resetCryptoDashConfigModalContent").classList.remove("bg-light");
-	  document.getElementById("manageCryptoDashCoinsModalContent").classList.add("bg-dark");
-    document.getElementById("manageCryptoDashCoinsModalContent").classList.remove("bg-light");
+    //document.getElementById("resetCryptoDashConfigModalContent").classList.add("bg-dark");
+    //document.getElementById("resetCryptoDashConfigModalContent").classList.remove("bg-light");
+	  //document.getElementById("manageCryptoDashCoinsModalContent").classList.add("bg-dark");
+    //document.getElementById("manageCryptoDashCoinsModalContent").classList.remove("bg-light");
 	  document.getElementById("manageCryptoDashCoinsModalClose").classList.add("bg-light");
     document.getElementById("manageCryptoDashCoinsModalClose").classList.remove("bg-dark");
     document.getElementById("manageCryptoDashDataSourceModalClose").classList.add("bg-light");
     document.getElementById("manageCryptoDashDataSourceModalClose").classList.remove("bg-dark");
     
-    document.getElementById("uploadCryptoDashConfigModalContent").classList.add("bg-dark");
-    document.getElementById("uploadCryptoDashConfigModalContent").classList.remove("bg-light");
+    //document.getElementById("uploadCryptoDashConfigModalContent").classList.add("bg-dark");
+    //document.getElementById("uploadCryptoDashConfigModalContent").classList.remove("bg-light");
 	  document.getElementById("uploadCryptoDashConfigModalClose").classList.add("bg-light");
     document.getElementById("uploadCryptoDashConfigModalClose").classList.remove("bg-dark");
     document.getElementById("uploadCryptoDashConfigInput").classList.add("text-light");
     document.getElementById("uploadCryptoDashConfigInput").classList.remove("text-dark");
     
     // update the select drop down
-    document.querySelector('.ts-control').classList.add("bg-dark");
+    // -  document.querySelector('.ts-control').classList.add("bg-dark");
     //document.querySelector('.ts-dropdown').classList.add("bg-dark");
     document.getElementById("CryptoDashCoinsSelector-ts-control").classList.add("text-white");
     //document.querySelectorAll(".option:not(.active)").forEach((element) => {
@@ -1893,6 +2100,27 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.documentElement.style.setProperty('--frosted-tracker-bg-color', "rgba(0, 0, 0, 0.25)");
     
 
+    // .select backdrop-blur class
+    document.querySelectorAll(".ts-dropdown").forEach((element) => {
+      //element.classList.remove("backdrop-blur");
+      element.classList.add("text-light");
+      element.classList.remove("text-dark");
+      
+
+    });
+
+    // .select backdrop-blur class
+    document.querySelectorAll(".option").forEach((element) => {
+      //element.classList.remove("backdrop-blur");
+      if(element.classList.contains("active")){
+        //element.classList.add("text-dark");
+        //element.classList.remove("text-light");
+      } else {
+      element.classList.remove("text-light");
+      element.classList.remove("text-dark");
+      }
+
+    });
 
     document.querySelectorAll(".btn-outline-dark").forEach((element) => {
       element.className = element.className.replace(/-dark/g, "-light");
@@ -1916,7 +2144,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
       CryptoDashLightSwitch.checked = true;
     }
     
-    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Dark theme set`, 3000);
+    showCryptoDashNotification(`<i class="fa fa-moon-o"></i> Dark theme set`, 3000);
 
     localStorage.setItem("CryptoDashLightSwitch", "dark");
     setCryptoDashConfigDate();
@@ -1943,7 +2171,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.getElementById("uploadCryptoDashConfigInput").classList.remove("text-light");
 
     // update the select drop down
-    document.querySelector('.ts-control').classList.add("bg-light");
+    // - document.querySelector('.ts-control').classList.add("bg-light");
     //document.querySelector('.ts-dropdown').classList.add("bg-light");
     document.getElementById("CryptoDashCoinsSelector-ts-control").classList.add("text-dark");
     //document.querySelectorAll(".option:not(.active)").forEach((element) => {
@@ -1964,6 +2192,31 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
       element.className = element.className.replace(/-light/g, "-dark");
     });
     
+    // .select backdrop-blur class
+    document.querySelectorAll(".ts-dropdown").forEach((element) => {
+      //element.classList.remove("backdrop-blur");
+      element.classList.add("text-dark");
+      element.classList.remove("text-light");
+
+    });
+
+    // .select backdrop-blur class
+    document.querySelectorAll(".option").forEach((element) => {
+      //element.classList.remove("backdrop-blur");
+
+      if(element.classList.contains("active")){
+        element.classList.add("text-light");
+        element.classList.remove("text-dark");
+      } else {
+        element.classList.add("text-dark");
+        element.classList.remove("text-light");
+      }
+
+      
+
+    });
+
+
 
     if (document.body.classList.contains("text-light")) {
       document.body.classList.replace("text-light", "text-dark");
@@ -1977,7 +2230,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
       CryptoDashLightSwitch.checked = false;
     }
 
-    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Light theme set`, 3000);
+    showCryptoDashNotification(`<i class="fa fa-sun-o"></i> Light theme set`, 3000);
 
     window.localStorage.setItem("CryptoDashLightSwitch", "light");
     setCryptoDashConfigDate();
@@ -2070,7 +2323,7 @@ itemSizeRanger.onchange = function() {
   CryptoDashGrid.layout();
 
   window.localStorage.setItem('CryptoDashTrackerWidth', itemSizeRanger.value + "px");
-  window.localStorage.setItem('CryptoDashTrackerHeight', itemSizeRanger.value + "px");
+  window.localStorage.setItem('CryptoDashTrackerHeight', itemSizeRanger.value / 2 + "px");
   setCryptoDashConfigDate();
   
 }
@@ -2079,7 +2332,7 @@ itemSizeRanger.oninput = function() {
   
   document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
     element.style.width = itemSizeRanger.value + "px";
-    element.style.height = itemSizeRanger.value + "px";
+    element.style.height = itemSizeRanger.value / 2 + "px";
   });
 
   itemSizeRanger.title = itemSizeRanger.value + 'px';
@@ -2090,6 +2343,313 @@ itemSizeRanger.oninput = function() {
   CryptoDashGrid.refreshItems();
   CryptoDashGrid.layout();
 }
+
+
+// Get last 30 days pair for charts
+
+async function getCryptoDashChartLast30Days(coin, currency) {
+    
+  var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
+  var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+
+  if (CryptoDashDataSource == null) {
+    window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
+  }
+
+  function checkCryptoDashDataSourceAPIKey() {
+    if (CryptoDashDataSourceAPIKey == null) {
+      throw new Error('Data Source API Key not found in Local Storage');
+    }
+  }
+
+  if (CryptoDashDataSource === "CryptoCompareFree" ) {
+
+    try {
+
+      const response = await fetch('https://min-api.cryptocompare.com/data/v2/histoday?fsym=' + coin + '&tsym=' + currency + '&limit=30')
+          
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if(data['Response'] === "Error"){
+
+        console.error("Crypto Compare API Error: " + data['Message']);
+
+        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+        
+      } else {
+
+        var CryptoDashTimeFrom = data['Data']['TimeFrom'];
+        var CryptoDashTimeTo = data['Data']['TimeTo'];
+        var CryptoDashTimeArray = data['Data']['Data']['0']['high'];
+        var CryptoChartData = data;
+        //console.log("will return the time from:  " + CryptoDashTimeFrom + " " + CryptoDashTimeTo + " " + CryptoDashTimeArray);
+
+        //return(CryptoDashTimeFrom, CryptoDashTimeTo, CryptoDashTimeArray);
+        
+        //return CryptoChartData;
+
+        var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+        var CryptoDashHighSeries = [];
+
+        for (const item of data['Data']['Data']) {
+          // `item` is the array element, **not** the index
+          //console.log(item.time);
+          var unixTimestamp = item.time * 1000;
+          var timestamp = new Date(unixTimestamp);
+          var highValue = item.high;
+          var lowValue = item.low;
+
+          //console.log(unixTimestamp);
+          
+
+        }
+
+        var options = {
+          series: [{
+            name: 'High',
+            data: [
+              [new Date(data['Data']['Data']['0']['time']*1000) , data['Data']['Data']['0']['high']], 
+              [new Date(data['Data']['Data']['1']['time']*1000) , data['Data']['Data']['1']['high']],
+              [new Date(data['Data']['Data']['2']['time']*1000) , data['Data']['Data']['2']['high']],
+              [new Date(data['Data']['Data']['3']['time']*1000) , data['Data']['Data']['3']['high']],
+              [new Date(data['Data']['Data']['4']['time']*1000) , data['Data']['Data']['4']['high']],
+              [new Date(data['Data']['Data']['5']['time']*1000) , data['Data']['Data']['5']['high']],
+              [new Date(data['Data']['Data']['6']['time']*1000) , data['Data']['Data']['6']['high']],
+              [new Date(data['Data']['Data']['7']['time']*1000) , data['Data']['Data']['7']['high']],
+              [new Date(data['Data']['Data']['8']['time']*1000) , data['Data']['Data']['8']['high']],
+              [new Date(data['Data']['Data']['9']['time']*1000) , data['Data']['Data']['9']['high']],
+              [new Date(data['Data']['Data']['10']['time']*1000) , data['Data']['Data']['10']['high']],
+              [new Date(data['Data']['Data']['11']['time']*1000) , data['Data']['Data']['11']['high']],
+              [new Date(data['Data']['Data']['12']['time']*1000) , data['Data']['Data']['12']['high']],
+              [new Date(data['Data']['Data']['13']['time']*1000) , data['Data']['Data']['13']['high']],
+              [new Date(data['Data']['Data']['14']['time']*1000) , data['Data']['Data']['14']['high']],
+              [new Date(data['Data']['Data']['15']['time']*1000) , data['Data']['Data']['15']['high']],
+              [new Date(data['Data']['Data']['16']['time']*1000) , data['Data']['Data']['16']['high']],
+              [new Date(data['Data']['Data']['17']['time']*1000) , data['Data']['Data']['17']['high']],
+              [new Date(data['Data']['Data']['18']['time']*1000) , data['Data']['Data']['18']['high']],
+              [new Date(data['Data']['Data']['19']['time']*1000) , data['Data']['Data']['19']['high']],
+              [new Date(data['Data']['Data']['20']['time']*1000) , data['Data']['Data']['20']['high']],
+              [new Date(data['Data']['Data']['21']['time']*1000) , data['Data']['Data']['21']['high']],
+              [new Date(data['Data']['Data']['22']['time']*1000) , data['Data']['Data']['22']['high']],
+              [new Date(data['Data']['Data']['23']['time']*1000) , data['Data']['Data']['23']['high']],
+              [new Date(data['Data']['Data']['24']['time']*1000) , data['Data']['Data']['24']['high']],
+              [new Date(data['Data']['Data']['25']['time']*1000) , data['Data']['Data']['25']['high']],
+              [new Date(data['Data']['Data']['26']['time']*1000) , data['Data']['Data']['26']['high']],
+              [new Date(data['Data']['Data']['27']['time']*1000) , data['Data']['Data']['27']['high']],
+              [new Date(data['Data']['Data']['28']['time']*1000) , data['Data']['Data']['28']['high']],
+              [new Date(data['Data']['Data']['29']['time']*1000) , data['Data']['Data']['29']['high']],
+              [new Date(data['Data']['Data']['30']['time']*1000) , data['Data']['Data']['30']['high']]
+            ]
+          }, {
+            name: 'Low',
+            data: [
+              [new Date(data['Data']['Data']['0']['time']*1000) , data['Data']['Data']['0']['low']], 
+              [new Date(data['Data']['Data']['1']['time']*1000) , data['Data']['Data']['1']['low']],
+              [new Date(data['Data']['Data']['2']['time']*1000) , data['Data']['Data']['2']['low']],
+              [new Date(data['Data']['Data']['3']['time']*1000) , data['Data']['Data']['3']['low']],
+              [new Date(data['Data']['Data']['4']['time']*1000) , data['Data']['Data']['4']['low']],
+              [new Date(data['Data']['Data']['5']['time']*1000) , data['Data']['Data']['5']['low']],
+              [new Date(data['Data']['Data']['6']['time']*1000) , data['Data']['Data']['6']['low']],
+              [new Date(data['Data']['Data']['7']['time']*1000) , data['Data']['Data']['7']['low']],
+              [new Date(data['Data']['Data']['8']['time']*1000) , data['Data']['Data']['8']['low']],
+              [new Date(data['Data']['Data']['9']['time']*1000) , data['Data']['Data']['9']['low']],
+              [new Date(data['Data']['Data']['10']['time']*1000) , data['Data']['Data']['10']['low']],
+              [new Date(data['Data']['Data']['11']['time']*1000) , data['Data']['Data']['11']['low']],
+              [new Date(data['Data']['Data']['12']['time']*1000) , data['Data']['Data']['12']['low']],
+              [new Date(data['Data']['Data']['13']['time']*1000) , data['Data']['Data']['13']['low']],
+              [new Date(data['Data']['Data']['14']['time']*1000) , data['Data']['Data']['14']['low']],
+              [new Date(data['Data']['Data']['15']['time']*1000) , data['Data']['Data']['15']['low']],
+              [new Date(data['Data']['Data']['16']['time']*1000) , data['Data']['Data']['16']['low']],
+              [new Date(data['Data']['Data']['17']['time']*1000) , data['Data']['Data']['17']['low']],
+              [new Date(data['Data']['Data']['18']['time']*1000) , data['Data']['Data']['18']['low']],
+              [new Date(data['Data']['Data']['19']['time']*1000) , data['Data']['Data']['19']['low']],
+              [new Date(data['Data']['Data']['20']['time']*1000) , data['Data']['Data']['20']['low']],
+              [new Date(data['Data']['Data']['21']['time']*1000) , data['Data']['Data']['21']['low']],
+              [new Date(data['Data']['Data']['22']['time']*1000) , data['Data']['Data']['22']['low']],
+              [new Date(data['Data']['Data']['23']['time']*1000) , data['Data']['Data']['23']['low']],
+              [new Date(data['Data']['Data']['24']['time']*1000) , data['Data']['Data']['24']['low']],
+              [new Date(data['Data']['Data']['25']['time']*1000) , data['Data']['Data']['25']['low']],
+              [new Date(data['Data']['Data']['26']['time']*1000) , data['Data']['Data']['26']['low']],
+              [new Date(data['Data']['Data']['27']['time']*1000) , data['Data']['Data']['27']['low']],
+              [new Date(data['Data']['Data']['28']['time']*1000) , data['Data']['Data']['28']['low']],
+              [new Date(data['Data']['Data']['29']['time']*1000) , data['Data']['Data']['29']['low']],
+              [new Date(data['Data']['Data']['30']['time']*1000) , data['Data']['Data']['30']['low']]
+            ]
+          }],
+            chart: {
+              height: 350,
+              type: 'area'
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              curve: 'smooth'
+            },
+        xaxis: {
+          type: 'datetime',
+          tooltip: {
+            x: {
+              format: 'dd/MM/yy HH:mm'
+            },
+          },
+        }, 
+        theme: {
+          mode: CryptoDashCurrentTheme,
+        }
+      };
+      
+        var chart = new ApexCharts(document.querySelector("#blurry"), options);
+        chart.render();
+      
+        var svgchart = document.querySelector("svg");
+        
+        svgchart.style.removeProperty("background");
+        
+
+
+        document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
+          // do something...
+          chart.destroy();
+        })
+
+        /*
+        var unixTimestamp = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['LASTUPDATE'];
+        var lastupdate = new Date(unixTimestamp*1000);
+        var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear() + " <br> " + lastupdate.toLocaleTimeString();
+
+        */
+        
+      }
+
+    } catch(e) {
+      console.error(e);
+      showCryptoDashNotification(e, 10000);
+    }
+
+  }
+
+  if (CryptoDashDataSource === "CryptoCompareAPI" ) {
+    
+    try {
+      checkCryptoDashDataSourceAPIKey();
+
+      try {
+     
+        var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+
+        try {
+          
+          const response = await fetch('https://min-api.cryptocompare.com/data/v2/histoday?fsym=' + coin + '&tsym=' + currency + '&limit=30' + '&api_key=' + CryptoDashDataSourceAPIKey)
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if(data['Response'] === "Error"){
+
+            console.error("Crypto Compare API Error: " + data['Message']);
+    
+            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+            
+          } else {
+
+            return(data);
+            
+          }
+
+        } catch(e) {
+          console.error(e);
+          showCryptoDashNotification(e, 10000);
+        }
+
+      } catch(e) {
+        console.error(e);
+        showCryptoDashNotification(e, 10000);
+      }
+
+    } catch(e) {
+      console.error(e);
+      showCryptoDashNotification(e, 10000);
+    }
+
+
+  }
+
+
+
+
+
+
+}
+
+var chartCryptoDashOpener = function (event) {
+  //event.preventDefault()
+  event.stopPropagation()
+  var CryptoDashChartOffCanvas = new bootstrap.Offcanvas(document.getElementById('cryptodash-chart-menu'))
+  CryptoDashChartOffCanvas.show()
+
+  
+
+  //console.log(this.id);
+  var CryptoDashChartTitle = this.id.substring(0, this.id.length - 4); ;
+  var CryptoDashChartOffCanvasTitle = document.getElementById('CryptoDashChartMenuLabel');
+
+  CryptoDashChartOffCanvasTitle.innerHTML = CryptoDashChartTitle;
+
+  //CryptoDashChartMenuLabel
+
+  var CryptoDashCurrentSelectedCurrency = window.localStorage.getItem("CryptoDashCurrency");
+
+  var CryptoChartData = getCryptoDashChartLast30Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+
+  //console.log("This is what I get: " + CryptoChartData);
+  //console.log(CryptoChartData['CryptoDashTimeFrom']);
+  //console.log(JSON.stringify(CryptoChartData));
+
+
+
+
+  //console.log(JSON.stringify(CryptoChartData['Data']) );
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+}
+
+
+
+
 
 
 function createCryptoDashTracker(coinAbr) {
@@ -2136,9 +2696,9 @@ function createCryptoDashTracker(coinAbr) {
   var TrackerImgIDAttribute = document.createAttribute("id");
   var TrackerImgSRCAttribute = document.createAttribute("src");
 
-  var TrackerImgChartAttributeToggle = document.createAttribute("data-bs-toggle");
-  var TrackerImgChartAttributeTarget = document.createAttribute("data-bs-target");
-  var TrackerImgChartAttributeAria = document.createAttribute("aria-controls");
+  //var TrackerImgChartAttributeToggle = document.createAttribute("data-bs-toggle");
+  //var TrackerImgChartAttributeTarget = document.createAttribute("data-bs-target");
+  //var TrackerImgChartAttributeAria = document.createAttribute("aria-controls");
   //var TrackerImgClassAttribute = document.createAttribute("class");
 
   var TrackerUpdateTime = document.createElement("p");
@@ -2183,9 +2743,10 @@ function createCryptoDashTracker(coinAbr) {
     Tracker.classList.add("bg-light");
   }
   */
-
+//animate__pulse
   Tracker.classList.add("col");
-  TrackerItemContent.classList.add("cryptodash-tracker-content");
+  TrackerItemContent.classList.add("cryptodash-tracker-content" , "animate__animated", "animate__pulse");
+  //TrackerItemContent.addEventListener("click", chartCryptoDashOpener);
   
   TrackerAttribute.value = coinAbr;
   TrackerIDAttribute.value = coinAbr;
@@ -2207,9 +2768,9 @@ function createCryptoDashTracker(coinAbr) {
 
   TrackerImgIDAttribute.value = coinAbr + "-img";
   TrackerImgSRCAttribute.value = "";
-  TrackerImgChartAttributeToggle.value = "offcanvas";
-  TrackerImgChartAttributeTarget.value = "#cryptodash-chart-menu";
-  TrackerImgChartAttributeAria.value = "cryptodash-chart-menu";
+  //TrackerImgChartAttributeToggle.value = "offcanvas";
+  //TrackerImgChartAttributeTarget.value = "#cryptodash-chart-menu";
+  //TrackerImgChartAttributeAria.value = "cryptodash-chart-menu";
 
   TrackerUpdateTimeIDAttribute.value = coinAbr + "-updatetime";
 
@@ -2234,10 +2795,11 @@ function createCryptoDashTracker(coinAbr) {
 
   TrackerImg.setAttributeNode(TrackerImgIDAttribute);
   TrackerImg.setAttributeNode(TrackerImgSRCAttribute);
-  TrackerImg.setAttributeNode(TrackerImgChartAttributeToggle);
-  TrackerImg.setAttributeNode(TrackerImgChartAttributeTarget);
-  TrackerImg.setAttributeNode(TrackerImgChartAttributeAria);
+  //TrackerImg.setAttributeNode(TrackerImgChartAttributeToggle);
+  //TrackerImg.setAttributeNode(TrackerImgChartAttributeTarget);
+  //TrackerImg.setAttributeNode(TrackerImgChartAttributeAria);
   //TrackerImg.setAttributeNode(TrackerImgClassAttribute);
+  TrackerImg.addEventListener("click", chartCryptoDashOpener);
   
 
   TrackerUpdateTime.setAttributeNode(TrackerUpdateTimeIDAttribute);
@@ -2322,7 +2884,7 @@ var refreshCryptoDashDataInterval = window.localStorage.getItem("CryptoDashAutoR
 
 // if interval not available set 60 
 if(!refreshCryptoDashDataInterval){
-  window.localStorage.setItem('CryptoDashAutoRefresh', '60' );
+  window.localStorage.setItem('CryptoDashAutoRefresh', '110' );
 
   refreshCryptoDashDataInterval = window.localStorage.getItem("CryptoDashAutoRefresh");
 
@@ -2543,12 +3105,13 @@ async function manualCryptoDashFetchTrackerData() {
   if (CryptoDashDataSource === "CryptoCompareFree" ) {
     
     try {
-      console.log(CryptoDashTrackerInfo);
+      //console.log(CryptoDashTrackerInfo);
      
       if(!CryptoDashTrackerInfo || CryptoDashTrackerInfo === "[]" || CryptoDashTrackerInfo.length == "0") {
         
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Data Refresh Error</strong> <br>` + `Nothing is currently tracked`, -1, true);
 
+        // disable the auto refresh 
         document.getElementById("refreshRanger").disabled = true;
 
         var CryptoDashDataRefreshSwitch = document.getElementById("CryptoDashDataRefreshSwitch");
@@ -2557,7 +3120,7 @@ async function manualCryptoDashFetchTrackerData() {
           CryptoDashDataRefreshSwitch.checked = false;
         }
         localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
-        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh manually`, 3000);
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh manually to prevent unnecessary API requests`, 3000);
         document.getElementById("dataRefreshSpan").innerHTML = "N/A"; 
         document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>`;
         stopAutoCryptoDashFetchTrackerData();
@@ -2576,7 +3139,6 @@ async function manualCryptoDashFetchTrackerData() {
         // to define 
         //CryptoDashCurrency
         var priceCurrency = "USD,EUR,GBP";
-        
         
         try {
         
@@ -2625,10 +3187,6 @@ async function manualCryptoDashFetchTrackerData() {
                 // TrackerPrice.innerText = data['DISPLAY'][cryptoDashTrackerID][mycurrency]['PRICE'];
                 // CurrentTracker.firstChild.appendChild(TrackerPrice);
                 
-              
-
-              
-
                 // document.getElementById(cryptoDashTrackerID + "-high24").innerHTML = "24 Hour High: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['HIGH24HOUR'];
                 // document.getElementById(cryptoDashTrackerID + "-low24").innerHTML = "24 Hour Low: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['LOW24HOUR'];
                 // document.getElementById(cryptoDashTrackerID + "-highhour").innerHTML = "Last Hour High: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['HIGHHOUR'];
@@ -2639,7 +3197,7 @@ async function manualCryptoDashFetchTrackerData() {
 
                 // try get last change in 24 hours
                 try {
-                  document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24 Hours: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + " %";
+                  document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + " %";
                 } catch (e) {
                   //document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "N/A";
                   //console.error("Data not available for tracker: " + cryptoDashTrackerID);
@@ -2647,7 +3205,7 @@ async function manualCryptoDashFetchTrackerData() {
 
                 // try and get last hour change 
                 try {
-                  document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "Hour: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + " %";
+                  document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + " %";
                 } catch (e) {
                   //document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "N/A";
                   //console.error("Data not available for tracker: " + cryptoDashTrackerID);
@@ -2680,7 +3238,7 @@ async function manualCryptoDashFetchTrackerData() {
 
                   var unixTimestamp = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['LASTUPDATE'];
                   var lastupdate = new Date(unixTimestamp*1000);
-                  var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear() + " " + lastupdate.toLocaleTimeString();
+                  var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear() + " <br> " + lastupdate.toLocaleTimeString();
                 
                   document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = showlastupdate;
 
@@ -2696,19 +3254,58 @@ async function manualCryptoDashFetchTrackerData() {
                 
                 //try to flash color red/green 
                 try {
+                  if (Math.sign(data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR']) > 0) {
+                    // add 24 hour percent change info and correct symbol to tracker and display it
+                    document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = '<i class="fa fa-angle-double-up"></i> ' + "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + "%";
+                    // set text color and shadow for status symbol 
+                    document.getElementById(cryptoDashTrackerID + "-changepct24").querySelectorAll(".fa-angle-double-up").forEach((element) => {
+                      element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                      element.style.setProperty('color', "#39FF14");
+                    });
+
+                  } else {
+                    // add 24 hour percent change info and correct symbol to tracker and display it
+                    document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = '<i class="fa fa-angle-double-down"></i> ' + "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + "%";
+                    // set text red color and shadow for status symbol 
+                    document.getElementById(cryptoDashTrackerID + "-changepct24").querySelectorAll(".fa-angle-double-down").forEach((element) => {
+                      element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                      element.style.setProperty('color', "#F73718");
+                    });
+                  }
 
                   if (Math.sign(data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR']) > 0) {
-                    // Positive
+                    // remove image negative colors
                     CryptoDashTrackerImg.classList.remove("cryptodash-negative");
+                    // add image positive colors
                     CryptoDashTrackerImg.classList.add("cryptodash-positive");
-                    //CryptoDashTracker.classList.remove("cryptodash-negative");
-                    //CryptoDashTracker.classList.add("cryptodash-positive-pulse");
+                    // flash tracker with green border
+                    document.getElementById(cryptoDashTrackerID).classList.add("cryptodash-content-positive");
+                    // add hour percent change info and correct symbol to tracker and display it
+                    document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = '<i class="fa fa-angle-double-up"></i> ' + "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + "%";
+                    // set text green color and shadow for status symbol 
+                    document.getElementById(cryptoDashTrackerID + "-changepcthour").querySelectorAll(".fa-angle-double-up").forEach((element) => {
+                      element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                      element.style.setProperty('color', "#39FF14");
+                    });
+
                   } else {
-                    // Negative
+                    // remove image positive colors
                     CryptoDashTrackerImg.classList.remove("cryptodash-positive");
+                    // add image negative colors
                     CryptoDashTrackerImg.classList.add("cryptodash-negative");
-          
+                    // remove the tracker flash with green border
+                    document.getElementById(cryptoDashTrackerID).classList.remove("cryptodash-content-positive");
+                    // add hour percent change info and correct symbol to tracker and display it
+                    document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = '<i class="fa fa-angle-double-down"></i> ' + "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + "%";
+                    // set text red color and shadow for status symbol 
+                    document.getElementById(cryptoDashTrackerID + "-changepcthour").querySelectorAll(".fa-angle-double-down").forEach((element) => {
+                      element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                      element.style.setProperty('color', "#F73718");
+                    });
                   }
+
+                  
+
 
                 } catch (e) {
                   //console.error("Data not available for tracker: " + cryptoDashTrackerID);
@@ -2722,12 +3319,7 @@ async function manualCryptoDashFetchTrackerData() {
   
             });
 
-
-
-          }
-          
-          
-            
+          }        
 
         } catch(e) {
           console.error(e);
@@ -2738,16 +3330,12 @@ async function manualCryptoDashFetchTrackerData() {
 
       };
 
-      document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin");
-      
-         
+      document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin"); 
         
     } catch(e) {
       console.error(e);
       showCryptoDashNotification(e, -1, true);
     }
-
-    
 
   }
 
@@ -2761,7 +3349,7 @@ async function manualCryptoDashFetchTrackerData() {
         var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
 
         
-        if(!CryptoDashTrackerInfo || CryptoDashTrackerInfo === "[]") {
+        if(!CryptoDashTrackerInfo || CryptoDashTrackerInfo === "[]" || CryptoDashTrackerInfo.length == "0") {
           
           showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Data Refresh Error</strong> <br>` + `Nothing is currently tracked`, -1, true);
 
@@ -2841,7 +3429,7 @@ async function manualCryptoDashFetchTrackerData() {
 
                   // try get last change in 24 hours
                   try {
-                    document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24 Hours: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + " %";
+                    document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + " %";
                   } catch (e) {
                     //document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "N/A";
                     //console.error("Data not available for tracker: " + cryptoDashTrackerID);
@@ -2849,7 +3437,7 @@ async function manualCryptoDashFetchTrackerData() {
 
                   // try and get last hour change 
                   try {
-                    document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "Hour: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + " %";
+                    document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + " %";
                   } catch (e) {
                     //document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "N/A";
                     //console.error("Data not available for tracker: " + cryptoDashTrackerID);
@@ -2882,7 +3470,7 @@ async function manualCryptoDashFetchTrackerData() {
 
                     var unixTimestamp = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['LASTUPDATE'];
                     var lastupdate = new Date(unixTimestamp*1000);
-                    var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear() + " " + lastupdate.toLocaleTimeString();
+                    var showlastupdate = lastupdate.getDate() + "-" +(lastupdate.getMonth()+1)+ "-" +lastupdate.getFullYear() + " <br> " + lastupdate.toLocaleTimeString();
                   
                     document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = showlastupdate;
 
@@ -2898,20 +3486,59 @@ async function manualCryptoDashFetchTrackerData() {
                   
                   //try to flash color red/green 
                   try {
-
-                    if (Math.sign(data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR']) > 0) {
-                      // Positive
-                      CryptoDashTrackerImg.classList.remove("cryptodash-negative");
-                      CryptoDashTrackerImg.classList.add("cryptodash-positive");
-                      //CryptoDashTracker.classList.remove("cryptodash-negative");
-                      //CryptoDashTracker.classList.add("cryptodash-positive-pulse");
+                    if (Math.sign(data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR']) > 0) {
+                      // add 24 hour percent change info and correct symbol to tracker and display it
+                      document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = '<i class="fa fa-angle-double-up"></i> ' + "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + "%";
+                      // set text color and shadow for status symbol 
+                      document.getElementById(cryptoDashTrackerID + "-changepct24").querySelectorAll(".fa-angle-double-up").forEach((element) => {
+                        element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                        element.style.setProperty('color', "#39FF14");
+                      });
+  
                     } else {
-                      // Negative
-                      CryptoDashTrackerImg.classList.remove("cryptodash-positive");
-                      CryptoDashTrackerImg.classList.add("cryptodash-negative");
-            
+                      // add 24 hour percent change info and correct symbol to tracker and display it
+                      document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = '<i class="fa fa-angle-double-down"></i> ' + "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + "%";
+                      // set text red color and shadow for status symbol 
+                      document.getElementById(cryptoDashTrackerID + "-changepct24").querySelectorAll(".fa-angle-double-down").forEach((element) => {
+                        element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                        element.style.setProperty('color', "#F73718");
+                      });
                     }
-
+  
+                    if (Math.sign(data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR']) > 0) {
+                      // remove image negative colors
+                      CryptoDashTrackerImg.classList.remove("cryptodash-negative");
+                      // add image positive colors
+                      CryptoDashTrackerImg.classList.add("cryptodash-positive");
+                      // flash tracker with green border
+                      document.getElementById(cryptoDashTrackerID).classList.add("cryptodash-content-positive");
+                      // add hour percent change info and correct symbol to tracker and display it
+                      document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = '<i class="fa fa-angle-double-up"></i> ' + "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + "%";
+                      // set text green color and shadow for status symbol 
+                      document.getElementById(cryptoDashTrackerID + "-changepcthour").querySelectorAll(".fa-angle-double-up").forEach((element) => {
+                        element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                        element.style.setProperty('color', "#39FF14");
+                      });
+  
+                    } else {
+                      // remove image positive colors
+                      CryptoDashTrackerImg.classList.remove("cryptodash-positive");
+                      // add image negative colors
+                      CryptoDashTrackerImg.classList.add("cryptodash-negative");
+                      // remove the tracker flash with green border
+                      document.getElementById(cryptoDashTrackerID).classList.remove("cryptodash-content-positive");
+                      // add hour percent change info and correct symbol to tracker and display it
+                      document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = '<i class="fa fa-angle-double-down"></i> ' + "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + "%";
+                      // set text red color and shadow for status symbol 
+                      document.getElementById(cryptoDashTrackerID + "-changepcthour").querySelectorAll(".fa-angle-double-down").forEach((element) => {
+                        element.style.setProperty('text-shadow', "0px 0px 8px #000");
+                        element.style.setProperty('color', "#F73718");
+                      });
+                    }
+  
+                    
+  
+  
                   } catch (e) {
                     //console.error("Data not available for tracker: " + cryptoDashTrackerID);
                     //console.error(e);
@@ -2970,17 +3597,7 @@ async function manualCryptoDashFetchTrackerData() {
     
     showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Coin Market Cap API Error</strong> <br>` + `Functionality not yet implemented`, -1, true);
     
-
   }
-
-
-
-
-
-  
-  //var apiKey="123";
-
-  //console.log("this is the apikey: " + apiKey);
 
   
 }
@@ -3069,7 +3686,6 @@ function stopAutoCryptoDashFetchTrackerData() {
 
 })();
 
-
 // CryptoDash Currency selector
 (function () {
 
@@ -3143,7 +3759,6 @@ function stopAutoCryptoDashFetchTrackerData() {
 
 
 })();
-
 
 // CryptoDash Background Selector
 (function () {
@@ -3357,7 +3972,7 @@ function stopAutoCryptoDashFetchTrackerData() {
       simpleCryptoDashBackgroundColor();
     }
 
-    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Loading Background...`, 3000);
+    showCryptoDashNotification(`<i class="fa fa-picture-o"></i> Loading Background...`, 3000);
     
     if (CryptoDashBackground == "GradientHD") {
       // Change body class with selected background
@@ -3606,8 +4221,10 @@ function stopAutoCryptoDashFetchTrackerData() {
     if (frostedCryptoDashThemeInput.checked) {
       frostedCryptoDashThemeInput.checked = true;
     }
+
+    var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
     localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
-    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Frosted the theme`, 3000);
+    showCryptoDashNotification(`<i class="fa fa-snowflake-o"></i> Frosted the theme`, 3000);
     
     // add frosting
 
@@ -3625,6 +4242,82 @@ function stopAutoCryptoDashFetchTrackerData() {
 
     });
 
+    // modals backdrop-blur
+    document.querySelectorAll(".modal-content").forEach((element) => {
+      element.classList.add("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.remove("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.remove("bg-light");
+      }
+
+    });
+
+    // select backdrop-blur
+    document.querySelectorAll(".ts-dropdown-content").forEach((element) => {
+      element.classList.add("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.remove("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.remove("bg-light");
+      }
+
+    });
+
+    // select backdrop-blur
+    document.querySelectorAll(".ts-control").forEach((element) => {
+      element.classList.add("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.remove("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.remove("bg-light");
+      }
+
+    });
+
+    // select backdrop-blur
+    document.querySelectorAll(".ts-dropdown").forEach((element) => {
+      element.classList.add("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.remove("bg-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.remove("bg-light");
+      }
+
+    });
+
+    
+
+
+    // option text colors
+    document.querySelectorAll(".option").forEach((element) => {
+      if(CryptoDashLightSwitch == "dark") {
+        //element.classList.add("text-light");
+        //element.classList.add("text-light");
+        element.classList.remove("text-light");
+        element.classList.remove("text-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("text-dark");
+        //element.classList.add("text-dark");
+      }
+      
+    });
+    
+    
     // .cryptodash-tracker tracker-backdrop-blur
     document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
       element.classList.add("tracker-backdrop-blur");
@@ -3657,11 +4350,12 @@ function stopAutoCryptoDashFetchTrackerData() {
 
   function defrostCryptoDash() {
 
+    var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
     if (frostedCryptoDashThemeInput.checked) {
       frostedCryptoDashThemeInput.checked = false;
     }
     localStorage.setItem("CryptoDashFrostedThemeSwitch", "Defrosted");
-    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Defrosted the theme`, 3000);
+    showCryptoDashNotification(`<i class="fa fa-fire"></i> Defrosted the theme`, 3000);
     
     // remove frosting
     
@@ -3671,13 +4365,98 @@ function stopAutoCryptoDashFetchTrackerData() {
 
       if(CryptoDashLightSwitch == "dark") {
         element.classList.add("bg-dark");
+        //element.classList.add("text-light");
       }
 
       if(CryptoDashLightSwitch == "light") {
         element.classList.add("bg-light");
+        //element.classList.add("text-dark");
       }
 
     });
+
+    // .modal backdrop-blur class
+    document.querySelectorAll(".modal-content").forEach((element) => {
+      element.classList.remove("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.add("bg-dark");
+        //element.classList.add("text-light");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("bg-light");
+        //element.classList.add("text-dark");
+      }
+
+    });
+
+    // .select backdrop-blur class
+    document.querySelectorAll(".ts-dropdown-content").forEach((element) => {
+      element.classList.remove("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.add("bg-dark");
+        //element.classList.add("text-light");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("bg-light");
+        //element.classList.add("text-dark");
+      }
+
+    });
+
+    // .select backdrop-blur class
+    document.querySelectorAll(".ts-control").forEach((element) => {
+      element.classList.remove("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.add("bg-dark");
+        //element.classList.add("text-light");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("bg-light");
+        //element.classList.add("text-dark");
+      }
+
+    });
+
+    // .select backdrop-blur class
+    document.querySelectorAll(".ts-dropdown").forEach((element) => {
+      element.classList.remove("backdrop-blur");
+
+      if(CryptoDashLightSwitch == "dark") {
+        element.classList.add("bg-dark");
+        element.classList.add("text-light");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("bg-light");
+        element.classList.add("text-dark");
+      }
+
+    });
+
+    // option text colors
+    document.querySelectorAll(".option").forEach((element) => {
+      if(CryptoDashLightSwitch == "dark") {
+        //element.classList.add("text-light");
+        //element.classList.add("text-light");
+        element.classList.remove("text-light");
+        element.classList.remove("text-dark");
+      }
+
+      if(CryptoDashLightSwitch == "light") {
+        element.classList.add("text-dark");
+        //element.classList.add("text-dark");
+      }
+      
+    });
+    
+
+
 
     // .cryptodash-tracker tracker-backdrop-blur
     document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
@@ -3685,10 +4464,12 @@ function stopAutoCryptoDashFetchTrackerData() {
 
       if(CryptoDashLightSwitch == "dark") {
         element.classList.add("bg-dark");
+        //element.classList.add("text-light");
       }
 
       if(CryptoDashLightSwitch == "light") {
         element.classList.add("bg-light");
+        //element.classList.add("text-dark");
       }
 
       CryptoDashGrid.synchronize();
@@ -3739,7 +4520,6 @@ function stopAutoCryptoDashFetchTrackerData() {
 
   setup();
 })();
-
 
 function setCryptoDashDataSourceAPIKey() {
   var CryptoDashDataSourceAPIKey = document.getElementById("cryptodash-apikey");
@@ -3885,6 +4665,9 @@ function helperCryptoDashObjectToHTMLTable(obj) {
   return html;
 }
 
+
+
+pullCryptoDashCoinList();
 
 // Initial call to update font size on first page load
 updateCryptoDashTrackerFontSize();
