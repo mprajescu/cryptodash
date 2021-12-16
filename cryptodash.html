@@ -1311,9 +1311,18 @@ p[id$="updatetime"] {
       <div class="modal-body">
               
      
-        <p>Please take into consideration that when a refresh or an auto refresh is done, even a manual data refresh, it will count towards your API Requests.</p>
-        <p>You can calculate and see your API calls in realtime on Crypto Compare or Coin Market Cap.</p>
-        <p>Before getting the API Key and use it, make sure you understand that having the auto refresh rate sooner would use more requests.</p>
+        <p>Please take into consideration that with any data refresh it will count towards your API Requests.</p>
+        <p>API requests are as follows:</p>
+        <ul>
+          <li>When you are first loading the page, it generates one request to pull the list of coins dynamically</li>
+          <li>When clicking on a tracker image, it will generate 3 requests to pull 3 types of history charts</li>
+          <li>When it refreshes the data to pull the information for trackers, it will generate only one request for all tracked coins</li>
+          <li>When you check for your rates, you will do one request</li>
+          <li>Auto refresh pulls only once, every X amount of time. It's just like a manual refresh, meaning you only multiply by the amount of time it runs.</li>
+
+        </ul>
+        <p>You can calculate and see your API calls in realtime on Crypto Compare or use the Data Source Rate Limits option from the Crypto Dash settings.</p>
+      
 
 
 
@@ -1338,6 +1347,8 @@ p[id$="updatetime"] {
 
         </div>  
         
+
+        <!-- To implement these API data sources 
         <hr>
 
         <a href="https://livecoinwatch.com" target="_blank"><label for="cryptodash-datasource-livecoinwatch" class="form-label badge bg-secondary"><i class="fa fa-globe "></i> Live Coin Watch (link)</label></a>
@@ -1379,7 +1390,7 @@ p[id$="updatetime"] {
         
 
         
-
+        To implement these API data sources -->
         
         
         
@@ -2426,7 +2437,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
 
         console.error("Crypto Compare API Error: " + data['Message']);
 
-        document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'];
+        document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
         
       } else {
@@ -2634,7 +2645,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
 
             console.error("Crypto Compare API Error: " + data['Message']);
     
-            document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'];
+            document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
             showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
         
             
@@ -2873,7 +2884,7 @@ async function getCryptoDashChartLastDay(coin, currency) {
 
         console.error("Crypto Compare API Error: " + data['Message']);
 
-        document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'];
+        document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
         
       } else {
@@ -3081,7 +3092,7 @@ async function getCryptoDashChartLastDay(coin, currency) {
 
             console.error("Crypto Compare API Error: " + data['Message']);
     
-            document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'];
+            document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong>` + data['Message'];
             showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
             
           } else {
@@ -3319,7 +3330,7 @@ async function getCryptoDashChartLastHour(coin, currency) {
 
         console.error("Crypto Compare API Error: " + data['Message']);
 
-        document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'];
+        document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
         
       } else {
@@ -3529,7 +3540,7 @@ async function getCryptoDashChartLastHour(coin, currency) {
 
             console.error("Crypto Compare API Error: " + data['Message']);
     
-            document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'];
+            document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
             showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
             
           } else {
