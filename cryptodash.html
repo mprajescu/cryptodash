@@ -28,6 +28,18 @@
 <!-- Animate.style CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
+<!-- Overlay Scrollbar CSS-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css">
+
+<!-- Simple-ScrollBar CSS-->
+
+
+<!-- Simple-ScrollBar JS-->
+
+
+<!-- Overlay Scrollbar JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"></script>
+
 <!-- Pace JS -->
 <script data-pace-options='{ "ajax": true }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
 
@@ -46,6 +58,10 @@
 <!-- Apex Charts JS-->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+
+
+
+
 <!-- Maybe implement themes in the future -->
 <!-- Themes from https://bootswatch.com/ -->
 <!--<link href="https://bootswatch.com/5/materia/bootstrap.min.css" rel="stylesheet">-->
@@ -62,12 +78,68 @@
     box-sizing: border-box;
 }
 
+
+/* ===== Scrollbar CSS ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+} 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); 
+  border-radius: 1rem;
+} 
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.4); 
+  border-radius: 1rem;
+}
+
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.4) rgba(0,0,0,0.1);
+  }
+  
+
+
+  /* Chrome, Edge, and Safari 
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(0 0 0);
+    opacity: 0.5;
+    border-radius: 1rem;
+    border: 1px solid rgb(0 0 0 / 13%);
+  }
+
+  */
+
 body {
 	font-family: sans-serif;
-	margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  
+	margin-left: 40px !important;
+  margin-right: 20px !important;
+  margin-top: 60px !important;
+  margin-bottom: 20px !important;
+  /*
+
+  margin-left: 40px !important;
+  margin-right: 40px !important;
+  margin-top: 60px !important;
+  margin-bottom: 20px !important;
+
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 60px !important;
+  padding-bottom: 40px !important;
+  */
+
   background-size: 110%;
   background: #282537 no-repeat center fixed;  
   background-image: -webkit-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
@@ -106,6 +178,8 @@ body {
   --cryptodash-main-bg-color: #282537;
   --cryptodash-gradient-bg-color-1: #3c3b52;
   --cryptodash-gradient-bg-color-2: #252233;
+  --cryptodash-line-color-light: rgba(248, 249, 250, 0.25);
+  --cryptodash-line-color-dark: rgba(33, 37, 41, 0.25);
 }
 
 /* simple background class */
@@ -146,6 +220,8 @@ body {
   background-size: 110%;
 	background: url(https://source.unsplash.com/1920x1080/?abstract) no-repeat center fixed;     
   background-size: cover;
+  
+  /**/
 }
 
 /* gradient 4K background class */
@@ -189,6 +265,12 @@ body {
   width: 420px;
   height: 210px;
   margin: 20px;
+  /*
+  margin-left: 60px !important;
+  margin-right: 0px !important;
+  margin-top: 60px !important;
+  margin-bottom: 10px !important;
+  */
   padding: 5px;
   z-index: 1;
   border-radius: 1rem;
@@ -236,6 +318,10 @@ body {
   top: calc(100% - 92%);
   right: calc(100% - 96%);
   border-radius: 50%;
+}
+
+.cryptodash-tracker-content img:hover{
+  cursor: help;
 }
 
 /* all cryptodash tracker content paragraphs that are not containing the update time */
@@ -676,6 +762,108 @@ p[id$="updatetime"] {
   ;
 }
 
+.accordion-body {
+  padding-top: 1.25rem;
+  padding-left: 0px;
+  padding-right: 0px; 
+  padding-bottom: 1.25rem;
+}
+
+.cryptodash-option-dropwdown-item {
+  height: 30px;
+  border-radius: 50%;
+  
+}
+
+.plugin-clear_button .ts-control {
+  padding-right: 10px !important;
+}
+
+#CryptoDashCoinsSelector-ts-control {
+  border: none !important;
+  border-top: 1px solid rgb(0 0 0 / 13%) !important;
+  border-radius: 0px !important;
+  width: 100% !important;
+  position: absolute;
+  
+  bottom: 0px;
+  left: 0px;
+  margin-top: 40px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  line-height: 30px !important;
+  font-size: .875rem;
+}
+
+/*
+#CryptoDashCoinsSelector-ts-control::placeholder {
+  color: #000;
+  opacity: 1; 
+}
+
+*/
+
+
+.ts-wrapper.multi .ts-control>div:not(.item) {
+  border: none !important;
+  border-bottom: 1px solid rgb(0 0 0 / 13%) !important; 
+  /*border-bottom: 1px solid rgba(currentColor, 0.25)  !important; */
+  border-radius: 0px !important;
+  width: 100%;
+  position: absolute;
+  opacity: 1;
+  line-height: 30px;
+  font-size: .875rem;
+  display: none;
+  padding-left: 8px;
+  text-align: center;
+  top: 0px;
+  right: 0px;
+  color: inherit;
+  
+}
+
+.clear-button:focus {
+  background: #ddd;
+  
+}
+
+.ts-dropdown [data-selectable].option {
+  font-size: .875rem;
+  line-height: 30px !important;
+  border-radius: 1rem;
+  margin: 5px !important;
+ 
+}
+
+.ts-dropdown .optgroup-header {
+  border-radius: 1rem !important;
+  background: none !important;
+}
+.ts-wrapper.plugin-remove_button .item .remove{
+  border-left: 1px solid rgb(0 0 0 / 13%) !important;
+  position: absolute;
+  right: 10px;
+  padding-left: 8px;
+}
+
+
+.ts-wrapper.multi .ts-control>div {
+  background: none !important;
+  width: 100%;
+  border-radius: 1rem;
+  line-height: 30px;
+  font-size: .775rem;
+  padding-left: 8px;
+  border: 1px solid rgb(0 0 0 / 13%);
+  margin-left: 5px ;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
 
 .ts-control, .ts-wrapper.single.input-active .ts-control {
   background: none !important;
@@ -683,10 +871,34 @@ p[id$="updatetime"] {
 
 .ts-dropdown, .ts-dropdown.form-control, .ts-dropdown.form-select {
   background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .ts-dropdown {
   background: none !important;
+  position: relative !important;
+  border: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgb(0 0 0 / 13%) !important;
+  border-radius: 1rem;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.ts-dropdown-content {
+  padding: 0px !important;
+}
+
+
+.ts-wrapper.multi .ts-control>div:hover {
+  background: #f8f9fa !important;
+  color: #000 !important;
+}
+
+.ts-dropdown .active, .ts-dropdown .create:hover, .ts-dropdown .option:hover {
+  background: #f8f9fa !important;
+  color: #000;
 }
 
 #cryptodash-apikey {
@@ -699,9 +911,19 @@ p[id$="updatetime"] {
 }
 
 .ts-control {
-  border: 1px solid #565A5D;
+  
+  /*border: 1px solid #565A5D; */
+  border: 1px solid rgb(0 0 0 / 13%);
+  display: block;
   border-radius: 1rem;
-  padding: 10px !important;
+  padding-top: 40px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-bottom: 30px !important;
+  min-height: 150px;
+  margin-bottom: 20px;
+
+  /*box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);*/
 }
 
 .accordion-item {
@@ -711,6 +933,13 @@ p[id$="updatetime"] {
 .accordion-button { 
   background: none !important; 
   border-radius: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.accordion-button:focus {
+  box-shadow: none !important;
 }
 
 .toastify {
@@ -842,10 +1071,22 @@ p[id$="updatetime"] {
                       <i class="fa fa-database"></i>&nbspData Source
                     </button>
                   </h2>
+
                   <div id="cryptodash-datasource-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-datasource-acc-title" data-bs-parent="#cryptodash-data-and-trackers">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                    <div class="accordion-body">
+                      <div id="cryptodash-rate-limit-datasource" class="d-grid gap-2 mt-3 mb-3">
+                        <button type="button" id="cryptodash-rate-limit-datasource-button" class="btn btn-outline-dark btn-sm" onclick="checkDataSourceRateLimit()"><i class="fa fa-signal"></i> Check Rate Limits</button>
+                        <div id="cryptodash-rate-limit-datasource-result"></div> 
+                      </div>
+
+                    </div>
                   </div>
+
+
                 </div>
+
+
+
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="cryptodash-tracker-acc-title">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-tracker-acc" aria-expanded="false" aria-controls="cryptodash-tracker-acc">
@@ -855,6 +1096,22 @@ p[id$="updatetime"] {
                   <div id="cryptodash-tracker-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-tracker-acc-title" data-bs-parent="#cryptodash-data-and-trackers">
                     <div class="accordion-body">
                     
+                      <p style="font-size: .875rem; text-align: align-center;"> Add your trackers here. Maximum allowed is 32 trackers. </p>
+      
+                      <select id="CryptoDashCoinsSelector" multiple placeholder="Search here for coins or tokens...">
+                          <!--
+                          <option value="BTC">Bitcoin</option>
+                          <option value="ETH">Etherium</option>
+                          <option value="XRP">Ripple</option>
+                          <option value="CAKE">PancakeSwap</option>
+                          <option value="DOGE">Dodgecoin</option>
+                          <option value="KAT">Kambria</option>
+                          <option value="SHIB">Shiba Inu</option>
+                          <option value="XMR">Monero</option>
+                          -->
+                        
+                      </select>
+
                       
 
 
@@ -877,13 +1134,7 @@ p[id$="updatetime"] {
 
 
 
-              <div id="cryptodash-rate-limit-datasource" class="d-grid gap-2 mt-3 mb-3">
-                <button type="button" id="cryptodash-rate-limit-datasource-button" class="btn btn-outline-dark btn-sm" onclick="checkDataSourceRateLimit()"><i class="fa fa-signal"></i> Check Data Source Rate Limits</button>
-                <div id="cryptodash-rate-limit-datasource-result">
-      
-                </div>
-                
-              </div>
+              
             <!-- </div>-->
           </div>
 
@@ -1306,21 +1557,7 @@ p[id$="updatetime"] {
       </div>
       <div class="modal-body">
         
-      <p> Search and add coins to be tracked. Maximum allowed is 32 trackers. </p>
       
-        <select id="CryptoDashCoinsSelector" multiple placeholder="">
-            <!--
-            <option value="BTC">Bitcoin</option>
-            <option value="ETH">Etherium</option>
-            <option value="XRP">Ripple</option>
-            <option value="CAKE">PancakeSwap</option>
-            <option value="DOGE">Dodgecoin</option>
-            <option value="KAT">Kambria</option>
-            <option value="SHIB">Shiba Inu</option>
-            <option value="XMR">Monero</option>
-            -->
-          
-        </select>
         
 		
 		
@@ -1468,6 +1705,7 @@ var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey")
 
 
 
+
 // CryptoDash loader
 const CryptoDashLoader = document.querySelector('#cryptodash-loader');
 const CryptoDashContent = document.getElementById('cryptodash-content');
@@ -1555,6 +1793,56 @@ CryptoDashCurrentDateMinute = CryptoDashCurrentDate.getMinutes();
 CryptoDashCurrentDateDaySecond = CryptoDashCurrentDate.getSeconds();
 
 document.getElementById("cryptodash-date").innerHTML = CryptoDashCurrentDateDay + "/" + CryptoDashCurrentDateMonth + "/" + CryptoDashCurrentDateYear;
+
+
+/* Count UP */
+function roundNumber(num, scale) {
+  if(!("" + num).includes("e")) {
+    return +(Math.round(num + "e+" + scale)  + "e-" + scale);
+  } else {
+    var arr = ("" + num).split("e");
+    var sig = ""
+    if(+arr[1] + scale > 0) {
+      sig = "+";
+    }
+    return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale);
+  }
+}
+
+function animateCryptoDashValue(id, start, end, duration) {
+  // assumes integer values for start and end
+  
+  var obj = document.getElementById(id);
+  var range = end - start;
+  // no timer shorter than 50ms (not really visible any way)
+  var minTimer = 50;
+  // calc step time to show all interediate values
+  var stepTime = Math.abs(duration / range);
+  
+  // never go below minTimer
+  stepTime = Math.max(stepTime, minTimer);
+  
+  // get current time and calculate desired end time
+  var startTime = new Date().getTime();
+  var endTime = startTime + duration;
+  var timer;
+
+  function run() {
+      var now = new Date().getTime();
+      var remaining = Math.max((endTime - now) / duration, 0);
+      var value = roundNumber(end - (remaining * range), 10);
+      obj.innerHTML = value;
+      if (value == end) {
+          clearInterval(timer);
+      }
+  }
+  
+  timer = setInterval(run, stepTime);
+  run();
+}
+
+
+
 
 /* CLOCK */
 var CryptoDashClock = setInterval(function() {
@@ -1711,12 +1999,24 @@ function pullCryptoDashCoinList() {
             CryptoDashCoinsSelector.clearOptions();
             CryptoDashCoinsSelector.refreshItems();
 
+            //CryptoDashCoinsSelector.addOptionGroup("Coins", "class");
+
+
             for (var property in data['Data']) {
               //console.log(`${property}: ${data['Data'][property]['FullName']}`);
 
-              if(data['Data'][property]['PlatformType'] === "blockchain" || data['Data'][property]['PlatformType'] === "token" ) {
+              if(data['Data'][property]['PlatformType'] === "blockchain") {
                 CryptoDashCoinsSelector.addOption({
-                  value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'],
+                  class: 'coins', value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'], src: "https://www.cryptocompare.com" + data['Data'][property]['ImageUrl'] ,
+                  //value: data['Data'][property]['Symbol'], text: data['Data'][property]['Name'],
+                  //value: data['Data'][property]['Symbol'], text: data['Data'][property]['FullName'],
+                });
+
+              }
+
+              if(data['Data'][property]['PlatformType'] === "token" ) {
+                CryptoDashCoinsSelector.addOption({
+                  class: 'tokens', value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'], src: "https://www.cryptocompare.com" + data['Data'][property]['ImageUrl'] ,
                   //value: data['Data'][property]['Symbol'], text: data['Data'][property]['Name'],
                   //value: data['Data'][property]['Symbol'], text: data['Data'][property]['FullName'],
                 });
@@ -1811,19 +2111,27 @@ function pullCryptoDashCoinList() {
               CryptoDashCoinsSelector.refreshItems();
 
               for (var property in data['Data']) {
-                //console.log(`${property}: ${data['Data'][property]['FullName']}`);
+              //console.log(`${property}: ${data['Data'][property]['FullName']}`);
 
-                if(data['Data'][property]['PlatformType'] === "blockchain" || data['Data'][property]['PlatformType'] === "token" ) {
-                  CryptoDashCoinsSelector.addOption({
-                    value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'],
-                    //value: data['Data'][property]['Symbol'], text: data['Data'][property]['Name'],
-                    //value: data['Data'][property]['Symbol'], text: data['Data'][property]['FullName'],
-                  });
+              if(data['Data'][property]['PlatformType'] === "blockchain") {
+                CryptoDashCoinsSelector.addOption({
+                  class: 'coins', value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'], src: "https://www.cryptocompare.com" + data['Data'][property]['ImageUrl'] ,
+                  //value: data['Data'][property]['Symbol'], text: data['Data'][property]['Name'],
+                  //value: data['Data'][property]['Symbol'], text: data['Data'][property]['FullName'],
+                });
 
-                }
-                //CryptoDashCoinsSelector.refreshItems();
-                
-              };
+              }
+
+              if(data['Data'][property]['PlatformType'] === "token" ) {
+                CryptoDashCoinsSelector.addOption({
+                  class: 'tokens', value: data['Data'][property]['Symbol'], text: data['Data'][property]['CoinName'], src: "https://www.cryptocompare.com" + data['Data'][property]['ImageUrl'] ,
+                  //value: data['Data'][property]['Symbol'], text: data['Data'][property]['Name'],
+                  //value: data['Data'][property]['Symbol'], text: data['Data'][property]['FullName'],
+                });
+
+              }
+
+            };
 
               var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
 
@@ -1892,7 +2200,7 @@ function pullCryptoDashCoinList() {
 
 function updateCryptoDashCoinSelectorCloseButton() {
   var CryptoDashCoinSelectorCloseButton = document.querySelector(".clear-button");
-  CryptoDashCoinSelectorCloseButton.innerHTML = '<i class="fa fa-trash"></i>';
+  CryptoDashCoinSelectorCloseButton.innerHTML = '<i class="fa fa-trash"></i> Remove all';
 
   document.querySelectorAll("a.remove").forEach((element) => {
     element.innerHTML = '<i class="fa fa-trash"></i>';
@@ -1914,11 +2222,16 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
 			title:'Remove this tracker',
 		},
     'clear_button':{
-			'title':'Remove all selected trackers',
+			title:'Remove all selected trackers',
 		},
 	},
+  openOnFocus: false,
+  //dropdownParent: "#cryptoDashOption",
   maxItems: 32,
-  maxOptions: 2500,
+  // Performance issue with rendering 2500 options with image
+  //maxOptions: 2500,
+  //maxOptions: 100, good performance
+  maxOptions: null,
   create: false,
   // Find dynamic list of all coins based on all coin list from data source
  /* options: [
@@ -1931,6 +2244,14 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     { value: "SHIB", text: "Shiba Inu" },
     { value: "XMR", text: "Monero" },
   ], */
+
+  optgroups: [
+		{value: 'coins', label: 'Coins'},
+		{value: 'tokens', label: 'Tokens'},
+		
+	],
+  optgroupField: 'class',
+  //labelField: 'text',
   searchField: ['text','value'],
   sortField: {
     field: 'text',
@@ -1941,28 +2262,49 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     this.refreshOptions();
     createCryptoDashTracker(value);
     updateCryptoDashTrackerFontSize();
-    // console.log("changed Crypto Dash coin selection and added the " + value + " Tracker");
-    //manualCryptoDashFetchTrackerData();
+    document.querySelector('.clear-button').style.display = "inline";
+
+    var CryptoDashCurrentTheme = window.localStorage.getItem("CryptoDashLightSwitch");
+    if(CryptoDashCurrentTheme === "dark") {
+      document.querySelectorAll(".item").forEach((element) => {  
+        element.classList.remove("text-dark");
+        element.classList.add("text-light");
+      });
+      
+      
+    } else {
+      document.querySelectorAll(".item").forEach((element) => {  
+        element.classList.remove("text-light");
+        element.classList.add("text-dark");
+      });
+    }
+    
+
 
     showCryptoDashNotification('<i class="fa fa-info-circle "></i>' + " Tracker "+ value + " added successfully", 3000);
     updateCryptoDashCoinSelectorCloseButton() ;
     
-
   },
   onItemRemove:function(CryptoDashTrackerID){
     this.refreshOptions();
     removeCryptoDashTracker(CryptoDashTrackerID);
     showCryptoDashNotification('<i class="fa fa-info-circle "></i>' + " Tracker "+ CryptoDashTrackerID + " removed successfully", 3000);
-    //console.log("changed Crypto Dash coin selection and removed the " + value + " Tracker");
+    
   },
   render:{
     option:function(data,escape){
     //console.log(data);
-      return '<div class="d-flex"><span>' + escape(data.text) + ' (' + escape(data.value) + ')</span> </div>';
+      return '<div class="d-flex"><img class="me-2 cryptodash-option-dropwdown-item" src="' + escape(data.src) +'"><span>' + escape(data.text) + ' (' + escape(data.value) + ')</span> </div>';
     },
     item:function(data,escape){
-      return '<div>' + escape(data.text) + ' (' + escape(data.value) + ') </div>';
-    }
+      return '<div>' + escape(data.text) + ' (' + escape(data.value) + ')</div>';
+    },
+    optgroup_header: function(data, escape) {
+			return '<div class="optgroup-header">' + escape(data.label) + '</div>';
+		},
+    dropdown:function(){
+			return '<div id="bibi"></div>';
+		}
   }
 });
 
@@ -1972,7 +2314,8 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
 var CryptoDashGrid = new Muuri('.cryptodash-grid', {
   
   dragEnabled: true,
-  layoutOnInit: false
+  layoutOnInit: false,
+  
 
 }).on('move', function () {
   saveCryptoDashLayout(CryptoDashGrid);
@@ -2197,6 +2540,20 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.querySelector(".input-group-text").classList.remove("text-dark");
     document.querySelector(".input-group-text").classList.add("text-light");
 
+
+    document.querySelector(".clear-button").classList.remove("text-dark");
+    document.querySelector(".clear-button").classList.add("text-light");
+
+    document.querySelectorAll(".item").forEach((element) => {
+      //element.classList.remove("backdrop-blur");
+      element.classList.remove("text-dark");
+      element.classList.add("text-light");
+      
+      
+
+    });
+    
+    
     /*
     document.querySelector(".accordion-button").classList.remove("text-dark");
     document.querySelector(".accordion-button").classList.add("text-light");
@@ -2238,7 +2595,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
         //element.classList.add("text-dark");
         //element.classList.remove("text-light");
       } else {
-      element.classList.remove("text-light");
+      element.classList.add("text-light");
       element.classList.remove("text-dark");
       }
 
@@ -2311,6 +2668,19 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.querySelector(".input-group-text").style.setProperty('border', '1px solid #212529');
     document.querySelector(".input-group-text").classList.remove("text-light");
     document.querySelector(".input-group-text").classList.add("text-dark");
+
+
+    document.querySelector(".clear-button").classList.remove("text-light");
+    document.querySelector(".clear-button").classList.add("text-dark");
+
+
+    document.querySelectorAll(".item").forEach((element) => {
+      //element.classList.remove("backdrop-blur");
+      element.classList.add("text-dark");
+      element.classList.remove("text-light");
+      
+
+    });
 
       /*
     document.querySelector(".accordion-button").classList.remove("text-light");
@@ -4106,6 +4476,7 @@ function autoCryptoDashFetchTrackerData(){
 function setCryptoDashDataSourceRateCheckResultEmpty() {
   var CryptoDashDataSourceRateLimitResult = document.getElementById("cryptodash-rate-limit-datasource-result");
   CryptoDashDataSourceRateLimitResult.innerHTML = ``;
+  document.getElementById("cryptodash-rate-limit-datasource-button").classList.remove("d-none");
 }
 
 async function checkDataSourceRateLimit() {
@@ -4171,7 +4542,7 @@ async function checkDataSourceRateLimit() {
         
       } else {
 
-     
+        document.getElementById("cryptodash-rate-limit-datasource-button").classList.add("d-none");
         var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
 
         if(CryptoDashLightSwitch == 'dark') {
@@ -4184,7 +4555,7 @@ async function checkDataSourceRateLimit() {
         var cryptodashcallsleftCCFree = helperCryptoDashObjectToHTMLTable(data['Data']['calls_left']);
 
         CryptoDashDataSourceRateLimitButton.style.display = "inline-block";
-        CryptoDashDataSourceRateLimitResult.innerHTML = '<p>You are currently using the <strong> FREE Crypto Compare </strong></p>'+'<strong>Current API Calls</strong> <br>' + cryptodashcallsmadeCCFree + '<br> <strong>Current API Calls Left</strong> <br>' + cryptodashcallsleftCCFree + '<div class="d-grid gap-2"><button class="btn btn-sm btn-outline-' + CryptoDashCurrentTheme + '" onclick="setCryptoDashDataSourceRateCheckResultEmpty()"><i class="fa fa-close"></i> Clear Results</button></div>';
+        CryptoDashDataSourceRateLimitResult.innerHTML = '<p>You are currently using the <strong> FREE Crypto Compare </strong></p>'+'<strong>Current API Calls</strong> <br>' + cryptodashcallsmadeCCFree + '<br> <strong>Current API Calls Left</strong> <br>' + cryptodashcallsleftCCFree + '<div class="d-grid gap-2"><button class="btn btn-sm btn-outline-' + CryptoDashCurrentTheme + '" onclick="setCryptoDashDataSourceRateCheckResultEmpty()"><i class="fa fa-close"></i> Close Results</button></div>';
 
         showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmadeCCFree,  -1, true);
         showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls Left</strong> <br>` + cryptodashcallsleftCCFree,  -1, true);
@@ -4240,12 +4611,13 @@ async function checkDataSourceRateLimit() {
             var CryptoDashCurrentTheme = "dark";
           }
 
-       
+          document.getElementById("cryptodash-rate-limit-datasource-button").classList.add("d-none");
+
           var cryptodashcallsmadeCCApi = helperCryptoDashObjectToHTMLTable(data['Data']['calls_made']);
           var cryptodashcallsleftCCApi = helperCryptoDashObjectToHTMLTable(data['Data']['calls_left']);
   
           CryptoDashDataSourceRateLimitButton.style.display = "inline-block";
-          CryptoDashDataSourceRateLimitResult.innerHTML = '<p>You are currently using the <strong> API Crypto Compare </strong></p>'+'<strong>Current API Calls</strong> <br>' + cryptodashcallsmadeCCApi + '<br> <strong>Current API Calls Left</strong> <br>' + cryptodashcallsleftCCApi + '<div class="d-grid gap-2"><button class="btn btn-sm btn-outline-' + CryptoDashCurrentTheme +'" onclick="setCryptoDashDataSourceRateCheckResultEmpty()"><i class="fa fa-close"></i> Clear Results</button></div>';
+          CryptoDashDataSourceRateLimitResult.innerHTML = '<p>You are currently using the <strong> API Crypto Compare </strong></p>'+'<strong>Current API Calls</strong> <br>' + cryptodashcallsmadeCCApi + '<br> <strong>Current API Calls Left</strong> <br>' + cryptodashcallsleftCCApi + '<div class="d-grid gap-2"><button class="btn btn-sm btn-outline-' + CryptoDashCurrentTheme +'" onclick="setCryptoDashDataSourceRateCheckResultEmpty()"><i class="fa fa-close"></i> Close Results</button></div>';
           
             
           showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmadeCCApi,  -1, true);
@@ -4386,17 +4758,46 @@ async function manualCryptoDashFetchTrackerData() {
 
               var CryptoDashCurrency = window.localStorage.getItem('CryptoDashCurrency');
             
+              if (CryptoDashCurrency == "USD") {
+                var CryptoDashCurrencySymbol = "$";
+              }
+
+              if (CryptoDashCurrency == "EUR") {
+                var CryptoDashCurrencySymbol = "€";
+              }
+
+              if (CryptoDashCurrency == "GBP") {
+                var CryptoDashCurrencySymbol = "£";
+              }
+
+              
+
               // try to do all the tracking work and update each tracker
               try {
 
                 // try get the price set for current currency
                 try {
-                  document.getElementById(cryptoDashTrackerID + "-price").innerHTML = data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['PRICE'];
+                  var cryptodashPrice = document.getElementById(cryptoDashTrackerID + "-price");
+                  var cryptodashPriceValue = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['PRICE'];
+                  cryptodashPrice.innerHTML = CryptoDashCurrencySymbol + " " + cryptodashPriceValue;
+                  //cryptodashPrice.style.opacity = 0;
+                  
+                  //cryptodashPrice.style.transition = "opacity 1.5s linear 1s";
+
+
+                  //cryptodashPrice.style.transition = "opacity 1.5s linear 0s";
+                  //cryptodashPrice.style.opacity = 1;
+                  
+
+                  //animateCryptoDashValue(cryptoDashTrackerID + "-price", 0, cryptodashPriceValue, 2000);
+
                 } catch (e) {
                   document.getElementById(cryptoDashTrackerID + "-price").innerHTML = "Data N/A";
                   console.error("Data not available for tracker: " + cryptoDashTrackerID);
                   // Usually if price is not available then none of the data is available 
                 }
+
+                
 
                 // TrackerPrice.innerText = data['DISPLAY'][cryptoDashTrackerID][mycurrency]['PRICE'];
                 // CurrentTracker.firstChild.appendChild(TrackerPrice);
@@ -4626,12 +5027,29 @@ async function manualCryptoDashFetchTrackerData() {
 
                 var CryptoDashCurrency = window.localStorage.getItem('CryptoDashCurrency');
               
+                if (CryptoDashCurrency == "USD") {
+                  var CryptoDashCurrencySymbol = "$";
+                }
+  
+                if (CryptoDashCurrency == "EUR") {
+                  var CryptoDashCurrencySymbol = "€";
+                }
+  
+                if (CryptoDashCurrency == "GBP") {
+                  var CryptoDashCurrencySymbol = "£";
+                }
+
                 // try to do all the tracking work and update each tracker
                 try {
 
                   // try get the price set for current currency
                   try {
-                    document.getElementById(cryptoDashTrackerID + "-price").innerHTML = data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['PRICE'];
+                    //document.getElementById(cryptoDashTrackerID + "-price").innerHTML = data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['PRICE'];
+
+                    var cryptodashPrice = document.getElementById(cryptoDashTrackerID + "-price");
+                    var cryptodashPriceValue = data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['PRICE'];
+                    cryptodashPrice.innerHTML = CryptoDashCurrencySymbol + " " + cryptodashPriceValue;
+
                   } catch (e) {
                     document.getElementById(cryptoDashTrackerID + "-price").innerHTML = "Data N/A";
                     console.error("Data not available for tracker: " + cryptoDashTrackerID);
@@ -5579,7 +5997,7 @@ function stopAutoCryptoDashFetchTrackerData() {
 
     // select backdrop-blur
     document.querySelectorAll(".ts-dropdown-content").forEach((element) => {
-      element.classList.add("backdrop-blur");
+      //element.classList.add("backdrop-blur");
 
       if(CryptoDashLightSwitch == "dark") {
         element.classList.remove("bg-dark");
@@ -5985,6 +6403,9 @@ function helperCryptoDashObjectToHTMLTable(obj) {
   html += '</table>';
   return html;
 }
+
+
+
 
 
 
