@@ -41,7 +41,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"></script>
 
 <!-- Pace JS -->
-<script data-pace-options='{ "ajax": true }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+<script data-pace-options='{ "ajax": false }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
 
 <!-- Muuri 0.9.5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
@@ -106,8 +106,8 @@ body {
   overflow-x: hidden;
 	margin-left: 30px !important;
   margin-right: 20px !important;
-  margin-top: 60px !important;
-  margin-bottom: 20px !important;
+  /* margin-top: 60px !important;
+  margin-bottom: 20px !important; */
   
   /*
 
@@ -129,6 +129,11 @@ body {
   background-image: -o-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
   background-image: radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
   background-size: cover;
+}
+
+#cryptodash-content {
+  padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 /* custom Bootstrap changes */
@@ -158,6 +163,18 @@ body {
 .modal-footer {
   border-top : none !important;
 }
+
+
+.modal-backdrop {
+  background: none;
+}
+
+.offcanvas-backdrop {
+  background: none;
+}
+
+
+
 
 .accordion-button {
   padding-left: 10px !important;
@@ -674,6 +691,7 @@ p[id$="updatetime"] {
 
 /* settings menu button shadow */
 #cryptodash-settings-menu {
+  /*
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
     0px 0px 2.7px rgba(0, 0, 0, 0.028),
@@ -682,6 +700,10 @@ p[id$="updatetime"] {
     0px 0px 16.7px rgba(0, 0, 0, 0.05),
     0px 0px 40px rgba(0, 0, 0, 0.07)
   ;
+  */
+  box-shadow:  0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 }
 
  
@@ -701,13 +723,19 @@ p[id$="updatetime"] {
 }
 
 .pace .pace-progress {
-	background: #29d;
+	background: #29d; 
+  
 	position: fixed;
 	z-index: 2000;
 	top: 0;
 	right: 100%;
 	width: 100%;
-	height: 2px;
+	height: 6px;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+  
 }
 
 
@@ -771,6 +799,7 @@ p[id$="updatetime"] {
   left:50%;
   margin-top:-40px;
   margin-left:-50px;
+    
 }
   
 .cryptodash-loader-inner{
@@ -782,12 +811,14 @@ p[id$="updatetime"] {
   width:50px;
   height:50px;
   position:absolute;
+  
 }
   
 .cryptodash-rotate-one{
   left:50%;
   margin-left:-25px;
   border-top:2px solid #1f6d8f;
+  
 }
   
 .cryptodash-rotate-two{
@@ -828,6 +859,7 @@ p[id$="updatetime"] {
   z-index: 800;
   border-bottom-right-radius: 1rem;
   position: fixed;
+  /*
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
     0px 0px 2.7px rgba(0, 0, 0, 0.028),
@@ -836,6 +868,10 @@ p[id$="updatetime"] {
     0px 0px 16.7px rgba(0, 0, 0, 0.05),
     0px 0px 40px rgba(0, 0, 0, 0.07)
   ;
+  */
+  box-shadow:  0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Refresh Button */
@@ -845,6 +881,7 @@ p[id$="updatetime"] {
   z-index: 800;
   border-bottom-left-radius: 1rem;
   position: fixed;
+  /*
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
     0px 0px 2.7px rgba(0, 0, 0, 0.028),
@@ -853,6 +890,10 @@ p[id$="updatetime"] {
     0px 0px 16.7px rgba(0, 0, 0, 0.05),
     0px 0px 40px rgba(0, 0, 0, 0.07)
   ;
+  */
+  box-shadow:  0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -867,6 +908,7 @@ p[id$="updatetime"] {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   position: fixed;
+  /*
   box-shadow:
     0px 0px 1.1px rgba(0, 0, 0, 0.02),
     0px 0px 2.7px rgba(0, 0, 0, 0.028),
@@ -875,6 +917,10 @@ p[id$="updatetime"] {
     0px 0px 16.7px rgba(0, 0, 0, 0.05),
     0px 0px 40px rgba(0, 0, 0, 0.07)
   ;
+  */
+  box-shadow:  0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 }
 
 .accordion-body {
@@ -1158,11 +1204,21 @@ p[id$="updatetime"] {
   right: 5px;
 }
 
+
+.cryptodash-animated-bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  
+}
+
 </style>
 
 </head>
 
-<body>
+<body class="" >
   <noscript style="text-align: center;">
     
     <p class="text-white"><i class="fa fa-exclamation-triangle fa-5x"></i> <br> <br> Your browser doesn't support JavaScript or is turned off. <br> Please enable javascript or use a different browser, such as Google Chrome or Microsoft Edge. </p>
@@ -1174,7 +1230,7 @@ p[id$="updatetime"] {
   </noscript>
 
 <!-- Loader when page starts -->
-<div id="cryptodash-loader">
+<div id="cryptodash-loader" class="">
   
     <div class="cryptodash-loader-inner cryptodash-rotate-one"></div>
     <div class="cryptodash-loader-inner cryptodash-rotate-two"></div>
@@ -1184,10 +1240,11 @@ p[id$="updatetime"] {
 
 <!-- Crypto Dashboard Main Content -->
 <div id="cryptodash-content" style="opacity: 0;">
+  <div class="cryptodash-animated-bg"></div>
   <audio id="cryptodash-audio" muted></audio>
 
   <!-- Container grid where trackers are created dynamically-->
-  <div class="cryptodash-grid row" id="CryptoDashContentTrackers">
+  <div class="cryptodash-grid row " id="CryptoDashContentTrackers">
 
   </div>
 
@@ -1198,7 +1255,7 @@ p[id$="updatetime"] {
 
   <!-- Refresh button -->
   <button id="cryptodash-refresh-button" class="btn btn-lg btn-light backdrop-blur" type="button" aria-controls="refresh" onclick="manualCryptoDashFetchTrackerData()" hidden>
-    <i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>
+    <i id="cryptodash-refresh-icon" class="fa fa-refresh "></i>
   </button>
 
   <!-- Clock -->
@@ -1207,13 +1264,9 @@ p[id$="updatetime"] {
   </button>
   
   <!-- Crypto Dash Settings Panel -->
-  <div class="offcanvas offcanvas-start backdrop-blur" tabindex="-1" id="cryptodash-settings-menu" aria-labelledby="CryptoDashSettingsMenuLabel">
+  <div class="offcanvas offcanvas-start backdrop-blur" data-bs-backdrop="true" tabindex="-1" id="cryptodash-settings-menu" aria-labelledby="CryptoDashSettingsMenuLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="CryptoDashSettingsMenuLabel">
-
-      Crypto Dashboard
-
-    </h5>
+      <h5 class="offcanvas-title" id="CryptoDashSettingsMenuLabel"> Crypto Dashboard  </h5>
       
       <button id="cryptodash-settings-menu-close" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -1221,8 +1274,6 @@ p[id$="updatetime"] {
       
       <div id="blurrr">
         
-      
-
       <!-- Crpyto Dash Settings Panel is split in 2 tabs -->
 
       <ul class="nav nav-pills nav-justified mb-3" id="cryptodash-settings-tab" role="tablist">
@@ -1246,13 +1297,11 @@ p[id$="updatetime"] {
         <!-- Tracker and Data Content-->
         <div class="tab-pane fade show active" id="cryptodash-tracker-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-tab-button">
           
-          <!-- Crpyto Dash Tracker 
-          <label for="cryptodash-setup" class="form-label badge bg-secondary"><i class="fa fa-tasks "></i> Crypto Setup</label>-->
+          <!-- Crpyto Dash Tracker -->
+          <!-- <label for="cryptodash-setup" class="form-label badge bg-secondary"><i class="fa fa-tasks "></i> Crypto Setup</label>-->
 
           <div id="cryptodash-setup" class="gap-2">
-            <!--<div id="cryptodash-setup-buttons" class="btn-group" role="group" aria-label="Trackers and Data Source"> -->
               
-
               <div class="accordion accordion-flush" id="cryptodash-data-and-trackers">
 
                 <div class="accordion-item">
@@ -1265,14 +1314,11 @@ p[id$="updatetime"] {
                   <div id="cryptodash-datasource-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-datasource-acc-title" data-bs-parent="#cryptodash-data-and-trackers">
                     <div class="accordion-body">
 
-                      
-
                       <div class="input-group input-group-sm" id="cryptodash-apikey-inputgroup">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         <input type="text" id="cryptodash-apikey" class="form-control" placeholder="API Key" aria-label="API Key" aria-describedby="cryptodash-apikey" disabled>
                         <button class="btn btn-sm btn-outline-dark" type="button" id="cryptodash-apikey-button" onclick="setCryptoDashDataSourceAPIKey()" disabled>Update</button>
                       </div>
-
 
                       <hr>
                       <!-- datasource Selector -->
@@ -1292,10 +1338,8 @@ p[id$="updatetime"] {
                           <a href="https://min-api.cryptocompare.com/pricing" target="_blank" class="btn btn-outline-dark btn-sm ">Get a Crypto Compare API Key</a>
                         </div>
               
-              
                       </div>  
                       
-              
                       <!-- To implement these API data sources -->
                       <hr>
               
@@ -1312,7 +1356,6 @@ p[id$="updatetime"] {
                         <a href="https://www.livecoinwatch.com/tools/api#try" target="_blank" class="btn btn-outline-dark btn-sm">Get a Live Coin Watch API Key</a>
                       </div>
                       
-              
                       <hr>
               
                       <a href="https://coinmarketcap.com" target="_blank"><label for="cryptodash-datasource-coinmarketcap" class="form-label badge bg-secondary"><i class="fa fa-globe "></i> Coin Market Cap (link)</label></a>
@@ -1337,24 +1380,6 @@ p[id$="updatetime"] {
 
                       <hr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                       <div id="cryptodash-rate-limit-datasource" class="d-grid gap-2 mt-3 mb-3">
                         <button type="button" id="cryptodash-rate-limit-datasource-button" class="btn btn-outline-dark btn-sm" onclick="checkDataSourceRateLimit()"><i class="fa fa-signal"></i> Check Rate Limits</button>
                         <div id="cryptodash-rate-limit-datasource-result"></div> 
@@ -1363,10 +1388,7 @@ p[id$="updatetime"] {
                     </div>
                   </div>
 
-
                 </div>
-
-
 
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="cryptodash-tracker-acc-title">
@@ -1376,34 +1398,13 @@ p[id$="updatetime"] {
                   </h2>
                   <div id="cryptodash-tracker-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-tracker-acc-title" data-bs-parent="#cryptodash-data-and-trackers">
                     <div class="accordion-body">
+                      <p style="font-size: .775rem; text-align: center;"> Add your trackers here. Maximum allowed is 32 trackers. </p>
                       
-                        <p style="font-size: .775rem; text-align: center;"> Add your trackers here. Maximum allowed is 32 trackers. </p>
-                      
-                      
-      
-                      
-                      <select id="CryptoDashCoinsSelector" multiple placeholder="Search here for coins or tokens...">
-                          <!--
-                          <option value="BTC">Bitcoin</option>
-                          <option value="ETH">Etherium</option>
-                          <option value="XRP">Ripple</option>
-                          <option value="CAKE">PancakeSwap</option>
-                          <option value="DOGE">Dodgecoin</option>
-                          <option value="KAT">Kambria</option>
-                          <option value="SHIB">Shiba Inu</option>
-                          <option value="XMR">Monero</option>
-                          -->
-                        
-                      </select>
-                      
-                      
-                      
-
-
+                      <!-- Coin/Token select box to add trackers -->
+                      <select id="CryptoDashCoinsSelector" multiple placeholder="Search here for coins or tokens..."> </select>
                     </div>
                   </div>
                 </div>
-
 
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="cryptodash-alarmtracker-acc-title">
@@ -1413,47 +1414,14 @@ p[id$="updatetime"] {
                   </h2>
                   <div id="cryptodash-alarmtracker-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-alarmtracker-acc-title" data-bs-parent="#cryptodash-data-and-trackers">
                     <div class="accordion-body">
-
-                      
-
-                      <div id="cryptodash-tracker-alarms-content">
-                        
-
-                      </div>
-                        
-                      
-                      
-      
-                      
-                    
-                      
-                      
-                      
-
-
+                      <!-- Alarm content comes here -->
+                      <div id="cryptodash-tracker-alarms-content"></div>
                     </div>
                   </div>
                 </div>
 
-
-
               </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
-            <!-- </div>-->
           </div>
 
           <hr>
@@ -1484,52 +1452,44 @@ p[id$="updatetime"] {
             <label class="form-check-label" for="CryptoDashDataRefreshSwitch"> Data Auto Refresh </label>
             <input class="form-check-input" type="checkbox" id="CryptoDashDataRefreshSwitch"/>
           </div>
-
           
-          <input type="range" class="form-range" min="110" max="1800" step="60" id="refreshRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="" disabled>
+          <input type="range" class="form-range" min="110" max="3000" step="10" id="refreshRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="" disabled>
           
-
-
         </div>
 
         <!-- Customization Content-->
         <div class="tab-pane fade" id="cryptodash-customize-tab" role="tabpanel" aria-labelledby="cryptodash-customize-tab-button">
           
-          <!-- Customization -->
-
-          <!-- 
-            <div class="form-check form-switch">
-            <label class="form-check-label" for="trackerAutoBackground"> Tracker Auto Background </label>
-            <input class="form-check-input" type="checkbox" id="trackerAutoBackground"/>
-          </div>
-          
-          -->
-
           <div class="row">
-            <div class="col-6">
 
-              <!-- Dark/Light Mode -->
+            <!-- Light/Dark Mode Switch-->
+            <div class="col-6">
               <div class="form-check form-switch" >
                 <label class="form-check-label" for="CryptoDashLightSwitch"> <i class="fa fa-moon-o "></i> Dark Mode </label>
                 <input class="form-check-input" type="checkbox" id="CryptoDashLightSwitch"/>
               </div>
-
-
             </div>
 
+            <!-- Frosted/Defrosted Switch -->
             <div class="col-6">
-              
               <div class="form-check form-switch">
-                <label class="form-check-label" for="frostedCryptoDashTheme"> <i class="fa fa-snowflake-o "></i> Frosted </label>
+                <label class="form-check-label" for="frostedCryptoDashTheme"> <i class="fa fa-snowflake-o "></i> Frosted Mode</label>
                 <input class="form-check-input" type="checkbox" id="frostedCryptoDashTheme" checked/>
               </div>
-
+              
             </div>
+            
 
           </div>
-          
-          
 
+          <!-- Add note when using Firefox -->
+          <span id="FrostedFirefoxNote" style="font-size: .775rem;"></span>
+
+          <!-- General performance advice note -->
+          <span style="font-size: .775rem;">
+            <i class="fa fa-info-circle "></i> If high resources utilization occurs, please switch off Frosted Mode to improve performance. 
+          </span>
+          
           <hr>
 
           <!-- Grid Size -->
@@ -1545,7 +1505,6 @@ p[id$="updatetime"] {
             <label class="form-check-label" for="cryptodash-alarm-toggle"><i class="fa fa-volume-up"></i> Alarm notification sound</label>
           </div>
 
-
           <div id="cryptodash-notification-orientation" class="row d-flex justify-content-center"> 
           
             <div class="col-6 d-grid gap-2" style="text-align: center;">
@@ -1560,10 +1519,8 @@ p[id$="updatetime"] {
               </div>
             </div>
 
-
             <div class="col-6 d-grid gap-2" style="text-align: center;">
               <label for="cryptodash-notification-location" class="form-label badge bg-secondary"><i class="fa fa-sort fa-rotate-90"></i> Location</label>
-            
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-left" value="LEFT" >
                 <label class="form-check-label" for="cryptodash-notification-orientation-left"><i class="fa fa-arrow-circle-left"></i> Left Side</label>
@@ -1574,112 +1531,285 @@ p[id$="updatetime"] {
               </div>
             </div>
 
-    
-            
-
           </div>
-
-          
-          
-    
-
-
 
           <hr>
 
-
           <!-- Background Customization -->
-          <label for="cryptodashbackground" class="form-label badge bg-secondary"><i class="fa fa-picture-o "></i> Background</label>
+          <label for="cryptodashbackground" class="form-label badge bg-secondary"><i class="fa fa-picture-o "></i> Backgrounds</label>
 
+          <div id="cryptodash-background" class="gap-2">
+              
+            <div class="accordion accordion-flush" id="cryptodash-backgrounds">
 
-
-          <ul id="cryptodash-bg-type-buttons" class="nav nav-pills nav-justified mb-3" role="tablist" aria-label="Background Type">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cryptodash-background-simple-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-simple-acc" aria-expanded="false" aria-controls="cryptodash-background-simple-acc">
+                    <i class="fa fa-image"></i>&nbsp Static
+                  </button>
+                </h2>
+                <div id="cryptodash-background-simple-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-simple-acc-title" data-bs-parent="#cryptodash-backgrounds">
+                  <div class="accordion-body">
+                    
+                    <ul id="cryptodash-bg-type-buttons" class="nav nav-pills nav-justified mb-3" role="tablist" aria-label="Background Type">
             
-            <li class="nav-item" role="bgselector">
-              <button class="btn btn-outline-dark btn-sm active" id="cryptodash-bg-simple-button" data-bs-toggle="pill" data-bs-target="#cryptodash-bg-simple-tab" type="button" role="tab" aria-controls="cryptodash-bg-single-color-tab" aria-selected="true">Simple</button>
-            </li>
-            <li class="nav-item" role="bgselector">
-              <button class="btn btn-outline-dark btn-sm btn-sm" id="cryptodash-bg-gradient-button" data-bs-toggle="pill" data-bs-target="#cryptodash-bg-gradient-tab" type="button" role="tab" aria-controls="cryptodash-bg-gradient-tab" aria-selected="false">Gradient</button>
-            </li>
-            <li class="nav-item" role="bgselector">
-              <button class="btn btn-outline-dark btn-sm btn-sm" id="cryptodash-bg-abstract-button" data-bs-toggle="pill" data-bs-target="#cryptodash-bg-abstract-tab" type="button" role="tab" aria-controls="cryptodash-bg-abstract-tab" aria-selected="false">Abstract</button>
-            </li>          
-            
-          </ul>
-      
-    
-          <div class="tab-content" id="cryptodash-bg-content">
-            <!-- Tracker and Data Content-->
-            <div class="tab-pane fade show active" id="cryptodash-bg-simple-tab" role="tabpanel" aria-labelledby="cryptodash-bg-simple-button">
-              <div class="d-grid gap-2"> 
-
-                <div class="row">
-                  <!-- 
-                    <div class="col-4 d-flex justify-content-center">
-                    <input class="btn btn-outline-dark btn-sm" type="color">
-                  </div>
-                  -->
-                  
-                  <div class="col-6 d-flex justify-content-center">
-                    <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-simple-color">Default Color</button> 
-                  </div>
-                  <div class="col-6 d-flex justify-content-center">
-                    <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-custom-color">Random Color</button>
-                  </div>
-                </div>
-              
-                <!-- <div id="cryptodash-bg-simple-button-group" class="btn-group" role="group" aria-label="Simple Background"> -->
-                 
-                <!-- </div> -->
-              </div>
-              
-
-            </div>
-
-            <div class="tab-pane fade" id="cryptodash-bg-gradient-tab" role="tabpanel" aria-labelledby="cryptodash-bg-gradient-button">
-              
-              <div class="d-grid gap-2"> 
-                <!--<div id="cryptodash-bg-gradient-button-group" class="btn-group" role="group" aria-label="Gradient Resolution"> -->
-                  <div class="row">
-                    <div class="col-6 d-flex justify-content-center">
-                      <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-gradient-hd">HD (1920x1080) </button>
-                    </div>
-                    <div class="col-6 d-flex justify-content-center">
-                      <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-gradient-4k">4K (3840x2160) </button> <!--(dependent on gradient & abstract only)-->
-                    </div>
-                  </div>
-                <!--</div> -->
-  
-              </div>
-
-            </div>
-
-            <div class="tab-pane fade" id="cryptodash-bg-abstract-tab" role="tabpanel" aria-labelledby="cryptodash-bg-abstract-button">
-
-              <div class="d-grid gap-2"> 
-                <div class="row">
-                  <div class="col-6 d-flex justify-content-center">
-                    <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-abstract-hd">HD (1920x1080) </button>
-                  </div>
-                  <div class="col-6 d-flex justify-content-center">
-                    <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-abstract-4k">4K (3840x2160) </button> <!--(dependent on gradient & abstract only)-->
-                  </div>
-                </div>
-                <!--<div id="cryptodash-bg-abstract-button-group" class="btn-group" role="group" aria-label="Abstract Resolution"> -->
-                  
-                  
-
-                <!--</div> -->
+                      <li class="nav-item" role="bgselector">
+                        <button class="btn btn-outline-dark btn-sm active" id="cryptodash-bg-simple-button" data-bs-toggle="pill" data-bs-target="#cryptodash-bg-simple-tab" type="button" role="tab" aria-controls="cryptodash-bg-single-color-tab" aria-selected="true">Simple</button>
+                      </li>
+                      <li class="nav-item" role="bgselector">
+                        <button class="btn btn-outline-dark btn-sm btn-sm" id="cryptodash-bg-gradient-button" data-bs-toggle="pill" data-bs-target="#cryptodash-bg-gradient-tab" type="button" role="tab" aria-controls="cryptodash-bg-gradient-tab" aria-selected="false">Gradient</button>
+                      </li>
+                      <li class="nav-item" role="bgselector">
+                        <button class="btn btn-outline-dark btn-sm btn-sm" id="cryptodash-bg-abstract-button" data-bs-toggle="pill" data-bs-target="#cryptodash-bg-abstract-tab" type="button" role="tab" aria-controls="cryptodash-bg-abstract-tab" aria-selected="false">Abstract</button>
+                      </li>          
+                      
+                    </ul>
                 
+              
+                    <div class="tab-content" id="cryptodash-bg-content">
+          
+                      <!-- Tracker and Data Content-->
+                      <div class="tab-pane fade show active" id="cryptodash-bg-simple-tab" role="tabpanel" aria-labelledby="cryptodash-bg-simple-button">
+                        
+                        <div class="d-grid gap-2"> 
+                          <div class="row">
+                            <div class="col-6 d-flex justify-content-center">
+                              <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-simple-color">Default Color</button> 
+                            </div>
+                            <div class="col-6 d-flex justify-content-center">
+                              <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-custom-color">Random Color</button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+          
+                      <div class="tab-pane fade" id="cryptodash-bg-gradient-tab" role="tabpanel" aria-labelledby="cryptodash-bg-gradient-button">
+                        
+                        <div class="d-grid gap-2"> 
+                            <div class="row">
+                              <div class="col-6 d-flex justify-content-center">
+                                <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-gradient-hd">HD (1920x1080) </button>
+                              </div>
+                              <div class="col-6 d-flex justify-content-center">
+                                <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-gradient-4k">4K (3840x2160) </button> <!--(dependent on gradient & abstract only)-->
+                              </div>
+                            </div>
+                        </div>
+          
+                      </div>
+          
+                      <div class="tab-pane fade" id="cryptodash-bg-abstract-tab" role="tabpanel" aria-labelledby="cryptodash-bg-abstract-button">
+          
+                        <div class="d-grid gap-2"> 
+                          <div class="row">
+                            <div class="col-6 d-flex justify-content-center">
+                              <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-abstract-hd">HD (1920x1080) </button>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center">
+                              <button class="btn btn-outline-dark btn-sm" id="cryptodash-bg-abstract-4k">4K (3840x2160) </button> <!--(dependent on gradient & abstract only)-->
+                            </div>
+                          </div>
+                        </div>
+          
+                      </div>
+          
+                    </div>
+
+                    
+                  </div>
+                </div>
               </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cryptodash-background-static-pexels-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-static-pexels-acc" aria-expanded="false" aria-controls="cryptodash-background-static-pexels-acc">
+                    <i class="fa fa-image"></i>&nbsp Pexels
+                  </button>
+                </h2>
+                <div id="cryptodash-background-static-pexels-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-static-pexels-acc-title" data-bs-parent="#cryptodash-backgrounds">
+                  <div class="accordion-body" style="padding-left: 5px; padding-right: 5px; padding-top: 10px; padding-bottom: 10px;">
+                    <p>Pexels backgrounds require an API key</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cryptodash-background-static-custom-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-static-custom-acc" aria-expanded="false" aria-controls="cryptodash-background-static-custom-acc">
+                    <i class="fa fa-image"></i>&nbsp Custom
+                  </button>
+                </h2>
+                <div id="cryptodash-background-static-custom-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-static-custom-acc-title" data-bs-parent="#cryptodash-backgrounds">
+                  <div class="accordion-body" style="padding-left: 5px; padding-right: 5px; padding-top: 10px; padding-bottom: 10px;">
+                    <p>Upload your own wallpaper image or use a URL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cryptodash-background-animated-modern-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-animated-modern-acc" aria-expanded="false" aria-controls="cryptodash-background-animated-modern-acc">
+                    <i class="fa fa-film"></i>&nbsp Modern
+                  </button>
+                </h2>
+                <div id="cryptodash-background-animated-modern-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-animated-modern-acc-title" data-bs-parent="#cryptodash-backgrounds">
+                  <div class="accordion-body" style="padding-left: 5px; padding-right: 5px; padding-top: 10px; padding-bottom: 10px;">
+                    
+                    <div class="form-check form-switch">
+                      <label class="form-check-label" for="CryptoDashAnimatedModernSwitch"> <i class="fa fa-power-off "></i> Enable Modern Background</label>
+                      <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedModernSwitch" checked/>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-grid gap-2"> 
+                      <div class="row">
+                        <div class="col-3 d-flex justify-content-center">
+                          <button class="btn btn-outline-dark btn-sm" id="cryptodash-animated-modern-preset1-button">Preset 1</button> 
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                          <button class="btn btn-outline-dark btn-sm" id="cryptodash-animated-modern-preset2-button">Preset 2</button>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                          <button class="btn btn-outline-dark btn-sm" id="cryptodash-animated-modern-preset3-button">Preset 3</button>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                          <button class="btn btn-outline-dark btn-sm" id="cryptodash-animated-modern-preset4-button">Preset 4</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="d-grid gap-2"> 
+                      <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-outline-dark btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-animated-modern-advanced" aria-expanded="false" aria-controls="cryptodash-animated-modern-advanced">
+                          <i class="fa fa-cogs"></i> Advanced Configuration
+                        </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="collapse" id="cryptodash-animated-modern-advanced"> 
+
+                      <div class="d-grid gap-2"> 
+                        <div class="row">
+                          <div class="col-6 d-flex justify-content-center">
+                            <button class="btn btn-outline-dark btn-sm" id="cryptodash-animated-modern-shuffle-button">Shuffle (*TBD)</button> 
+                          </div>
+                          <div class="col-6 d-flex justify-content-center">
+                            <button class="btn btn-outline-dark btn-sm" id="cryptodash-animated-modern-reset-button" onclick="resetCryptoDashModernBackground()">Reset</button>
+                          </div>
+                        </div>
+                      </div>
+
+                        
+                      <hr>
+                      <p>Color Pickers (Maximum 10) + 1 Background color</p>
+
+                      <hr>
+
+
+                      <!-- Particles Count -->
+                      <label for="animatedModernParticleRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Particles Count: <span id="particlesCountSpan"></span> </label>
+                      <input type="range" class="form-range" min="2" max="100" step="1" id="animatedModernParticleRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Size Min -->
+                      <label for="animatedModernParticleSizeMinRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Size (Min): <span id="particlesSizeMinSpan"></span> </label>
+                      <input type="range" class="form-range" min="1" max="2200" step="1" id="animatedModernParticleSizeMinRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+                      
+                      <!-- Particles Size Max -->
+                      <label for="animatedModernParticleSizeMaxRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Size (Max): <span id="particlesSizeMaxSpan"></span> </label>
+                      <input type="range" class="form-range" min="1" max="2200" step="1" id="animatedModernParticleSizeMaxRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Size Variation Speed -->
+                      <label for="animatedModernParticleSizeSpeedVariationRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Size Speed Variation: <span id="particlesSizeSpeedVariationSpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="2" step="0.10" id="animatedModernParticleSizeSpeedVariationRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Speed X Axis Min -->
+                      <label for="animatedModernParticleXSpeedMinRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Horizontal Min Speed: <span id="particlesSpeedXMinSpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="5" step="0.10" id="animatedModernParticleXSpeedMinRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Speed X Axis Min -->
+                      <label for="animatedModernParticleXSpeedMaxRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Horizontal Max Speed: <span id="particlesSpeedXMaxSpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="5" step="0.10" id="animatedModernParticleXSpeedMaxRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Speed Y Axis Min -->
+                      <label for="animatedModernParticleYSpeedMinRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Vertical Min Speed: <span id="particlesSpeedYMinSpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="5" step="0.10" id="animatedModernParticleYSpeedMinRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Speed Y Axis Min -->
+                      <label for="animatedModernParticleYSpeedMaxRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Vertical Max Speed: <span id="particlesSpeedYMaxSpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="5" step="0.10" id="animatedModernParticleYSpeedMaxRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Center Opacity -->
+                      <label for="animatedModernParticleCenterOpacityRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Center Opacity: <span id="particlesCenterOpacitySpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="1" step="0.05" id="animatedModernParticleCenterOpacityRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      <!-- Particles Edge Opacity -->
+                      <label for="animatedModernParticleEdgeOpacityRanger" class="form-label badge bg-secondary"><i class="fa fa-circle-o "></i> Edge Opacity: <span id="particlesEdgeOpacitySpan"></span> </label>
+                      <input type="range" class="form-range" min="0" max="1" step="0.05" id="animatedModernParticleEdgeOpacityRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+
+                      
+                      <label for="cryptodash-animated-modern-blending-buttons" class="form-label badge bg-secondary"><i class="fa fa-adjust"></i> Blending Mode</label>
+                      <div id="cryptodash-animated-modern-blending-buttons" class="gap-2 d-flex justify-content-center"> 
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="cryptodash-animated-modern-blending-buttons" id="cryptodash-animated-modern-blending-none" value="none" checked>
+                          <label class="form-check-label" for="cryptodash-animated-modern-blending-none">None</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="cryptodash-animated-modern-blending-buttons" id="cryptodash-animated-modern-blending-overlay" value="overlay">
+                          <label class="form-check-label" for="cryptodash-animated-modern-blending-overlay">Overlay</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="cryptodash-animated-modern-blending-buttons" id="cryptodash-animated-modern-blending-screen" value="screen">
+                          <label class="form-check-label" for="cryptodash-animated-modern-blending-screen">Screen</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="cryptodash-animated-modern-blending-buttons" id="cryptodash-animated-modern-blending-lighten" value="lighten">
+                          <label class="form-check-label" for="cryptodash-animated-modern-blending-lighten">Lighten</label>
+                        </div>
+                      </div>
+                        
+                    </div>
+                  </div>
+
+                    
+
+
+                </div>
+              </div>
+              
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cryptodash-background-animated-vanta-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-animated-vanta-acc" aria-expanded="false" aria-controls="cryptodash-background-animated-vanta-acc">
+                    <i class="fa fa-film"></i>&nbsp Vanta
+                  </button>
+                </h2>
+                <div id="cryptodash-background-animated-vanta-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-animated-vanta-acc-title" data-bs-parent="#cryptodash-backgrounds">
+                  <div class="accordion-body" style="padding-left: 5px; padding-right: 5px; padding-top: 10px; padding-bottom: 10px;">
+
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <hr>
+          </div>
+
+
+
+          
+
+          <hr>
 
             <!-- Configuration Options -->
             <label for="cryptodashConfig" class="form-label badge bg-secondary"><i class="fa fa-cog "></i> Backup Settings</label>
             <div id="cryptodashsettings" class="d-grid gap-2">
-              <!--<div id="cryptodashConfig" class="btn-group" role="group" aria-label="Configuration">--> 
+              
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center">
                     <button type="button" class="btn btn-outline-dark btn-sm" onclick="saveCryptoDashConfig()"><i class="fa fa-save"></i> <br> Save Backup</button>
@@ -1692,21 +1822,7 @@ p[id$="updatetime"] {
                   </div>
                 </div>
 
-              <!--</div> -->
             </div>
-
-          </div>
-
-          <div id="cryptodash-download-bg" class="d-grid gap-2 mt-3 mb-3">
-            
-          </div>
-
-          <div id="cryptodashbackground" class="d-grid gap-2"> 
-
-                     
-            
-        
-          </div>
 
 
         </div>
@@ -1714,22 +1830,13 @@ p[id$="updatetime"] {
         <!-- Help Content-->
         <div class="tab-pane fade" id="cryptodash-help-tab" role="tabpanel" aria-labelledby="cryptodash-help-tab-button">
 
-          
-
-          
-          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#manageCryptoDashDataSourceModal"><i class="fa fa-question "></i>About Data Source</button>  
-          
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#manageCryptoDashDataSourceModal"><i class="fa fa-question-circle-o "></i> About Data Source</button>  
           
           <hr>
 
           <div id="cryptodash-about" class="d-grid gap-2">
             <a class="btn btn-outline-dark btn-sm" href="https://github.com/mprajescu/cryptodash" target="_blank"><i class="fa fa-github"></i> CryptoDash <span id="cryptodash-date"></span></a>
           </div>
-
-          
-
-          
-
           
 
         </div>
@@ -1811,7 +1918,7 @@ p[id$="updatetime"] {
   
 
   <!-- Reset Config Modal Modal -->
-  <div class="modal fade" id="resetCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetCryptoDashConfigModalLabel">
+  <div class="modal fade" id="resetCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="resetCryptoDashConfigModalLabel">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content backdrop-blur" id="resetCryptoDashConfigModalContent">
         <div class="modal-header">
@@ -1837,7 +1944,7 @@ p[id$="updatetime"] {
   </div>
 
   <!-- Upload Config Modal-->
-  <div class="modal fade " id="uploadCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="uploadCryptoDashConfigModalLabel">
+  <div class="modal fade " id="uploadCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="uploadCryptoDashConfigModalLabel">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content backdrop-blur" id="uploadCryptoDashConfigModalContent">
         <div class="modal-header">
@@ -1991,10 +2098,358 @@ p[id$="updatetime"] {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
+<!-- <script src="https://www.finisher.co/lab/header/assets/finisher-header.es5.min.js"></script> -->
 
 <script type="text/javascript">
+"use strict";
+
+/* Finisher Header Animated Background */
+var _cc = (function () {
+    function t(t, i) {
+        for (var s = 0; s < i.length; s++) {
+            var e = i[s];
+            (e.enumerable = e.enumerable || !1), (e.configurable = !0), "value" in e && (e.writable = !0), Object.defineProperty(t, e.key, e);
+        }
+    }
+    return function (i, s, e) {
+        return s && t(i.prototype, s), e && t(i, e), i;
+    };
+})();
+function _ccc(t, i) {
+    if (!(t instanceof i)) throw new TypeError("Cannot call a class as a function");
+}
+!(function (t) {
+    function i(t, i) {
+        var s = Math.tan(0.017453 * Math.abs(t));
+        return Math.ceil(i * s);
+    }
+    function s(t) {
+        var i = void 0;
+        return /^#([A-Fa-f0-9]{3}){1,2}$/.test(t)
+            ? (3 === (i = t.substring(1).split("")).length && (i = [i[0], i[0], i[1], i[1], i[2], i[2]]), { r: ((i = "0x" + i.join("")) >> 16) & 255, g: (i >> 8) & 255, b: 255 & i })
+            : { r: 0, g: 0, b: 0 };
+    }
+    var e = (function () {
+            function t(i, e, h) {
+                _ccc(this, t),
+                    (this.o = h),
+                    (this.r = s(i)),
+                    (this.d = this.grd()),
+                    (this.h = this.grs()),
+                    (this.s = Math.abs(this.gnfr(this.o.size))),
+                    this.srpgq(e),
+                    (this.vx = this.gnfr(this.o.speed.x) * this.grd()),
+                    (this.vy = this.gnfr(this.o.speed.y) * this.grd());
+            }
+            return (
+                _cc(t, [
+                    {
+                        key: "srpgq",
+                        value: function (t) {
+                            var i = this.srpiq();
+                            return 3 === t
+                                ? ((this.x = i.x + i.halfWidth), void (this.y = i.y))
+                                : 2 === t
+                                ? ((this.x = i.x), void (this.y = i.y + i.halfHeight))
+                                : 1 === t
+                                ? ((this.x = i.x + i.halfWidth), void (this.y = i.y + i.halfHeight))
+                                : ((this.x = i.x), void (this.y = i.y));
+                        },
+                    },
+                    {
+                        key: "srpiq",
+                        value: function () {
+                            var t = this.o.c.w / 2,
+                                i = this.o.c.h / 2;
+                            return { x: Math.random() * t, y: Math.random() * i, halfHeight: i, halfWidth: t };
+                        },
+                    },
+                    {
+                        key: "gnfr",
+                        value: function (t) {
+                            if (t.min === t.max) return t.min;
+                            var i = t.max - t.min;
+                            return Math.random() * i + t.min;
+                        },
+                    },
+                    {
+                        key: "grd",
+                        value: function () {
+                            return Math.random() > 0.5 ? 1 : -1;
+                        },
+                    },
+                    {
+                        key: "grs",
+                        value: function () {
+                            return this.o.shapes[Math.floor(Math.random() * this.o.shapes.length)];
+                        },
+                    },
+                    {
+                        key: "gr",
+                        value: function (t, i) {
+                            return "rgba(" + t.r + ", " + t.g + ", " + t.b + ", " + i + ")";
+                        },
+                    },
+                    {
+                        key: "an",
+                        value: function (t, s, e) {
+                            this.o.size.pulse && ((this.s += this.o.size.pulse * this.d), (this.s > this.o.size.max || this.s < this.o.size.min) && (this.d *= -1), (this.s = Math.abs(this.s))),
+                                (this.x += this.vx),
+                                (this.y += this.vy),
+                                this.x < 0 ? ((this.vx *= -1), (this.x += 1)) : this.x > s && ((this.vx *= -1), (this.x -= 1)),
+                                this.y < 0 ? ((this.vy *= -1), (this.y += 1)) : this.y > e && ((this.vy *= -1), (this.y -= 1)),
+                                t.beginPath(),
+                                this.o.blending && "none" !== this.o.blending && (t.globalCompositeOperation = this.o.blending);
+                            var h = this.gr(this.r, this.o.opacity.center),
+                                a = this.gr(this.r, this.o.opacity.edge),
+                                n = "c" === this.h ? this.s / 2 : "t" === this.h ? 0.577 * this.s : "s" === this.h ? 0.707 * this.s : this.s,
+                                o = t.createRadialGradient(this.x, this.y, 0.01, this.x, this.y, n);
+                            o.addColorStop(0, h), o.addColorStop(1, a), (t.fillStyle = o);
+                            var r = Math.abs(this.s / 2);
+                            if (("c" === this.h && t.arc(this.x, this.y, r, 0, 6.283185, !1), "s" === this.h)) {
+                                var c = this.x - r,
+                                    l = this.x + r,
+                                    u = this.y - r,
+                                    d = this.y + r;
+                                t.moveTo(c, d), t.lineTo(l, d), t.lineTo(l, u), t.lineTo(c, u);
+                            }
+                            if ("t" === this.h) {
+                                var v = i(30, r),
+                                    g = this.y + v;
+                                t.moveTo(this.x - r, g), t.lineTo(this.x + r, g), t.lineTo(this.x, this.y - 2 * v);
+                            }
+                            t.closePath(), t.fill();
+                        },
+                    },
+                ]),
+                t
+            );
+        })(),
+        h = (function () {
+            function h(i) {
+                var s = this;
+                _ccc(this, h), (this.c = document.createElement("canvas")), (this.x = this.c.getContext("2d")), this.c.setAttribute("id", "cryptodash-animated-canvas"), this.gr(i.className).appendChild(this.c);
+                var e = void 0;
+                t.addEventListener(
+                    "resize",
+                    function () {
+                        clearTimeout(e), (e = setTimeout(s.resize.bind(s), 150));
+                    },
+                    !1
+                ),
+                    this.init(i),
+                    t.requestAnimationFrame(this.an.bind(this));
+            }
+            return (
+                _cc(h, [
+                    {
+                        key: "gr",
+                        value: function (t) {
+                            var i = document.getElementsByClassName(t || "cryptodash-animated-bg");
+                            if (!i.length) throw new Error("No .cryptodash-animated-bg element found");
+                            return i[0];
+                        },
+                    },
+                    {
+                        key: "resize",
+                        value: function () {
+                            var t = this.gr(this.o.className);
+                            (this.o.c = { w: t.clientWidth, h: t.clientHeight }), (this.c.width = this.o.c.w), (this.c.height = this.o.c.h);
+                            var s = i(this.o.skew, this.o.c.w / 2),
+                                e = "skewY(" + this.o.skew + "deg) translateY(-" + s + "px)";
+                            this.c.setAttribute(
+                                "style",
+                                "position:absolute;z-index:-1;top:0;left:0;right:0;bottom:0;-webkit-transform:" +
+                                    e +
+                                    ";transform:" +
+                                    e +
+                                    ";outline: 1px solid transparent;background-color:rgba(" +
+                                    this.bc.r +
+                                    "," +
+                                    this.bc.g +
+                                    "," +
+                                    this.bc.b +
+                                    ",1);"
+                            );
+                        },
+                    },
+                    {
+                        key: "init",
+                        value: function (t) {
+                            (this.o = t), (this.bc = s(this.o.colors.background)), (this.ps = []), this.resize(), this.cp();
+                        },
+                    },
+                    {
+                        key: "cp",
+                        value: function () {
+                            var i = 0;
+                            (this.ps = []), (this.o.ac = t.innerWidth < 600 && this.o.count > 5 ? Math.round(this.o.count / 2) : this.o.count);
+                            for (var s = 0; s < this.o.ac; s++) {
+                                var h = s % 4,
+                                    a = new e(this.o.colors.particles[i], h, this.o);
+                                ++i >= this.o.colors.particles.length && (i = 0), (this.ps[s] = a);
+                            }
+                        },
+                    },
+                    {
+                        key: "an",
+                        value: function () {
+                            t.requestAnimationFrame(this.an.bind(this)), this.x.clearRect(0, 0, this.o.c.w, this.o.c.h);
+                            for (var i = 0; i < this.o.ac; i++) {
+                                this.ps[i].an(this.x, this.o.c.w, this.o.c.h);
+                            }
+                        },
+                    },
+                ]),
+                h
+            );
+        })();
+    t.CryptoDashAnimatedBG = h;
+})(window);
+
+
+
+/* Started the Crypto Dash Animated Background Object */
+
+/* declare the variable globally so we can clear it later, if needed */
+//var CryptoDashAnimatedBackground;
+
+
+
+var CryptoDashAnimatedBackground;
+
+function activateCryptoDashAnimatedBG() {
+
+var storedParticleCount = window.localStorage.getItem("CryptoDashAnimatedModernParticles");
+
+var storedParticleSizeMin = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeMin"));
+var storedParticleSizeMax = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeMax"));
+var storedParticleSizeSpeedVariation = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeSpeedVariation"));
+
+var storedParticleXSpeedMin = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesXSpeedMin"));
+var storedParticleXSpeedMax = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesXSpeedMax"));
+var storedParticleYSpeedMin = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesYSpeedMin"));
+var storedParticleYSpeedMax = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesYSpeedMax"));
+
+var storedParticleCenterOpacity = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesCenterOpacity"));
+var storedParticleEdgeOpacity = Number(window.localStorage.getItem("CryptoDashAnimatedModernParticlesEdgeOpacity"));
+
+//console.log(storedParticleXSpeedMin);
+
+
+CryptoDashAnimatedBackground = new CryptoDashAnimatedBG({
+  "count": storedParticleCount,
+  "size": {
+    "min": storedParticleSizeMin,
+    "max": storedParticleSizeMax,
+    "pulse": storedParticleSizeSpeedVariation
+  },
+  "speed": {
+    "x": {
+      "min": storedParticleXSpeedMin,
+      "max": storedParticleXSpeedMax
+    },
+    "y": {
+      "min": storedParticleYSpeedMin,
+      "max": storedParticleYSpeedMax
+    }
+  },
+  "colors": {
+    "background": "#000000",
+    "particles": [
+      "#ff4848",
+      "#000000",
+      "#2235e5",
+      "#000000",
+      "#ff0000",
+      "#ff00ff"
+    ]
+  },
+  "blending": "overlay",
+  "opacity": {
+    "center": storedParticleCenterOpacity,
+    "edge": storedParticleEdgeOpacity
+  },
+  "skew": 0,
+  "shapes": [
+    "c"
+  ]
+});
+
+  //return CryptoDashAnimatedBackground;
+};
+
+function removeCryptoDashAnimatedBG() {
+  /* remove animated background element from DOM */
+  //CryptoDashAnimatedBackground = null; 
+  //delete CryptoDashAnimatedBackground; //non strict
+  //document.getElementById("cryptodash-animated-canvas").remove();
+  //document.getElementById("cryptodash-animated-canvas").style.display = "none";
+
+  //CryptoDashAnimatedBG = null;
+  CryptoDashAnimatedBackground = null;
+  
+  var canvas = document.getElementById("cryptodash-animated-canvas");
+  //console.log(canvas);
+  var context = canvas.getContext('2d');
+  //console.log(context);
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  //canvas.width = canvas.width;
+  canvas.remove();
+};
+
+
+
+/*
+function activateCryptoDashAnimatedBG() {
+
+  var storedParticleCount = window.localStorage.getItem("CryptoDashAnimatedModernParticles");
+
+
+ CryptoDashAnimatedBackground = new CryptoDashAnimatedBG({
+  "count": storedParticleCount,
+  "size": {
+    "min": 1900,
+    "max": 2200,
+    "pulse": 0
+  },
+  "speed": {
+    "x": {
+      "min": 0.5,
+      "max": 0.9
+    },
+    "y": {
+      "min": 0.5,
+      "max": 0.9
+    }
+  },
+  "colors": {
+    "background": "#000000",
+    "particles": [
+      "#ff4848",
+      "#000000",
+      "#2235e5",
+      "#000000",
+      "#ff0000",
+      "#ff00ff"
+    ]
+  },
+  "blending": "overlay",
+  "opacity": {
+    "center": 0.3,
+    "edge": 0.05
+  },
+  "skew": 0,
+  "shapes": [
+    "c"
+  ]
+});
+
+}
+*/
 
 // Declaring variables outside of function 
+
 
 //CryptoDash Currency
 var CryptoDashCurrency = window.localStorage.getItem('CryptoDashCurrency');
@@ -2037,39 +2492,24 @@ window.addEventListener('load', (event) => {
       clearInterval(fadeEffect);
     }
 
-  }, 200);
+  }, 500);
 
 });
 
 
 // Indexed DB Checks
-window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || 
-window.msIndexedDB;
+
+/*
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
  
-window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || 
-window.msIDBTransaction;
-window.IDBKeyRange = window.IDBKeyRange || 
-window.webkitIDBKeyRange || window.msIDBKeyRange
+window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
  
 //if (!window.indexedDB) {
 
 if (!window.indexedDB) {
 
-  /*
-  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-  var toastList = toastElList.map(function(toastEl) {
-  // Creates an array of toasts (it only initializes them)
-    return new bootstrap.Toast(toastEl) // No need for options; use the default options
-  });
-  toastList.forEach(toast => toast.show()); // This show them
-  //CryptoDashLoader.style.display = "block";
-  //CryptoDashContent.style.display = "none";
-  //alert.close()
-
-  document.getElementById("liveToast").classList.add("show");
-  document.getElementById("liveToast").classList.remove("hide");
-
-  */
+  
 
   showCryptoDashNotification( `
   
@@ -2092,16 +2532,16 @@ if (!window.indexedDB) {
   // window.alert("Your browser doesn't support a stable version of IndexedDB.")
 }
 
-
+*/
 
 // Date in Crypto Dash menu 
 const CryptoDashCurrentDate =  new Date();
-CryptoDashCurrentDateYear = CryptoDashCurrentDate.getFullYear();
-CryptoDashCurrentDateMonth = CryptoDashCurrentDate.getMonth() + 1;
-CryptoDashCurrentDateDay = CryptoDashCurrentDate.getDate();
-CryptoDashCurrentDateHour = CryptoDashCurrentDate.getHours();
-CryptoDashCurrentDateMinute = CryptoDashCurrentDate.getMinutes();
-CryptoDashCurrentDateDaySecond = CryptoDashCurrentDate.getSeconds();
+var CryptoDashCurrentDateYear = CryptoDashCurrentDate.getFullYear();
+var CryptoDashCurrentDateMonth = CryptoDashCurrentDate.getMonth() + 1;
+var CryptoDashCurrentDateDay = CryptoDashCurrentDate.getDate();
+var CryptoDashCurrentDateHour = CryptoDashCurrentDate.getHours();
+var CryptoDashCurrentDateMinute = CryptoDashCurrentDate.getMinutes();
+var CryptoDashCurrentDateDaySecond = CryptoDashCurrentDate.getSeconds();
 
 document.getElementById("cryptodash-date").innerHTML = CryptoDashCurrentDateDay + "/" + CryptoDashCurrentDateMonth + "/" + CryptoDashCurrentDateYear;
 
@@ -3230,12 +3670,17 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
 var autoRefreshRanger = document.getElementById("refreshRanger");
 autoRefreshRanger.title = autoRefreshRanger.value / 10;
 
+var CryptoDashAutoRefreshFormattedValue = FormattedTimeMinutesAndSeconds(autoRefreshRanger.title);
+
+
 autoRefreshRanger.onchange = function() {
   autoRefreshRanger.title = autoRefreshRanger.value / 10;
+  var CryptoDashAutoRefreshFormattedValue = FormattedTimeMinutesAndSeconds(autoRefreshRanger.title);
+  
   window.localStorage.setItem('CryptoDashAutoRefresh', autoRefreshRanger.value );
-  document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10 + "s";
-
-  showCryptoDashNotification('<i class="fa fa-info-circle"></i> Auto refresh set to ' + autoRefreshRanger.title + ' s', 3000);
+  document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefreshFormattedValue;
+  startCryptoDashRefreshCountDown();
+  showCryptoDashNotification('<i class="fa fa-info-circle"></i> Auto refresh set to ' + CryptoDashAutoRefreshFormattedValue, 3000);
 
 }
 
@@ -3245,8 +3690,15 @@ autoRefreshRanger.oninput = function() {
   stopAutoCryptoDashFetchTrackerData();
   autoCryptoDashFetchTrackerData();
   autoRefreshRanger.title = autoRefreshRanger.value / 10;
-  document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10 + "s";
-  document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i> Auto`;
+
+  var CryptoDashAutoRefreshFormattedValue = FormattedTimeMinutesAndSeconds(autoRefreshRanger.title);
+
+  document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefreshFormattedValue;
+
+  
+  
+  
+  //document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh fa-spin "></i> Auto`;
 
 }
 
@@ -3285,6 +3737,210 @@ itemSizeRanger.oninput = function() {
   CryptoDashGrid.layout();
 }
 
+
+
+
+
+// Slider to change animated modern background particle count
+var animatedModernParticleRanger = document.getElementById("animatedModernParticleRanger");
+
+animatedModernParticleRanger.onchange = function() {
+  // update title
+  animatedModernParticleRanger.title = animatedModernParticleRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticles', animatedModernParticleRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleRanger.oninput = function() {
+  animatedModernParticleRanger.title = animatedModernParticleRanger.value;
+  document.getElementById("particlesCountSpan").innerHTML = animatedModernParticleRanger.title;
+}
+
+
+// Slider to change animated modern background particle horizontal (x axis) speed MIN
+var animatedModernParticleXSpeedMinRanger = document.getElementById("animatedModernParticleXSpeedMinRanger");
+
+animatedModernParticleXSpeedMinRanger.onchange = function() {
+  // update title
+  animatedModernParticleXSpeedMinRanger.title = animatedModernParticleXSpeedMinRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesXSpeedMin', animatedModernParticleXSpeedMinRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleXSpeedMinRanger.oninput = function() {
+  animatedModernParticleXSpeedMinRanger.title = animatedModernParticleXSpeedMinRanger.value;
+  document.getElementById("particlesSpeedXMinSpan").innerHTML = animatedModernParticleXSpeedMinRanger.title;
+}
+
+
+// Slider to change animated modern background particle horizontal (x axis) speed Max
+var animatedModernParticleXSpeedMaxRanger = document.getElementById("animatedModernParticleXSpeedMaxRanger");
+
+animatedModernParticleXSpeedMaxRanger.onchange = function() {
+  // update title
+  animatedModernParticleXSpeedMaxRanger.title = animatedModernParticleXSpeedMaxRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesXSpeedMax', animatedModernParticleXSpeedMaxRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleXSpeedMaxRanger.oninput = function() {
+  animatedModernParticleXSpeedMaxRanger.title = animatedModernParticleXSpeedMaxRanger.value;
+  document.getElementById("particlesSpeedXMaxSpan").innerHTML = animatedModernParticleXSpeedMaxRanger.title;
+}
+
+
+// Slider to change animated modern background particle vertical (y axis) speed MIN
+var animatedModernParticleYSpeedMinRanger = document.getElementById("animatedModernParticleYSpeedMinRanger");
+
+animatedModernParticleYSpeedMinRanger.onchange = function() {
+  // update title
+  animatedModernParticleYSpeedMinRanger.title = animatedModernParticleYSpeedMinRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesYSpeedMin', animatedModernParticleYSpeedMinRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleYSpeedMinRanger.oninput = function() {
+  animatedModernParticleYSpeedMinRanger.title = animatedModernParticleYSpeedMinRanger.value;
+  document.getElementById("particlesSpeedYMinSpan").innerHTML = animatedModernParticleYSpeedMinRanger.title;
+}
+
+
+// Slider to change animated modern background particle vertical (y axis) speed Max
+var animatedModernParticleYSpeedMaxRanger = document.getElementById("animatedModernParticleYSpeedMaxRanger");
+
+animatedModernParticleYSpeedMaxRanger.onchange = function() {
+  // update title
+  animatedModernParticleYSpeedMaxRanger.title = animatedModernParticleYSpeedMaxRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesYSpeedMax', animatedModernParticleYSpeedMaxRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleYSpeedMaxRanger.oninput = function() {
+  animatedModernParticleYSpeedMaxRanger.title = animatedModernParticleYSpeedMaxRanger.value;
+  document.getElementById("particlesSpeedYMaxSpan").innerHTML = animatedModernParticleYSpeedMaxRanger.title;
+}
+
+
+// Slider to change animated modern background particle size min
+var animatedModernParticleSizeMinRanger = document.getElementById("animatedModernParticleSizeMinRanger");
+
+animatedModernParticleSizeMinRanger.onchange = function() {
+  // update title
+  animatedModernParticleSizeMinRanger.title = animatedModernParticleSizeMinRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesSizeMin', animatedModernParticleSizeMinRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleSizeMinRanger.oninput = function() {
+  animatedModernParticleSizeMinRanger.title = animatedModernParticleSizeMinRanger.value;
+  document.getElementById("particlesSizeMinSpan").innerHTML = animatedModernParticleSizeMinRanger.title;
+}
+
+// Slider to change animated modern background particle size max
+var animatedModernParticleSizeMaxRanger = document.getElementById("animatedModernParticleSizeMaxRanger");
+
+animatedModernParticleSizeMaxRanger.onchange = function() {
+  // update title
+  animatedModernParticleSizeMaxRanger.title = animatedModernParticleSizeMaxRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesSizeMax', animatedModernParticleSizeMaxRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleSizeMaxRanger.oninput = function() {
+  animatedModernParticleSizeMaxRanger.title = animatedModernParticleSizeMaxRanger.value;
+  document.getElementById("particlesSizeMaxSpan").innerHTML = animatedModernParticleSizeMaxRanger.title;
+}
+
+// Slider to change animated modern background particle size speed variation
+var animatedModernParticleSizeSpeedVariationRanger = document.getElementById("animatedModernParticleSizeSpeedVariationRanger");
+
+animatedModernParticleSizeSpeedVariationRanger.onchange = function() {
+  // update title
+  animatedModernParticleSizeSpeedVariationRanger.title = animatedModernParticleSizeSpeedVariationRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesSizeSpeedVariation', animatedModernParticleSizeSpeedVariationRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleSizeSpeedVariationRanger.oninput = function() {
+  animatedModernParticleSizeSpeedVariationRanger.title = animatedModernParticleSizeSpeedVariationRanger.value;
+  document.getElementById("particlesSizeSpeedVariationSpan").innerHTML = animatedModernParticleSizeSpeedVariationRanger.title;
+}
+
+// Slider to change animated modern background particle center opacity
+var animatedModernParticleCenterOpacityRanger = document.getElementById("animatedModernParticleCenterOpacityRanger");
+
+animatedModernParticleCenterOpacityRanger.onchange = function() {
+  // update title
+  animatedModernParticleCenterOpacityRanger.title = animatedModernParticleCenterOpacityRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesCenterOpacity', animatedModernParticleCenterOpacityRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleCenterOpacityRanger.oninput = function() {
+  animatedModernParticleCenterOpacityRanger.title = animatedModernParticleCenterOpacityRanger.value;
+  document.getElementById("particlesCenterOpacitySpan").innerHTML = animatedModernParticleCenterOpacityRanger.title;
+}
+
+// Slider to change animated modern background particle edge opacity
+var animatedModernParticleEdgeOpacityRanger = document.getElementById("animatedModernParticleEdgeOpacityRanger");
+
+animatedModernParticleEdgeOpacityRanger.onchange = function() {
+  // update title
+  animatedModernParticleEdgeOpacityRanger.title = animatedModernParticleEdgeOpacityRanger.value;
+  // reset the object
+  removeCryptoDashAnimatedBG();
+  activateCryptoDashAnimatedBG();
+  window.localStorage.setItem('CryptoDashAnimatedModernParticlesEdgeOpacity', animatedModernParticleEdgeOpacityRanger.value);
+  setCryptoDashConfigDate();
+}
+
+animatedModernParticleEdgeOpacityRanger.oninput = function() {
+  animatedModernParticleEdgeOpacityRanger.title = animatedModernParticleEdgeOpacityRanger.value;
+  document.getElementById("particlesEdgeOpacitySpan").innerHTML = animatedModernParticleEdgeOpacityRanger.title;
+}
+
+
+function FormattedTimeMinutesAndSeconds(seconds) {
+
+  // var CryptoDashAutoRefreshFormatHours = Math.floor(autoRefreshRanger.title / 60 / 60);
+  //var CryptoDashAutoRefreshFormatMinutes = Math.floor(autoRefreshRanger.title / 60) - (CryptoDashAutoRefreshFormatHours * 60);
+  var CryptoDashAutoRefreshFormatMinutes = Math.floor(seconds / 60);
+  var CryptoDashAutoRefreshFormatSeconds = seconds % 60;
+
+  //var CryptoDashAutoRefreshFormattedValue = CryptoDashAutoRefreshFormatHours.toString().padStart(2, '0') + ':' + CryptoDashAutoRefreshFormatMinutes.toString().padStart(2, '0') + ':' + CryptoDashAutoRefreshFormatSeconds.toString().padStart(2, '0');
+  var CryptoDashAutoRefreshFormattedValue = CryptoDashAutoRefreshFormatMinutes.toString().padStart(2, '0') + ' minutes and ' + CryptoDashAutoRefreshFormatSeconds.toString().padStart(2, '0') + ' seconds';
+  
+  return CryptoDashAutoRefreshFormattedValue;
+}
+
+
 // Get last 30 days pair for charts
 async function getCryptoDashChartLast30Days(coin, currency) {
     
@@ -3321,8 +3977,8 @@ async function getCryptoDashChartLast30Days(coin, currency) {
 
         console.error("Crypto Compare API Error: " + data['Message']);
 
-        document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
-        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+        document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker`;
+        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Month Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
       } else {
 
@@ -3525,8 +4181,8 @@ async function getCryptoDashChartLast30Days(coin, currency) {
 
             console.error("Crypto Compare API Error: " + data['Message']);
     
-            document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
-            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+            document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker`;
+            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Month Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
             
           } else {
@@ -3761,8 +4417,8 @@ async function getCryptoDashChartLastDay(coin, currency) {
 
         console.error("Crypto Compare API Error: " + data['Message']);
 
-        document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
-        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+        document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker `;
+        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Day Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
       } else {
 
@@ -3962,8 +4618,8 @@ async function getCryptoDashChartLastDay(coin, currency) {
 
             console.error("Crypto Compare API Error: " + data['Message']);
     
-            document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong>` + data['Message'];
-            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+            document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker`;
+            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Day Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
             
           } else {
 
@@ -4191,8 +4847,8 @@ async function getCryptoDashChartLastHour(coin, currency) {
 
         console.error("Crypto Compare API Error: " + data['Message']);
 
-        document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
-        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+        document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker `;
+        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Hour Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
       } else {
 
@@ -4391,8 +5047,8 @@ async function getCryptoDashChartLastHour(coin, currency) {
 
             console.error("Crypto Compare API Error: " + data['Message']);
     
-            document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error: </strong> ` + data['Message'];
-            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Crypto Compare API Error</strong> <br>` + data['Message'], -1, true);
+            document.querySelector("#cryptodash-1-hour-chart-content").innerHTML = `<i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker `;
+            showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Hour Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
             
           } else {
 
@@ -4938,8 +5594,12 @@ function autoCryptoDashFetchTrackerData(){
   var refreshCryptoDashDataInterval = autoRefreshRanger.value;
   autoDataPull = setInterval(manualCryptoDashFetchTrackerData, refreshCryptoDashDataInterval * 100);
 
+
   //showCryptoDashNotification("Data set to refresh automatically", 3000);
-  document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i> Auto`;
+  
+  
+  startCryptoDashRefreshCountDown();
+  //document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> Auto`;
 } 
 
 function setCryptoDashDataSourceRateCheckResultEmpty() {
@@ -5129,7 +5789,19 @@ async function checkDataSourceRateLimit() {
 async function manualCryptoDashFetchTrackerData() {
 
   var CryptoDashRefreshButton = document.getElementById('cryptodash-refresh-button');
-  document.getElementById('cryptodash-refresh-icon').classList.add("fa-spin");
+
+  var CryptoDashDataRefreshSwitch = window.localStorage.getItem('CryptoDashDataRefreshSwitch');
+
+  if (CryptoDashDataRefreshSwitch === "Auto") {
+
+    document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
+   
+  } else {
+    //document.getElementById('cryptodash-refresh-icon').classList.add("fa-spin");
+    document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
+  }
+
+  
   
   var CryptoDashTrackerInfo = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
 
@@ -5173,13 +5845,12 @@ async function manualCryptoDashFetchTrackerData() {
 
         if (CryptoDashDataRefreshSwitch.checked) {
           CryptoDashDataRefreshSwitch.checked = false;
-        }
-        localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
+        } 
+        window.localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
         showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh manually to prevent unnecessary API requests`, 3000);
         document.getElementById("dataRefreshSpan").innerHTML = "N/A"; 
-        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>`;
+        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh "></i>`;
         stopAutoCryptoDashFetchTrackerData();
-
 
         console.log("Nothing is tracked");
 
@@ -5708,7 +6379,20 @@ async function manualCryptoDashFetchTrackerData() {
 
       };
 
-      document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin"); 
+      
+
+      // if auto is on
+      var CryptoDashDataRefreshSwitch = window.localStorage.getItem('CryptoDashDataRefreshSwitch');
+
+      if (CryptoDashDataRefreshSwitch === "Auto") {
+
+        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
+
+      } else {
+        //document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin"); 
+        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh"></i>`;
+      }
+        
         
     } catch(e) {
       console.error(e);
@@ -6245,9 +6929,18 @@ async function manualCryptoDashFetchTrackerData() {
 
         };
 
-        document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin");
-        
-            
+                
+        // if auto is on
+        var CryptoDashDataRefreshSwitch = window.localStorage.getItem('CryptoDashDataRefreshSwitch');
+
+        if (CryptoDashDataRefreshSwitch === "Auto") {
+          
+          document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
+
+        } else {
+          //document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin"); 
+          document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh"></i>`;
+        }    
   
            
           
@@ -6277,6 +6970,7 @@ async function manualCryptoDashFetchTrackerData() {
     
   }
 
+
   
 }
 
@@ -6285,6 +6979,361 @@ function stopAutoCryptoDashFetchTrackerData() {
   clearInterval(autoDataPull);
   
 }
+
+
+
+function startCryptoDashRefreshCountDown() {
+
+  var intialDuration = window.localStorage.getItem("CryptoDashAutoRefresh") / 10;
+  var display = document.getElementById("cryptodash-refresh-button");
+
+  var timer = intialDuration, minutes, seconds;
+
+
+  var timerTick = setInterval(function () {
+
+    var minutes = parseInt(timer / 60, 10);
+    var seconds = parseInt(timer % 60, 10);
+
+    var minutes = minutes < 10 ? "0" + minutes : minutes;
+    var seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> ` + minutes + ":" + seconds;
+
+    // if current duration is different with the one set in Local storage, then stop the clock
+    var currentDuration = document.getElementById("refreshRanger").title;
+    if (intialDuration != currentDuration) {
+      clearInterval(timerTick);
+      display.innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> Auto`;
+    }
+    
+    var CryptoDashDataRefreshSwitch = window.localStorage.getItem("CryptoDashDataRefreshSwitch");
+
+    if(CryptoDashDataRefreshSwitch == "Manual") {
+      clearInterval(timerTick);
+      display.innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh"></i>`;
+      
+    } else if (CryptoDashDataRefreshSwitch == "Auto") {
+      //start the timer again 
+      if (--timer < 0) {
+        timer = intialDuration;
+      } 
+    }
+
+
+      //var timer = -1;
+      //clearInterval(timerTick);
+      //
+
+    
+
+  }, 1000);
+
+  
+  
+}
+
+
+
+
+function resetCryptoDashModernBackground() {
+  
+  window.localStorage.setItem("CryptoDashAnimatedModernParticles", "6");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesSizeMin", "1900");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesSizeMax", "2200");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesSizeSpeedVariation", "1");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesXSpeedMin", "0.5");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesXSpeedMax", "0.9");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesYSpeedMin", "0.5");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesYSpeedMax", "0.9");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesCenterOpacity", "0.4");
+  window.localStorage.setItem("CryptoDashAnimatedModernParticlesEdgeOpacity", "0.05");
+
+  showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Reset complete. Reloading ...`, 3000);
+
+  setTimeout(function(){
+    location.reload();
+  }, 3000);
+
+};
+
+
+// Animated Modern Background switch
+(function () {
+  var CryptoDashAnimatedModernSwitch = document.getElementById("CryptoDashAnimatedModernSwitch");
+  var animatedModernParticleRanger = document.getElementById("animatedModernParticleRanger");
+
+  var animatedModernParticleSizeMinRanger = document.getElementById("animatedModernParticleSizeMinRanger");
+  var animatedModernParticleSizeMaxRanger = document.getElementById("animatedModernParticleSizeMaxRanger");
+  var animatedModernParticleSizeSpeedVariationRanger = document.getElementById("animatedModernParticleSizeSpeedVariationRanger");
+
+  var animatedModernParticleXSpeedMinRanger = document.getElementById("animatedModernParticleXSpeedMinRanger");
+  var animatedModernParticleXSpeedMaxRanger = document.getElementById("animatedModernParticleXSpeedMaxRanger");
+  var animatedModernParticleYSpeedMinRanger = document.getElementById("animatedModernParticleYSpeedMinRanger");
+  var animatedModernParticleYSpeedMaxRanger = document.getElementById("animatedModernParticleYSpeedMaxRanger");
+
+  var animatedModernParticleCenterOpacityRanger = document.getElementById("animatedModernParticleCenterOpacityRanger");
+  var animatedModernParticleEdgeOpacityRanger = document.getElementById("animatedModernParticleEdgeOpacityRanger");
+
+  if (!CryptoDashAnimatedModernSwitch) {
+    return;
+  }
+
+  function showCryptoDashAnimatedCanvas() {
+    
+    var checkCryptoDashBackgroundCanvas = document.querySelector("#cryptodash-animated-canvas");
+
+    
+    if (CryptoDashAnimatedModernSwitch.checked) {
+      CryptoDashAnimatedModernSwitch.checked = true;
+    }
+    
+
+    window.localStorage.setItem("CryptoDashAnimatedModernSwitch", "Show");
+    
+    var currentParticleCount = window.localStorage.getItem("CryptoDashAnimatedModernParticles");
+
+    var currentParticleSizeMin = window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeMin");
+    var currentParticleSizeMax = window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeMax");
+    var currentParticleSizeSpeedVariation = window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeSpeedVariation");
+
+    var currentParticleXSpeedMin = window.localStorage.getItem("CryptoDashAnimatedModernParticlesXSpeedMin");
+    var currentParticleXSpeedMax = window.localStorage.getItem("CryptoDashAnimatedModernParticlesXSpeedMax");
+    var currentParticleYSpeedMin = window.localStorage.getItem("CryptoDashAnimatedModernParticlesYSpeedMin");
+    var currentParticleYSpeedMax = window.localStorage.getItem("CryptoDashAnimatedModernParticlesYSpeedMax");
+    
+    var currentParticleCenterOpacity = window.localStorage.getItem("CryptoDashAnimatedModernParticlesCenterOpacity");
+    var currentParticleEdgeOpacity = window.localStorage.getItem("CryptoDashAnimatedModernParticlesEdgeOpacity");
+
+
+
+
+
+    if(!currentParticleCount || currentParticleCount == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticles", "6");
+    }
+
+    if(!currentParticleSizeMin || currentParticleSizeMin == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesSizeMin", "1900");
+    }
+
+    if(!currentParticleSizeMax || currentParticleSizeMax == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesSizeMax", "2200");
+    }
+
+    if(!currentParticleSizeSpeedVariation || currentParticleSizeSpeedVariation == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesSizeSpeedVariation", "1");
+    }
+
+    if(!currentParticleXSpeedMin || currentParticleXSpeedMin == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesXSpeedMin", "0.5");
+    }
+
+    if(!currentParticleXSpeedMax || currentParticleXSpeedMax == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesXSpeedMax", "0.9");
+    }
+
+    if(!currentParticleYSpeedMin || currentParticleYSpeedMin == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesYSpeedMin", "0.5");
+    }
+
+    if(!currentParticleYSpeedMax || currentParticleYSpeedMax == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesYSpeedMax", "0.9");
+    }
+
+    if(!currentParticleCenterOpacity || currentParticleCenterOpacity == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesCenterOpacity", "0.4");
+    }
+
+    if(!currentParticleEdgeOpacity || currentParticleEdgeOpacity == null ) {
+      window.localStorage.setItem("CryptoDashAnimatedModernParticlesEdgeOpacity", "0.05");
+    }
+
+
+
+    currentParticleCount = window.localStorage.getItem("CryptoDashAnimatedModernParticles");
+
+    currentParticleSizeMin = window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeMin");
+    currentParticleSizeMax = window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeMax");
+    currentParticleSizeSpeedVariation = window.localStorage.getItem("CryptoDashAnimatedModernParticlesSizeSpeedVariation");
+
+    currentParticleXSpeedMin = window.localStorage.getItem("CryptoDashAnimatedModernParticlesXSpeedMin");
+    currentParticleXSpeedMax = window.localStorage.getItem("CryptoDashAnimatedModernParticlesXSpeedMax");
+    currentParticleYSpeedMin = window.localStorage.getItem("CryptoDashAnimatedModernParticlesYSpeedMin");
+    currentParticleYSpeedMax = window.localStorage.getItem("CryptoDashAnimatedModernParticlesYSpeedMax");
+
+    currentParticleCenterOpacity = window.localStorage.getItem("CryptoDashAnimatedModernParticlesCenterOpacity");
+    currentParticleEdgeOpacity = window.localStorage.getItem("CryptoDashAnimatedModernParticlesEdgeOpacity");
+
+
+    animatedModernParticleRanger.disabled = false;
+
+    animatedModernParticleSizeMinRanger.disabled = false;
+    animatedModernParticleSizeMaxRanger.disabled = false;
+    animatedModernParticleSizeSpeedVariationRanger.disabled = false;
+
+    animatedModernParticleXSpeedMinRanger.disabled = false;
+    animatedModernParticleXSpeedMaxRanger.disabled = false;
+    animatedModernParticleYSpeedMinRanger.disabled = false;
+    animatedModernParticleYSpeedMaxRanger.disabled = false;
+
+    animatedModernParticleCenterOpacityRanger.disabled = false;
+    animatedModernParticleEdgeOpacityRanger.disabled = false;
+
+    animatedModernParticleRanger.value = currentParticleCount;
+    animatedModernParticleRanger.title = currentParticleCount;
+
+    animatedModernParticleSizeMinRanger.value = currentParticleSizeMin;
+    animatedModernParticleSizeMaxRanger.value = currentParticleSizeMax;
+    animatedModernParticleSizeSpeedVariationRanger.value = currentParticleSizeSpeedVariation;
+
+    animatedModernParticleSizeMinRanger.title = currentParticleSizeMin;
+    animatedModernParticleSizeMaxRanger.title = currentParticleSizeMax;
+    animatedModernParticleSizeSpeedVariationRanger.title = currentParticleSizeSpeedVariation;
+
+    animatedModernParticleXSpeedMinRanger.value = currentParticleXSpeedMin;
+    animatedModernParticleXSpeedMaxRanger.value = currentParticleXSpeedMax;
+    animatedModernParticleYSpeedMinRanger.value = currentParticleYSpeedMin;
+    animatedModernParticleYSpeedMaxRanger.value = currentParticleYSpeedMax;
+    animatedModernParticleCenterOpacityRanger.value = currentParticleCenterOpacity;
+    animatedModernParticleEdgeOpacityRanger.value = currentParticleEdgeOpacity;
+
+    animatedModernParticleXSpeedMinRanger.title = currentParticleXSpeedMin;
+    animatedModernParticleXSpeedMaxRanger.title = currentParticleXSpeedMax;
+    animatedModernParticleYSpeedMinRanger.title = currentParticleYSpeedMin;
+    animatedModernParticleYSpeedMaxRanger.title = currentParticleYSpeedMax;
+    animatedModernParticleCenterOpacityRanger.title = currentParticleCenterOpacity;
+    animatedModernParticleEdgeOpacityRanger.title = currentParticleEdgeOpacity;
+
+    document.getElementById("particlesCountSpan").innerHTML = animatedModernParticleRanger.title;
+
+    document.getElementById("particlesSizeMinSpan").innerHTML = animatedModernParticleSizeMinRanger.title;
+    document.getElementById("particlesSizeMaxSpan").innerHTML = animatedModernParticleSizeMaxRanger.title;
+    document.getElementById("particlesSizeSpeedVariationSpan").innerHTML = animatedModernParticleSizeSpeedVariationRanger.title;
+
+    document.getElementById("particlesSpeedXMinSpan").innerHTML = animatedModernParticleXSpeedMinRanger.title;
+    document.getElementById("particlesSpeedXMaxSpan").innerHTML = animatedModernParticleXSpeedMaxRanger.title;
+    document.getElementById("particlesSpeedYMinSpan").innerHTML = animatedModernParticleYSpeedMinRanger.title;
+    document.getElementById("particlesSpeedYMaxSpan").innerHTML = animatedModernParticleYSpeedMaxRanger.title;
+
+    document.getElementById("particlesCenterOpacitySpan").innerHTML = animatedModernParticleCenterOpacityRanger.title;
+    document.getElementById("particlesEdgeOpacitySpan").innerHTML = animatedModernParticleEdgeOpacityRanger.title;
+
+
+    if (!checkCryptoDashBackgroundCanvas || CryptoDashAnimatedBackground == null) {
+      activateCryptoDashAnimatedBG();
+      
+    } 
+
+    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching to animated background`, 3000);
+            
+  }
+
+  function hideCryptoDashAnimatedCanvas() {
+
+    var checkCryptoDashBackgroundCanvas = document.querySelector("#cryptodash-animated-canvas");
+    
+    if (CryptoDashAnimatedModernSwitch.checked) {
+      CryptoDashAnimatedModernSwitch.checked = false;
+    }
+
+    document.getElementById("animatedModernParticleRanger").disabled = true;
+
+    document.getElementById("animatedModernParticleSizeMinRanger").disabled = true;
+    document.getElementById("animatedModernParticleSizeMaxRanger").disabled = true;
+    document.getElementById("animatedModernParticleSizeSpeedVariationRanger").disabled = true;
+
+    document.getElementById("animatedModernParticleXSpeedMinRanger").disabled = true;
+    document.getElementById("animatedModernParticleXSpeedMaxRanger").disabled = true;
+    document.getElementById("animatedModernParticleYSpeedMinRanger").disabled = true;
+    document.getElementById("animatedModernParticleYSpeedMaxRanger").disabled = true;
+
+    document.getElementById("animatedModernParticleCenterOpacityRanger").disabled = true;
+    document.getElementById("animatedModernParticleEdgeOpacityRanger").disabled = true;
+
+    window.localStorage.setItem("CryptoDashAnimatedModernSwitch", "Hide");
+
+    animatedModernParticleRanger.value = 0;
+    animatedModernParticleRanger.title = animatedModernParticleRanger.value;
+    document.getElementById("particlesCountSpan").innerHTML = "N/A";
+
+    animatedModernParticleSizeMinRanger.value = 0;
+    animatedModernParticleSizeMinRanger.title = animatedModernParticleSizeMinRanger.value;
+    document.getElementById("particlesSizeMinSpan").innerHTML = "N/A";
+
+    animatedModernParticleSizeMaxRanger.value = 0;
+    animatedModernParticleSizeMaxRanger.title = animatedModernParticleSizeMaxRanger.value;
+    document.getElementById("particlesSizeMaxSpan").innerHTML = "N/A";
+
+    animatedModernParticleSizeSpeedVariationRanger.value = 0;
+    animatedModernParticleSizeSpeedVariationRanger.title = animatedModernParticleSizeSpeedVariationRanger.value;
+    document.getElementById("particlesSizeSpeedVariationSpan").innerHTML = "N/A";
+
+    animatedModernParticleXSpeedMinRanger.value = 0;
+    animatedModernParticleXSpeedMinRanger.title = animatedModernParticleXSpeedMinRanger.value;
+    document.getElementById("particlesSpeedXMinSpan").innerHTML = "N/A";
+
+    animatedModernParticleXSpeedMaxRanger.value = 0;
+    animatedModernParticleXSpeedMaxRanger.title = animatedModernParticleXSpeedMaxRanger.value;
+    document.getElementById("particlesSpeedXMaxSpan").innerHTML = "N/A";
+
+    animatedModernParticleYSpeedMinRanger.value = 0;
+    animatedModernParticleYSpeedMinRanger.title = animatedModernParticleYSpeedMinRanger.value;
+    document.getElementById("particlesSpeedYMinSpan").innerHTML = "N/A";
+
+    animatedModernParticleYSpeedMaxRanger.value = 0;
+    animatedModernParticleYSpeedMaxRanger.title = animatedModernParticleYSpeedMaxRanger.value;
+    document.getElementById("particlesSpeedYMaxSpan").innerHTML = "N/A";
+
+    animatedModernParticleCenterOpacityRanger.value = 0;
+    animatedModernParticleCenterOpacityRanger.title = animatedModernParticleCenterOpacityRanger.value;
+    document.getElementById("particlesCenterOpacitySpan").innerHTML = "N/A";
+
+    animatedModernParticleEdgeOpacityRanger.value = 0;
+    animatedModernParticleEdgeOpacityRanger.title = animatedModernParticleEdgeOpacityRanger.value;
+    document.getElementById("particlesEdgeOpacitySpan").innerHTML = "N/A";
+
+    if (checkCryptoDashBackgroundCanvas) {
+      removeCryptoDashAnimatedBG();
+    } 
+
+    showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching to static background`, 3000);
+    
+  }
+
+  function onToggleMode() {
+    if (CryptoDashAnimatedModernSwitch.checked) {
+      showCryptoDashAnimatedCanvas();
+      //location.reload();
+    } else {
+      hideCryptoDashAnimatedCanvas();
+      
+    }
+  }
+
+  function setup() {
+    var settings = window.localStorage.getItem("CryptoDashAnimatedModernSwitch");
+    if (settings == null) {
+      window.localStorage.setItem("CryptoDashDataRefreshSwitch", "Hide");
+    }
+    
+    if (settings == "Show") {
+      CryptoDashAnimatedModernSwitch.checked = true;
+    }
+
+    if (settings == "Hide") {
+      CryptoDashAnimatedModernSwitch.checked = false;
+    }
+    
+    CryptoDashAnimatedModernSwitch.addEventListener("change", onToggleMode);
+    onToggleMode();
+  }
+  
+  setup();
+
+})();
+
+
 
 // Notification Orientation and Location
 (function () {
@@ -6308,7 +7357,7 @@ function stopAutoCryptoDashFetchTrackerData() {
   function CryptoDashNotificationOrientationTopToggle(){
     if (CryptoDashNotificationOrientationTop.checked) {
       window.localStorage.setItem("CryptoDashNotificationOrientation", "top");
-      CryptoDashNotificationOrientation = window.localStorage.getItem("CryptoDashNotificationOrientation");
+      var CryptoDashNotificationOrientation = window.localStorage.getItem("CryptoDashNotificationOrientation");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Notifications orientation set to ` + CryptoDashNotificationOrientation, 3000);
     }
   }
@@ -6316,7 +7365,7 @@ function stopAutoCryptoDashFetchTrackerData() {
   function CryptoDashNotificationOrientationBottomToggle(){
     if (CryptoDashNotificationOrientationBottom.checked) {
       window.localStorage.setItem("CryptoDashNotificationOrientation", "bottom");
-      CryptoDashNotificationOrientation = window.localStorage.getItem("CryptoDashNotificationOrientation");
+      var CryptoDashNotificationOrientation = window.localStorage.getItem("CryptoDashNotificationOrientation");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Notifications orientation set to ` + CryptoDashNotificationOrientation, 3000);
     }
   }
@@ -6324,7 +7373,7 @@ function stopAutoCryptoDashFetchTrackerData() {
   function CryptoDashNotificationLocationLeftToggle(){
     if (CryptoDashNotificationLocationLeft.checked) {
       window.localStorage.setItem("CryptoDashNotificationLocation", "left");
-      CryptoDashNotificationLocation = window.localStorage.getItem("CryptoDashNotificationLocation");
+      var CryptoDashNotificationLocation = window.localStorage.getItem("CryptoDashNotificationLocation");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Notifications location set to ` + CryptoDashNotificationLocation, 3000);
     }
   }
@@ -6332,7 +7381,7 @@ function stopAutoCryptoDashFetchTrackerData() {
   function CryptoDashNotificationLocationRightToggle(){
     if (CryptoDashNotificationLocationRight.checked) {
       window.localStorage.setItem("CryptoDashNotificationLocation", "right");
-      CryptoDashNotificationLocation = window.localStorage.getItem("CryptoDashNotificationLocation");
+      var CryptoDashNotificationLocation = window.localStorage.getItem("CryptoDashNotificationLocation");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Notifications location set to ` + CryptoDashNotificationLocation, 3000);
     }
   }
@@ -6397,25 +7446,35 @@ function stopAutoCryptoDashFetchTrackerData() {
     showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh automatically`, 3000);
     
     var autoRefreshRanger = document.getElementById("refreshRanger");
-    document.getElementById("dataRefreshSpan").innerHTML = autoRefreshRanger.value / 10 + "s";
+    var CryptoDashAutoRefreshFormattedValue = FormattedTimeMinutesAndSeconds(autoRefreshRanger.value);
+    document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefreshFormattedValue;
 
     var CryptoDashAutoRefresh = window.localStorage.getItem('CryptoDashAutoRefresh');
 
     if (CryptoDashAutoRefresh) {
       
       autoRefreshRanger.value = CryptoDashAutoRefresh;
+      autoRefreshRanger.title = autoRefreshRanger.value / 10;
+      var CryptoDashAutoRefreshFormattedValue = FormattedTimeMinutesAndSeconds(autoRefreshRanger.title);
       // trigger the data pull with auto refresh
       autoCryptoDashFetchTrackerData();
 
-      document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefresh / 10 + "s";
+      document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefreshFormattedValue;
 
-      document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i> Auto`;
+      //var duration = document.getElementById("refreshRanger").title;
+      //var display = document.getElementById("cryptodash-refresh-button");
+      
+      //startCryptoDashRefreshCountDown(duration, display);
+      
+      document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> Auto`;
 
     } else {
       autoRefreshRanger.value = 0;
       autoRefreshRanger.title = autoRefreshRanger.value;
       document.getElementById("dataRefreshSpan").innerHTML = "N/A";
+      
     }
+
     
   }
 
@@ -6426,10 +7485,10 @@ function stopAutoCryptoDashFetchTrackerData() {
     if (CryptoDashDataRefreshSwitch.checked) {
       CryptoDashDataRefreshSwitch.checked = false;
     }
-    localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
+    window.localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
     showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data set to refresh manually`, 3000);
     document.getElementById("dataRefreshSpan").innerHTML = "N/A"; 
-    document.getElementById("cryptodash-refresh-button").innerHTML = `<i id ="cryptodash-refresh-icon" class="fa fa-refresh "></i>`;
+    document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh"></i>`;
     stopAutoCryptoDashFetchTrackerData();
     
   }
@@ -6438,15 +7497,7 @@ function stopAutoCryptoDashFetchTrackerData() {
     if (CryptoDashDataRefreshSwitch.checked) {
       autoRefresh();
     } else {
-      
-
-      
-        
-        manualRefresh();
-        
-      
-
-
+      manualRefresh();
     }
   }
 
@@ -6575,8 +7626,8 @@ function stopAutoCryptoDashFetchTrackerData() {
 
     showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Background set to Gradient HD`, 3000);
 
-    var currentbg = document.querySelector('.cryptodash-bg-image-gradient-hd').style.backgroundImage.slice(5, -2);
-    document.getElementById("cryptodash-download-bg").innerHTML = currentbg;
+    //var currentbg = document.querySelector('.cryptodash-bg-image-gradient-hd').style.backgroundImage.slice(5, -2);
+    //document.getElementById("cryptodash-download-bg").innerHTML = currentbg;
 
   }
 
@@ -6730,7 +7781,7 @@ function stopAutoCryptoDashFetchTrackerData() {
     document.getElementById("cryptodash-bg-abstract-tab").classList.remove("active", "show");
     
     // Change tab background button status
-    document.getElementById("cryptodash-bg-simple-color").innerHTML = 'Default';
+    document.getElementById("cryptodash-bg-simple-color").innerHTML = 'Default Color';
     document.getElementById("cryptodash-bg-custom-color").innerHTML = '<i class="fa fa-check"></i> Random (' + hexCryptoDashColorName + ')';    
     document.getElementById("cryptodash-bg-gradient-hd").innerHTML = 'HD (1920x1080)';
     document.getElementById("cryptodash-bg-gradient-4k").innerHTML = '4K (3840x2160)';
@@ -7172,6 +8223,13 @@ function showCryptoDashTrackerAlarms() {
     //console.table(checkIfAlarmExists);
     CryptoDashDataRefreshSwitch.disabled = true;
     CryptoDashDataRefreshSwitchNote.innerHTML = `<p style="font-size: .775rem; text-align: center;"><i class="fa fa-exclamation-circle"></i> To be able to turn off Auto Refresh, remove all tracker alarms. </p>`;
+    
+    refreshCryptoDashDataInterval = window.localStorage.getItem("CryptoDashAutoRefresh");
+
+    document.getElementById('refreshRanger').title = refreshCryptoDashDataInterval / 10;
+    document.getElementById('refreshRanger').value = refreshCryptoDashDataInterval;
+    
+    
     var allAlarms = "";
     Object.keys(checkIfAlarmExists).forEach(function(value){
 
@@ -7386,6 +8444,10 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
 
 
 })();
+
+function isFirefox() {
+  return navigator.userAgent.toLowerCase().indexOf('firefox') >= 0;  
+}
 
 // frosting and defrosting the interface
 (function () {
@@ -7683,17 +8745,41 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
 
 
   function setup() {
+    
+
+    
+
     var settings = window.localStorage.getItem("CryptoDashFrostedThemeSwitch");
     if (settings == null) {
-      window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+      if (!isFirefox()){
+        window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+      } else {
+        window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Defrosted");
+      }
+      
     }
     
     if (settings == "Frosted") {
-      frostedCryptoDashThemeInput.checked = true;
+      if (!isFirefox()){
+        frostedCryptoDashThemeInput.checked = true;
+      } else {
+        frostedCryptoDashThemeInput.disabled = true;
+        frostedCryptoDashThemeInput.checked = false;
+        window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Defrosted");
+        document.getElementById("FrostedFirefoxNote").innerHTML = `<i class="fa fa-snowflake-o "></i> Frosted Mode is currently not supported in Firefox. <br>`;
+        
+      }
+      
     }
 
     if (settings == "Defrosted") {
       frostedCryptoDashThemeInput.checked = false;
+
+      if (isFirefox()){
+        frostedCryptoDashThemeInput.disabled = true;
+        document.getElementById("FrostedFirefoxNote").innerHTML = `<i class="fa fa-snowflake-o "></i> Frosted Mode is currently not supported in Firefox. <br>`;
+      } 
+
     }
     
     frostedCryptoDashThemeInput.addEventListener("change", onToggleMode);
