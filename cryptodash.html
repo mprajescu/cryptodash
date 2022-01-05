@@ -137,6 +137,10 @@ body {
 }
 
 /* custom Bootstrap changes */
+
+.nav-justified .nav-item, .nav-justified>.nav-link {
+flex-basis: auto !important;
+}
 .btn:not(#cryptodash-apikey-button) {
   border: 0px !important;
 }
@@ -1279,7 +1283,7 @@ p[id$="updatetime"] {
       <ul class="nav nav-pills nav-justified mb-3" id="cryptodash-settings-tab" role="tablist">
         <!-- Tracker and Data Button-->
         <li class="nav-item" role="presentation">
-          <button class="btn btn-outline-dark btn-lg active" id="cryptodash-tracker-tab-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-tab" type="button" role="tab" aria-controls="cryptodash-tracker-tab" aria-selected="true"><i class="fa fa-th-large"></i> Trackers</button>
+          <button class="btn btn-outline-dark btn-lg active" id="cryptodash-tracker-tab-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-tab" type="button" role="tab" aria-controls="cryptodash-tracker-tab" aria-selected="true"><i class="fa fa-th-large"></i> <br> Trackers</button>
         </li>
         <!-- Customization Button-->
         <li class="nav-item" role="presentation">
@@ -1867,6 +1871,22 @@ p[id$="updatetime"] {
   <div class="offcanvas offcanvas-top backdrop-blur" tabindex="-1" id="cryptodash-chart-menu" aria-labelledby="CryptoDashChartMenuLabel">
     <div class="offcanvas-header border-bottom">
       <h5 class="offcanvas-title" id="CryptoDashChartMenuLabel"> About Coin </h5>
+      
+      <div>
+        <ul id="cryptodash-tracker-details-buttons" class="nav nav-pills nav-justified" role="tablist" aria-label="Crypto Tracker Details">
+            
+          
+          <li class="nav-item" role="trackerdetails" style="margin-right: 4px;">
+            <button class="btn btn-outline-dark btn-sm active" id="cryptodash-tracker-details-charts-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-tab" aria-selected="false"><i class="fa fa-area-chart"></i> Charts</button>
+          </li>
+          <li class="nav-item" role="trackerdetails">
+            <button class="btn btn-outline-dark btn-sm" id="cryptodash-tracker-details-about-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-about-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-about-tab" aria-selected="true"><i class="fa fa-info-circle"></i> Details</button>
+          </li>
+  
+        </ul>
+      </div>
+      
+
       <div id="cryptodash-chart-remove-button"></div>
 
       <button id="cryptodash-chart-menu-close" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -1875,38 +1895,62 @@ p[id$="updatetime"] {
     <div class="offcanvas-body">
       
       <div id="blurry">
-        
-        <div id="cryptodash-chart-status"></div>
-        <div id="cryptodash-chart-buttons"></div>
-        
+
 
         
+    
+  
+        <div class="tab-content" id="cryptodash-tracker-details-content">
 
-        <div class="row">
-
-          <div class="col-12" id="cryptodash-30-days-chart">
-            <div id="cryptodash-30-days-chart-title"><strong>Last month</strong></div>
-            <div id="cryptodash-30-days-chart-status"></div>
-            <div id="cryptodash-30-days-chart-content" class="d-flex justify-content-center"></div>
-          </div>
-          <br><br>
          
+          <div class="tab-pane fade show active" id="cryptodash-tracker-details-charts-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-button">
+            
+            <div id="cryptodash-chart-status"></div>
+            <div id="cryptodash-chart-buttons"></div>
+            
 
-          <div class="col-12" id="cryptodash-1-day-chart">
-            <div id="cryptodash-1-day-chart-title"><strong>Last day</strong></div>
-            <div id="cryptodash-1-day-chart-status"></div>
-            <div id="cryptodash-1-day-chart-content" class="d-flex justify-content-center"></div>
+            <div class="row">
+
+              <div class="col-12" id="cryptodash-30-days-chart">
+                <div id="cryptodash-30-days-chart-title"><strong>Last month</strong></div>
+                <div id="cryptodash-30-days-chart-status"></div>
+                <div id="cryptodash-30-days-chart-content" class="d-flex justify-content-center"></div>
+              </div>
+              <br><br>
+            
+
+              <div class="col-12" id="cryptodash-1-day-chart">
+                <div id="cryptodash-1-day-chart-title"><strong>Last day</strong></div>
+                <div id="cryptodash-1-day-chart-status"></div>
+                <div id="cryptodash-1-day-chart-content" class="d-flex justify-content-center"></div>
+              </div>
+              <br><br>
+              
+
+              <div class="col-12" id="cryptodash-1-hour-chart">
+                <div id="cryptodash-1-hour-chart-title"><strong>Last hour</strong></div>
+                <div id="cryptodash-1-hour-chart-status"></div>
+                <div id="cryptodash-1-hour-chart-content" class="d-flex justify-content-center"></div>
+              </div>
+
+            </div>
+
           </div>
-          <br><br>
+
+
+          <div class="tab-pane fade " id="cryptodash-tracker-details-about-tab" role="tabpanel" aria-labelledby="cryptodash-bg-simple-button">
+            
+           Test 1
+            
+          </div>
+
           
 
-          <div class="col-12" id="cryptodash-1-hour-chart">
-            <div id="cryptodash-1-hour-chart-title"><strong>Last hour</strong></div>
-            <div id="cryptodash-1-hour-chart-status"></div>
-            <div id="cryptodash-1-hour-chart-content" class="d-flex justify-content-center"></div>
-          </div>
-
         </div>
+
+
+        
+        
 
 
       </div>
@@ -5256,9 +5300,26 @@ var chartCryptoDashOpener = function (event) {
 
   var CryptoDashChartTitle = this.id.substring(0, this.id.length - 4); ;
   var CryptoDashChartOffCanvasTitle = document.getElementById('CryptoDashChartMenuLabel');
+  var CryptoDashChartOffCanvasAboutButton = document.getElementById('cryptodash-tracker-details-about-button');
+  var CryptoDashChartOffCanvasChartsButton = document.getElementById('cryptodash-tracker-details-charts-button');
 
-  CryptoDashChartOffCanvasTitle.innerHTML = '<strong> <i class="fa fa-area-chart"></i> ' + CryptoDashChartTitle + '</strong>';
+  var CryptoDashChartOffCanvasAboutTab = document.getElementById('cryptodash-tracker-details-about-tab');
+  var CryptoDashChartOffCanvasChartsTab = document.getElementById('cryptodash-tracker-details-charts-tab');
 
+  CryptoDashChartOffCanvasTitle.innerHTML = '<strong> <i class="fa fa-info-circle"></i> ' + CryptoDashChartTitle + '</strong>';
+  CryptoDashChartOffCanvasAboutButton.innerHTML = `<i class="fa fa-info-circle"></i> ` + CryptoDashChartTitle + ` details`;
+  
+  // Clearing tab and active buttons
+  CryptoDashChartOffCanvasChartsTab.classList.remove('active', 'show');
+  CryptoDashChartOffCanvasAboutTab.classList.remove('active', 'show');
+
+  CryptoDashChartOffCanvasAboutButton.classList.remove('active');
+  CryptoDashChartOffCanvasChartsButton.classList.remove('active');
+
+  // show charts first
+  CryptoDashChartOffCanvasChartsButton.classList.add('active');
+  CryptoDashChartOffCanvasChartsTab.classList.add('active', 'show');
+  
   //CryptoDashChartMenuLabel
 
   var CryptoDashCurrentSelectedCurrency = window.localStorage.getItem("CryptoDashCurrency");
@@ -7901,7 +7962,9 @@ function resetCryptoDashModernBackground() {
 // SET ALARM FOR Current Tracker
   function setCryptoDashAlarm(coinAbr) {
   var CryptoDashDataRefreshSwitch = window.localStorage.getItem("CryptoDashDataRefreshSwitch");
+  var CryptoDashCurrentSelectedCurrency = window.localStorage.getItem("CryptoDashCurrency");
   var cryptoDashTrackerID = coinAbr;
+
   if(!CryptoDashDataRefreshSwitch || CryptoDashDataRefreshSwitch == "Manual" ) {
     showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Alarm Error</strong> <br>` + `Please switch "Data Auto Refresh" <strong>ON</strong> and then run through the alarm setup again.`, -1, true);
     
@@ -8035,15 +8098,13 @@ function resetCryptoDashModernBackground() {
       }
     });
 
-
     
     var prevValue = "";
     var patt = /^(-?)(\d*)([,.]\d{0,4})?$/;
     
-    function validateNumberPattern(cryptodashvalue){
+    function validateNumberPattern(cryptodashvalue) {
 
       
-
       var matchedString = cryptodashvalue.match(patt);
       if (matchedString) {
           prevValue = matchedString[1] + matchedString[2] + (matchedString[3] ? matchedString[3].replace(",", ".") : "")
@@ -8052,8 +8113,8 @@ function resetCryptoDashModernBackground() {
       else {
         return prevValue;
      }
-    }
 
+    }
 
     document.getElementById("cryptodash-alarm-tracker-value").onchange = function() {
       this.value = validateNumberPattern(this.value);
@@ -8062,11 +8123,6 @@ function resetCryptoDashModernBackground() {
     document.getElementById("cryptodash-alarm-tracker-value").oninput = function() {
       this.value = validateNumberPattern(this.value);
     };
-
-    
-
-    
-
 
 
     var settingTheAlarm = function (event) {
@@ -8079,7 +8135,6 @@ function resetCryptoDashModernBackground() {
       //console.log("Alarm set for: " + cryptodashtrackerid + " alarm element value: " + alarmElementValue + " alarm condition value: " + alarmConditionValue + " alarm input value: " + alarmInputValue);
       // add into Local Storage 
 
-      //var checkIfAlarmExists = window.localStorage.getItem();
 
       var cryptoDashAlarmKey = "CryptoDashAlarm-" + cryptoDashTrackerID;
       
@@ -8089,9 +8144,7 @@ function resetCryptoDashModernBackground() {
 
       if(!checkIfAlarmExists || checkIfAlarmExists == null || Object.keys(checkIfAlarmExists).length === 0 ) {
         //console.log("no alarm set");
-        
-        //
-
+      
         if(!alarmInputValue || alarmInputValue == null ){
           showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Alarm Error</strong> <br>` + `Check alarm value`, 3000);
 
@@ -8109,19 +8162,12 @@ function resetCryptoDashModernBackground() {
 
           var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + cryptoDashTrackerID + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-chart-menu" aria-controls="cryptodash-chart-menu"><i class="fa fa-trash"></i> Remove Tracker</button>`;
           var alarmTrackerButton = `<button id="cryptodash-remove-alarm-`+ cryptoDashTrackerID +`" class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashAlarm('` + cryptoDashTrackerID + `')"><i class="fa fa-bell-slash-o"></i> Remove Alarm</button>`;
-      
-
-  
-
+       
           document.getElementById('cryptodash-chart-remove-button').innerHTML = alarmTrackerButton + " " + removeTrackerButton;
-
-
 
         }
 
         
-
-
       } else {
         CryptoDashNewAlarm.hide();
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Alarm Error</strong> <br>` + `Alarm for this tracker already exists`, -1, true);
@@ -8798,49 +8844,6 @@ function setCryptoDashDataSourceAPIKey() {
 }
 
 
-
-// window erorr 
-
-/*
-window.onerror = function(msg, url, line, col, error) {
-  // Note that col & error are new to the HTML 5 spec and may not be 
-  // supported in every browser.  It worked for me in Chrome.
-  var extra = !col ? '' : '\ncolumn: ' + col;
-  extra += !error ? '' : '\nerror: ' + error;
-
-  // You can view the information in an alert to see things working like this:
-  alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
-
-
-  Toastify({
-    text: ` <div class="toast-body bordered "> <p>Error: ` + msg + `</p> </div> `,
-    duration: 10000,
-    className: "tracker-backdrop-blur",
-    newWindow: true,
-    close: false,
-    gravity: "top", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    escapeMarkup: false,
-    
-    style: {
-      boxShadow: "0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2)",
-      borderRadius: "20px",
-    },
-
-    onClick: function(){} // Callback after click
-  }).showToast();
-
-
-  // TODO: Report this error via ajax so you can keep track
-  //       of what pages have JS issues
-
-  var suppressErrorAlert = true;
-  // If you return true, then error alerts (like in older versions of 
-  // Internet Explorer) will be suppressed.
-  return suppressErrorAlert;
-};
-*/
 
 
 /* Font resize 
