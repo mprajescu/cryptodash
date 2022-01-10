@@ -3062,8 +3062,8 @@ function pullCryptoDashCoinList() {
             var cryptodashcallsmade = helperCryptoDashObjectToHTMLTable(data['RateLimit']['calls_made']);
             var cryptodashmaxcalls = helperCryptoDashObjectToHTMLTable(data['RateLimit']['max_calls']);
 
-            showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmade,  -1, true);
-            showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Free Maximum API Calls</strong>` + cryptodashmaxcalls,  -1, true);
+            showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmade,  10000, true);
+            showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Free Maximum API Calls</strong>` + cryptodashmaxcalls,  10000, true);
 
           } else {
 
@@ -3173,8 +3173,8 @@ function pullCryptoDashCoinList() {
               var cryptodashcallsmade = helperCryptoDashObjectToHTMLTable(data['RateLimit']['calls_made']);
               var cryptodashmaxcalls = helperCryptoDashObjectToHTMLTable(data['RateLimit']['max_calls']);
 
-              showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmade,  -1, true);
-              showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Free Maximum API Calls</strong>` + cryptodashmaxcalls,  -1, true);
+              showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmade,  10000, true);
+              showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Free Maximum API Calls</strong>` + cryptodashmaxcalls,  10000, true);
 
             } else {
 
@@ -5839,8 +5839,8 @@ async function checkDataSourceRateLimit() {
         CryptoDashDataSourceRateLimitButton.style.display = "inline-block";
         CryptoDashDataSourceRateLimitResult.innerHTML = '<p>You are currently using the <strong> FREE Crypto Compare </strong></p>'+'<strong>Current API Calls</strong> <br>' + cryptodashcallsmadeCCFree + '<br> <strong>Current API Calls Left</strong> <br>' + cryptodashcallsleftCCFree + '<div class="d-grid gap-2"><button class="btn btn-sm btn-outline-' + CryptoDashCurrentTheme + '" onclick="setCryptoDashDataSourceRateCheckResultEmpty()"><i class="fa fa-close"></i> Close Results</button></div>';
 
-        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmadeCCFree,  -1, true);
-        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls Left</strong> <br>` + cryptodashcallsleftCCFree,  -1, true);
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmadeCCFree,  10000, true);
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls Left</strong> <br>` + cryptodashcallsleftCCFree,  10000, true);
 
 
       }   
@@ -5902,8 +5902,8 @@ async function checkDataSourceRateLimit() {
           CryptoDashDataSourceRateLimitResult.innerHTML = '<p>You are currently using the <strong> API Crypto Compare </strong></p>'+'<strong>Current API Calls</strong> <br>' + cryptodashcallsmadeCCApi + '<br> <strong>Current API Calls Left</strong> <br>' + cryptodashcallsleftCCApi + '<div class="d-grid gap-2"><button class="btn btn-sm btn-outline-' + CryptoDashCurrentTheme +'" onclick="setCryptoDashDataSourceRateCheckResultEmpty()"><i class="fa fa-close"></i> Close Results</button></div>';
           
             
-          showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmadeCCApi,  -1, true);
-          showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls Left</strong> <br>` + cryptodashcallsleftCCApi,  -1, true);
+          showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls</strong> <br>` + cryptodashcallsmadeCCApi,  10000, true);
+          showCryptoDashNotification(`<i class="fa fa-info-circle"></i> <strong>Current API Calls Left</strong> <br>` + cryptodashcallsleftCCApi,  10000, true);
   
   
         }   
