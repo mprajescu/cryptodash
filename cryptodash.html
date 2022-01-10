@@ -1704,38 +1704,85 @@ p[id$="updatetime"] {
               
 
               <div class="accordion-item">
-                <h2 class="accordion-header" id="cryptodash-background-animated-vanta-acc-title">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-animated-vanta-acc" aria-expanded="false" aria-controls="cryptodash-background-animated-vanta-acc">
-                    <i class="fa fa-film"></i>&nbsp Vanta
+                <h2 class="accordion-header" id="cryptodash-background-animated-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-animated-acc" aria-expanded="false" aria-controls="cryptodash-background-animated-acc">
+                    <i class="fa fa-film"></i>&nbsp Animated
                   </button>
                 </h2>
-                <div id="cryptodash-background-animated-vanta-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-animated-vanta-acc-title" data-bs-parent="#cryptodash-backgrounds">
+                <div id="cryptodash-background-animated-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-animated-acc-title" data-bs-parent="#cryptodash-backgrounds">
                   <div class="accordion-body" style="padding-left: 5px; padding-right: 5px; padding-top: 10px; padding-bottom: 10px;">
                     
+                    
+
+                    <label for="cryptodash-ts-particles-toggles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> TS Particles</label>
+                    <br>
+                    <span style="font-size: .775rem;">
+                    The TS Particles animated backgrounds are activated on top of static backgrounds.
+                    </span>
+
+                    <div id="cryptodash-ts-particles-toggles">
+
+                      <div class="form-check form-switch">
+                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles1Switch"> <i class="fa fa-power-off "></i> TS Particles 1</label>
+                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles1Switch"/>
+                      </div>
+
+                      <div class="form-check form-switch">
+                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles2Switch"> <i class="fa fa-power-off "></i> TS Particles 2</label>
+                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles2Switch"/>
+                      </div>
+
+                      <div class="form-check form-switch">
+                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles3Switch"> <i class="fa fa-power-off "></i> TS Particles 3</label>
+                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles3Switch"/>
+                      </div>
+
+                      <div class="form-check form-switch">
+                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles4Switch"> <i class="fa fa-power-off "></i> TS Particles 4</label>
+                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles4Switch"/>
+                      </div>
+
+                    </div>
+
+                   
+
+                    <hr>
+
+                    <label for="cryptodash-ts-particles-toggles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> Vanta</label>
+                    <br>
+                    <span style="font-size: .775rem;">
+                    The Vanta animated backgrounds are replacing the static backgrounds.
+                    </span>
+
                     <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaWaveSwitch"> <i class="fa fa-power-off "></i> Vanta Wave Background</label>
+                      <label class="form-check-label" for="CryptoDashAnimatedVantaWaveSwitch"> <i class="fa fa-power-off "></i> Wave</label>
                       <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaWaveSwitch"/>
                     </div>
 
                     <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaFogSwitch"> <i class="fa fa-power-off "></i> Vanta Fog Background</label>
+                      <label class="form-check-label" for="CryptoDashAnimatedVantaFogSwitch"> <i class="fa fa-power-off "></i> Fog</label>
                       <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaFogSwitch"/>
                     </div>
 
                     <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaCellsSwitch"> <i class="fa fa-power-off "></i> Vanta Cells Background</label>
+                      <label class="form-check-label" for="CryptoDashAnimatedVantaCellsSwitch"> <i class="fa fa-power-off "></i> Cells</label>
                       <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaCellsSwitch"/>
                     </div>
 
                     <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaCloudSwitch"> <i class="fa fa-power-off "></i> Vanta Cloud Background</label>
+                      <label class="form-check-label" for="CryptoDashAnimatedVantaCloudSwitch"> <i class="fa fa-power-off "></i> Cloud</label>
                       <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaCloudSwitch"/>
                     </div>
 
                     <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaHaloSwitch"> <i class="fa fa-power-off "></i> Vanta Halo Background</label>
+                      <label class="form-check-label" for="CryptoDashAnimatedVantaHaloSwitch"> <i class="fa fa-power-off "></i> Halo</label>
                       <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaHaloSwitch"/>
                     </div>
+
+                    <!-- General performance advice note -->
+                    <span style="font-size: .775rem;">
+                    <i class="fa fa-info-circle "></i> If high resources utilization occurs, please switch off Frosted Mode to improve performance. 
+                    </span>
 
                   </div>
                 </div>
@@ -1754,6 +1801,9 @@ p[id$="updatetime"] {
             <!-- Configuration Options -->
             <label for="cryptodashConfig" class="form-label badge bg-secondary"><i class="fa fa-cog "></i> Backup Settings</label>
             <div id="cryptodashsettings" class="d-grid gap-2">
+            <span style="font-size: .775rem;">
+            From here you can save a copy of your configured settings and load it anywhere you are running CryptoDash. 
+            </span>
               
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center">
@@ -2165,7 +2215,7 @@ function animatedBG1() {
 
 
 // Vanta FOG
-function animatedBG2() {
+function animatedBGVantaFog() {
   VANTA.FOG({
     el: "#cryptodash-animated-bg",
     mouseControls: true,
@@ -2184,7 +2234,7 @@ function animatedBG2() {
 }
 
 // Vanta HALO
-function animatedBG3() {
+function animatedBGVantaHalo() {
 
   VANTA.HALO({
     el: "#cryptodash-animated-bg",
@@ -2200,7 +2250,7 @@ function animatedBG3() {
 }
 
 // Vanta Cells
-function animatedBG4() {
+function animatedBGVantaCells() {
   VANTA.CELLS({
     el: "#cryptodash-animated-bg",
     mouseControls: true,
@@ -2217,192 +2267,40 @@ function animatedBG4() {
 }
 
 
-function animatedBG5() {
-  //let themeableContainer;
-
-tsParticles.load("cryptodash-animated-bg", {
-    fpsLimit: 60,
-    fullScreen: { enable: true },
-    particles: {
-      number: {
-        value: 50
-      },
-      shape: {
-        type: "circle"
-      },
-      opacity: {
-        value: 0.5
-      },
-      size: {
-        value: 400,
-        random: {
-          enable: true,
-          minimumValue: 200
-        }
-      },
-      move: {
-        enable: true,
-        speed: 10,
-        direction: "top",
-        outModes: {
-          default: "out",
-          top: "destroy",
-          bottom: "none"
-        }
-      }
-    },
-    interactivity: {
-      detectsOn: "canvas",
-      events: {
-        resize: true
-      }
-    },
-    style: {
-      filter: "blur(50px)"
-    },
-    detectRetina: true,
-    themes: [
-      {
-        name: "light",
-        default: {
-          value: true,
-          mode: "light"
-        },
-        options: {
-          background: {
-            color: "#f7f8ef"
-          },
-          particles: {
-            color: {
-              value: ["#5bc0eb", "#fde74c", "#9bc53d", "#e55934", "#fa7921"]
-            }
-          }
-        }
-      },
-      {
-        name: "dark",
-        default: {
-          value: true,
-          mode: "dark"
-        },
-        options: {
-          background: {
-            color: "#080710"
-          },
-          particles: {
-            color: {
-              value: ["#004f74", "#5f5800", "#245100", "#7d0000", "#810c00"]
-            }
-          }
-        }
-      }
-    ],
-    emitters: {
-      direction: "top",
-      position: {
-        x: 50,
-        y: 150
-      },
-      rate: {
-        delay: 0.2,
-        quantity: 2
-      },
-      size: {
-        width: 100,
-        height: 0
-      }
-    }
-  })
-  /*
-  .then((cnt) => {
-    console.log(cnt);
-  });
-  */
-
-}
-
-
-function animatedBG6() {
+// Vanta Waves
+function animatedBGVantaWaves() {
   
-tsParticles.load("cryptodash-animated-bg", {
-  backgroundMode: {
-    enable: true
-  },
-  fpsLimit: 60,
-  particles: {
-    number: {
-      value: 0
-    },
-    collisions: {
-      enable: false
-    },
-    color: {
-      value: "#ffffff"
-    },
-    shape: {
-      type: "circle"
-    },
-    opacity: {
-      value: { min: 0.3, max: 0.8 }
-    },
-    size: {
-      value: { min: 1, max: 10 }
-    },
-    move: {
-      enable: true,
-      size: true,
-      speed: 5,
-      direction: "none",
-      outModes: {
-        default: "destroy"
-      },
-      trail: {
-        enable: true,
-        fillColor: "#000000",
-        length: 3
-      }
-    }
-  },
-  detectRetina: true,
-  background: {
-    color: "#000"
-  },
-  emitters: {
-    direction: "none",
-    rate: {
-      delay: 0.25,
-      quantity: 10
-    },
-    position: {
-      x: 50,
-      y: 50
-    },
-    size: {
-      width: 0,
-      height: 0
-    },
-    spawnColor: {
-      value: "#ff0000",
-      animation: {
-        h: {
-          enable: true,
-          speed: 5
-        },
-        l: {
-          enable: true,
-          speed: 0,
-          offset: {
-            min: 20,
-            max: 80
-          }
-        }
-      }
-    }
-  }
-});
+  VANTA.WAVES({
+    el: "#cryptodash-animated-bg",
+    mouseControls: false,
+    touchControls: false,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x121a20,
+    shininess: 150.00,
+    zoom: 1
+  })
+
 }
 
-function animatedBG7() {
+// Vanta Clouds
+function animatedBGVantaClouds() {
+ 
+  VANTA.CLOUDS({
+    el: "#cryptodash-animated-bg",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00
+  })
+}
+
+
+function animatedBGParticles1() {
   tsParticles.load("cryptodash-animated-bg", {
     fpsLimit: 60,
     particles: {
@@ -2513,37 +2411,191 @@ function animatedBG7() {
   
 }
 
-// Vanta Waves
-function animatedBG8() {
+
+function animatedBGParticles2() {
   
-  VANTA.WAVES({
-    el: "#cryptodash-animated-bg",
-    mouseControls: false,
-    touchControls: false,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x121a20,
-    shininess: 150.00,
-    zoom: 1
+tsParticles.load("cryptodash-animated-bg", {
+  backgroundMode: {
+    enable: true
+  },
+  fpsLimit: 60,
+  particles: {
+    number: {
+      value: 0
+    },
+    collisions: {
+      enable: false
+    },
+    color: {
+      value: "#ffffff"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: { min: 0.3, max: 0.8 }
+    },
+    size: {
+      value: { min: 1, max: 10 }
+    },
+    move: {
+      enable: true,
+      size: true,
+      speed: 5,
+      direction: "none",
+      outModes: {
+        default: "destroy"
+      },
+      trail: {
+        enable: true,
+        fillColor: "#000000",
+        length: 3
+      }
+    }
+  },
+  detectRetina: true,
+  background: {
+    color: "#000"
+  },
+  emitters: {
+    direction: "none",
+    rate: {
+      delay: 0.25,
+      quantity: 10
+    },
+    position: {
+      x: 50,
+      y: 50
+    },
+    size: {
+      width: 0,
+      height: 0
+    },
+    spawnColor: {
+      value: "#ff0000",
+      animation: {
+        h: {
+          enable: true,
+          speed: 5
+        },
+        l: {
+          enable: true,
+          speed: 0,
+          offset: {
+            min: 20,
+            max: 80
+          }
+        }
+      }
+    }
+  }
+});
+}
+
+function animatedBGParticles3() {
+  //let themeableContainer;
+
+tsParticles.load("cryptodash-animated-bg", {
+    fpsLimit: 60,
+    fullScreen: { enable: true },
+    particles: {
+      number: {
+        value: 50
+      },
+      shape: {
+        type: "circle"
+      },
+      opacity: {
+        value: 0.5
+      },
+      size: {
+        value: 400,
+        random: {
+          enable: true,
+          minimumValue: 200
+        }
+      },
+      move: {
+        enable: true,
+        speed: 10,
+        direction: "top",
+        outModes: {
+          default: "out",
+          top: "destroy",
+          bottom: "none"
+        }
+      }
+    },
+    interactivity: {
+      detectsOn: "canvas",
+      events: {
+        resize: true
+      }
+    },
+    style: {
+      filter: "blur(50px)"
+    },
+    detectRetina: true,
+    themes: [
+      {
+        name: "light",
+        default: {
+          value: true,
+          mode: "light"
+        },
+        options: {
+          background: {
+            color: "#f7f8ef"
+          },
+          particles: {
+            color: {
+              value: ["#5bc0eb", "#fde74c", "#9bc53d", "#e55934", "#fa7921"]
+            }
+          }
+        }
+      },
+      {
+        name: "dark",
+        default: {
+          value: true,
+          mode: "dark"
+        },
+        options: {
+          background: {
+            color: "#080710"
+          },
+          particles: {
+            color: {
+              value: ["#004f74", "#5f5800", "#245100", "#7d0000", "#810c00"]
+            }
+          }
+        }
+      }
+    ],
+    emitters: {
+      direction: "top",
+      position: {
+        x: 50,
+        y: 150
+      },
+      rate: {
+        delay: 0.2,
+        quantity: 2
+      },
+      size: {
+        width: 100,
+        height: 0
+      }
+    }
   })
+  /*
+  .then((cnt) => {
+    console.log(cnt);
+  });
+  */
 
 }
 
-// Vanta Clouds
-function animatedBG9() {
- 
-  VANTA.CLOUDS({
-    el: "#cryptodash-animated-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00
-  })
-}
 
 /*
 function animatedBG10() {
