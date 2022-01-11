@@ -4,9 +4,9 @@ Welcome to Crypto Dash!
 
 I've created Crypto Dash to easily keep track of different crypto currency coins and tokens. 
 It doesn't require any server to run, you just download the HTML file and open it in your browser. 
-Currently only Chrome, Edge and Firefox are supported. 
+Currently the only browsers supported are Chrome, Edge and Firefox. 
 
-I want to give thanks to all the open source projects that are currently used in this project:
+
 
 # Disclaimers
 
@@ -28,19 +28,33 @@ Please note that CryptoDash does not have access to your wallet or can do any tr
 The API Key is only utilized to pull information from the selected data source. 
 
 
-Bootstrap 5
+# Credits
+I want to give thanks to all the open source projects that are currently used in this project:
+
+Bootstrap 5 
 
 Muuri JS - Grid system
+
 Overlay Scrollbar - For custom scrollbars
+
 Toastify - Notifications
+
 Animate.css - Various Animations 
+
 Font Awesome - Icons
+
 Tom Select - Select dropdowns
+
 Pace JS - Loading bar
+
 Big Number JS - Displaying correct numbers
+
 Apex Charts - Charts
+
 Particles JS - Background Animations
+
 Three JS - Background Animations
+
 Vanta JS - Background Animations
 
 For notification sounds: https://notificationsounds.com/ 
