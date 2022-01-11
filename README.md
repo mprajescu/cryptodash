@@ -61,9 +61,16 @@ For notification sounds: https://notificationsounds.com/
 
 Bootswatch - Bootstrap themes
 
+# Special Thanks 
+
 A special thanks goes to George because without his idea, CryptoDash would not have seen the light of day. 
 
+
+
+# License Type
+
+
+
+# Buy me a coffee
+
 Buy me a coffee -> https://ko-fi.com/
-
-License Type
-
