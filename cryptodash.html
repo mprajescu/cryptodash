@@ -487,7 +487,12 @@ flex-basis: auto !important;
 }
 
 .cryptodash-tracker-content img:hover{
-  cursor: help;
+  /* cursor: help; */
+  cursor: pointer;
+}
+
+.cryptodash-tracker-content:hover {
+  cursor: move;
 }
 
 /* all cryptodash tracker content paragraphs that are not containing the update time */
@@ -1484,16 +1489,16 @@ p[id$="updatetime"] {
           <label for="cryptodash-currency" class="form-label badge bg-secondary"><i class="fa fa-money"></i> Currency</label>
           <div id="cryptodash-currency" class="gap-2 d-flex justify-content-center"> 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="cryptodash-currency" id="cryptodash-currency-usd" value="USD" checked>
-              <label class="form-check-label" for="cryptodash-currency-usd"><i class="fa fa-usd"></i> USD</label>
+              <input class="btn-check" type="radio" name="cryptodash-currency" id="cryptodash-currency-usd" value="USD" checked>
+              <label class="btn btn-outline-dark" for="cryptodash-currency-usd"><i class="fa fa-usd"></i> USD</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="cryptodash-currency" id="cryptodash-currency-eur" value="EUR">
-              <label class="form-check-label" for="cryptodash-currency-eur"><i class="fa fa-eur"></i> EUR</label>
+              <input class="btn-check" type="radio" name="cryptodash-currency" id="cryptodash-currency-eur" value="EUR">
+              <label class="btn btn-outline-dark" for="cryptodash-currency-eur"><i class="fa fa-eur"></i> EUR</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="cryptodash-currency" id="cryptodash-currency-gbp" value="GBP">
-              <label class="form-check-label" for="cryptodash-currency-gbp"><i class="fa fa-gbp"></i> GBP</label>
+              <input class="btn-check" type="radio" name="cryptodash-currency" id="cryptodash-currency-gbp" value="GBP">
+              <label class="btn btn-outline-dark" for="cryptodash-currency-gbp"><i class="fa fa-gbp"></i> GBP</label>
             </div>
           </div>
 
@@ -1564,24 +1569,24 @@ p[id$="updatetime"] {
             <div class="col-6 d-grid gap-2" style="text-align: center;">
               <label for="cryptodash-notification-orientation" class="form-label badge bg-secondary"><i class="fa fa-sort" ></i> Orientation</label>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="cryptodash-notification-orientation" id="cryptodash-notification-orientation-top" value="TOP" >
-                <label class="form-check-label" for="cryptodash-notification-orientation-top"><i class="fa fa-arrow-circle-down"></i> Coming Down</label>
+                <input class="btn-check" type="radio" name="cryptodash-notification-orientation" id="cryptodash-notification-orientation-top" value="TOP" >
+                <label class="btn btn-outline-dark" for="cryptodash-notification-orientation-top"><i class="fa fa-arrow-circle-down"></i> Coming Down</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="cryptodash-notification-orientation" id="cryptodash-notification-orientation-bottom" value="BOTTOM" checked>
-                <label class="form-check-label" for="cryptodash-notification-orientation-bottom"><i class="fa fa-arrow-circle-up"></i> Going Up</label>
+                <input class="btn-check" type="radio" name="cryptodash-notification-orientation" id="cryptodash-notification-orientation-bottom" value="BOTTOM" checked>
+                <label class="btn btn-outline-dark" for="cryptodash-notification-orientation-bottom"><i class="fa fa-arrow-circle-up"></i> Going Up</label>
               </div>
             </div>
 
             <div class="col-6 d-grid gap-2" style="text-align: center;">
               <label for="cryptodash-notification-location" class="form-label badge bg-secondary"><i class="fa fa-sort fa-rotate-90"></i> Location</label>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-left" value="LEFT" >
-                <label class="form-check-label" for="cryptodash-notification-orientation-left"><i class="fa fa-arrow-circle-left"></i> Left Side</label>
+                <input class="btn-check" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-left" value="LEFT" >
+                <label class="btn btn-outline-dark" for="cryptodash-notification-orientation-left"><i class="fa fa-arrow-circle-left"></i> Left Side</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-right" value="RIGHT" checked>
-                <label class="form-check-label" for="cryptodash-notification-location-right"><i class="fa fa-arrow-circle-right"></i> Right Side</label>
+                <input class="btn-check" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-right" value="RIGHT" checked>
+                <label class="btn btn-outline-dark" for="cryptodash-notification-location-right"><i class="fa fa-arrow-circle-right"></i> Right Side</label>
               </div>
             </div>
 
@@ -1717,7 +1722,7 @@ p[id$="updatetime"] {
                     <label for="cryptodash-ts-particles-toggles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> TS Particles</label>
                     <br>
                     <span style="font-size: .775rem;">
-                    The TS Particles animated backgrounds are activated on top of static backgrounds.
+                    <i class="fa fa-info-circle "></i> The "TS Particles 1" animated backgrounds is applied on top of the chosen classic background choice.
                     </span>
 
                     <div id="cryptodash-ts-particles-toggles">
@@ -1737,10 +1742,6 @@ p[id$="updatetime"] {
                         <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles3Switch"/>
                       </div>
 
-                      <div class="form-check form-switch">
-                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles4Switch"> <i class="fa fa-power-off "></i> TS Particles 4</label>
-                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles4Switch"/>
-                      </div>
 
                     </div>
 
@@ -1750,9 +1751,6 @@ p[id$="updatetime"] {
 
                     <label for="cryptodash-ts-particles-toggles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> Vanta</label>
                     <br>
-                    <span style="font-size: .775rem;">
-                    The Vanta animated backgrounds are replacing the static backgrounds.
-                    </span>
 
                     <div class="form-check form-switch">
                       <label class="form-check-label" for="CryptoDashAnimatedVantaWaveSwitch"> <i class="fa fa-power-off "></i> Wave</label>
