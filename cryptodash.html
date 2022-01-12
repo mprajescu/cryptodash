@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
 
@@ -12,15 +12,35 @@
 
 <title> Crypto Dash </title>
 
+<!-- Bootstrap 5.1.3 CSS -->
+<link id="cryptodash-theme-link" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" type="text/css">
+
 <script type="text/javascript">
 
+  var CryptoDashCSS = window.localStorage.getItem("CryptoDashCSS");    
+  var CryptoDashCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+  
+  if (!CryptoDashCSS || CryptoDashCSS == null) {
+    window.localStorage.setItem("CryptoDashCSS", "default");
+  } 
+  
+  if (!CryptoDashCSSURL || CryptoDashCSSURL == null) {
+    window.localStorage.setItem("CryptoDashCSSURL", "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
+  } 
 
+  var CryptoDashCSS = window.localStorage.getItem("CryptoDashCSS");    
+  var CryptoDashCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+  var cryptoDashThemeLink = document.getElementById("cryptodash-theme-link");
+ 
+  var newHref = CryptoDashCSSURL + '?version=' + new Date().getMilliseconds();
+
+  cryptoDashThemeLink.setAttribute('href', newHref);
 
 </script>
 
 
-<!-- Bootstrap 5.1.3 CSS -->
-<link id="cryptodash-theme-link" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" type="text/css">
+
 
 <!-- Tom Select 2.0.0 CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.bootstrap5.min.css" type="text/css">
@@ -216,6 +236,9 @@ flex-basis: auto !important;
   background: none;
 }
 
+.badge {
+  border-radius: 1rem; 
+}
 
 
 
@@ -355,7 +378,18 @@ flex-basis: auto !important;
   }
   
 
+.cryptodash-preview-animated-background-container {
+  border: 1px solid rgba(0,0,0,.2); 
+  width: 180px; height: 90px; 
+  border-radius: 1rem; 
+  overflow: hidden; 
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
+  mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
+}
 
+.cryptodash-preview-animated-background {
+  width: 180px; height: 90px;z-index: -1; background-color: rgba(0, 0, 0, 0.2);
+}
 
 /* simple background class */
 .cryptodash-bg-simple {
@@ -1283,7 +1317,7 @@ p[id$="updatetime"] {
 
 </head>
 
-<body class="" >
+<body>
   <noscript style="text-align: center;">
     
     <p class="text-white"><i class="fa fa-exclamation-triangle fa-5x"></i> <br> <br> Your browser doesn't support JavaScript or is turned off. <br> Please enable javascript or use a different browser, such as Google Chrome or Microsoft Edge. </p>
@@ -1385,10 +1419,11 @@ p[id$="updatetime"] {
                       <div class="input-group input-group-sm" id="cryptodash-apikey-inputgroup">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         <input type="text" id="cryptodash-apikey" class="form-control" placeholder="API Key" aria-label="API Key" aria-describedby="cryptodash-apikey" disabled>
-                        <button class="btn btn-sm btn-outline-dark" type="button" id="cryptodash-apikey-button" onclick="setCryptoDashDataSourceAPIKey()" disabled>Update</button>
+                        <button class="btn btn-sm btn-outline-dark" type="button" id="cryptodash-apikey-button" onclick="setCryptoDashDataSourceAPIKey()" disabled>Update</button>                        
                       </div>
 
-                      <hr>
+                      <hr id="cryptodash-apikey-inputgroup-hr">
+
                       <!-- datasource Selector -->
                       <a href="https://cryptocompare.com" target="_blank"><label for="cryptodash-datasource-cryptocompare" class="form-label badge bg-secondary"><i class="fa fa-globe "></i> Crypto Compare (link)</label></a>
                       
@@ -1466,7 +1501,7 @@ p[id$="updatetime"] {
                   </h2>
                   <div id="cryptodash-tracker-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-tracker-acc-title" data-bs-parent="#cryptodash-data-and-trackers">
                     <div class="accordion-body">
-                      <p style="font-size: .775rem; text-align: center;"> Add your trackers here. Maximum allowed is 32 trackers. </p>
+                      <p style="font-size: .775rem; text-align: center;" id="cryptodash-tracker-info"> Currently assigned trackers 0/32 </p>
                       
                       <!-- Coin/Token select box to add trackers -->
                       <select id="CryptoDashCoinsSelector" multiple placeholder="Search here for coins or tokens..."> </select>
@@ -1556,7 +1591,7 @@ p[id$="updatetime"] {
 
             <!-- General performance advice note -->
             <span style="font-size: .775rem;">
-              <i class="fa fa-info-circle "></i> If high resources utilization occurs, please switch off Frosted Mode to improve performance. 
+              <i class="fa fa-info-circle "></i> If high resources utilization occurs, you can consider to switch off Frosted Mode to improve performance. 
             </span>
           </div>
           
@@ -1577,85 +1612,85 @@ p[id$="updatetime"] {
               <div id="cryptodash-color-theme-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-color-theme-acc-title" data-bs-parent="#cryptodash-color-themes-accordion">
                 <div class="accordion-body">
                   
-                  <div id="cryptodash-color-themes" class="d-grid gap-2">
+                  <div id="cryptodash-color-themes" class="gap-2">
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-default" id="cryptodash-color-theme-default" value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-default"> <i class="fa fa-check"></i> Default</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-default" value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-default"> Default</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-zephyr" id="cryptodash-color-theme-zephyr" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/zephyr/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-zephyr"> Zephyr</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-zephyr" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/zephyr/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-zephyr"> Zephyr</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-yeti" id="cryptodash-color-theme-yeti" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/yeti/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-yeti"> Yeti</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-yeti" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/yeti/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-yeti"> Yeti</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-vapor" id="cryptodash-color-theme-vapor" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/vapor/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-vapor"> Vapor</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-vapor" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/vapor/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-vapor"> Vapor</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-united" id="cryptodash-color-theme-united" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-united"> United</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-united" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-united"> United</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-superhero" id="cryptodash-color-theme-superhero" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/superhero/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-superhero"> Superhero</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-superhero" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/superhero/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-superhero"> Superhero</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-spacelab" id="cryptodash-color-theme-spacelab" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/spacelab/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-spacelab"> Spacelab</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-spacelab" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/spacelab/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-spacelab"> Spacelab</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-solar" id="cryptodash-color-theme-solar" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/solar/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-solar"> Solar</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-solar" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/solar/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-solar"> Solar</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-slate" id="cryptodash-color-theme-slate" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/slate/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-slate"> Slate</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-slate" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/slate/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-slate"> Slate</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-sketchy" id="cryptodash-color-theme-sketchy" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/sketchy/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-sketchy"> Sketchy</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-sketchy" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/sketchy/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-sketchy"> Sketchy</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-simplex" id="cryptodash-color-theme-simplex" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/simplex/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-simplex"> Simplex</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-simplex" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/simplex/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-simplex"> Simplex</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-sandstone" id="cryptodash-color-theme-sandstone" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/sandstone/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-sandstone"> Sandstone</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-sandstone" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/sandstone/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-sandstone"> Sandstone</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-quartz" id="cryptodash-color-theme-quartz" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/quartz/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-quartz"> Quartz</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-quartz" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/quartz/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-quartz"> Quartz</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-pulse" id="cryptodash-color-theme-pulse" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/pulse/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-pulse"> Pulse</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-pulse" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/pulse/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-pulse"> Pulse</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-minty" id="cryptodash-color-theme-minty" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/minty/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-minty"> Minty</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-minty" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/minty/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-minty"> Minty</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-morph" id="cryptodash-color-theme-morph" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/morph/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-Morph"> Morph</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-morph" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/morph/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-morph"> Morph</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-materia" id="cryptodash-color-theme-materia" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/materia/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-materia"> Materia</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-materia" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/materia/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-materia"> Materia</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-lux" id="cryptodash-color-theme-lux" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-lux"> Lux</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-lux" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-lux"> Lux</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-lumen" id="cryptodash-color-theme-lumen" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lumen/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-lumen"> Lumen</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-lumen" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lumen/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-lumen"> Lumen</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-litera" id="cryptodash-color-theme-litera" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/litera/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-litera"> Litera</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-litera" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/litera/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-litera"> Litera</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-journal" id="cryptodash-color-theme-journal" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/journal/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-journal"> Lournal</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-journal" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/journal/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-journal"> Journal</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-flatly" id="cryptodash-color-theme-flatly" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/flatly/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-flatly"> Flatly</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-flatly" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/flatly/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-flatly"> Flatly</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-darkly" id="cryptodash-color-theme-darkly" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/darkly/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-darkly"> Darkly</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-darkly" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/darkly/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-darkly"> Darkly</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-cyborg" id="cryptodash-color-theme-cyborg" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cyborg/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-cyborg"> Cyborg</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-cyborg" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cyborg/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-cyborg"> Cyborg</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-cosmo" id="cryptodash-color-theme-cosmo" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cosmo/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-cosmo"> Cosmo</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-cosmo" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cosmo/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-cosmo"> Cosmo</label>
 
-                    <input class="btn-check" type="radio" name="cryptodash-color-theme-cerulean" id="cryptodash-color-theme-cerulean" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cerulean/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark" for="cryptodash-color-theme-cerulean"> Cerulean</label>
+                    <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-cerulean" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cerulean/bootstrap.min.css" >
+                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-cerulean"> Cerulean</label>
                   
                   </div>
                 </div>
@@ -1836,67 +1871,156 @@ p[id$="updatetime"] {
                     
                     
 
-                    <label for="cryptodash-ts-particles-toggles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> TS Particles</label>
+                    <label for="cryptodash-animated-backgrounds-tsparticles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> TS Particles</label>
                     <br>
                     <span style="font-size: .775rem;">
                     <i class="fa fa-info-circle "></i> The "TS Particles 1" animated backgrounds is applied on top of the chosen classic background choice.
                     </span>
 
-                    <div id="cryptodash-ts-particles-toggles">
+                    <div class="d-grid gap-2"> 
 
-                      <div class="form-check form-switch">
-                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles1Switch"> <i class="fa fa-power-off "></i> TS Particles 1</label>
-                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles1Switch"/>
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-tsparticles-preview-1" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedTSParticles1Switch"> <i class="fa fa-power-off "></i> TS Particles 1</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles1Switch"/>
+                          </div>
+                        </div>
                       </div>
 
-                      <div class="form-check form-switch">
-                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles2Switch"> <i class="fa fa-power-off "></i> TS Particles 2</label>
-                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles2Switch"/>
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-tsparticles-preview-2" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedTSParticles2Switch"> <i class="fa fa-power-off "></i> TS Particles 2</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles2Switch"/>
+                          </div>
+                        </div>
                       </div>
 
-                      <div class="form-check form-switch">
-                        <label class="form-check-label" for="CryptoDashAnimatedTSParticles3Switch"> <i class="fa fa-power-off "></i> TS Particles 3</label>
-                        <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles3Switch"/>
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-tsparticles-preview-3" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedTSParticles3Switch"> <i class="fa fa-power-off "></i> TS Particles 3</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedTSParticles3Switch"/>
+                          </div>
+    
+                        </div>
                       </div>
 
-
+                     
                     </div>
-
-                   
+                                     
 
                     <hr>
 
-                    <label for="cryptodash-ts-particles-toggles" class="form-label badge bg-secondary"><i class="fa fa-star "></i> Vanta</label>
+                    <label for="cryptodash-animated-backgrounds-vanta" class="form-label badge bg-secondary"><i class="fa fa-star "></i> Vanta</label>
                     <br>
 
-                    <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaWaveSwitch"> <i class="fa fa-power-off "></i> Wave</label>
-                      <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaWaveSwitch"/>
+                    <div class="d-grid gap-2"> 
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-vanta-preview-wave" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedVantaWavesSwitch"> <i class="fa fa-power-off "></i> Waves</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaWavesSwitch"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-vanta-preview-cells" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedVantaCellsSwitch"> <i class="fa fa-power-off "></i> Cells</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaCellsSwitch"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-vanta-preview-fog" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedVantaFogSwitch"> <i class="fa fa-power-off "></i> Fog</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaFogSwitch"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-vanta-preview-halo" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedVantaHaloSwitch"> <i class="fa fa-power-off "></i> Halo</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaHaloSwitch"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3 mb-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="cryptodash-preview-animated-background-container">
+                            <div id="cryptodash-vanta-preview-cloud" class="cryptodash-preview-animated-background"> </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-switch">
+                            <label class="form-check-label" for="CryptoDashAnimatedVantaCloudsSwitch"> <i class="fa fa-power-off "></i> Clouds</label>
+                            <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaCloudsSwitch"/>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
 
-                    <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaFogSwitch"> <i class="fa fa-power-off "></i> Fog</label>
-                      <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaFogSwitch"/>
-                    </div>
 
-                    <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaCellsSwitch"> <i class="fa fa-power-off "></i> Cells</label>
-                      <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaCellsSwitch"/>
-                    </div>
 
-                    <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaCloudSwitch"> <i class="fa fa-power-off "></i> Cloud</label>
-                      <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaCloudSwitch"/>
-                    </div>
+                    
+                    
 
-                    <div class="form-check form-switch">
-                      <label class="form-check-label" for="CryptoDashAnimatedVantaHaloSwitch"> <i class="fa fa-power-off "></i> Halo</label>
-                      <input class="form-check-input" type="checkbox" id="CryptoDashAnimatedVantaHaloSwitch"/>
-                    </div>
+                    
+
+                    
+
+                    
+
+                    
 
                     <!-- General performance advice note -->
                     <span style="font-size: .775rem;">
-                    <i class="fa fa-info-circle "></i> If high resources utilization occurs, please switch off Frosted Mode to improve performance. 
+                    <i class="fa fa-info-circle "></i> If high resources utilization occurs, you can consider to turn off animated backgrounds to improve performance. 
                     </span>
 
                   </div>
@@ -2253,6 +2377,64 @@ p[id$="updatetime"] {
 <script type="text/javascript">
 "use strict";
 
+// CryptoDash loader
+const CryptoDashLoader = document.querySelector('#cryptodash-loader');
+const CryptoDashContent = document.getElementById('cryptodash-content');
+
+function unfade(element) {
+  var op = 0.1;  // initial opacity
+  element.style.display = 'block';
+  var timer = setInterval(function () {
+      if (op >= 1){
+          clearInterval(timer);
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op += op * 0.1;
+  }, 10);
+}
+
+function fade(element) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+      if (op <= 0.1){
+          clearInterval(timer);
+          element.style.display = 'none';
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= op * 0.1;
+  }, 50);
+}
+
+function showCryptoDash() {
+  /*
+  const fadeEffect = setInterval(() => {
+    // if we don't set opacity 1 in CSS, then it will be equaled to "" -- that's why we check it, and if so, set opacity to 1
+    if (!CryptoDashLoader.style.opacity) {
+      CryptoDashLoader.style.opacity = 1;
+      CryptoDashContent.style.opacity = 0;
+    }
+
+    if (CryptoDashLoader.style.opacity > 0) {
+      CryptoDashLoader.style.opacity -= 0.1;
+      CryptoDashContent.style.opacity = 1;    
+    } else {
+      clearInterval(fadeEffect);
+    }
+
+  }, 300);
+
+  */
+
+  unfade(CryptoDashContent);
+  fade(CryptoDashLoader);
+
+
+}
+
+
+Pace.on("hide", showCryptoDash);
 
 
 
@@ -2329,16 +2511,21 @@ function animatedBG1() {
 
 }
 
+// cryptodash-animated-bg
+
+
+
+
 
 // Vanta FOG
-function animatedBGVantaFog() {
+function animatedBGVantaFog(cryptoDashDisplay) {
   VANTA.FOG({
-    el: "#cryptodash-animated-bg",
+    el: "#" + cryptoDashDisplay,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: 90.00,
+    minWidth: 180.00,
     highlightColor: 0xd7cbba,
     midtoneColor: 0x282121,
     baseColor: 0x0,
@@ -2350,15 +2537,15 @@ function animatedBGVantaFog() {
 }
 
 // Vanta HALO
-function animatedBGVantaHalo() {
+function animatedBGVantaHalo(cryptoDashDisplay) {
 
   VANTA.HALO({
-    el: "#cryptodash-animated-bg",
+    el: "#" + cryptoDashDisplay,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: 90.00,
+    minWidth: 180.00,
     amplitudeFactor: 3.00,
     size: 2.00
   })
@@ -2366,14 +2553,14 @@ function animatedBGVantaHalo() {
 }
 
 // Vanta Cells
-function animatedBGVantaCells() {
+function animatedBGVantaCells(cryptoDashDisplay) {
   VANTA.CELLS({
-    el: "#cryptodash-animated-bg",
+    el: "#" + cryptoDashDisplay,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: 90.00,
+    minWidth: 180.00,
     scale: 1.00,
     color1: 0x0,
     color2: 0x13d4a6,
@@ -2382,17 +2569,16 @@ function animatedBGVantaCells() {
 }) 
 }
 
-
 // Vanta Waves
-function animatedBGVantaWaves() {
+function animatedBGVantaWaves(cryptoDashDisplay) {
   
   VANTA.WAVES({
-    el: "#cryptodash-animated-bg",
-    mouseControls: false,
-    touchControls: false,
+    el: "#" + cryptoDashDisplay,
+    mouseControls: true,
+    touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: 90.00,
+    minWidth: 180.00,
     scale: 1.00,
     scaleMobile: 1.00,
     color: 0x121a20,
@@ -2403,21 +2589,24 @@ function animatedBGVantaWaves() {
 }
 
 // Vanta Clouds
-function animatedBGVantaClouds() {
+function animatedBGVantaClouds(cryptoDashDisplay) {
  
   VANTA.CLOUDS({
-    el: "#cryptodash-animated-bg",
+    el: "#" + cryptoDashDisplay,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00
+    minHeight: 90.00,
+    minWidth: 180.00
   })
 }
 
-
-function animatedBGParticles1() {
-  tsParticles.load("cryptodash-animated-bg", {
+// TS Particles Animations
+function animatedBGParticles1(cryptoDashDisplay) {
+  tsParticles.load(cryptoDashDisplay, {
+    backgroundMode: {
+      enable: true
+    },
     fpsLimit: 60,
     particles: {
       number: {
@@ -2527,12 +2716,11 @@ function animatedBGParticles1() {
   
 }
 
-
-function animatedBGParticles2() {
+function animatedBGParticles2(cryptoDashDisplay) {
   
-tsParticles.load("cryptodash-animated-bg", {
+tsParticles.load(cryptoDashDisplay, {
   backgroundMode: {
-    enable: true
+    enable: false
   },
   fpsLimit: 60,
   particles: {
@@ -2570,9 +2758,9 @@ tsParticles.load("cryptodash-animated-bg", {
     }
   },
   detectRetina: true,
-  background: {
+  /*background: {
     color: "#000"
-  },
+  }, */
   emitters: {
     direction: "none",
     rate: {
@@ -2608,10 +2796,13 @@ tsParticles.load("cryptodash-animated-bg", {
 });
 }
 
-function animatedBGParticles3() {
+function animatedBGParticles3(cryptoDashDisplay) {
   //let themeableContainer;
 
-tsParticles.load("cryptodash-animated-bg", {
+tsParticles.load(cryptoDashDisplay, {
+    backgroundMode: {
+      enable: true
+    },
     fpsLimit: 60,
     fullScreen: { enable: true },
     particles: {
@@ -2711,6 +2902,17 @@ tsParticles.load("cryptodash-animated-bg", {
   */
 
 }
+
+
+animatedBGVantaWaves("cryptodash-vanta-preview-wave");
+animatedBGVantaCells("cryptodash-vanta-preview-cells");
+animatedBGVantaFog("cryptodash-vanta-preview-fog");
+animatedBGVantaHalo("cryptodash-vanta-preview-halo");
+animatedBGVantaClouds("cryptodash-vanta-preview-cloud");
+
+animatedBGParticles1("cryptodash-tsparticles-preview-1");
+animatedBGParticles2("cryptodash-tsparticles-preview-2");
+animatedBGParticles3("cryptodash-tsparticles-preview-3");
 
 
 /*
@@ -2963,29 +3165,7 @@ alarmPlayer.appendChild(notificationCryptoDashSound);
 
 
 
-// CryptoDash loader
-const CryptoDashLoader = document.querySelector('#cryptodash-loader');
-const CryptoDashContent = document.getElementById('cryptodash-content');
 
-window.addEventListener('load', (event) => {
-
-  const fadeEffect = setInterval(() => {
-    // if we don't set opacity 1 in CSS, then it will be equaled to "" -- that's why we check it, and if so, set opacity to 1
-    if (!CryptoDashLoader.style.opacity) {
-      CryptoDashLoader.style.opacity = 1;
-      CryptoDashContent.style.opacity = 0;
-    }
-
-    if (CryptoDashLoader.style.opacity > 0) {
-      CryptoDashLoader.style.opacity -= 0.1;
-      CryptoDashContent.style.opacity = 1;    
-    } else {
-      clearInterval(fadeEffect);
-    }
-
-  }, 100);
-
-});
 
 
 // Indexed DB Checks
@@ -3456,6 +3636,18 @@ function updateCryptoDashTrackerFontSize() {
   });
 }
 
+
+
+// show current allowed trackers in the tracker info in settings menu
+
+function showCryptoDashCurrentTrackerCount() {
+  
+  document.getElementById("cryptodash-tracker-info").innerHTML = "You are currently using " + CryptoDashCoinsSelector.items.length + " /32 trackers. ";
+
+}
+
+
+
 // Selecter from the tracker in the settings menu
 var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
   //plugins: ['remove_button'],
@@ -3566,7 +3758,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     createCryptoDashTracker(value);
     updateCryptoDashTrackerFontSize();
     //document.querySelector('.clear-button').style.display = "block";
-
+    showCryptoDashCurrentTrackerCount();
     var CryptoDashCurrentTheme = window.localStorage.getItem("CryptoDashLightSwitch");
     if(CryptoDashCurrentTheme === "dark") {
       document.querySelectorAll(".item").forEach((element) => {  
@@ -3592,7 +3784,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     this.refreshOptions();
     removeCryptoDashTracker(CryptoDashTrackerID);
     showCryptoDashNotification('<i class="fa fa-info-circle "></i>' + " Tracker "+ CryptoDashTrackerID + " removed successfully", 3000);
-    
+    showCryptoDashCurrentTrackerCount();
   },
   render:{
     option:function(data,escape){
@@ -7387,8 +7579,32 @@ function cryptoDashChangeThemeStyle(url){
 (function () {
 
   var DefaultTheme = document.getElementById('cryptodash-color-theme-default');
-  var Theme1 = document.getElementById('cryptodash-color-theme-zephyr');
 
+  var Theme1 = document.getElementById('cryptodash-color-theme-zephyr');
+  var Theme2 = document.getElementById('cryptodash-color-theme-yeti');
+  var Theme3 = document.getElementById('cryptodash-color-theme-vapor');
+  var Theme4 = document.getElementById('cryptodash-color-theme-united');
+  var Theme5 = document.getElementById('cryptodash-color-theme-superhero');
+  var Theme6 = document.getElementById('cryptodash-color-theme-spacelab');
+  var Theme7 = document.getElementById('cryptodash-color-theme-solar');
+  var Theme8 = document.getElementById('cryptodash-color-theme-slate');
+  var Theme9 = document.getElementById('cryptodash-color-theme-sketchy');
+  var Theme10 = document.getElementById('cryptodash-color-theme-simplex');
+  var Theme11 = document.getElementById('cryptodash-color-theme-sandstone');
+  var Theme12 = document.getElementById('cryptodash-color-theme-quartz');
+  var Theme13 = document.getElementById('cryptodash-color-theme-pulse');
+  var Theme14 = document.getElementById('cryptodash-color-theme-minty');
+  var Theme15 = document.getElementById('cryptodash-color-theme-morph');
+  var Theme16 = document.getElementById('cryptodash-color-theme-materia');
+  var Theme17 = document.getElementById('cryptodash-color-theme-lux');
+  var Theme18 = document.getElementById('cryptodash-color-theme-lumen');
+  var Theme19 = document.getElementById('cryptodash-color-theme-litera');
+  var Theme20 = document.getElementById('cryptodash-color-theme-journal');
+  var Theme21 = document.getElementById('cryptodash-color-theme-flatly');
+  var Theme22 = document.getElementById('cryptodash-color-theme-darkly');
+  var Theme23 = document.getElementById('cryptodash-color-theme-cyborg');
+  var Theme24 = document.getElementById('cryptodash-color-theme-cosmo');
+  var Theme25 = document.getElementById('cryptodash-color-theme-cerulean');
 
   // if no themes are set then set the default one
   if (!DefaultTheme || !Theme1) {
@@ -7401,9 +7617,9 @@ function cryptoDashChangeThemeStyle(url){
     if (DefaultTheme.checked) {
 
       var CryptoDashCSSURL = DefaultTheme.value;
-
-      window.localStorage.setItem("CryptoDashDefaultCSS", "default");
-      window.localStorage.setItem("CryptoDashDefaultCSSURL", CryptoDashCSSURL);
+      ////console.log(CryptoDashCSSURL);
+      window.localStorage.setItem("CryptoDashCSS", "default");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
 
       var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
       var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
@@ -7418,9 +7634,10 @@ function cryptoDashChangeThemeStyle(url){
     if (Theme1.checked) {
 
       var CryptoDashCSSURL = Theme1.value;
+      ////console.log(CryptoDashCSSURL);
 
-      window.localStorage.setItem("CryptoDashDefaultCSS", "zephyr");
-      window.localStorage.setItem("CryptoDashDefaultCSSURL", CryptoDashCSSURL);
+      window.localStorage.setItem("CryptoDashCSS", "zephyr");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
 
       var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
       var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
@@ -7431,6 +7648,437 @@ function cryptoDashChangeThemeStyle(url){
     }
   }
 
+  function Theme2Toggle(){
+    if (Theme2.checked) {
+
+      var CryptoDashCSSURL = Theme2.value;
+      ////console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "yeti");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme3Toggle(){
+    if (Theme3.checked) {
+
+      var CryptoDashCSSURL = Theme3.value;
+      ////console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "vapor");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme4Toggle(){
+    if (Theme4.checked) {
+
+      var CryptoDashCSSURL = Theme4.value;
+      ////console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "united");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme5Toggle(){
+    if (Theme5.checked) {
+
+      var CryptoDashCSSURL = Theme5.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "superhero");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme6Toggle(){
+    if (Theme6.checked) {
+
+      var CryptoDashCSSURL = Theme6.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "spacelab");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme7Toggle(){
+    if (Theme7.checked) {
+
+      var CryptoDashCSSURL = Theme7.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "solar");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme8Toggle(){
+    if (Theme8.checked) {
+
+      var CryptoDashCSSURL = Theme8.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "slate");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme9Toggle(){
+    if (Theme9.checked) {
+
+      var CryptoDashCSSURL = Theme9.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "sketchy");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme10Toggle(){
+    if (Theme10.checked) {
+
+      var CryptoDashCSSURL = Theme10.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "simplex");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme11Toggle(){
+    if (Theme11.checked) {
+
+      var CryptoDashCSSURL = Theme11.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "sandstone");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme12Toggle(){
+    if (Theme12.checked) {
+
+      var CryptoDashCSSURL = Theme12.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "quartz");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme13Toggle(){
+    if (Theme13.checked) {
+
+      var CryptoDashCSSURL = Theme13.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "pulse");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme14Toggle(){
+    if (Theme14.checked) {
+
+      var CryptoDashCSSURL = Theme14.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "minty");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme15Toggle(){
+    if (Theme15.checked) {
+
+      var CryptoDashCSSURL = Theme15.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "morph");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme16Toggle(){
+    if (Theme16.checked) {
+
+      var CryptoDashCSSURL = Theme16.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "materia");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme17Toggle(){
+    if (Theme17.checked) {
+
+      var CryptoDashCSSURL = Theme17.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "lux");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme18Toggle(){
+    if (Theme18.checked) {
+
+      var CryptoDashCSSURL = Theme18.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "lumen");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme19Toggle(){
+    if (Theme19.checked) {
+
+      var CryptoDashCSSURL = Theme19.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "litera");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme20Toggle(){
+    if (Theme20.checked) {
+
+      var CryptoDashCSSURL = Theme20.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "journal");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme21Toggle(){
+    if (Theme21.checked) {
+
+      var CryptoDashCSSURL = Theme21.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "flatly");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme22Toggle(){
+    if (Theme22.checked) {
+
+      var CryptoDashCSSURL = Theme22.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "darkly");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme23Toggle(){
+    if (Theme23.checked) {
+
+      var CryptoDashCSSURL = Theme23.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "cyborg");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme24Toggle(){
+    if (Theme24.checked) {
+
+      var CryptoDashCSSURL = Theme24.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "cosmo");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
+
+  function Theme25Toggle(){
+    if (Theme25.checked) {
+
+      var CryptoDashCSSURL = Theme25.value;
+      //console.log(CryptoDashCSSURL);
+
+      window.localStorage.setItem("CryptoDashCSS", "cerulean");
+      window.localStorage.setItem("CryptoDashCSSURL", CryptoDashCSSURL);
+
+      var defaultCSS = window.localStorage.getItem("CryptoDashCSS");
+      var defaultCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
+
+      cryptoDashChangeThemeStyle(CryptoDashCSSURL);
+
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Color theme set to ` + defaultCSS, 3000);
+    }
+  }
 
 
 
@@ -7447,18 +8095,64 @@ function cryptoDashChangeThemeStyle(url){
       window.localStorage.setItem("CryptoDashCSSURL", "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
     } 
 
-    if (CryptoDashCSS == "default") {
-      DefaultTheme.checked = true;
-    }
+    if (CryptoDashCSS == "default") { DefaultTheme.checked = true; }
 
-    if (CryptoDashCSS == "zephyr") {
-      Theme1.checked = true;
-    }
+    if (CryptoDashCSS == "zephyr") { Theme1.checked = true; }
+    if (CryptoDashCSS == "yeti") { Theme2.checked = true; }
+    if (CryptoDashCSS == "vapor") { Theme3.checked = true; }
+    if (CryptoDashCSS == "united") { Theme4.checked = true; }
+    if (CryptoDashCSS == "superhero") { Theme5.checked = true; }
+    if (CryptoDashCSS == "spacelab") { Theme6.checked = true; }
+    if (CryptoDashCSS == "solar") { Theme7.checked = true; }
+    if (CryptoDashCSS == "slate") { Theme8.checked = true; }
+    if (CryptoDashCSS == "sketchy") { Theme9.checked = true; }
+    if (CryptoDashCSS == "simplex") { Theme10.checked = true; }
+    if (CryptoDashCSS == "sandstone") { Theme11.checked = true; }
+    if (CryptoDashCSS == "quartz") { Theme12.checked = true; }
+    if (CryptoDashCSS == "pulse") { Theme13.checked = true; }
+    if (CryptoDashCSS == "minty") { Theme14.checked = true; }
+    if (CryptoDashCSS == "morph") { Theme15.checked = true; }
+    if (CryptoDashCSS == "materia") { Theme16.checked = true; }
+    if (CryptoDashCSS == "lux") { Theme17.checked = true; }
+    if (CryptoDashCSS == "lumen") { Theme18.checked = true; }
+    if (CryptoDashCSS == "litera") { Theme19.checked = true; }
+    if (CryptoDashCSS == "journal") { Theme20.checked = true; }
+    if (CryptoDashCSS == "flatly") { Theme21.checked = true; }
+    if (CryptoDashCSS == "darkly") { Theme22.checked = true; }
+    if (CryptoDashCSS == "cyborg") { Theme23.checked = true; }
+    if (CryptoDashCSS == "cosmo") { Theme24.checked = true; }
+    if (CryptoDashCSS == "cerulean") { Theme25.checked = true; }
+    
 
   
 
     DefaultTheme.addEventListener("change", DefaultThemeToggle);
-    Theme1.addEventListener("change", DefaultThemeToggle);
+
+    Theme1.addEventListener("change", Theme1Toggle);
+    Theme2.addEventListener("change", Theme2Toggle);
+    Theme3.addEventListener("change", Theme3Toggle);
+    Theme4.addEventListener("change", Theme4Toggle);
+    Theme5.addEventListener("change", Theme5Toggle);
+    Theme6.addEventListener("change", Theme6Toggle);
+    Theme7.addEventListener("change", Theme7Toggle);
+    Theme8.addEventListener("change", Theme8Toggle);
+    Theme9.addEventListener("change", Theme9Toggle);
+    Theme10.addEventListener("change", Theme10Toggle);
+    Theme11.addEventListener("change", Theme11Toggle);
+    Theme12.addEventListener("change", Theme12Toggle);
+    Theme13.addEventListener("change", Theme13Toggle);
+    Theme14.addEventListener("change", Theme14Toggle);
+    Theme15.addEventListener("change", Theme15Toggle);
+    Theme16.addEventListener("change", Theme16Toggle);
+    Theme17.addEventListener("change", Theme17Toggle);
+    Theme18.addEventListener("change", Theme18Toggle);
+    Theme19.addEventListener("change", Theme19Toggle);
+    Theme20.addEventListener("change", Theme20Toggle);
+    Theme21.addEventListener("change", Theme21Toggle);
+    Theme22.addEventListener("change", Theme22Toggle);
+    Theme23.addEventListener("change", Theme23Toggle);
+    Theme24.addEventListener("change", Theme24Toggle);
+    Theme25.addEventListener("change", Theme25Toggle);
 
 
     DefaultThemeToggle();
@@ -8033,6 +8727,391 @@ function cryptoDashChangeThemeStyle(url){
 })();
 
 
+
+// CryptoDash Animated Background Selectors
+(function () {
+  
+  var CryptoDashAnimatedTSParticles1Switch = document.getElementById("CryptoDashAnimatedTSParticles1Switch");
+  var CryptoDashAnimatedTSParticles2Switch = document.getElementById("CryptoDashAnimatedTSParticles2Switch");
+  var CryptoDashAnimatedTSParticles3Switch = document.getElementById("CryptoDashAnimatedTSParticles3Switch");
+
+  var CryptoDashAnimatedVantaWavesSwitch = document.getElementById("CryptoDashAnimatedVantaWavesSwitch");
+  var CryptoDashAnimatedVantaCellsSwitch = document.getElementById("CryptoDashAnimatedVantaCellsSwitch");
+  var CryptoDashAnimatedVantaFogSwitch = document.getElementById("CryptoDashAnimatedVantaFogSwitch");
+  var CryptoDashAnimatedVantaHaloSwitch = document.getElementById("CryptoDashAnimatedVantaHaloSwitch");
+  var CryptoDashAnimatedVantaCloudsSwitch = document.getElementById("CryptoDashAnimatedVantaCloudsSwitch");
+  
+
+  if (!CryptoDashAnimatedTSParticles1Switch || !CryptoDashAnimatedTSParticles2Switch || !CryptoDashAnimatedTSParticles3Switch || !CryptoDashAnimatedVantaWavesSwitch || !CryptoDashAnimatedVantaCellsSwitch || !CryptoDashAnimatedVantaFogSwitch || !CryptoDashAnimatedVantaHaloSwitch || !CryptoDashAnimatedVantaCloudsSwitch) {
+    return;
+  }
+
+  function setCryptoDashAnimatedTSParticles1() {    
+    if (CryptoDashAnimatedTSParticles1Switch.checked) {
+      CryptoDashAnimatedTSParticles1Switch.checked = true;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "TSParticles1");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "TSParticles1") {
+      animatedBGParticles1("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> TSParticles1 animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedTSParticles2() {    
+    if (CryptoDashAnimatedTSParticles2Switch.checked) {
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = true;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "TSParticles2");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "TSParticles2") {
+      animatedBGParticles2("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> TSParticles2 animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedTSParticles3() {    
+    if (CryptoDashAnimatedTSParticles3Switch.checked) {
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = true;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "TSParticles3");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "TSParticles3") {
+      animatedBGParticles3("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> TSParticles3 animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedVantaWaves() {    
+    if (CryptoDashAnimatedVantaWavesSwitch.checked) {
+
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = true;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaWaves");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaWaves") {
+      animatedBGVantaWaves("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Waves animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedVantaCells() {    
+    if (CryptoDashAnimatedVantaCellsSwitch.checked) {
+
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = true;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaCells");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaCells") {
+      animatedBGVantaCells("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Cells animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedVantaFog() {    
+    if (CryptoDashAnimatedVantaFogSwitch.checked) {
+
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = true;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaFog");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaFog") {
+      animatedBGVantaFog("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Fog animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedVantaHalo() {    
+    if (CryptoDashAnimatedVantaHaloSwitch.checked) {
+
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = true;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaHalo");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaHalo") {
+      animatedBGVantaHalo("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Halo animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+  function setCryptoDashAnimatedVantaClouds() {    
+    if (CryptoDashAnimatedVantaCloudsSwitch.checked) {
+
+      CryptoDashAnimatedTSParticles1Switch.checked = false;
+      CryptoDashAnimatedTSParticles2Switch.checked = false;
+      CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+      CryptoDashAnimatedVantaWavesSwitch.checked = false;
+      CryptoDashAnimatedVantaCellsSwitch.checked = false;
+      CryptoDashAnimatedVantaFogSwitch.checked = false;
+      CryptoDashAnimatedVantaHaloSwitch.checked = false;
+      CryptoDashAnimatedVantaCloudsSwitch.checked = true;
+    }
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaClouds");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaClouds") {
+      animatedBGVantaClouds("cryptodash-animated-bg");
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Clouds animated background enabled`, 3000);
+      //location.reload();
+    } 
+  }
+
+
+
+
+
+
+  function unsetCryptoDashAnimated() {
+    
+    CryptoDashAnimatedTSParticles1Switch.checked = false;
+    CryptoDashAnimatedTSParticles2Switch.checked = false;
+    CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+    CryptoDashAnimatedVantaWavesSwitch.checked = false;
+    CryptoDashAnimatedVantaCellsSwitch.checked = false;
+    CryptoDashAnimatedVantaFogSwitch.checked = false;
+    CryptoDashAnimatedVantaHaloSwitch.checked = false;
+    CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+  
+    window.localStorage.setItem("CryptoDashAnimatedBackground", "None");
+    var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
+    if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "None") {
+      showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Animated background disabled`, 3000);
+      location.reload();
+    } 
+  }
+
+
+  function CryptoDashAnimatedTSParticles1SwitchOnToggleMode() {
+    if (CryptoDashAnimatedTSParticles1Switch.checked) {
+      setCryptoDashAnimatedTSParticles1();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedTSParticles2SwitchOnToggleMode() {
+    if (CryptoDashAnimatedTSParticles2Switch.checked) {
+      setCryptoDashAnimatedTSParticles2();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedTSParticles3SwitchOnToggleMode() {
+    if (CryptoDashAnimatedTSParticles3Switch.checked) {
+      setCryptoDashAnimatedTSParticles3();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedVantaWavesSwitchOnToggleMode() {
+    if (CryptoDashAnimatedVantaWavesSwitch.checked) {
+      setCryptoDashAnimatedVantaWaves();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedVantaCellsSwitchOnToggleMode() {
+    if (CryptoDashAnimatedVantaCellsSwitch.checked) {
+      setCryptoDashAnimatedVantaCells();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedVantaFogSwitchOnToggleMode() {
+    if (CryptoDashAnimatedVantaFogSwitch.checked) {
+      setCryptoDashAnimatedVantaFog();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedVantaHaloSwitchOnToggleMode() {
+    if (CryptoDashAnimatedVantaHaloSwitch.checked) {
+      setCryptoDashAnimatedVantaHalo();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+  function CryptoDashAnimatedVantaCloudsSwitchOnToggleMode() {
+    if (CryptoDashAnimatedVantaCloudsSwitch.checked) {
+      setCryptoDashAnimatedVantaClouds();
+    } else {
+      unsetCryptoDashAnimated();
+    }
+  }
+
+
+
+  function intialToggleCheck() {
+
+    if (CryptoDashAnimatedTSParticles1Switch.checked) {
+      setCryptoDashAnimatedTSParticles1();
+    } 
+
+    if (CryptoDashAnimatedTSParticles2Switch.checked) {
+      setCryptoDashAnimatedTSParticles2();
+    } 
+
+    if (CryptoDashAnimatedTSParticles3Switch.checked) {
+      setCryptoDashAnimatedTSParticles3();
+    } 
+
+    if (CryptoDashAnimatedVantaWavesSwitch.checked) {
+      setCryptoDashAnimatedVantaWaves();
+    } 
+
+    if (CryptoDashAnimatedVantaCellsSwitch.checked) {
+      setCryptoDashAnimatedVantaCells();
+    } 
+
+    if (CryptoDashAnimatedVantaFogSwitch.checked) {
+      setCryptoDashAnimatedVantaFog();
+    } 
+
+    if (CryptoDashAnimatedVantaHaloSwitch.checked) {
+      setCryptoDashAnimatedVantaHalo();
+    } 
+
+    if (CryptoDashAnimatedVantaCloudsSwitch.checked) {
+      setCryptoDashAnimatedVantaClouds();
+    } 
+
+  }
+
+
+
+  function setup() {
+    var CryptoDashAnimatedBackground = window.localStorage.getItem("CryptoDashAnimatedBackground");
+    if (CryptoDashAnimatedBackground == null) {
+      window.localStorage.setItem("CryptoDashAnimatedBackground", "None");
+    }
+    
+    if (CryptoDashAnimatedBackground == "TSParticles1") {
+      CryptoDashAnimatedTSParticles1Switch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "TSParticles2") {
+      CryptoDashAnimatedTSParticles2Switch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "TSParticles3") {
+      CryptoDashAnimatedTSParticles3Switch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "VantaWaves") {
+      CryptoDashAnimatedVantaWavesSwitch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "VantaCells") {
+      CryptoDashAnimatedVantaCellsSwitch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "VantaFog") {
+      CryptoDashAnimatedVantaFogSwitch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "VantaHalo") {
+      CryptoDashAnimatedVantaHaloSwitch.checked = true;
+    }
+
+    if (CryptoDashAnimatedBackground == "VantaClouds") {
+      CryptoDashAnimatedVantaCloudsSwitch.checked = true;
+    }
+
+
+    
+    CryptoDashAnimatedTSParticles1Switch.addEventListener("change", CryptoDashAnimatedTSParticles1SwitchOnToggleMode);
+    CryptoDashAnimatedTSParticles2Switch.addEventListener("change", CryptoDashAnimatedTSParticles2SwitchOnToggleMode);
+    CryptoDashAnimatedTSParticles3Switch.addEventListener("change", CryptoDashAnimatedTSParticles3SwitchOnToggleMode);
+
+    CryptoDashAnimatedVantaWavesSwitch.addEventListener("change", CryptoDashAnimatedVantaWavesSwitchOnToggleMode);
+    CryptoDashAnimatedVantaCellsSwitch.addEventListener("change", CryptoDashAnimatedVantaCellsSwitchOnToggleMode);
+    CryptoDashAnimatedVantaFogSwitch.addEventListener("change", CryptoDashAnimatedVantaFogSwitchOnToggleMode);
+    CryptoDashAnimatedVantaHaloSwitch.addEventListener("change", CryptoDashAnimatedVantaHaloSwitchOnToggleMode);
+    CryptoDashAnimatedVantaCloudsSwitch.addEventListener("change", CryptoDashAnimatedVantaCloudsSwitchOnToggleMode);
+  
+
+
+    intialToggleCheck();
+
+  }
+  
+  setup();
+
+})();
+
+
+
+
 // ALARM
 
 // SET ALARM FOR Current Tracker
@@ -8417,6 +9496,21 @@ function showCryptoDashTrackerAlarms() {
 document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.offcanvas', showCryptoDashTrackerAlarms);
 
 
+
+// stuff that happens when the cryptodash settings menu is opened
+function showCryptoDashSettingsMenu() {
+
+  // update the count for selected items
+
+  //console.table(CryptoDashCoinsSelector.items);
+  //console.log(CryptoDashCoinsSelector.items.length);
+
+  showCryptoDashCurrentTrackerCount();
+}
+
+document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.offcanvas', showCryptoDashSettingsMenu);
+
+
 // CryptoDash Data Source Selector
 (function () {
 
@@ -8425,6 +9519,7 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
   var CryptoDashDataSourceLiveCoinWatchAPI = document.getElementById("cryptodash-datasource-livecoinwatch-api");
   var CryptoDashDataSourceCoinMarketCapAPI = document.getElementById("cryptodash-datasource-coinmarketcap-api");
   var CryptoDashDataSourceAPIKeyInputGroup = document.getElementById("cryptodash-apikey-inputgroup");
+  var CryptoDashDataSourceAPIKeyInputGroupHR = document.getElementById("cryptodash-apikey-inputgroup-hr");
 
   
 
@@ -8450,7 +9545,7 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
       CryptoDashDataSourceAPIKey.setAttributeNode(disabledAttributeInput);
       CryptoDashDataSourceAPIKeyButton.setAttributeNode(disabledAttributeButton);
       CryptoDashDataSourceAPIKeyInputGroup.style.display = "none";
-
+      CryptoDashDataSourceAPIKeyInputGroupHR.style.display = "none";
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data Source set to Crypto Compare Free`, 3000);
 
     }
@@ -8465,7 +9560,7 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
       CryptoDashDataSourceAPIKey.removeAttribute("disabled");
       CryptoDashDataSourceAPIKeyButton.removeAttribute("disabled");
       CryptoDashDataSourceAPIKeyInputGroup.style.display = "flex";
-
+      CryptoDashDataSourceAPIKeyInputGroupHR.style.display = "flex";
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data Source set to Crypto Compare API`, 3000);
       
     }
@@ -8480,7 +9575,7 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
       CryptoDashDataSourceAPIKey.removeAttribute("disabled");
       CryptoDashDataSourceAPIKeyButton.removeAttribute("disabled");
       CryptoDashDataSourceAPIKeyInputGroup.style.display = "flex";
-
+      CryptoDashDataSourceAPIKeyInputGroupHR.style.display = "flex";
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data Source set to Live Coin Watch `, 3000);
       
 
@@ -8496,7 +9591,7 @@ document.getElementById('cryptodash-settings-menu').addEventListener('show.bs.of
       CryptoDashDataSourceAPIKey.removeAttribute("disabled");
       CryptoDashDataSourceAPIKeyButton.removeAttribute("disabled");
       CryptoDashDataSourceAPIKeyInputGroup.style.display = "flex";
-
+      CryptoDashDataSourceAPIKeyInputGroupHR.style.display = "flex";
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Data Source set to Coin Market Cap `, 3000);
       
     }
