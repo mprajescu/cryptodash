@@ -8748,174 +8748,231 @@ function cryptoDashChangeThemeStyle(url){
 
   function setCryptoDashAnimatedTSParticles1() {    
     if (CryptoDashAnimatedTSParticles1Switch.checked) {
+
       CryptoDashAnimatedTSParticles1Switch.checked = true;
       CryptoDashAnimatedTSParticles2Switch.checked = false;
       CryptoDashAnimatedTSParticles3Switch.checked = false;
-
-      CryptoDashAnimatedVantaWavesSwitch.checked = false;
-      CryptoDashAnimatedVantaCellsSwitch.checked = false;
-      CryptoDashAnimatedVantaFogSwitch.checked = false;
-      CryptoDashAnimatedVantaHaloSwitch.checked = false;
-      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+      
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "TSParticles1");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "TSParticles1") {
       animatedBGParticles1("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> TSParticles1 animated background enabled`, 3000);
-      //location.reload();
+
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedVantaWavesSwitch.checked || CryptoDashAnimatedVantaCellsSwitch.checked || CryptoDashAnimatedVantaFogSwitch.checked || CryptoDashAnimatedVantaHaloSwitch.checked || CryptoDashAnimatedVantaCloudsSwitch.checked) {
+
+        CryptoDashAnimatedVantaWavesSwitch.checked = false;
+        CryptoDashAnimatedVantaCellsSwitch.checked = false;
+        CryptoDashAnimatedVantaFogSwitch.checked = false;
+        CryptoDashAnimatedVantaHaloSwitch.checked = false;
+        CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+
+        window.setTimeout(function(){location.reload()},4000);
+        //location.reload();
+      }
+      
     } 
   }
 
   function setCryptoDashAnimatedTSParticles2() {    
     if (CryptoDashAnimatedTSParticles2Switch.checked) {
+
       CryptoDashAnimatedTSParticles1Switch.checked = false;
       CryptoDashAnimatedTSParticles2Switch.checked = true;
       CryptoDashAnimatedTSParticles3Switch.checked = false;
 
-      CryptoDashAnimatedVantaWavesSwitch.checked = false;
-      CryptoDashAnimatedVantaCellsSwitch.checked = false;
-      CryptoDashAnimatedVantaFogSwitch.checked = false;
-      CryptoDashAnimatedVantaHaloSwitch.checked = false;
-      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "TSParticles2");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "TSParticles2") {
       animatedBGParticles2("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> TSParticles2 animated background enabled`, 3000);
-      //location.reload();
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedVantaWavesSwitch.checked || CryptoDashAnimatedVantaCellsSwitch.checked || CryptoDashAnimatedVantaFogSwitch.checked || CryptoDashAnimatedVantaHaloSwitch.checked || CryptoDashAnimatedVantaCloudsSwitch.checked) {
+
+        CryptoDashAnimatedVantaWavesSwitch.checked = false;
+        CryptoDashAnimatedVantaCellsSwitch.checked = false;
+        CryptoDashAnimatedVantaFogSwitch.checked = false;
+        CryptoDashAnimatedVantaHaloSwitch.checked = false;
+        CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
     } 
   }
 
   function setCryptoDashAnimatedTSParticles3() {    
     if (CryptoDashAnimatedTSParticles3Switch.checked) {
+
       CryptoDashAnimatedTSParticles1Switch.checked = false;
       CryptoDashAnimatedTSParticles2Switch.checked = false;
       CryptoDashAnimatedTSParticles3Switch.checked = true;
-
-      CryptoDashAnimatedVantaWavesSwitch.checked = false;
-      CryptoDashAnimatedVantaCellsSwitch.checked = false;
-      CryptoDashAnimatedVantaFogSwitch.checked = false;
-      CryptoDashAnimatedVantaHaloSwitch.checked = false;
-      CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+      
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "TSParticles3");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "TSParticles3") {
       animatedBGParticles3("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> TSParticles3 animated background enabled`, 3000);
-      //location.reload();
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedVantaWavesSwitch.checked || CryptoDashAnimatedVantaCellsSwitch.checked || CryptoDashAnimatedVantaFogSwitch.checked || CryptoDashAnimatedVantaHaloSwitch.checked || CryptoDashAnimatedVantaCloudsSwitch.checked) {
+
+        CryptoDashAnimatedVantaWavesSwitch.checked = false;
+        CryptoDashAnimatedVantaCellsSwitch.checked = false;
+        CryptoDashAnimatedVantaFogSwitch.checked = false;
+        CryptoDashAnimatedVantaHaloSwitch.checked = false;
+        CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
     } 
   }
 
   function setCryptoDashAnimatedVantaWaves() {    
     if (CryptoDashAnimatedVantaWavesSwitch.checked) {
 
-      CryptoDashAnimatedTSParticles1Switch.checked = false;
-      CryptoDashAnimatedTSParticles2Switch.checked = false;
-      CryptoDashAnimatedTSParticles3Switch.checked = false;
-
       CryptoDashAnimatedVantaWavesSwitch.checked = true;
       CryptoDashAnimatedVantaCellsSwitch.checked = false;
       CryptoDashAnimatedVantaFogSwitch.checked = false;
       CryptoDashAnimatedVantaHaloSwitch.checked = false;
       CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaWaves");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaWaves") {
       animatedBGVantaWaves("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Waves animated background enabled`, 3000);
-      //location.reload();
+
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedTSParticles1Switch.checked || CryptoDashAnimatedTSParticles2Switch.checked || CryptoDashAnimatedTSParticles3Switch.checked) {
+
+        CryptoDashAnimatedTSParticles1Switch.checked = false;
+        CryptoDashAnimatedTSParticles2Switch.checked = false;
+        CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
+
     } 
   }
 
   function setCryptoDashAnimatedVantaCells() {    
     if (CryptoDashAnimatedVantaCellsSwitch.checked) {
 
-      CryptoDashAnimatedTSParticles1Switch.checked = false;
-      CryptoDashAnimatedTSParticles2Switch.checked = false;
-      CryptoDashAnimatedTSParticles3Switch.checked = false;
-
       CryptoDashAnimatedVantaWavesSwitch.checked = false;
       CryptoDashAnimatedVantaCellsSwitch.checked = true;
       CryptoDashAnimatedVantaFogSwitch.checked = false;
       CryptoDashAnimatedVantaHaloSwitch.checked = false;
       CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaCells");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaCells") {
       animatedBGVantaCells("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Cells animated background enabled`, 3000);
-      //location.reload();
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedTSParticles1Switch.checked || CryptoDashAnimatedTSParticles2Switch.checked || CryptoDashAnimatedTSParticles3Switch.checked) {
+
+        CryptoDashAnimatedTSParticles1Switch.checked = false;
+        CryptoDashAnimatedTSParticles2Switch.checked = false;
+        CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
     } 
   }
 
   function setCryptoDashAnimatedVantaFog() {    
     if (CryptoDashAnimatedVantaFogSwitch.checked) {
 
-      CryptoDashAnimatedTSParticles1Switch.checked = false;
-      CryptoDashAnimatedTSParticles2Switch.checked = false;
-      CryptoDashAnimatedTSParticles3Switch.checked = false;
-
       CryptoDashAnimatedVantaWavesSwitch.checked = false;
       CryptoDashAnimatedVantaCellsSwitch.checked = false;
       CryptoDashAnimatedVantaFogSwitch.checked = true;
       CryptoDashAnimatedVantaHaloSwitch.checked = false;
       CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaFog");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaFog") {
       animatedBGVantaFog("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Fog animated background enabled`, 3000);
-      //location.reload();
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedTSParticles1Switch.checked || CryptoDashAnimatedTSParticles2Switch.checked || CryptoDashAnimatedTSParticles3Switch.checked) {
+
+        CryptoDashAnimatedTSParticles1Switch.checked = false;
+        CryptoDashAnimatedTSParticles2Switch.checked = false;
+        CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
     } 
   }
 
   function setCryptoDashAnimatedVantaHalo() {    
     if (CryptoDashAnimatedVantaHaloSwitch.checked) {
 
-      CryptoDashAnimatedTSParticles1Switch.checked = false;
-      CryptoDashAnimatedTSParticles2Switch.checked = false;
-      CryptoDashAnimatedTSParticles3Switch.checked = false;
-
       CryptoDashAnimatedVantaWavesSwitch.checked = false;
       CryptoDashAnimatedVantaCellsSwitch.checked = false;
       CryptoDashAnimatedVantaFogSwitch.checked = false;
       CryptoDashAnimatedVantaHaloSwitch.checked = true;
       CryptoDashAnimatedVantaCloudsSwitch.checked = false;
+
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaHalo");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaHalo") {
       animatedBGVantaHalo("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Halo animated background enabled`, 3000);
-      //location.reload();
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedTSParticles1Switch.checked || CryptoDashAnimatedTSParticles2Switch.checked || CryptoDashAnimatedTSParticles3Switch.checked) {
+
+        CryptoDashAnimatedTSParticles1Switch.checked = false;
+        CryptoDashAnimatedTSParticles2Switch.checked = false;
+        CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
     } 
   }
 
   function setCryptoDashAnimatedVantaClouds() {    
     if (CryptoDashAnimatedVantaCloudsSwitch.checked) {
 
-      CryptoDashAnimatedTSParticles1Switch.checked = false;
-      CryptoDashAnimatedTSParticles2Switch.checked = false;
-      CryptoDashAnimatedTSParticles3Switch.checked = false;
-
       CryptoDashAnimatedVantaWavesSwitch.checked = false;
       CryptoDashAnimatedVantaCellsSwitch.checked = false;
       CryptoDashAnimatedVantaFogSwitch.checked = false;
       CryptoDashAnimatedVantaHaloSwitch.checked = false;
       CryptoDashAnimatedVantaCloudsSwitch.checked = true;
+
     }
     window.localStorage.setItem("CryptoDashAnimatedBackground", "VantaClouds");
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "VantaClouds") {
       animatedBGVantaClouds("cryptodash-animated-bg");
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Vanta Clouds animated background enabled`, 3000);
-      //location.reload();
+      // reload page when switching between animated background systems /Vanta/TSParticles
+      if(CryptoDashAnimatedTSParticles1Switch.checked || CryptoDashAnimatedTSParticles2Switch.checked || CryptoDashAnimatedTSParticles3Switch.checked) {
+
+        CryptoDashAnimatedTSParticles1Switch.checked = false;
+        CryptoDashAnimatedTSParticles2Switch.checked = false;
+        CryptoDashAnimatedTSParticles3Switch.checked = false;
+
+        showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Switching animated background engine`, 3000);
+        window.setTimeout(function(){location.reload()},4000);
+      }
     } 
   }
 
@@ -8940,7 +8997,7 @@ function cryptoDashChangeThemeStyle(url){
     var CryptoDashAnimatedBackground = window.localStorage.getItem('CryptoDashAnimatedBackground');
     if (CryptoDashAnimatedBackground && CryptoDashAnimatedBackground == "None") {
       showCryptoDashNotification(`<i class="fa fa-info-circle"></i> Animated background disabled`, 3000);
-      location.reload();
+      window.setTimeout(function(){location.reload()},4000);
     } 
   }
 
