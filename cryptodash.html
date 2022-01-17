@@ -165,6 +165,7 @@
 body {
 	font-family: sans-serif;
   overflow-x: hidden;
+  overflow-y: overlay;
 	margin-left: 30px !important;
   margin-right: 20px !important;
   /* margin-top: 60px !important;
@@ -1523,6 +1524,43 @@ border-radius: 1rem;
   
 }
 
+#cryptoDashCarousel {
+  position: relative;
+  top: -60px !important;
+  left: -30px;
+  width: 100vw;
+  
+  /* background: rgba(0,0,30, 0.5); */
+  margin-bottom: -20px;
+}
+
+.carousel-inner {
+  position: absolute;
+  padding-top: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+  
+}
+
+.carousel-indicators {
+  position: fixed;
+}
+
+#cryptodash-news {
+  border-radius: 1rem;
+  box-shadow:  0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3),0px 0px 10px -30px rgba(0, 0, 0, 0.3),0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  font-size: calc(3 vw + 3 vh);
+  padding: 1rem;
+  margin-top: 10px;
+  height: calc(100vh - 110px);
+  margin-bottom: 10px;
+
+}
+
 </style>
 
 </head>
@@ -1555,8 +1593,40 @@ border-radius: 1rem;
   <div class="cryptodash-animated-bg" id="cryptodash-animated-bg"></div>
   <audio id="cryptodash-audio" muted></audio>
 
-  <!-- Container grid where trackers are created dynamically-->
-  <div class="cryptodash-grid row " id="CryptoDashContentTrackers"></div>
+  <div id="cryptoDashCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" data-bs-touch="false">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <!-- Container grid where trackers are created dynamically-->
+        <div class="cryptodash-grid row " id="CryptoDashContentTrackers"></div>
+        
+      </div>
+      <div class="carousel-item ">
+        <div id="cryptodash-news" class="tracker-backdrop-blur" >
+          <h1>News</h1>
+          <ul>
+            <li>Will pull only when the news carousel is triggered</li>
+            <li>going back to the dashboard will trigger a refresh on the rendering on murri</li>
+          </ul>
+          <i class="fa fa-gear fa-spin"></i>
+        </div>
+        
+
+      </div>
+     
+    </div>
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#cryptoDashCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Dashboard"></button>
+      <button type="button" data-bs-target="#cryptoDashCarousel" data-bs-slide-to="1" aria-label="News"></button>
+     
+    </div>
+    
+  </div>
+
+
+
+  
 
   <!-- Settings button -->
   <button id="cryptodash-settings-button" style="opacity: 0;" class="btn btn-lg btn-light backdrop-blur" type="button" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-settings-menu" aria-controls="cryptodash-settings-menu">
@@ -4495,6 +4565,9 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.getElementById("cryptodash-clock").classList.add("btn-dark");
     document.getElementById("cryptodash-clock").classList.remove("btn-light");
 
+    //document.getElementById("cryptodash-news").classList.add("bg-dark");
+    //document.getElementById("cryptodash-news").classList.remove("bg-light");
+
     //reset config modal close button & modal
     document.getElementById("resetCryptoDashConfigModalClose").classList.add("bg-light");
     document.getElementById("resetCryptoDashConfigModalClose").classList.remove("bg-dark");
@@ -4668,6 +4741,10 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.getElementById("cryptodash-refresh-button").classList.remove("btn-dark");
     document.getElementById("cryptodash-clock").classList.add("btn-light");
     document.getElementById("cryptodash-clock").classList.remove("btn-dark");
+
+    //document.getElementById("cryptodash-news").classList.add("bg-light");
+    //document.getElementById("cryptodash-news").classList.remove("bg-dark");
+
     document.getElementById("uploadCryptoDashConfigInput").classList.add("text-dark");
     document.getElementById("uploadCryptoDashConfigInput").classList.remove("text-light");
 
@@ -7510,7 +7587,7 @@ async function manualCryptoDashFetchTrackerData() {
 
       if (CryptoDashDataRefreshSwitch === "Auto") {
 
-        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
+        document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i>`;
 
       } else {
         //document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin"); 
@@ -8059,7 +8136,7 @@ async function manualCryptoDashFetchTrackerData() {
 
         if (CryptoDashDataRefreshSwitch === "Auto") {
           
-          document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
+          document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i>`;
 
         } else {
           //document.getElementById('cryptodash-refresh-icon').classList.remove("fa-spin"); 
@@ -10026,6 +10103,7 @@ function isFirefox() {
       CryptoDashGrid.refreshItems();
       CryptoDashGrid.layout();
     });
+
    
     // #cryptodash-settings-button backdrop-blur
     document.querySelector("#cryptodash-settings-button").classList.add("backdrop-blur");
@@ -10035,6 +10113,17 @@ function isFirefox() {
 
     // # cryptodash-clock backdrop-blur
     document.querySelector("#cryptodash-clock").classList.add("backdrop-blur");
+
+    // # cryptodash-news backdrop-blur
+    document.querySelector("#cryptodash-news").classList.add("tracker-backdrop-blur");
+
+    if(CryptoDashLightSwitch == "dark") {
+      document.getElementById("cryptodash-news").classList.remove("bg-dark");
+    }
+
+    if(CryptoDashLightSwitch == "light") {
+      document.getElementById("cryptodash-news").classList.remove("bg-light");
+    }
 
   }
 
@@ -10168,6 +10257,17 @@ function isFirefox() {
 
     // # cryptodash-clock backdrop-blur
     document.querySelector("#cryptodash-clock").classList.remove("backdrop-blur");
+
+    // # cryptodash-news backdrop-blur
+    document.querySelector("#cryptodash-news").classList.remove("tracker-backdrop-blur");
+
+    if(CryptoDashLightSwitch == "dark") {
+      document.getElementById("cryptodash-news").classList.add("bg-dark");
+    }
+
+    if(CryptoDashLightSwitch == "light") {
+      document.getElementById("cryptodash-news").classList.add("bg-light");
+    }
 
   }
 
