@@ -353,7 +353,7 @@ flex-basis: auto !important;
   }
   
 
-.cryptodash-preview-animated-background-container {
+.cryptodash-preview-animated-background-container, .cryptodash-preview-classic-background-container, .cryptodash-preview-charts-palette-container {
   width: 180px; height: 90px; 
   border-radius: 1rem; 
   overflow: hidden; 
@@ -361,20 +361,22 @@ flex-basis: auto !important;
   mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
 }
 
-.cryptodash-preview-classic-background-container {
-  width: 180px; height: 90px; 
-  border-radius: 1rem; 
-  overflow: hidden; 
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
-  mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
-}
 
-.cryptodash-preview-animated-background {
+
+.cryptodash-preview-animated-background, .cryptodash-preview-classic-background, .cryptodash-preview-charts-palette {
   width: 180px; height: 90px;z-index: -1; background-color: rgba(0, 0, 0, 0.2);
 }
 
-.cryptodash-preview-classic-background {
-  width: 180px; height: 90px;z-index: -1; background-color: rgba(0, 0, 0, 0.2);
+.cryptodash-preview-charts-palette {
+  padding: 10px;
+  height: 60px;
+  border-radius: 1rem;
+}
+.cryptodash-preview-charts-palette-bubble {
+  border-radius: 50%; 
+  width: 20px; 
+  height: 20px;
+  margin: 5px;
 }
 
 
@@ -509,7 +511,7 @@ transition: all .05s ease-in-out;
 }
 
 
-#CryptoDashChartMenuLabel img {
+#cryptodash-tracker-details-label img {
   width: 26px;
   height: auto;
   border-radius: 50%;
@@ -581,7 +583,7 @@ p[id$="updatetime"] {
 /* *** Charts *** */
 
 /* make the chart menu offcanvas full screen */
-#cryptodash-chart-menu {
+#cryptodash-tracker-details {
   height: calc(100vh); 
 }
 
@@ -590,15 +592,39 @@ p[id$="updatetime"] {
 /* transparent background to aid in frosting the interface */
 .apexcharts-canvas {
   background: none !important;
+  
 }
-
+.apexcharts-menu {
+  border-radius: 1rem !important;
+  border: 1px solid var(--cryptodash-border-color) !important;
+}
 /* toolbar icons fill to black so it will blend better with frosted background */
 .apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-menu-icon svg {
   fill: #000000;
 }
 
+.apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-pan-icon svg, .apexcharts-selection-icon svg, .apexcharts-menu-icon svg, .apexcharts-toolbar-custom-icon svg {
+  fill: var(--cryptodash-border-color) !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.apexcharts-zoom-icon, .apexcharts-zoomin-icon, .apexcharts-zoomout-icon, .apexcharts-reset-icon, .apexcharts-pan-icon, .apexcharts-selection-icon, .apexcharts-menu-icon, .apexcharts-toolbar-custom-icon {
+  color: var(--cryptodash-text-color) !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: none !important;
+  transform: scale(1) !important;
+}
+
 .apexcharts-tooltip {
   border-radius: 1rem !important;
+}
+
+.apexcharts-menu-item:hover {
+  background: var(--cryptodash-highlight-color);
+  color: var(--cryptodash-text-color);
+  border-radius: 1rem;
 }
 
 .apexcharts-xaxistooltip {
@@ -606,20 +632,22 @@ p[id$="updatetime"] {
 }
 
 /* setting up the charts with some space in the content */
-#cryptodash-30-days-chart-content {
+
+
+#cryptodash-365-days-chart-content, #cryptodash-30-days-chart-content, #cryptodash-1-day-chart-content {
   padding-bottom: 10px;
+  padding-top: 10px;
+  
 }
 
-#cryptodash-1-day-chart-content {
-  padding-bottom: 10px;
+/*
+#cryptodash-tracker-details-charts-tab {
+  overflow-x: hidden; 
 }
-
-#cryptodash-1-hour-chart-content {
-  padding-bottom: 10px;
+*/
+#cryptodash-365-days-chart-title, #cryptodash-30-days-chart-title, #cryptodash-1-day-chart-title {
+padding-top: 10px;
 }
-
-
-
 
 
 /* cryptodash tracker positive pulsing shadow animation for image element */
@@ -2217,6 +2245,11 @@ padding: 0.5rem !important;
           <!-- Classic Background Customization -->
           <label for="cryptodash-charts-settings" class="form-label badge bg-secondary"><i class="fa fa-area-chart"></i> Charts</label>
 
+          <div class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" id="cryptodash-charts-drop-shadow">
+            <label class="form-check-label" for="cryptodash-charts-drop-shadow"><i class="fa fa-area-chart"></i> Charts Shadow</label>
+          </div>
+
           <div id="cryptodash-charts-settings" class="gap-2">
               
             <div class="accordion accordion-flush" id="cryptodash-charts">
@@ -2224,7 +2257,7 @@ padding: 0.5rem !important;
               <div class="accordion-item mt-3 mb-3">
                 <h2 class="accordion-header" id="cryptodash-charts-acc-title">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-charts-acc" aria-expanded="false" aria-controls="cryptodash-charts-acc">
-                    <i class="fa fa-image"></i>&nbsp Color Bundles
+                    <i class="fa fa-image"></i>&nbsp Color Palettes
                   </button>
                 </h2>
                 <div id="cryptodash-charts-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-charts-title" data-bs-parent="#cryptodash-charts">
@@ -2234,17 +2267,204 @@ padding: 0.5rem !important;
 
                       <div class="row mt-3">
                         <div class="col-6 d-flex justify-content-center">
-                          <div class="cryptodash-preview-classic-background-container">
-                            <div id="cryptodash-charts-preview" class="cryptodash-preview-classic-background"> </div>
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-1" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#008FFB;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#00E396;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#FEB019;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#FF4560;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#775DD0;"></div>
+                            </div>
                           </div>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-items-center">
                           <div class="form-check form-check-inline">
-                            <input class="btn-check" type="radio" name="cryptodash-classic-background" id="cryptodash-charts-default-colors" value="Default">
-                            <label class="btn btn-outline-light" for="cryptodash-charts-default-colors"> Default</label>
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-1" value="Palette1">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-1"> Palette 1 (Default)</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-2" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#3F51B5;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#03A9F4;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#4CAF50;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#F9CE1D;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#FF9800;"></div>
+                            </div>
                           </div>
                         </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-2" value="palette2">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-2"> Palette 2</label>
+                          </div>
+                        </div>                
                       </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-3" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#33B2DF;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#546E7A;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#D4526E;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#13D8AA;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#A5978B;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-3" value="palette3">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-3"> Palette 3</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-4" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#4ECDC4;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#C7F464;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#81D4FA;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#546E7A;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#FD6A6A;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-4" value="palette4">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-4"> Palette 4</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-5" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#2B908F;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#F9A3A4;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#90EE7E;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#FA4443;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#69D2E7;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-5" value="palette5">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-5"> Palette 5</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-6" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#449DD1;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#F86624;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#EA3546;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#662E9B;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#C5D86D;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-6" value="palette6">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-6"> Palette 6</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-7" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#D7263D;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#1B998B;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#2E294E;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#F46036;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#E2C044;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-7" value="palette7">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-7"> Palette 7</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-8" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#662E9B;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#F86624;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#F9C80E;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#EA3546;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#43BCCD;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-8" value="palette8">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-8"> Palette 8</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-9" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#5C4742;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#A5978B;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#8D5B4C;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#5A2A27;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#C4BBAF;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-9" value="palette9">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-9"> Palette 9</label>
+                          </div>
+                        </div>                
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-6 d-flex justify-content-center">
+                          <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
+                            <div id="cryptodash-preview-charts-palette-10" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#A300D6;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#7D02EB;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#5653FE;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#2983FF;"></div>
+                              <div class="cryptodash-preview-charts-palette-bubble" style="background-color:#00B1F2;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-charts-palette" id="cryptodash-charts-palette-10" value="palette10">
+                            <label class="btn btn-outline-light" for="cryptodash-charts-palette-10"> Palette 10</label>
+                          </div>
+                        </div>                
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -2302,26 +2522,26 @@ padding: 0.5rem !important;
   </div>
 
 
-  <div class="offcanvas offcanvas-top backdrop-blur" tabindex="-1" id="cryptodash-chart-menu" aria-labelledby="CryptoDashChartMenuLabel">
+  <div class="offcanvas offcanvas-top backdrop-blur" tabindex="-1" id="cryptodash-tracker-details" aria-labelledby="cryptodash-tracker-details-label">
     <div class="offcanvas-header border-bottom">
-      <h5 class="offcanvas-title" id="CryptoDashChartMenuLabel"> About Coin </h5>
+      <h5 class="offcanvas-title" id="cryptodash-tracker-details-label"> About Tracker </h5>
       
       <div>
         <ul id="cryptodash-tracker-details-buttons" class="nav nav-pills nav-justified" role="tablist" aria-label="Crypto Tracker Details">
             
-          <li class="nav-item" role="trackerdetails" style="margin-right: 4px;">
-            <button class="btn btn-outline-dark btn-sm active" id="cryptodash-tracker-details-charts-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-tab" aria-selected="false"><i class="fa fa-area-chart"></i> Charts</button>
+          <li class="nav-item me-3" role="trackerdetails">
+            <button class="btn btn-outline-dark btn-sm active " id="cryptodash-tracker-details-about-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-about-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-about-tab" aria-selected="true"><i class="fa fa-info-circle"></i> Details</button>
           </li>
 
-          <li class="nav-item" role="trackerdetails">
-            <button class="btn btn-outline-dark btn-sm" id="cryptodash-tracker-details-about-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-about-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-about-tab" aria-selected="true"><i class="fa fa-info-circle"></i> Details</button>
+          <li class="nav-item me-3" role="trackerdetails">
+            <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-tab" aria-selected="false"><i class="fa fa-area-chart"></i> Charts</button>
           </li>
   
         </ul>
       </div>
       
       <div id="cryptodash-chart-remove-button"></div>
-      <button id="cryptodash-chart-menu-close" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button id="cryptodash-tracker-details-close" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       
     </div>
     <div class="offcanvas-body">
@@ -2330,10 +2550,21 @@ padding: 0.5rem !important;
   
         <div class="tab-content" id="cryptodash-tracker-details-content">
 
-          <div class="tab-pane fade show active" id="cryptodash-tracker-details-charts-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-button">
+          <div class="tab-pane fade show active" id="cryptodash-tracker-details-about-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-about-button">
+            
+            <!-- https://min-api.cryptocompare.com/data/v2/news/?lang=EN -->
+ 
+            <div id="cryptodash-tracker-details-about-content">
+             <!--CryptoDashCoinListData[property]['Symbol'] -->
+             <div><i class="fa fa-cog fa-spin"></i> Loading ... </div>
+            </div>
+             
+           </div>
+
+          <div class="tab-pane fade" id="cryptodash-tracker-details-charts-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-button">
             
             <div id="cryptodash-chart-status"></div>
-            <div id="cryptodash-chart-buttons"></div>
+            <!--<div id="cryptodash-chart-buttons"></div> -->
             
             <div class="row">
 
@@ -2359,17 +2590,6 @@ padding: 0.5rem !important;
 
             </div>
 
-          </div>
-
-          <div class="tab-pane fade " id="cryptodash-tracker-details-about-tab" role="tabpanel" aria-labelledby="cryptodash-bg-simple-button">
-            
-           <!-- https://min-api.cryptocompare.com/data/v2/news/?lang=EN -->
-
-           <div id="cryptodash-tracker-details-about-content">
-            <!--CryptoDashCoinListData[property]['Symbol'] -->
-            <h5><i class="fa fa-cog fa-spin"></i> Loading ... </h5>
-           </div>
-            
           </div>
 
         </div>
@@ -4287,8 +4507,8 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
 
     document.getElementById("cryptodash-settings-menu-close").classList.add("bg-light");
     document.getElementById("cryptodash-settings-menu-close").classList.remove("bg-dark");
-    document.getElementById("cryptodash-chart-menu-close").classList.add("bg-light");
-    document.getElementById("cryptodash-chart-menu-close").classList.remove("bg-dark");
+    document.getElementById("cryptodash-tracker-details-close").classList.add("bg-light");
+    document.getElementById("cryptodash-tracker-details-close").classList.remove("bg-dark");
 
     document.getElementById("cryptodash-settings-button").classList.add("btn-dark");
     document.getElementById("cryptodash-settings-button").classList.remove("btn-light");
@@ -4644,7 +4864,6 @@ itemSizeRanger.oninput = function() {
 
 
 
-
 function FormattedTimeMinutesAndSeconds(seconds) {
 
   // var CryptoDashAutoRefreshFormatHours = Math.floor(autoRefreshRanger.title / 60 / 60);
@@ -4658,12 +4877,26 @@ function FormattedTimeMinutesAndSeconds(seconds) {
   return CryptoDashAutoRefreshFormattedValue;
 }
 
+var chart365days;
+var chart30days;
+var chart1day;
 
 // Get last 365 days pair for charts
 async function getCryptoDashChartLast365Days(coin, currency) {
-    
+ 
   var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+  var CryptoDashTrackerDetailsChartsButton = document.getElementById('cryptodash-tracker-details-charts-button');
+  var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+  var CryptoDashChartPalette = window.localStorage.getItem("CryptoDashChartPalette");
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+
+  if(CryptoDashCurrentTheme == "light") {
+    var CryptoDashCurrentTextColor = "dark";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    var CryptoDashCurrentTextColor = "light";
+  }
 
   if (CryptoDashDataSource == null) {
     window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
@@ -4711,8 +4944,6 @@ async function getCryptoDashChartLast365Days(coin, currency) {
         //return(CryptoDashTimeFrom, CryptoDashTimeTo, CryptoDashTimeArray);
         
         //return CryptoChartData;
-
-        var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
 
         var CryptoDashHighSeries = [];
         var CryptoDashLowSeries = [];
@@ -4776,30 +5007,59 @@ async function getCryptoDashChartLast365Days(coin, currency) {
             
           }],
           chart: {
+            id: 'cryptodash-chart-apex-365-days',
             height: 280,
             width: '98%',
             type: 'area',
             toolbar: {
-              offsetY: "-25",
+              offsetX: "-70",
+              offsetY: "-40",
+              tools: {
+                download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                customIcons: []
+              },
+              export: {
+                csv: {
+                  filename: "cryptodash-chart-apex-365-days",
+                  columnDelimiter: ',',
+                  headerCategory: 'category',
+                  headerValue: 'value',
+                  dateFormatter(timestamp) {
+                    return new Date(timestamp).toDateString()
+                  }
+                },
+                svg: {
+                  filename: "cryptodash-chart-apex-365-days",
+                },
+                png: {
+                  filename: "cryptodash-chart-apex-365-days",
+                }
+              },
 
             },
             background:'none',
             animations: {
               enabled: true,
               easing: 'easeinout',
-              speed: 800,
+              speed: 300,
               animateGradually: {
                   enabled: true,
-                  delay: 350
+                  delay: 550
               },
               dynamicAnimation: {
                   enabled: true,
-                  speed: 350
+                  speed: 1000
               }
             },
             
             dropShadow: {
-              enabled: true,
+              enabled: CryptoDashChartDropShadow,
               top: 0,
               left: 0,
               blur: 3,
@@ -4831,33 +5091,48 @@ async function getCryptoDashChartLast365Days(coin, currency) {
               },
             },
           }, 
-      
+          fill: {
+            type: "gradient",
+            gradient: {
+              shade: CryptoDashCurrentTheme,
+              shadeIntensity: 0.5,
+              opacityFrom: 0.7,
+              opacityTo: 0.9,
+              stops: [0, 90, 100]
+            }
+          },
           theme: {
             mode: CryptoDashCurrentTheme,
+            palette: CryptoDashChartPalette,
           }
         };
       
-        var chart365Days = new ApexCharts(document.querySelector("#cryptodash-365-days-chart-content"), options);
-        chart365Days.render();
+        chart365days = new ApexCharts(document.querySelector("#cryptodash-365-days-chart-content"), options);
+        
+        //chart365days.render();
       
-        chart365Days.hideSeries('Open Market Price');
-        chart365Days.hideSeries('Close Market Price');
+        //window.ApexCharts.exec('chart365Days', 'hideSeries', 'Open Market Price');
+        //window.ApexCharts.exec('chart365Days', 'hideSeries', 'Close Market Price');
+        //chart365days.hideSeries('Open Market Price');
+        //chart365days.hideSeries('Close Market Price');
 
         // fallback to remove the style background
-        var svgchart = document.querySelector("svg");
-        svgchart.style.removeProperty("background");
+        //var svgchart = document.querySelector("svg");
+        //svgchart.style.removeProperty("background");
+        
         
 
-        // add event when the offcanvas is closed
-        document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
-          // do something...
-
+          
+        // add event when the tab is closed
+        /*
+        CryptoDashTrackerDetailsChartsButton.addEventListener('hidden.bs.tab', function (event) {
           // remove chart
-          chart365Days.destroy();
-          document.querySelector("#cryptodash-365-days-chart-content").innerHTML = "";          
-
-        })        
-        
+          chart365Days.destroy();   
+          // clear content         
+          document.querySelector("#cryptodash-365-days-chart-content").innerHTML = "";
+        }) 
+        */
+       
       }
 
     } catch(e) {
@@ -4907,8 +5182,7 @@ async function getCryptoDashChartLast365Days(coin, currency) {
             //return(CryptoDashTimeFrom, CryptoDashTimeTo, CryptoDashTimeArray);
             
             //return CryptoChartData;
-
-            var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+           
 
             var CryptoDashHighSeries = [];
             var CryptoDashLowSeries = [];
@@ -4972,29 +5246,57 @@ async function getCryptoDashChartLast365Days(coin, currency) {
                 
               }],
               chart: {
+                id: 'cryptodash-chart-apex-365-days',                
                 height: 280,
                 width: '98%',
                 type: 'area',
                 toolbar: {
-                  offsetY: "-25",
-
+                  offsetX: "-70",
+                  offsetY: "-40",
+                  tools: {
+                    download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                    //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                    zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                    pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                    reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                    customIcons: []
+                  },
+                  export: {
+                    csv: {
+                      filename: "cryptodash-chart-apex-365-days",
+                      columnDelimiter: ',',
+                      headerCategory: 'category',
+                      headerValue: 'value',
+                      dateFormatter(timestamp) {
+                        return new Date(timestamp).toDateString()
+                      }
+                    },
+                    svg: {
+                      filename: "cryptodash-chart-apex-365-days",
+                    },
+                    png: {
+                      filename: "cryptodash-chart-apex-365-days",
+                    }
+                  },
                 },
                 background:'none',
                 animations: {
                   enabled: true,
                   easing: 'easeinout',
-                  speed: 800,
+                  speed: 300,
                   animateGradually: {
                       enabled: true,
-                      delay: 350
+                      delay: 550
                   },
                   dynamicAnimation: {
                       enabled: true,
-                      speed: 350
+                      speed: 1000
                   }
                 },
                 dropShadow: {
-                  enabled: true,
+                  enabled: CryptoDashChartDropShadow,
                   top: 0,
                   left: 0,
                   blur: 3,
@@ -5027,33 +5329,47 @@ async function getCryptoDashChartLast365Days(coin, currency) {
                 },
             
               }, 
-          
+              fill: {
+                type: "gradient",
+                gradient: {
+                  shade: CryptoDashCurrentTheme,
+                  shadeIntensity: 0.5,
+                  opacityFrom: 0.7,
+                  opacityTo: 0.9,
+                  stops: [0, 90, 100]
+                }
+              },
               theme: {
                 mode: CryptoDashCurrentTheme,
+                palette: CryptoDashChartPalette,
               }
             };
           
-            var chart365Days = new ApexCharts(document.querySelector("#cryptodash-365-days-chart-content"), options);
-            chart365Days.render();
+            chart365days = new ApexCharts(document.querySelector("#cryptodash-365-days-chart-content"), options);
+            
+            //chart365days.render();
           
-            chart365Days.hideSeries('Open Market Price');
-            chart365Days.hideSeries('Close Market Price');
+            //window.ApexCharts.exec('chart365Days', 'hideSeries', 'Open Market Price');
+            //window.ApexCharts.exec('chart365Days', 'hideSeries', 'Close Market Price');
 
+            //chart365days.hideSeries('Open Market Price');
+            //chart365days.hideSeries('Close Market Price');
             // fallback to remove the style background
-            var svgchart = document.querySelector("svg");
-            svgchart.style.removeProperty("background");
+            //var svgchart = document.querySelector("svg");
+            //svgchart.style.removeProperty("background");
+
             
 
-            // add event when the offcanvas is closed
-            document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
-              // do something...
-
+               
+            // add event when the tab is closed
+            /*
+            CryptoDashTrackerDetailsChartsButton.addEventListener('hidden.bs.tab', function (event) {
               // remove chart
-              chart365Days.destroy();
-              document.querySelector("#cryptodash-30-days-chart-content").innerHTML = "";              
-
+              chart365Days.destroy();   
+              // clear content         
+              document.querySelector("#cryptodash-365-days-chart-content").innerHTML = "";
             })
-            
+            */
           }
 
         } catch(e) {
@@ -5082,9 +5398,20 @@ async function getCryptoDashChartLast365Days(coin, currency) {
 }
 
 async function getCryptoDashChartLast30Days(coin, currency) {
-    
+  
   var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+  var CryptoDashTrackerDetailsChartsButton = document.getElementById('cryptodash-tracker-details-charts-button');
+  var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+  var CryptoDashChartPalette = window.localStorage.getItem("CryptoDashChartPalette");
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+  
+  if(CryptoDashCurrentTheme == "light") {
+    var CryptoDashCurrentTextColor = "dark";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    var CryptoDashCurrentTextColor = "light";
+  }
 
   if (CryptoDashDataSource == null) {
     window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
@@ -5133,7 +5460,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
         
         //return CryptoChartData;
 
-        var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+        
 
         var CryptoDashHighSeries = [];
         var CryptoDashLowSeries = [];
@@ -5196,29 +5523,58 @@ async function getCryptoDashChartLast30Days(coin, currency) {
             data: CryptoDashCloseMarketSeries
           }],
           chart: {
+            id: 'cryptodash-apexchart-chart-30-days',
             height: 280,
             width: '98%',
             type: 'area',
             toolbar: {
-              offsetY: "-25",
+              offsetX: "-70",
+              offsetY: "-40",
+              tools: {
+                download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                customIcons: []
+              },
+              export: {
+                csv: {
+                  filename: "cryptodash-chart-apex-30-days",
+                  columnDelimiter: ',',
+                  headerCategory: 'category',
+                  headerValue: 'value',
+                  dateFormatter(timestamp) {
+                    return new Date(timestamp).toDateString()
+                  }
+                },
+                svg: {
+                  filename: "cryptodash-chart-apex-30-days",
+                },
+                png: {
+                  filename: "cryptodash-chart-apex-30-days",
+                }
+              },
             },
             background:'none',
             animations: {
               enabled: true,
               easing: 'easeinout',
-              speed: 800,
+              speed: 300,
               animateGradually: {
                   enabled: true,
-                  delay: 350
+                  delay: 550
               },
               dynamicAnimation: {
                   enabled: true,
-                  speed: 350
+                  speed: 1000
               }
             },
             
             dropShadow: {
-              enabled: true,
+              enabled: CryptoDashChartDropShadow,
               top: 0,
               left: 0,
               blur: 3,
@@ -5249,34 +5605,48 @@ async function getCryptoDashChartLast30Days(coin, currency) {
               },
             },
           },
+          fill: {
+            type: "gradient",
+            gradient: {
+              shade: CryptoDashCurrentTheme,
+              shadeIntensity: 0.5,
+              opacityFrom: 0.7,
+              opacityTo: 0.9,
+              stops: [0, 90, 100]
+            }
+          },
           theme: {
             mode: CryptoDashCurrentTheme,
-          //  palette: 'palette7',
+            palette: CryptoDashChartPalette,
           }
         };
       
-        var chart30Days = new ApexCharts(document.querySelector("#cryptodash-30-days-chart-content"), options);
-        chart30Days.render();
-      
-        chart30Days.hideSeries('Open Market Price');
-        chart30Days.hideSeries('Close Market Price');
+        chart30days = new ApexCharts(document.querySelector("#cryptodash-30-days-chart-content"), options);
+        
+        //chart30days.render();
+
+        //window.ApexCharts.exec('chart30Days', 'hideSeries', 'Open Market Price');
+        //window.ApexCharts.exec('chart30Days', 'hideSeries', 'Close Market Price');
+        //chart30days.hideSeries('Open Market Price');
+        //chart30days.hideSeries('Close Market Price');
+        
 
         // fallback to remove the style background
-        var svgchart = document.querySelector("svg");
-        svgchart.style.removeProperty("background");
+        //var svgchart = document.querySelector("svg");
+        //svgchart.style.removeProperty("background");
+        
         
 
-        // add event when the offcanvas is closed
-        document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
-          // do something...
-
+        // add event when the tab is closed
+        /*
+        CryptoDashTrackerDetailsChartsButton.addEventListener('hidden.bs.tab', function (event) {
           // remove chart
-          chart30Days.destroy();
-            
+          chart30Days.destroy();   
+          // clear content         
           document.querySelector("#cryptodash-30-days-chart-content").innerHTML = "";
-          
-        })       
-        
+        }) 
+        */
+       
       }
 
     } catch(e) {
@@ -5325,8 +5695,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
             //return(CryptoDashTimeFrom, CryptoDashTimeTo, CryptoDashTimeArray);
             
             //return CryptoChartData;
-
-            var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+          
 
             var CryptoDashHighSeries = [];
             var CryptoDashLowSeries = [];
@@ -5387,29 +5756,58 @@ async function getCryptoDashChartLast30Days(coin, currency) {
                 data: CryptoDashCloseMarketSeries
               }],
               chart: {
+                id: 'cryptodash-chart-apex-30-days',
                 height: 280,
                 width: '98%',
                 type: 'area',
                 toolbar: {
-                  offsetY: "-25",
+                  offsetX: "-70",
+                  offsetY: "-40",
+                  tools: {
+                    download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                    //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                    zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                    pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                    reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                    customIcons: []
+                  },
+                  export: {
+                    csv: {
+                      filename: "cryptodash-chart-apex-30-days",
+                      columnDelimiter: ',',
+                      headerCategory: 'category',
+                      headerValue: 'value',
+                      dateFormatter(timestamp) {
+                        return new Date(timestamp).toDateString()
+                      }
+                    },
+                    svg: {
+                      filename: "cryptodash-chart-apex-30-days",
+                    },
+                    png: {
+                      filename: "cryptodash-chart-apex-30-days",
+                    }
+                  },
                 },
                 background:'none',
                 animations: {
                   enabled: true,
                   easing: 'easeinout',
-                  speed: 800,
+                  speed: 300,
                   animateGradually: {
                       enabled: true,
-                      delay: 350
+                      delay: 550
                   },
                   dynamicAnimation: {
                       enabled: true,
-                      speed: 350
+                      speed: 1000
                   }
                 },
                 
                 dropShadow: {
-                  enabled: true,
+                  enabled: CryptoDashChartDropShadow,
                   top: 0,
                   left: 0,
                   blur: 3,
@@ -5440,33 +5838,44 @@ async function getCryptoDashChartLast30Days(coin, currency) {
                   },
                 },
               }, 
+              fill: {
+                type: "gradient",
+                gradient: {
+                  shade: CryptoDashCurrentTheme,
+                  shadeIntensity: 0.5,
+                  opacityFrom: 0.7,
+                  opacityTo: 0.9,
+                  stops: [0, 90, 100]
+                }
+              },
               theme: {
                 mode: CryptoDashCurrentTheme,
-              //  palette: 'palette7',
+                palette: CryptoDashChartPalette,
               }
             };
           
-            var chart30Days = new ApexCharts(document.querySelector("#cryptodash-30-days-chart-content"), options);
-            chart30Days.render();
-          
-            chart30Days.hideSeries('Open Market Price');
-            chart30Days.hideSeries('Close Market Price');
-
-            // fallback to remove the style background
-            var svgchart = document.querySelector("svg");
-            svgchart.style.removeProperty("background");
+            chart30days = new ApexCharts(document.querySelector("#cryptodash-30-days-chart-content"), options);
             
-            // add event when the offcanvas is closed
-            document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
-              // do something...
+            //chart30days.render();
 
+            //window.ApexCharts.exec('chart30Days', 'hideSeries', 'Open Market Price');
+            //window.ApexCharts.exec('chart30Days', 'hideSeries', 'Close Market Price');
+            //chart30days.hideSeries('Open Market Price');
+            //chart30days.hideSeries('Close Market Price');
+                      
+            // fallback to remove the style background
+            //var svgchart = document.querySelector("svg");
+            //svgchart.style.removeProperty("background");
+            
+            
+            // add event when the tab is closed
+            /*
+            CryptoDashTrackerDetailsChartsButton.addEventListener('hidden.bs.tab', function (event) {
               // remove chart
-              chart30Days.destroy();
-                
+              chart30Days.destroy();   
+              // clear content         
               document.querySelector("#cryptodash-30-days-chart-content").innerHTML = "";
-              
-
-            })           
+            }) */
             
           }
 
@@ -5499,6 +5908,17 @@ async function getCryptoDashChartLast1Day(coin, currency) {
     
   var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+  var CryptoDashTrackerDetailsChartsButton = document.getElementById('cryptodash-tracker-details-charts-button');
+  var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+  var CryptoDashChartPalette = window.localStorage.getItem("CryptoDashChartPalette");
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+
+  if(CryptoDashCurrentTheme == "light") {
+    var CryptoDashCurrentTextColor = "dark";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    var CryptoDashCurrentTextColor = "light";
+  }
 
   if (CryptoDashDataSource == null) {
     window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
@@ -5546,9 +5966,7 @@ async function getCryptoDashChartLast1Day(coin, currency) {
         //return(CryptoDashTimeFrom, CryptoDashTimeTo, CryptoDashTimeArray);
         
         //return CryptoChartData;
-
-        var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
-
+       
         var CryptoDashHighSeries = [];
         var CryptoDashLowSeries = [];
         var CryptoDashOpenMarketSeries = [];
@@ -5607,29 +6025,58 @@ async function getCryptoDashChartLast1Day(coin, currency) {
             data: CryptoDashCloseMarketSeries
           }],
           chart: {
+            id: 'cryptodash-chart-apex-1-day',
             height: 280,
             width: '98%',
             type: 'area',
             toolbar: {
-                offsetY: "-25",
+              offsetX: "-70",
+              offsetY: "-40",
+              tools: {
+                download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                customIcons: []
+              },
+              export: {
+                csv: {
+                  filename: "cryptodash-chart-apex-1-day",
+                  columnDelimiter: ',',
+                  headerCategory: 'category',
+                  headerValue: 'value',
+                  dateFormatter(timestamp) {
+                    return new Date(timestamp).toDateString()
+                  }
+                },
+                svg: {
+                  filename: "cryptodash-chart-apex-1-day",
+                },
+                png: {
+                  filename: "cryptodash-chart-apex-1-day",
+                }
+              },
             },
             background:'none',
             animations: {
               enabled: true,
               easing: 'easeinout',
-              speed: 800,
+              speed: 300,
               animateGradually: {
                   enabled: true,
-                  delay: 350
+                  delay: 550
               },
               dynamicAnimation: {
                   enabled: true,
-                  speed: 350
+                  speed: 1000
               }
             },
             
             dropShadow: {
-              enabled: true,
+              enabled: CryptoDashChartDropShadow,
               top: 0,
               left: 0,
               blur: 3,
@@ -5661,32 +6108,46 @@ async function getCryptoDashChartLast1Day(coin, currency) {
             },
         
           }, 
+          fill: {
+            type: "gradient",
+            gradient: {
+              shade: CryptoDashCurrentTheme,
+              shadeIntensity: 0.5,
+              opacityFrom: 0.7,
+              opacityTo: 0.9,
+              stops: [0, 90, 100]
+            }
+          },
           theme: {
             mode: CryptoDashCurrentTheme,
-          // palette: 'palette8',
+            palette: CryptoDashChartPalette,
           }
         };
       
-        var chart1day = new ApexCharts(document.querySelector("#cryptodash-1-day-chart-content"), options);
-        chart1day.render();
-      
-        chart1day.hideSeries('Open Market Price');
-        chart1day.hideSeries('Close Market Price');
+        chart1day = new ApexCharts(document.querySelector("#cryptodash-1-day-chart-content"), options);
 
-        // fallback to remove the style background
-        var svgchart = document.querySelector("svg");
-        svgchart.style.removeProperty("background");
         
-        // add event when the offcanvas is closed
-        document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
-          // do something...
-
+        //chart1day.render();
+      
+        //window.ApexCharts.exec('chart1day', 'hideSeries', 'Open Market Price');
+        //window.ApexCharts.exec('chart1day', 'hideSeries', 'Close Market Price');
+        //chart1day.hideSeries('Open Market Price');
+        //chart1day.hideSeries('Close Market Price');
+        // fallback to remove the style background
+        //var svgchart = document.querySelector("svg");
+        //svgchart.style.removeProperty("background");
+        
+        
+        // add event when the tab is closed
+        /*
+        CryptoDashTrackerDetailsChartsButton.addEventListener('hidden.bs.tab', function (event) {
           // remove chart
-          chart1day.destroy();          
+          chart1day.destroy();   
+          // clear content         
           document.querySelector("#cryptodash-1-day-chart-content").innerHTML = "";
-
-        })
-                
+        }) 
+        */
+        
       }
 
     } catch(e) {
@@ -5736,7 +6197,8 @@ async function getCryptoDashChartLast1Day(coin, currency) {
             
             //return CryptoChartData;
     
-            var CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+            
+            
     
             var CryptoDashHighSeries = [];
             var CryptoDashLowSeries = [];
@@ -5797,29 +6259,58 @@ async function getCryptoDashChartLast1Day(coin, currency) {
                 data: CryptoDashCloseMarketSeries
               }],
               chart: {
+                id: 'cryptodash-chart-apex-1-day',
                 height: 280,
                 width: '98%',
                 type: 'area',
                 toolbar: {
-                    offsetY: "-25",
+                  offsetX: "-70",
+                  offsetY: "-40",
+                  tools: {
+                    download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                    //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                    zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                    pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                    reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                    customIcons: []
+                  },
+                  export: {
+                    csv: {
+                      filename: "cryptodash-chart-apex-1-day",
+                      columnDelimiter: ',',
+                      headerCategory: 'category',
+                      headerValue: 'value',
+                      dateFormatter(timestamp) {
+                        return new Date(timestamp).toDateString()
+                      }
+                    },
+                    svg: {
+                      filename: "cryptodash-chart-apex-1-day",
+                    },
+                    png: {
+                      filename: "cryptodash-chart-apex-1-day",
+                    }
+                  },
                 },
                 background:'none',
                 animations: {
                   enabled: true,
                   easing: 'easeinout',
-                  speed: 800,
+                  speed: 300,
                   animateGradually: {
                       enabled: true,
-                      delay: 350
+                      delay: 550
                   },
                   dynamicAnimation: {
                       enabled: true,
-                      speed: 350
+                      speed: 1000
                   }
                 },
 
                 dropShadow: {
-                  enabled: true,
+                  enabled: CryptoDashChartDropShadow,
                   top: 0,
                   left: 0,
                   blur: 3,
@@ -5850,34 +6341,47 @@ async function getCryptoDashChartLast1Day(coin, currency) {
                   },
                 },
                 
-              },             
+              },  
+                         
+              fill: {
+                type: "gradient",
+                gradient: {
+                  shade: CryptoDashCurrentTheme,
+                  shadeIntensity: 0.5,
+                  opacityFrom: 0.7,
+                  opacityTo: 0.9,
+                  stops: [0, 90, 100]
+                }
+              },
               theme: {
                 mode: CryptoDashCurrentTheme,
-              // palette: 'palette8',
+                palette: CryptoDashChartPalette,
               }
             };
           
-            var chart1day = new ApexCharts(document.querySelector("#cryptodash-1-day-chart-content"), options);
-            chart1day.render();
+            chart1day = new ApexCharts(document.querySelector("#cryptodash-1-day-chart-content"), options);
+            
+            //chart1day.render();
           
-            chart1day.hideSeries('Open Market Price');
-            chart1day.hideSeries('Close Market Price');
+            //window.ApexCharts.exec('chart1day', 'hideSeries', 'Open Market Price');
+            //window.ApexCharts.exec('chart1day', 'hideSeries', 'Close Market Price');
+            //chart1day.hideSeries('Open Market Price');
+            //chart1day.hideSeries('Close Market Price');
     
             // fallback to remove the style background
-            var svgchart = document.querySelector("svg");
-            svgchart.style.removeProperty("background");
+            //var svgchart = document.querySelector("svg");
+            //svgchart.style.removeProperty("background");
             
     
-            // add event when the offcanvas is closed
-            document.getElementById('cryptodash-chart-menu').addEventListener('hidden.bs.offcanvas', function () {
-              // do something...
-    
+           
+            // add event when the tab is closed
+            /*
+            CryptoDashTrackerDetailsChartsButton.addEventListener('hidden.bs.tab', function (event) {
               // remove chart
-              chart1day.destroy();              
+              chart1day.destroy();   
+              // clear content         
               document.querySelector("#cryptodash-1-day-chart-content").innerHTML = "";
-    
-            })
-    
+            }) */ 
           }
 
         } catch(e) {
@@ -5906,45 +6410,49 @@ function removeCryptoDashSelectedItem(coin){
   CryptoDashCoinsSelector.removeItem(coin);
 }
 
-var chartCryptoDashOpener = function (event) {
+var CryptoDashTrackerDetailsOpener = function (event) {
   //event.preventDefault()
   event.stopPropagation();
-  var CryptoDashChartOffCanvas = new bootstrap.Offcanvas(document.getElementById('cryptodash-chart-menu'));
+  var CryptoDashChartOffCanvas = new bootstrap.Offcanvas(document.getElementById('cryptodash-tracker-details'));
   CryptoDashChartOffCanvas.show();
 
   var CryptoDashChartTitle = this.id.substring(0, this.id.length - 4); ;
-  var CryptoDashChartOffCanvasTitle = document.getElementById('CryptoDashChartMenuLabel');
-  var CryptoDashChartOffCanvasAboutButton = document.getElementById('cryptodash-tracker-details-about-button');
-  var CryptoDashChartOffCanvasChartsButton = document.getElementById('cryptodash-tracker-details-charts-button');
+  var CryptoDashTrackerDetailsLabel = document.getElementById('cryptodash-tracker-details-label');
+  var CryptoDashTrackerDetailsAboutButton = document.getElementById('cryptodash-tracker-details-about-button');
+  var CryptoDashTrackerDetailsChartsButton = document.getElementById('cryptodash-tracker-details-charts-button');
 
-  var CryptoDashChartOffCanvasAboutTab = document.getElementById('cryptodash-tracker-details-about-tab');
-  var CryptoDashChartOffCanvasChartsTab = document.getElementById('cryptodash-tracker-details-charts-tab');
-  var CryptoDashChartOffCanvasAboutContent = document.getElementById('cryptodash-tracker-details-about-content');
+  var CryptoDashTrackerDetailsAboutTab = document.getElementById('cryptodash-tracker-details-about-tab');
+  var CryptoDashTrackerDetailsChartsTab = document.getElementById('cryptodash-tracker-details-charts-tab');
+  var CryptoDashTrackerDetailsAboutContent = document.getElementById('cryptodash-tracker-details-about-content');
   
-  CryptoDashChartOffCanvasTitle.innerHTML = '<strong> <img src="https://www.cryptocompare.com' + CryptoDashCoinListData[CryptoDashChartTitle]["ImageUrl"] +'"> ' + CryptoDashChartTitle + '</strong>';
-  CryptoDashChartOffCanvasAboutButton.innerHTML = `<i class="fa fa-info-circle"></i> ` + CryptoDashChartTitle + ` details`;
+  CryptoDashTrackerDetailsLabel.innerHTML = '<strong> <img src="https://www.cryptocompare.com' + CryptoDashCoinListData[CryptoDashChartTitle]["ImageUrl"] +'"> ' + CryptoDashChartTitle + '</strong>';
+  CryptoDashTrackerDetailsAboutButton.innerHTML = `<i class="fa fa-info-circle"></i> ` + CryptoDashChartTitle + ` details`;
    
   
   // Clearing tab and active buttons
-  CryptoDashChartOffCanvasChartsTab.classList.remove('active', 'show');
-  CryptoDashChartOffCanvasAboutTab.classList.remove('active', 'show');
+  CryptoDashTrackerDetailsChartsTab.classList.remove('active', 'show');
+  CryptoDashTrackerDetailsAboutTab.classList.remove('active', 'show');
 
-  CryptoDashChartOffCanvasAboutButton.classList.remove('active');
-  CryptoDashChartOffCanvasChartsButton.classList.remove('active');
+  CryptoDashTrackerDetailsAboutButton.classList.remove('active');
+  CryptoDashTrackerDetailsChartsButton.classList.remove('active');
 
   // show charts first
-  CryptoDashChartOffCanvasChartsButton.classList.add('active');
-  CryptoDashChartOffCanvasChartsTab.classList.add('active', 'show');
+  //CryptoDashTrackerDetailsChartsButton.classList.add('active');
+  //CryptoDashTrackerDetailsChartsTab.classList.add('active', 'show');
 
   // show details first
-  //CryptoDashChartOffCanvasAboutButton.classList.add('active');
-  //CryptoDashChartOffCanvasAboutTab.classList.add('active', 'show');
+  CryptoDashTrackerDetailsAboutButton.classList.add('active');
+  CryptoDashTrackerDetailsAboutTab.classList.add('active', 'show');
 
-  CryptoDashChartOffCanvasAboutButton.addEventListener('show.bs.tab', function (event) {
+  CryptoDashTrackerDetailsAboutButton.addEventListener('show.bs.tab', function (event) {
+
+  })
+
+    showCryptoDashNotification(`<i class="fa fa-cog fa-spin"></i> Loading tracker info ...`, 3000);
     //event.target.innerHTML = "Test 2"; // newly activated tab
     //event.relatedTarget // previous active tab
     //console.log("Tab shown");
-    CryptoDashChartOffCanvasAboutContent.innerHTML = 
+    CryptoDashTrackerDetailsAboutContent.innerHTML = 
     `<h1>About ` + CryptoDashCoinListData[CryptoDashChartTitle]["FullName"] + `</h1>` + 
 
     `<h5>Description</h5>` + 
@@ -5977,12 +6485,116 @@ var chartCryptoDashOpener = function (event) {
       White Papers
     </a>` 
     
-  })
+  
 
-  //CryptoDashChartMenuLabel
+  
+
+  //cryptodash-tracker-details-label
+  
 
   var CryptoDashCurrentSelectedCurrency = window.localStorage.getItem("CryptoDashCurrency");
 
+  showCryptoDashNotification(`<i class="fa fa-cog fa-spin"></i> Loading charts ...`, 3000);
+    var CryptoChart365DaysData = getCryptoDashChartLast365Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+    var CryptoChart30DaysData = getCryptoDashChartLast30Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+    var CryptoChart1DayData = getCryptoDashChartLast1Day(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+
+
+  CryptoDashTrackerDetailsChartsButton.addEventListener('shown.bs.tab', function (event) {
+    event.stopPropagation();
+    if(chart365days && chart365days != null ){
+      document.getElementById("cryptodash-365-days-chart-content").innerHTML = "";  
+      chart365days.render();
+      //chart365days.hideSeries('Open Market Price');
+      //chart365days.hideSeries('Close Market Price');
+      //chart365days.updateOptions({redrawPaths: true});
+    }
+
+    if(chart30days && chart30days != null ){
+      document.getElementById("cryptodash-30-days-chart-content").innerHTML = "";
+      chart30days.render();
+      //chart30days.hideSeries('Open Market Price');
+      //chart30days.hideSeries('Close Market Price');
+      //chart30days.updateOptions({redrawPaths: true});
+    }
+
+    if(chart1day && chart1day != null ){
+      document.getElementById("cryptodash-1-day-chart-content").innerHTML = "";   
+      chart1day.render();
+      //chart1day.hideSeries('Open Market Price');
+      //chart1day.hideSeries('Close Market Price');
+      //chart1day.updateOptions({redrawPaths: true});
+    }
+
+      
+    /*
+    window.ApexCharts.exec('apexchartscryptodashxchartxapexx365xdays', 'hideSeries', 'Open Market Price');
+    window.ApexCharts.exec('apexchartscryptodashxchartxapexx365xdays', 'hideSeries', 'Close Market Price');
+    window.ApexCharts.exec('apexchartscryptodashxchartxapexx30xdays', 'hideSeries', 'Open Market Price');
+    window.ApexCharts.exec('apexchartscryptodashxchartxapexx30xdays', 'hideSeries', 'Close Market Price');
+    window.ApexCharts.exec('apexchartscryptodashxchartxapexx1xday', 'hideSeries', 'Open Market Price');
+    window.ApexCharts.exec('apexchartscryptodashxchartxapexx1xday', 'hideSeries', 'Close Market Price');
+  
+    //window.resize();
+    /*
+    window.ApexCharts.exec('cryptodash-apexchart-chart-365-days', 'toggleSeries', 'Open Market Price');
+    window.ApexCharts.exec('cryptodash-apexchart-chart-365-days', 'toggleSeries', 'Close Market Price');
+    window.ApexCharts.exec('cryptodash-apexchart-chart-30-days', 'toggleSeries', 'Open Market Price');
+    window.ApexCharts.exec('cryptodash-apexchart-chart-30-days', 'toggleSeries', 'Close Market Price');
+    window.ApexCharts.exec('cryptodash-apexchart-chart-1-day', 'toggleSeries', 'Open Market Price');
+    window.ApexCharts.exec('cryptodash-apexchart-chart-1-day', 'toggleSeries', 'Close Market Price');
+    */
+  })
+
+  
+
+  // add event when the offcanvas is closed
+  document.getElementById('cryptodash-tracker-details').addEventListener('hidden.bs.offcanvas', function () {
+    event.stopPropagation();
+    if(chart365days && chart365days != null ){
+      chart365days.destroy();
+      document.getElementById("cryptodash-365-days-chart-content").innerHTML = "";  
+      chart365days = "";
+    }
+
+    if(chart30days && chart30days != null ){
+      chart30days.destroy();
+      document.getElementById("cryptodash-30-days-chart-content").innerHTML = "";
+      chart30days = "";
+    }
+    
+    if(chart1day && chart1day != null ){
+      chart1day.destroy();
+      document.getElementById("cryptodash-1-day-chart-content").innerHTML = "";   
+      chart1day = ""; 
+    }  
+    
+
+  }) 
+
+    // add event when the tab is open
+    /*
+    CryptoDashTrackerDetailsChartsButton.addEventListener('shown.bs.tab', function (event) {
+      CryptoChart365DaysData.hideSeries('Open Market Price');
+      CryptoChart365DaysData.hideSeries('Close Market Price');
+      CryptoChart30DaysData.hideSeries('Open Market Price');
+      CryptoChart30DaysData.hideSeries('Close Market Price');
+      CryptoChart1DayData.hideSeries('Open Market Price');
+      CryptoChart1DayData.hideSeries('Close Market Price');
+    }) 
+    
+    if(CryptoChart365DaysData && CryptoChart30DaysData && CryptoChart1DayData) {
+      window.ApexCharts.exec('chart365day', 'hideSeries', 'Open Market Price');
+      window.ApexCharts.exec('chart365day', 'hideSeries', 'Close Market Price');
+      window.ApexCharts.exec('chart30day', 'hideSeries', 'Open Market Price');
+      window.ApexCharts.exec('chart30day', 'hideSeries', 'Close Market Price');
+      window.ApexCharts.exec('chart1day', 'hideSeries', 'Open Market Price');
+      window.ApexCharts.exec('chart1day', 'hideSeries', 'Close Market Price');
+    }
+    */
+    
+
+    
   var CryptoDashCurrentTheme = window.localStorage.getItem("CryptoDashLightSwitch");
   if(CryptoDashCurrentTheme === "dark") {
     var CryptoDashButtonTextColor = "light";
@@ -5992,7 +6604,7 @@ var chartCryptoDashOpener = function (event) {
 
  // console.log(CryptoDashButtonTextColor);
 
-  var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + CryptoDashChartTitle + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-chart-menu" aria-controls="cryptodash-chart-menu"><i class="fa fa-trash"></i> Remove Tracker</button>`;
+  var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + CryptoDashChartTitle + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-tracker-details" aria-controls="cryptodash-tracker-details"><i class="fa fa-trash"></i> Remove Tracker</button>`;
 
   var cryptoDashAlarmKey = "CryptoDashAlarm-" + CryptoDashChartTitle;
 
@@ -6008,16 +6620,17 @@ var chartCryptoDashOpener = function (event) {
         var alarmTrackerButton = `<button id="cryptodash-remove-alarm-`+ CryptoDashChartTitle +`" class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashAlarm('` + CryptoDashChartTitle + `')"><i class="fa fa-bell-slash-o"></i> Remove Alarm</button>`;
       }
 
-      document.getElementById("cryptodash-tracker-details-about-content").innerHTML = ``;
+  //document.getElementById("cryptodash-tracker-details-about-content").innerHTML = ``;
       
 
   document.getElementById('cryptodash-chart-remove-button').innerHTML = alarmTrackerButton + " " + removeTrackerButton;
 
-  showCryptoDashNotification(`<i class="fa fa-cog fa-spin"></i> Loading charts ...`, 3000);
+  
 
-  var CryptoChart365DaysData = getCryptoDashChartLast365Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
-  var CryptoChart30DaysData = getCryptoDashChartLast30Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
-  var CryptoChart1DayData = getCryptoDashChartLast1Day(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+
+  
+
+  
   
 }
 
@@ -6142,7 +6755,7 @@ function createCryptoDashTracker(coinAbr) {
   TrackerImg.setAttributeNode(TrackerImgIDAttribute);
   TrackerImg.setAttributeNode(TrackerImgSRCAttribute);
   
-  TrackerImg.addEventListener("click", chartCryptoDashOpener);
+  TrackerImg.addEventListener("click", CryptoDashTrackerDetailsOpener);
   
   TrackerUpdateTime.setAttributeNode(TrackerUpdateTimeIDAttribute);
 
@@ -7586,7 +8199,7 @@ function stopAutoCryptoDashFetchTrackerData() {
   
 }
 
-// to be removed
+// CryptoDash Count Down to be removed
 function startCryptoDashRefreshCountDown() {
 
   var intialDuration = window.localStorage.getItem("CryptoDashAutoRefresh") / 10;
@@ -7853,13 +8466,9 @@ function cryptoDashChangeThemeStyle(url){
     var CryptoDashCSS = window.localStorage.getItem("CryptoDashCSS");
     var CryptoDashCSSURL = window.localStorage.getItem("CryptoDashCSSURL");
   
-    if (!CryptoDashCSS || CryptoDashCSS == null) {
-      window.localStorage.setItem("CryptoDashCSS", "default");
-    } 
+    if (!CryptoDashCSS || CryptoDashCSS == null) { window.localStorage.setItem("CryptoDashCSS", "default"); } 
 
-    if (!CryptoDashCSSURL || CryptoDashCSSURL == null) {
-      window.localStorage.setItem("CryptoDashCSSURL", "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
-    } 
+    if (!CryptoDashCSSURL || CryptoDashCSSURL == null) { window.localStorage.setItem("CryptoDashCSSURL", "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"); } 
 
     if (CryptoDashCSS == "default") { CryptoDashDefaultTheme.checked = true; }
     if (CryptoDashCSS == "yeti") { CryptoDashYetiTheme.checked = true; }
@@ -7901,7 +8510,6 @@ function cryptoDashChangeThemeStyle(url){
 
 })();
 
-
 // Notification Orientation and Location
 (function () {
 
@@ -7912,7 +8520,7 @@ function cryptoDashChangeThemeStyle(url){
   var CryptoDashNotificationLocationRight = document.getElementById('cryptodash-notification-location-right');
   var CryptoDashNotificationLocationCenter = document.getElementById('cryptodash-notification-location-center');
 
-  if (!CryptoDashNotificationOrientationTop || !CryptoDashNotificationOrientationBottom) {
+  if (!CryptoDashNotificationOrientationTop || !CryptoDashNotificationOrientationBottom) { 
     CryptoDashNotificationOrientationBottom.checked = true;
     return;
   }
@@ -7966,37 +8574,20 @@ function cryptoDashChangeThemeStyle(url){
     var CryptoDashNotificationOrientation = window.localStorage.getItem("CryptoDashNotificationOrientation");
     var CryptoDashNotificationLocation = window.localStorage.getItem("CryptoDashNotificationLocation");
 
-    if (CryptoDashNotificationOrientation == null) {
-      window.localStorage.setItem("CryptoDashNotificationOrientation", "bottom");
-    }
+    if (CryptoDashNotificationOrientation == null) { window.localStorage.setItem("CryptoDashNotificationOrientation", "bottom"); }
 
     var CryptoDashNotificationOrientation = window.localStorage.getItem("CryptoDashNotificationOrientation");
 
-    if (CryptoDashNotificationOrientation == "top") {
-      CryptoDashNotificationOrientationTop.checked = true;
-    }
+    if (CryptoDashNotificationOrientation == "top") { CryptoDashNotificationOrientationTop.checked = true; }
+    if (CryptoDashNotificationOrientation == "bottom") { CryptoDashNotificationOrientationBottom.checked = true; }
 
-    if (CryptoDashNotificationOrientation == "bottom") {
-      CryptoDashNotificationOrientationBottom.checked = true;
-    }
-
-    if (CryptoDashNotificationLocation == null) {
-      window.localStorage.setItem("CryptoDashNotificationLocation", "right");
-    }
+    if (CryptoDashNotificationLocation == null) { window.localStorage.setItem("CryptoDashNotificationLocation", "right"); }
     
     var CryptoDashNotificationLocation = window.localStorage.getItem("CryptoDashNotificationLocation");
 
-    if (CryptoDashNotificationLocation == "left") {
-      CryptoDashNotificationLocationLeft.checked = true;
-    }
-
-    if (CryptoDashNotificationLocation == "right") {
-      CryptoDashNotificationLocationRight.checked = true;
-    }
-
-    if (CryptoDashNotificationLocation == "center") {
-      CryptoDashNotificationLocationCenter.checked = true;
-    }
+    if (CryptoDashNotificationLocation == "left") { CryptoDashNotificationLocationLeft.checked = true; }
+    if (CryptoDashNotificationLocation == "right") { CryptoDashNotificationLocationRight.checked = true; }
+    if (CryptoDashNotificationLocation == "center") { CryptoDashNotificationLocationCenter.checked = true; }
 
     CryptoDashNotificationOrientationTop.addEventListener("change", CryptoDashNotificationOrientationTopToggle);
     CryptoDashNotificationOrientationBottom.addEventListener("change", CryptoDashNotificationOrientationBottomToggle);
@@ -8039,16 +8630,11 @@ function cryptoDashChangeThemeStyle(url){
       autoRefreshRanger.value = CryptoDashAutoRefresh;
       autoRefreshRanger.title = autoRefreshRanger.value / 10;
       var CryptoDashAutoRefreshFormattedValue = FormattedTimeMinutesAndSeconds(autoRefreshRanger.title);
+      
       // trigger the data pull with auto refresh
       autoCryptoDashFetchTrackerData();
 
-      document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefreshFormattedValue;
-
-      //var duration = document.getElementById("refreshRanger").title;
-      //var display = document.getElementById("cryptodash-refresh-button");
-      
-      //startCryptoDashRefreshCountDown(duration, display);
-      
+      document.getElementById("dataRefreshSpan").innerHTML = CryptoDashAutoRefreshFormattedValue;      
       document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i>`;
 
     } else {
@@ -8085,13 +8671,9 @@ function cryptoDashChangeThemeStyle(url){
 
   function setup() {
     var settings = window.localStorage.getItem("CryptoDashDataRefreshSwitch");
-    if (settings == null) {
-      window.localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual");
-    }
+    if (settings == null) { window.localStorage.setItem("CryptoDashDataRefreshSwitch", "Manual"); }
     
-    if (settings == "Auto") {
-      CryptoDashDataRefreshSwitch.checked = true;
-    }
+    if (settings == "Auto") { CryptoDashDataRefreshSwitch.checked = true; }
     
     CryptoDashDataRefreshSwitch.addEventListener("change", onToggleMode);
     onToggleMode();
@@ -8174,6 +8756,171 @@ function cryptoDashChangeThemeStyle(url){
 
 })();
 
+// Chart palette color changer
+(function () {
+
+  var CryptoDashChartPalette1 = document.getElementById("cryptodash-charts-palette-1");
+  var CryptoDashChartPalette2 = document.getElementById("cryptodash-charts-palette-2");
+  var CryptoDashChartPalette3 = document.getElementById("cryptodash-charts-palette-3");
+  var CryptoDashChartPalette4 = document.getElementById("cryptodash-charts-palette-4");
+  var CryptoDashChartPalette5 = document.getElementById("cryptodash-charts-palette-5");
+  var CryptoDashChartPalette6 = document.getElementById("cryptodash-charts-palette-6");
+  var CryptoDashChartPalette7 = document.getElementById("cryptodash-charts-palette-7");
+  var CryptoDashChartPalette8 = document.getElementById("cryptodash-charts-palette-8");
+  var CryptoDashChartPalette9 = document.getElementById("cryptodash-charts-palette-9");
+  var CryptoDashChartPalette10 = document.getElementById("cryptodash-charts-palette-10");
+ 
+
+  if (!CryptoDashChartPalette1 || !CryptoDashChartPalette2 || !CryptoDashChartPalette3 || !CryptoDashChartPalette4 || !CryptoDashChartPalette5 || !CryptoDashChartPalette6 || !CryptoDashChartPalette7 || !CryptoDashChartPalette8 || !CryptoDashChartPalette9 || !CryptoDashChartPalette10) {
+    CryptoDashChartPalette1.checked = true;
+    return;
+  }
+
+  function CryptoDashChartPalette1Toggle() {
+    if (CryptoDashChartPalette1.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette1");    
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 1.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette2Toggle() {
+    if (CryptoDashChartPalette2.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette2");      
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 2.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette3Toggle() {
+    if (CryptoDashChartPalette3.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette3");      
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 3.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette4Toggle() {
+    if (CryptoDashChartPalette4.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette4");
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 4.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette5Toggle() {
+    if (CryptoDashChartPalette5.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette5");      
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 5.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette6Toggle() {
+    if (CryptoDashChartPalette6.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette6");      
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 6.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette7Toggle() {
+    if (CryptoDashChartPalette7.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette7");      
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 7.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette8Toggle() {
+    if (CryptoDashChartPalette8.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette8");      
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 8.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette9Toggle() {
+    if (CryptoDashChartPalette9.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette9");
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 9.`, 3000);
+    }
+  }
+
+  function CryptoDashChartPalette10Toggle() {
+    if (CryptoDashChartPalette10.checked) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette10");
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts palette changed to Palette 10.`, 3000);
+    }
+  }
+
+
+  function setup() {
+    var CryptoDashChartPalette = window.localStorage.getItem("CryptoDashChartPalette");
+
+    if (CryptoDashChartPalette == null) {
+      window.localStorage.setItem("CryptoDashChartPalette", "palette1");
+    }
+
+    var CryptoDashChartPalette = window.localStorage.getItem("CryptoDashChartPalette");
+
+    if (CryptoDashChartPalette == "palette1") { CryptoDashChartPalette1.checked = true; }
+    if (CryptoDashChartPalette == "palette2") { CryptoDashChartPalette2.checked = true; }
+    if (CryptoDashChartPalette == "palette3") { CryptoDashChartPalette3.checked = true; }
+    if (CryptoDashChartPalette == "palette4") { CryptoDashChartPalette4.checked = true; }
+    if (CryptoDashChartPalette == "palette5") { CryptoDashChartPalette5.checked = true; }
+    if (CryptoDashChartPalette == "palette6") { CryptoDashChartPalette6.checked = true; }
+    if (CryptoDashChartPalette == "palette7") { CryptoDashChartPalette7.checked = true; }
+    if (CryptoDashChartPalette == "palette8") { CryptoDashChartPalette8.checked = true; }
+    if (CryptoDashChartPalette == "palette9") { CryptoDashChartPalette9.checked = true; }
+    if (CryptoDashChartPalette == "palette10") { CryptoDashChartPalette10.checked = true; }
+
+    CryptoDashChartPalette1.addEventListener("change", CryptoDashChartPalette1Toggle);
+    CryptoDashChartPalette2.addEventListener("change", CryptoDashChartPalette2Toggle);
+    CryptoDashChartPalette3.addEventListener("change", CryptoDashChartPalette3Toggle);
+    CryptoDashChartPalette4.addEventListener("change", CryptoDashChartPalette4Toggle);
+    CryptoDashChartPalette5.addEventListener("change", CryptoDashChartPalette5Toggle);
+    CryptoDashChartPalette6.addEventListener("change", CryptoDashChartPalette6Toggle);
+    CryptoDashChartPalette7.addEventListener("change", CryptoDashChartPalette7Toggle);
+    CryptoDashChartPalette8.addEventListener("change", CryptoDashChartPalette8Toggle);
+    CryptoDashChartPalette9.addEventListener("change", CryptoDashChartPalette9Toggle);
+    CryptoDashChartPalette10.addEventListener("change", CryptoDashChartPalette10Toggle);
+
+  }
+
+  setup();
+
+})();
+
+// charts drop shadow
+(function () {
+
+  var CryptoDashChartDropShadowButton = document.getElementById("cryptodash-charts-drop-shadow");
+  
+  if (!CryptoDashChartDropShadowButton) { 
+    CryptoDashChartDropShadowButton.checked = true;
+    return;
+  }
+
+  function CryptoDashChartDropShadowToggle() {
+    if (CryptoDashChartDropShadowButton.checked) {
+      window.localStorage.setItem("CryptoDashChartDropShadow", "true");
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts shadows enabled`, 3000);
+    } else {
+      window.localStorage.setItem("CryptoDashChartDropShadow", "");
+      showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Charts shadows disabled`, 3000);
+    }
+  }
+
+  function setup() {
+
+    var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+    if (CryptoDashChartDropShadow == null) { window.localStorage.setItem("CryptoDashChartDropShadow", "true"); }
+    var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+    if (CryptoDashChartDropShadow == "true") { CryptoDashChartDropShadowButton.checked = true; }
+    if (CryptoDashChartDropShadow == "") { CryptoDashChartDropShadowButton.checked = false; }
+    CryptoDashChartDropShadowButton.addEventListener("change", CryptoDashChartDropShadowToggle);
+
+  }
+
+  setup();
+
+})();
+
+
+
 function byteLength(str) {
   // returns the byte length of an utf8 string
   var s = str.length;
@@ -8243,9 +8990,7 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
       //no valid Random Background colors
       CryptoDashClassicBackgroundRandomColorRefreshToggle();
     }
-
   }
-
 
   function CryptoDashClassicBackgroundDefaultToggle() {
     if (CryptoDashClassicBackgroundDefault.checked) {
@@ -8317,17 +9062,16 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
     
           showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Background set to Random Gradient Color (`+ CryptoDashRandomBackground + `)`, 3000);
   
-        }
+        };
 
       } else {
         CryptoDashClassicBackgroundRandomColorRefreshToggle();
-      }
+      };
       
-    }
-  }
+    };
+  };
 
   function CryptoDashClassicBackgroundCustomColorPickerButtonToggle() {
-
     if(CryptoDashClassicBackgroundCustomColorPickerContent.classList.contains("d-none")){
       // if color picker content has class of d-none, then remove it. 
       CryptoDashClassicBackgroundCustomColorPickerContent.classList.remove("d-none");
@@ -8337,14 +9081,9 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
       // if color picker content does not have class of d-none, then add it.
       CryptoDashClassicBackgroundCustomColorPickerContent.classList.add("d-none");
       CryptoDashClassicBackgroundCustomColorPickerButtonIcon.classList.remove("fa-close");
-      CryptoDashClassicBackgroundCustomColorPickerButtonIcon.classList.add("fa-cog");
-      
-    }
-    
-  }
-
-  
-
+      CryptoDashClassicBackgroundCustomColorPickerButtonIcon.classList.add("fa-cog");      
+    };
+  };
 
   function CryptoDashClassicBackgroundCustomColorToggle() {
     var CryptoDashCustomBackgroundColor = window.localStorage.getItem("CryptoDashCustomBackgroundColor");
@@ -8352,26 +9091,24 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
 
     if (CryptoDashClassicBackgroundCustomColor.checked) {
       window.localStorage.setItem("CryptoDashBackground", "CustomColor");
-    }
+    };
 
     if(!CryptoDashCustomBackgroundColor) {
       window.localStorage.setItem("CryptoDashCustomBackgroundColor", "#ff0000");
       CryptoDashCustomBackgroundColor = window.localStorage.getItem("CryptoDashCustomBackgroundColor");
-    } 
+    };
 
     if(checkhex.test(CryptoDashCustomBackgroundColor)) {
       document.documentElement.style.setProperty('--cryptodash-bg-color-custom', CryptoDashCustomBackgroundColor);
-    }
+    };
 
     cryptoDashRemoveClassByPrefix(CrpytoDashBody, "cryptodash-classic-bg-");
     document.querySelector("body").classList.add("cryptodash-classic-bg-custom");
       
     showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Background set to Custom Color: ` + CryptoDashCustomBackgroundColor, 3000);
-  }
-
+  };
 
   function CryptoDashClassicBackgroundCustomImagePickerButtonToggle() {
-
     if(CryptoDashClassicBackgroundCustomImagePickerContent.classList.contains("d-none")){
       // if color picker content has class of d-none, then remove it. 
       CryptoDashClassicBackgroundCustomImagePickerContent.classList.remove("d-none");
@@ -8381,16 +9118,13 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
       // if color picker content does not have class of d-none, then add it.
       CryptoDashClassicBackgroundCustomImagePickerContent.classList.add("d-none");
       CryptoDashClassicBackgroundCustomImagePickerButtonIcon.classList.remove("fa-close");
-      CryptoDashClassicBackgroundCustomImagePickerButtonIcon.classList.add("fa-cog");
-      
-    }
-    
+      CryptoDashClassicBackgroundCustomImagePickerButtonIcon.classList.add("fa-cog");      
+    }    
   }
 
   // clear the Custom Image from the system
   function removeCryptoDashClassicBackgroundCustomImageToggle(){
     // clear the image from local storage
-
     var CryptoDashCustomBackgroundImage = window.localStorage.getItem("CryptoDashCustomBackgroundImage");
     
     if(CryptoDashCustomBackgroundImage && CryptoDashCustomBackgroundImage != null) {
@@ -8410,9 +9144,7 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
       CryptoDashClassicBackgroundCustomImage.checked = false;
       CryptoDashClassicBackgroundDefaultToggle();
       showCryptoDashNotification(`<i class="fa fa-check-circle"></i> Custom Background Image Removed`, 3000);
-
-    }
-    
+    }    
   }
 
   function urltoFile(url, filename, mimeType){
@@ -8433,8 +9165,7 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
     const downloadLink = document.createElement("a");
     downloadLink.href = CryptoDashCustomBackgroundImage;
     downloadLink.download = "CryptoDashCustomBackground." + ext;
-    downloadLink.click();
-      
+    downloadLink.click();      
   }
 
   function setCryptoDashClassicBackgroundCustomImageToggle() {
@@ -8540,8 +9271,6 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
    
   }
 
-  
-
   function CryptoDashClassicBackgroundCustomImageToggle() {
 
     var CryptoDashCustomBackgroundImage = window.localStorage.getItem("CryptoDashCustomBackgroundImage");
@@ -8597,7 +9326,6 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
     }                
 
   }
-
 
   function setup() {
     //console.log("sunt aici");
@@ -8672,19 +9400,15 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
       CryptoDashClassicBackgroundDefault.checked = true;
       CryptoDashClassicBackgroundCustomImage.checked = false;
     } else {
-
       CryptoDashClassicBackgroundCustomImagePreview.style.background = "url("+ CryptoDashCustomBackgroundImage +") center no-repeat";
-      CryptoDashClassicBackgroundCustomImagePreview.style.backgroundSize = "cover";
-      
-
+      CryptoDashClassicBackgroundCustomImagePreview.style.backgroundSize = "cover";      
     }
 
 
 
 
 
-    if (CryptoDashBackground == null) {
-      
+    if (CryptoDashBackground == null) {      
       window.localStorage.setItem("CryptoDashBackground", "Default");
       CryptoDashClassicBackgroundDefaultToggle();
       CryptoDashClassicBackgroundRandomColorRefreshToggle();
@@ -8699,14 +9423,11 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
 
     if (CryptoDashBackground == "Random") {
       CryptoDashClassicBackgroundRandomColor.checked = true;
-
       if(checkhex.test(CryptoDashRandomBackground) && checkhex.test(CryptoDashRandomBackground1) && checkhex.test(CryptoDashRandomBackground2)) {
         CryptoDashClassicBackgroundRandomColorToggle();
-
       } else {
         CryptoDashClassicBackgroundRandomColorRefreshToggle();
-      }
-      
+      }      
     }
 
     if (CryptoDashBackground == "CustomColor") {
@@ -8742,11 +9463,6 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
   CryptoDashClassicBackgroundRandomPreviewToggle();
 
 })();
-
-
-
-
-
 
 // CryptoDash Animated Background Selectors
 (function () {
@@ -9306,9 +10022,8 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
 })();
 
 // ALARM
-
 // SET ALARM FOR Current Tracker
-  function setCryptoDashAlarm(coinAbr) {
+function setCryptoDashAlarm(coinAbr) {
   var CryptoDashDataRefreshSwitch = window.localStorage.getItem("CryptoDashDataRefreshSwitch");
   var CryptoDashCurrentSelectedCurrency = window.localStorage.getItem("CryptoDashCurrency");
   var cryptoDashTrackerID = coinAbr;
@@ -9492,7 +10207,7 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
             var CryptoDashButtonTextColor = "dark";
           }
 
-          var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + cryptoDashTrackerID + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-chart-menu" aria-controls="cryptodash-chart-menu"><i class="fa fa-trash"></i> Remove Tracker</button>`;
+          var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + cryptoDashTrackerID + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-tracker-details" aria-controls="cryptodash-tracker-details"><i class="fa fa-trash"></i> Remove Tracker</button>`;
           var alarmTrackerButton = `<button id="cryptodash-remove-alarm-`+ cryptoDashTrackerID +`" class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashAlarm('` + cryptoDashTrackerID + `')"><i class="fa fa-bell-slash-o"></i> Remove Alarm</button>`;
        
           document.getElementById('cryptodash-chart-remove-button').innerHTML = alarmTrackerButton + " " + removeTrackerButton;
@@ -9538,7 +10253,7 @@ function removeCryptoDashAlarm(coinAbr) {
 
   window.localStorage.removeItem(cryptoDashAlarmKey);
 
-  var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + coinAbr + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-chart-menu" aria-controls="cryptodash-chart-menu"><i class="fa fa-trash"></i> Remove Tracker</button>`;
+  var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + coinAbr + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-tracker-details" aria-controls="cryptodash-tracker-details"><i class="fa fa-trash"></i> Remove Tracker</button>`;
   var alarmTrackerButton = `<button id="cryptodash-set-alarm-`+ coinAbr +`" class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="setCryptoDashAlarm('` + coinAbr + `')"><i class="fa fa-bell-o"></i> Set Alarm</button>`;
       
   document.getElementById('cryptodash-chart-remove-button').innerHTML = alarmTrackerButton + " " + removeTrackerButton;
