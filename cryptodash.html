@@ -105,6 +105,11 @@
 <!-- Vanta Clouds JS-->
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
 
+<!-- eCharts JS-->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0-rc.1/dist/echarts.min.js"></script>
+
+
+
 <style>
 
 * {
@@ -134,6 +139,16 @@ body {
  border-radius: 1rem;
 }
 
+/* custom Font Awesome */
+
+.fa-rotate-45 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 /* custom Bootstrap changes */
 .nav-justified .nav-item, .nav-justified>.nav-link {
 flex-basis: auto !important;
@@ -142,7 +157,7 @@ flex-basis: auto !important;
   border: 0px !important;
 }
 
-.btn:not(#cryptodash-apikey-button, #cryptodash-modal-search-button, #cryptodash-refresh-button, #cryptodash-clock, #cryptodash-settings-button ) {
+.btn:not(#cryptodash-apikey-button, #cryptodash-modal-search-button, #cryptodash-refresh-button, #cryptodash-clock, #cryptodash-settings-button, .apexcharts-zoom-icon div.btn, .apexcharts-zoomin-icon div.btn, .apexcharts-zoomout-icon div.btn, .apexcharts-reset-icon div.btn, .apexcharts-pan-icon div.btn, .apexcharts-selection-icon div.btn, .apexcharts-menu-icon div.btn, .apexcharts-toolbar-custom-icon div.btn ) {
   border-radius: 1rem !important;
 }
 
@@ -304,6 +319,8 @@ flex-basis: auto !important;
 :root {
   --frosted-bg-color: rgba(255, 255, 255, 0.25);
   --frosted-tracker-bg-color: rgba(255, 255, 255, 0.25);
+
+  --unfrosted-tooltip-color: rgba(255, 255, 255, 0.75);
   
   --cryptodash-main-bg-color: #282537;
   --cryptodash-gradient-bg-color-1: #3c3b52;
@@ -450,6 +467,7 @@ flex-basis: auto !important;
 /* grid style */
 .cryptodash-grid {
   position: relative;
+  width: calc(100vw - 20px);
 }
 
 /* tracker draging */
@@ -580,74 +598,6 @@ p[id$="updatetime"] {
 }
 
 
-/* *** Charts *** */
-
-/* make the chart menu offcanvas full screen */
-#cryptodash-tracker-details {
-  height: calc(100vh); 
-}
-
-/* custom Apex charts changes */
-
-/* transparent background to aid in frosting the interface */
-.apexcharts-canvas {
-  background: none !important;
-  
-}
-.apexcharts-menu {
-  border-radius: 1rem !important;
-  border: 1px solid var(--cryptodash-border-color) !important;
-}
-/* toolbar icons fill to black so it will blend better with frosted background */
-.apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-menu-icon svg {
-  fill: #000000;
-}
-
-.apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-pan-icon svg, .apexcharts-selection-icon svg, .apexcharts-menu-icon svg, .apexcharts-toolbar-custom-icon svg {
-  fill: var(--cryptodash-border-color) !important;
-  width: 40px !important;
-  height: 40px !important;
-}
-
-.apexcharts-zoom-icon, .apexcharts-zoomin-icon, .apexcharts-zoomout-icon, .apexcharts-reset-icon, .apexcharts-pan-icon, .apexcharts-selection-icon, .apexcharts-menu-icon, .apexcharts-toolbar-custom-icon {
-  color: var(--cryptodash-text-color) !important;
-  width: auto !important;
-  height: auto !important;
-  line-height: none !important;
-  transform: scale(1) !important;
-}
-
-.apexcharts-tooltip {
-  border-radius: 1rem !important;
-}
-
-.apexcharts-menu-item:hover {
-  background: var(--cryptodash-highlight-color);
-  color: var(--cryptodash-text-color);
-  border-radius: 1rem;
-}
-
-.apexcharts-xaxistooltip {
-  border-radius: 1rem !important;
-}
-
-/* setting up the charts with some space in the content */
-
-
-#cryptodash-365-days-chart-content, #cryptodash-30-days-chart-content, #cryptodash-1-day-chart-content {
-  padding-bottom: 10px;
-  padding-top: 10px;
-  
-}
-
-/*
-#cryptodash-tracker-details-charts-tab {
-  overflow-x: hidden; 
-}
-*/
-#cryptodash-365-days-chart-title, #cryptodash-30-days-chart-title, #cryptodash-1-day-chart-title {
-padding-top: 10px;
-}
 
 
 /* cryptodash tracker positive pulsing shadow animation for image element */
@@ -1077,13 +1027,13 @@ padding-top: 10px;
   border-radius: 1rem !important;
 }
 
-.btn-outline-dark:hover:not(#cryptodash-apikey-button, #cryptodash-modal-search-button) {
+.btn-outline-dark:hover:not(#cryptodash-apikey-button, #cryptodash-modal-search-button, .apexcharts-zoom-icon div.btn, .apexcharts-zoomin-icon div.btn, .apexcharts-zoomout-icon div.btn, .apexcharts-reset-icon div.btn, .apexcharts-pan-icon div.btn, .apexcharts-selection-icon div.btn, .apexcharts-menu-icon div.btn, .apexcharts-toolbar-custom-icon div.btn) {
   background: var(--cryptodash-highlight-color) !important;
   color: var(--cryptodash-text-color) !important;
   border-radius: 1rem !important;
 }
 
-.btn-outline-light:hover:not(#cryptodash-apikey-button, #cryptodash-modal-search-button) {
+.btn-outline-light:hover:not(#cryptodash-apikey-button, #cryptodash-modal-search-button, .apexcharts-zoom-icon div.btn, .apexcharts-zoomin-icon div.btn, .apexcharts-zoomout-icon div.btn, .apexcharts-reset-icon div.btn, .apexcharts-pan-icon div.btn, .apexcharts-selection-icon div.btn, .apexcharts-menu-icon div.btn, .apexcharts-toolbar-custom-icon div.btn) {
   background: var(--cryptodash-highlight-color) !important;
   color: var(--cryptodash-text-color) !important;
   border-radius: 1rem !important;
@@ -1266,9 +1216,9 @@ border-radius: 1rem;
 .carousel-inner {
   position: absolute;
   padding-top: 50px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* padding-bottom: 20px; */
   
 }
 
@@ -1401,6 +1351,127 @@ padding: 0.5rem !important;
 
 }
 
+/* *** Charts *** */
+
+/* make the chart menu offcanvas full screen */
+#cryptodash-tracker-details {
+  height: calc(100vh); 
+}
+
+/* custom Apex charts changes */
+
+/* transparent background to aid in frosting the interface */
+.apexcharts-canvas {
+  background: none !important;
+  
+}
+.apexcharts-menu {
+  border-radius: 1rem !important;
+  background: var(--unfrosted-tooltip-color) !important;
+  border: none !important;
+}
+/* toolbar icons fill to black so it will blend better with frosted background */
+.apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-menu-icon svg {
+  fill: #000000;
+}
+
+.apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-pan-icon svg, .apexcharts-selection-icon svg, .apexcharts-menu-icon svg, .apexcharts-toolbar-custom-icon svg {
+  fill: var(--cryptodash-border-color) !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.apexcharts-zoom-icon, .apexcharts-zoomin-icon, .apexcharts-zoomout-icon, .apexcharts-reset-icon, .apexcharts-pan-icon, .apexcharts-selection-icon, .apexcharts-menu-icon, .apexcharts-toolbar-custom-icon {
+  color: var(--cryptodash-text-color) !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: none !important;
+  transform: scale(1) !important;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.apexcharts-zoom-icon div.btn, .apexcharts-zoomin-icon div.btn, .apexcharts-zoomout-icon div.btn, .apexcharts-reset-icon div.btn, .apexcharts-pan-icon div.btn, .apexcharts-selection-icon div.btn, .apexcharts-menu-icon div.btn, .apexcharts-toolbar-custom-icon div.btn {
+  border-radius: 50% !important;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+.apexcharts-zoom-icon div.btn:hover, .apexcharts-zoomin-icon div.btn:hover, .apexcharts-zoomout-icon div.btn:hover, .apexcharts-reset-icon div.btn:hover, .apexcharts-pan-icon div.btn:hover, .apexcharts-selection-icon div.btn:hover, .apexcharts-menu-icon div.btn:hover, .apexcharts-toolbar-custom-icon div.btn:hover {
+  background: var(--cryptodash-highlight-color) !important;
+  color: var(--cryptodash-text-color) !important;
+  border-radius: 50% !important;
+}
+.apexcharts-toolbar {
+  padding: 2px;
+  border-radius: 1rem;
+
+}
+
+.apexcharts-tooltip, .apexcharts-xaxistooltip  {
+  background: var(--unfrosted-tooltip-color) !important;
+  border: none !important;
+  border-radius: 1rem !important;
+}
+
+.apexcharts-tooltip-title {
+  background: var(--unfrosted-tooltip-color) !important;
+  border: none !important;
+  
+}
+
+.apexcharts-menu-item:hover {
+  background: var(--cryptodash-highlight-color);
+  color: var(--cryptodash-text-color);
+  border-radius: 1rem;
+}
+
+.apexcharts-selected{
+  background: var(--cryptodash-highlight-color);
+  color: var(--cryptodash-text-color);
+  border-radius: 50%;
+
+}
+
+.exportSVG:hover, .exportPNG:hover, .exportCSV:hover {
+  background: var(--cryptodash-highlight-color) !important;
+  color: var(--cryptodash-text-color) !important;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+  padding-top: 0.3rem;
+  padding-left: 0.5rem; 
+  padding-right: 0.5rem;
+  padding-bottom: 0.25rem; 
+
+}
+
+/* setting up the charts with some space in the content */
+
+
+#cryptodash-365-days-chart-content, #cryptodash-30-days-chart-content, #cryptodash-1-day-chart-content {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  
+}
+
+/*
+#cryptodash-tracker-details-charts-tab {
+  overflow-x: hidden; 
+}
+*/
+#cryptodash-365-days-chart-title, #cryptodash-30-days-chart-title, #cryptodash-1-day-chart-title {
+  
+padding-top: 10px;
+padding-left: 10px;
+padding-bottom: 3px;
+}
+
+#cryptodash-365-days-chart-status, #cryptodash-30-days-chart-status, #cryptodash-1-day-chart-status  {
+  padding-left: 10px;
+  font-size: 50px;
+}
+
 </style>
 
 </head>
@@ -1459,6 +1530,8 @@ padding: 0.5rem !important;
             <li>going back to the dashboard will trigger a refresh on the rendering on murri</li>
           </ul>
           <i class="fa fa-gear fa-spin"></i>
+
+          
          </div>                   
           
         </div>
@@ -1821,7 +1894,7 @@ padding: 0.5rem !important;
 
           <!-- Grid Size -->
           <label for="itemSizeRanger" class="form-label badge bg-secondary"><i class="fa fa-th-large "></i> Tracker Size: <span id="gridsizeSpan"></span> </label>
-          <input type="range" class="form-range" min="190" max="580" step="1" id="itemSizeRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
+          <input type="range" class="form-range" min="190" max="590" step="1" id="itemSizeRanger" data-bs-toggle="tooltip" data-bs-placement="top" title="">
 
           <hr>
           
@@ -1838,7 +1911,7 @@ padding: 0.5rem !important;
                 <i class="fa fa-arrows"></i>&nbsp Position
               </button>
             </h2>
-            <div id="cryptodash-notification-position-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-notification-position-acc-title" data-bs-parent="#cryptodash-backgrounds">
+            <div id="cryptodash-notification-position-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-notification-position-acc-title" data-bs-parent="#cryptodash-notifications">
               <div class="accordion-body">
                 
                 <!-- Notification Orientation -->
@@ -2242,7 +2315,7 @@ padding: 0.5rem !important;
 
           <hr>
 
-          <!-- Classic Background Customization -->
+          <!-- Charts Customization -->
           <label for="cryptodash-charts-settings" class="form-label badge bg-secondary"><i class="fa fa-area-chart"></i> Charts</label>
 
           <div class="form-check form-switch mb-2">
@@ -2475,6 +2548,63 @@ padding: 0.5rem !important;
 
           <hr>
 
+          <!-- Dashboard Customization -->
+          <label for="cryptodash-dashboard-settings" class="form-label badge bg-secondary"><i class="fa fa-area-chart"></i> Dashboard</label>
+
+          <div class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" id="cryptodash-dashboard-highlight">
+            <label class="form-check-label" for="cryptodash-dashboard-highlight"><i class="fa fa-area-chart"></i> Dashboard Highlight</label>
+          </div>
+
+          <div id="cryptodash-dashboard-settings" class="gap-2">
+              
+            <div class="accordion accordion-flush" id="cryptodash-dashboard">
+
+              <div class="accordion-item mt-3 mb-3">
+                <h2 class="accordion-header" id="cryptodash-dashboard-acc-title">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-dashboard-position-acc" aria-expanded="false" aria-controls="cryptodash-dashboard-position-acc">
+                    <i class="fa fa-arrows"></i>&nbsp Switcher Position
+                  </button>
+                </h2>
+                <div id="cryptodash-dashboard-position-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-dashboard-position-title" data-bs-parent="#cryptodash-dashboard">
+                  <div class="accordion-body">
+
+                    <div class="d-grid gap-2"> 
+
+                      <div class="row mt-3">
+                        <div class="col-4 d-flex justify-content-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-dashboard-switcher-position" id="cryptodash-dashboard-switcher-position-top-left" value="Top-Left">
+                            <label class="btn btn-outline-light" for="cryptodash-dashboard-switcher-position-top-left"><i class="fa fa-arrow-left fa-rotate-45"></i><br>Top Left</label>
+                          </div>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-dashboard-switcher-position" id="cryptodash-dashboard-switcher-position-bottom-center" value="Bottom-Center">
+                            <label class="btn btn-outline-light" for="cryptodash-dashboard-switcher-position-bottom-center"><i class="fa fa-arrow-down"></i><br>Bottom Center</label>
+                          </div>
+                        </div> 
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                          <div class="form-check form-check-inline">
+                            <input class="btn-check" type="radio" name="cryptodash-dashboard-switcher-position" id="cryptodash-dashboard-switcher-position-top-right" value="Top-Right">
+                            <label class="btn btn-outline-light" for="cryptodash-dashboard-switcher-position-top-right"><i class="fa fa-arrow-up fa-rotate-45 "></i><br>Top Right</label>
+                          </div>
+                        </div> 
+                                       
+                      </div>
+
+                      
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          <hr>
+
             <!-- Configuration Options -->
             <label for="cryptodashConfig" class="form-label badge bg-secondary"><i class="fa fa-cog "></i> Backup Settings</label>
             <p class="mt-2" style="font-size: .775rem;">
@@ -2570,21 +2700,22 @@ padding: 0.5rem !important;
 
               <div class="col-12" id="cryptodash-365-days-chart">
                 <div id="cryptodash-365-days-chart-title"><strong>Last Year</strong></div>
-                <div id="cryptodash-365-days-chart-status"></div>
+                <div id="cryptodash-365-days-chart-status" class="d-flex justify-content-center align-items-center"></div>
                 <div id="cryptodash-365-days-chart-content" class="d-flex justify-content-center"></div>
+                <div id="main" width="calc(100vw - 40px)" style="height: 400px;"></div>
               </div>
               <br><br>
             
               <div class="col-12" id="cryptodash-30-days-chart">
                 <div id="cryptodash-30-days-chart-title"><strong>Last Month</strong></div>
-                <div id="cryptodash-30-days-chart-status"></div>
+                <div id="cryptodash-30-days-chart-status" class="d-flex justify-content-center align-items-center"></div>
                 <div id="cryptodash-30-days-chart-content" class="d-flex justify-content-center"></div>
               </div>
               <br><br>
               
               <div class="col-12" id="cryptodash-1-day-chart">
                 <div id="cryptodash-1-day-chart-title"><strong>Last Day</strong></div>
-                <div id="cryptodash-1-day-chart-status"></div>
+                <div id="cryptodash-1-day-chart-status" class="d-flex justify-content-center align-items-center"></div>
                 <div id="cryptodash-1-day-chart-content" class="d-flex justify-content-center"></div>
               </div>
 
@@ -4366,7 +4497,7 @@ if (CryptoDashTrackerWidth && CryptoDashTrackerHeight) {
 } else {
 
   var itemSizeRanger = document.getElementById("itemSizeRanger");
-  itemSizeRanger.value = 426;
+  itemSizeRanger.value = 435;
   itemSizeRanger.title = itemSizeRanger.value + 'px';
   document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title;
 
@@ -4537,6 +4668,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.getElementById("CryptoDashCoinsSelector-ts-control").classList.add("text-white");
           
     document.documentElement.style.setProperty('--frosted-bg-color', "rgba(0, 0, 0, 0.25)");
+    document.documentElement.style.setProperty('--unfrosted-tooltip-color', "rgba(0, 0, 0, 0.85)");
     document.documentElement.style.setProperty('--frosted-tracker-bg-color', "rgba(0, 0, 0, 0.25)");
     document.documentElement.style.setProperty('--cryptodash-highlight-color', "rgba(255, 255, 255, 0.4)");
     document.documentElement.style.setProperty('--cryptodash-text-color', "rgba(0, 0, 0, 1)");    
@@ -4656,6 +4788,7 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     document.getElementById("CryptoDashCoinsSelector-ts-control").classList.add("text-dark");    
 
     document.documentElement.style.setProperty('--frosted-bg-color', "rgba(255, 255, 255, 0.50)");
+    document.documentElement.style.setProperty('--unfrosted-tooltip-color', "rgba(255, 255, 255, 0.85)");
     document.documentElement.style.setProperty('--frosted-tracker-bg-color', "rgba(255, 255, 255, 0.25)");
     document.documentElement.style.setProperty('--cryptodash-highlight-color', "rgba(0, 0, 0, 0.4)");
     document.documentElement.style.setProperty('--cryptodash-text-color', "rgba(255, 255, 255, 1)");
@@ -4908,9 +5041,9 @@ async function getCryptoDashChartLast365Days(coin, currency) {
     }
   }
 
-  document.querySelector("#cryptodash-365-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin"></i> Loading ...';
+  document.getElementById("cryptodash-365-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin"></i>';
 
-  document.querySelector("#cryptodash-365-days-chart-title").innerHTML = "<strong>Last Year " + coin + " to " + currency + " chart</strong>";
+  document.getElementById("cryptodash-365-days-chart-title").innerHTML = "<strong>Last Year " + coin + " to " + currency + " chart</strong>";
 
   if (CryptoDashDataSource === "CryptoCompareFree" ) {
 
@@ -4927,8 +5060,9 @@ async function getCryptoDashChartLast365Days(coin, currency) {
       if(data['Response'] === "Error"){
 
         console.error("Crypto Compare API Error: " + data['Message']);
-
-        document.querySelector("#cryptodash-365-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker </p>`;
+        document.getElementById("cryptodash-365-days-chart-title").innerHTML = "";
+        document.getElementById("cryptodash-365-days-chart-status").innerHTML = '';
+        document.querySelector("#cryptodash-365-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Last year chart is unavailable for ` + coin + ` tracker </p>`;
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Year Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
       } else {
@@ -5008,20 +5142,20 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           }],
           chart: {
             id: 'cryptodash-chart-apex-365-days',
-            height: 280,
+            height: 270,
             width: '98%',
             type: 'area',
             toolbar: {
-              offsetX: "-70",
+              offsetX: "-30",
               offsetY: "-40",
               tools: {
-                download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                download: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
                 //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
-                zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
-                zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
-                zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
-                pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
-                reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                zoom: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoomin: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                zoomout: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                pan: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                reset: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-recycle"> </i><div>',
                 customIcons: []
               },
               export: {
@@ -5047,14 +5181,14 @@ async function getCryptoDashChartLast365Days(coin, currency) {
             animations: {
               enabled: true,
               easing: 'easeinout',
-              speed: 300,
+              speed: 800,
               animateGradually: {
                   enabled: true,
-                  delay: 550
+                  delay: 150
               },
               dynamicAnimation: {
                   enabled: true,
-                  speed: 1000
+                  speed: 350
               }
             },
             
@@ -5080,7 +5214,7 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           },
           tooltip: {
             x: {
-              format: 'dd MMM yyyy HH:mm'
+              format: 'dd MMM yyyy'
             },
           },
           xaxis: {
@@ -5091,16 +5225,16 @@ async function getCryptoDashChartLast365Days(coin, currency) {
               },
             },
           }, 
-          fill: {
+          /* fill: {
             type: "gradient",
             gradient: {
               shade: CryptoDashCurrentTheme,
               shadeIntensity: 0.5,
-              opacityFrom: 0.7,
-              opacityTo: 0.9,
+              opacityFrom: 0.1,
+              opacityTo: 0.5,
               stops: [0, 90, 100]
-            }
-          },
+            } 
+          }, */
           theme: {
             mode: CryptoDashCurrentTheme,
             palette: CryptoDashChartPalette,
@@ -5130,8 +5264,70 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           chart365Days.destroy();   
           // clear content         
           document.querySelector("#cryptodash-365-days-chart-content").innerHTML = "";
-        }) 
-        */
+        })
+        
+        
+
+        series: [{
+            name: 'Highest Price',
+            data: CryptoDashHighSeries
+           
+          }, {
+            name: 'Lowest Price',
+            data: CryptoDashLowSeries
+            
+          }, {
+            name: 'Open Market Price',
+            data: CryptoDashOpenMarketSeries
+            
+          }, {
+            name: 'Close Market Price',
+            data: CryptoDashCloseMarketSeries
+            
+          }],
+
+
+
+          */
+
+        
+
+
+        // Initialize the echarts instance based on the prepared dom
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // Specify the configuration items and data for the chart
+        var option = {
+          title: {
+            text: 'ECharts Getting Started Example'
+          },
+          tooltip: {},
+          legend: {
+            data: ['sales']
+          },
+          xAxis: {
+            data: ['Shirts', 'Cardigans', 'Chiffons', 'Pants', 'Heels', 'Socks']
+          },
+          yAxis: {},
+          series: [
+            {
+              name: 'sales',
+              type: 'bar',
+              data: [5, 20, 36, 10, 10, 20]
+            }
+          ]
+        };
+
+        // Display the chart using the configuration items and data just specified.
+        myChart.setOption(option);
+        
+
+
+
+
+
+
+
        
       }
 
@@ -5164,8 +5360,9 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           if(data['Response'] === "Error"){
 
             console.error("Crypto Compare API Error: " + data['Message']);
-    
-            document.querySelector("#cryptodash-365-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker</p>`;
+            document.getElementById("cryptodash-365-days-chart-title").innerHTML = "";
+            document.getElementById("cryptodash-365-days-chart-status").innerHTML = '';
+            document.querySelector("#cryptodash-365-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Last year chart is unavailable for ` + coin + ` tracker</p>`;
             showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Year Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
             
@@ -5247,20 +5444,20 @@ async function getCryptoDashChartLast365Days(coin, currency) {
               }],
               chart: {
                 id: 'cryptodash-chart-apex-365-days',                
-                height: 280,
+                height: 270,
                 width: '98%',
                 type: 'area',
                 toolbar: {
-                  offsetX: "-70",
+                  offsetX: "-30",
                   offsetY: "-40",
                   tools: {
-                    download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                    download: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
                     //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
-                    zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
-                    zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
-                    zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
-                    pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
-                    reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                    zoom: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoomin: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                    zoomout: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                    pan: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                    reset: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-recycle"> </i><div>',
                     customIcons: []
                   },
                   export: {
@@ -5285,14 +5482,14 @@ async function getCryptoDashChartLast365Days(coin, currency) {
                 animations: {
                   enabled: true,
                   easing: 'easeinout',
-                  speed: 300,
+                  speed: 800,
                   animateGradually: {
                       enabled: true,
-                      delay: 550
+                      delay: 150
                   },
                   dynamicAnimation: {
                       enabled: true,
-                      speed: 1000
+                      speed: 350
                   }
                 },
                 dropShadow: {
@@ -5317,7 +5514,7 @@ async function getCryptoDashChartLast365Days(coin, currency) {
               },
               tooltip: {
                 x: {
-                  format: 'dd MMM yyyy HH:mm'
+                  format: 'dd MMM yyyy'
                 },
               },
               xaxis: {
@@ -5329,16 +5526,16 @@ async function getCryptoDashChartLast365Days(coin, currency) {
                 },
             
               }, 
-              fill: {
+              /* fill: {
                 type: "gradient",
                 gradient: {
                   shade: CryptoDashCurrentTheme,
                   shadeIntensity: 0.5,
-                  opacityFrom: 0.7,
-                  opacityTo: 0.9,
+                  opacityFrom: 0.1,
+                  opacityTo: 0.5,
                   stops: [0, 90, 100]
-                }
-              },
+                } 
+              },*/
               theme: {
                 mode: CryptoDashCurrentTheme,
                 palette: CryptoDashChartPalette,
@@ -5369,7 +5566,255 @@ async function getCryptoDashChartLast365Days(coin, currency) {
               // clear content         
               document.querySelector("#cryptodash-365-days-chart-content").innerHTML = "";
             })
-            */
+
+
+            
+              series: [{
+                  name: 'Highest Price',
+                  data: CryptoDashHighSeries
+                
+                }, {
+                  name: 'Lowest Price',
+                  data: CryptoDashLowSeries
+                  
+                }, {
+                  name: 'Open Market Price',
+                  data: CryptoDashOpenMarketSeries
+                  
+                }, {
+                  name: 'Close Market Price',
+                  data: CryptoDashCloseMarketSeries
+                  
+                }],
+
+
+
+
+                */
+              
+
+
+              // Specify the configuration items and data for the chart
+              var option = {
+                color: ['#37A2FF','#80FFA5', '#FFBF00', '#FF0087' ],
+                tooltip: {
+                  confine: true,
+                  trigger: 'axis',
+                  axisPointer: 
+                  { 
+                    type: 'shadow',
+                    snap: true,
+                  }
+                },
+                legend: {
+                  orient: 'horizontal',
+                  
+                  top: 10,
+                  selected: {
+                    'Highest Price': true,
+                    'Lowest Price': true,
+                    'Open Market': false,
+                    'Close Market': false
+                  }
+                },
+                grid: {
+                  left: '1%',
+                  right: '1%',
+                  
+                  containLabel: true
+                },
+                dataset: [
+                {
+                  // 1st Dataset
+                  dimensions: [
+                  null,
+                  { name: 'Highest Price', type: 'float' }
+                  ],
+                  source: CryptoDashHighSeries
+                },
+                {
+                  // 2nd Dataset
+                  dimensions: [
+                  null,
+                  { name: 'Lowest Price', type: 'float' }
+                  ],
+                  source: CryptoDashLowSeries
+                },
+                {
+                  // 3rd Dataset。
+                  dimensions: [
+                  null,
+                  { name: 'Open Market', type: 'float' }
+                  ],
+                  source: CryptoDashOpenMarketSeries
+                }
+                ,
+                {
+                  // 4rd Dataset。
+                  dimensions: [
+                  null,
+                  { name: 'Close Market', type: 'float' }
+                  ],
+                  source: CryptoDashCloseMarketSeries
+                }
+              ],
+              xAxis: {
+                type: 'time',
+                axisLabel: {
+                  borderRadius: '1rem',
+                 
+                },
+                axisPointer: {
+                  
+                  label: {
+                    show: true,
+                    borderRadius: 60,
+  
+                  },
+                },
+
+               
+                  
+                
+                
+              },
+              yAxis: {
+                type: 'value',
+              }, 
+              toolbox: {
+                right: "1%",
+                itemSize: 30,
+                itemGap: 10,
+                feature: {
+                  
+                  dataZoom: {
+                    yAxisIndex: 'none'
+                  },
+                  restore: {},
+                  saveAsImage: {
+                    title: 'Download',
+                  }
+                }
+              },
+              dataZoom: [
+                {
+                  type: 'inside',
+                  start: 0,
+                  end: 100
+                },
+                {
+                  start: 0,
+                  end: 100
+                }
+              ],
+              series: [
+                {
+                  // Use 1st dataset
+                  datasetIndex: 0,
+                  type: 'line',
+                  
+                  
+                  showSymbol: false,
+                  symbolSize: 10,
+                  legendHoverLink: true,
+                  smooth: true,
+
+                  lineStyle: {
+                    width: 4,
+                    shadowColor: 'rgba(0,0,0,0.3)',
+                    shadowBlur: 10,
+                  },
+                  
+                  areaStyle: {
+                    opacity: 0.5,
+                    
+                  },
+                },
+                {
+                  // Use 2nd dataset
+                  datasetIndex: 1,
+                  type: 'line',
+                  
+                  
+                  showSymbol: false,
+                  symbolSize: 10,
+                  legendHoverLink: true,
+                  smooth: true,
+                  lineStyle: {
+                    width: 4,
+                    shadowColor: 'rgba(0,0,0,0.3)',
+                    shadowBlur: 10,
+                  },
+                  
+                  areaStyle: {
+                    opacity: 0.5,
+                    
+                    
+                  },
+                },
+                {
+                  // Use 2nd dataset
+                  datasetIndex: 2,
+                  type: 'line',
+                  
+                 
+                  showSymbol: false,
+                  symbolSize: 10,
+                  legendHoverLink: true,
+                  smooth: true,
+                  lineStyle: {
+                    width: 4,
+                    shadowColor: 'rgba(0,0,0,0.3)',
+                    shadowBlur: 10,
+                  },
+                  
+                  areaStyle: {
+                    opacity: 0.5,
+                    
+                  },
+                  
+                },
+                {
+                  // Use 3rd dataset
+                  datasetIndex: 3,
+                  type: 'line',
+                  
+                  
+                  showSymbol: false,
+                  symbolSize: 10,
+                  legendHoverLink: true,
+                  smooth: true,
+                  lineStyle: {
+                    width: 4,
+                    shadowColor: 'rgba(0,0,0,0.3)',
+                    shadowBlur: 10,
+                  },
+                  
+                  areaStyle: {
+                    opacity: 0.5,
+                    
+                    
+                    
+                  },
+                 
+                },
+                
+              ]
+              
+              
+              
+              };
+
+              // Initialize the echarts instance based on the prepared dom
+              var myChart = echarts.init(document.getElementById('main'));
+              window.onresize = function() {
+                myChart.resize();
+              };
+              
+
+              // Display the chart using the configuration items and data just specified.
+              myChart.setOption(option);
+              
           }
 
         } catch(e) {
@@ -5390,12 +5835,9 @@ async function getCryptoDashChartLast365Days(coin, currency) {
 
   }
 
-  document.querySelector("#cryptodash-365-days-chart-status").innerHTML = '';
-
-
-
-
+  
 }
+
 
 async function getCryptoDashChartLast30Days(coin, currency) {
   
@@ -5423,9 +5865,9 @@ async function getCryptoDashChartLast30Days(coin, currency) {
     }
   }
 
-  document.querySelector("#cryptodash-30-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin"></i> Loading ...';
+  document.getElementById("cryptodash-30-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin"></i>';
 
-  document.querySelector("#cryptodash-30-days-chart-title").innerHTML = "<strong>Last month " + coin + " to " + currency + " chart</strong>";
+  document.getElementById("cryptodash-30-days-chart-title").innerHTML = "<strong>Last month " + coin + " to " + currency + " chart</strong>";
 
   if (CryptoDashDataSource === "CryptoCompareFree" ) {
 
@@ -5442,8 +5884,9 @@ async function getCryptoDashChartLast30Days(coin, currency) {
       if(data['Response'] === "Error"){
 
         console.error("Crypto Compare API Error: " + data['Message']);
-
-        document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker </p>`;
+        document.getElementById("cryptodash-30-days-chart-title").innerHTML = "";
+        document.getElementById("cryptodash-30-days-chart-status").innerHTML = '';
+        document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Last month chart is unavailable for ` + coin + ` tracker </p>`;
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Month Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
       } else {
@@ -5524,20 +5967,20 @@ async function getCryptoDashChartLast30Days(coin, currency) {
           }],
           chart: {
             id: 'cryptodash-apexchart-chart-30-days',
-            height: 280,
+            height: 270,
             width: '98%',
             type: 'area',
             toolbar: {
-              offsetX: "-70",
+              offsetX: "-30",
               offsetY: "-40",
               tools: {
-                download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                download: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
                 //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
-                zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
-                zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
-                zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
-                pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
-                reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                zoom: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoomin: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                zoomout: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                pan: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                reset: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-recycle"> </i><div>',
                 customIcons: []
               },
               export: {
@@ -5562,14 +6005,14 @@ async function getCryptoDashChartLast30Days(coin, currency) {
             animations: {
               enabled: true,
               easing: 'easeinout',
-              speed: 300,
+              speed: 800,
               animateGradually: {
                   enabled: true,
-                  delay: 550
+                  delay: 150
               },
               dynamicAnimation: {
                   enabled: true,
-                  speed: 1000
+                  speed: 350
               }
             },
             
@@ -5595,7 +6038,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
           tooltip: {
             x: {
               format: 'dd MMM yyyy HH:mm'
-            },
+            },   
           },
           xaxis: {
             type: 'datetime',
@@ -5605,16 +6048,16 @@ async function getCryptoDashChartLast30Days(coin, currency) {
               },
             },
           },
-          fill: {
-            type: "gradient",
-            gradient: {
-              shade: CryptoDashCurrentTheme,
-              shadeIntensity: 0.5,
-              opacityFrom: 0.7,
-              opacityTo: 0.9,
-              stops: [0, 90, 100]
-            }
-          },
+          /* fill: {
+                type: "gradient",
+                gradient: {
+                  shade: CryptoDashCurrentTheme,
+                  shadeIntensity: 0.5,
+                  opacityFrom: 0.1,
+                  opacityTo: 0.5,
+                  stops: [0, 90, 100]
+                } 
+              },*/
           theme: {
             mode: CryptoDashCurrentTheme,
             palette: CryptoDashChartPalette,
@@ -5678,8 +6121,9 @@ async function getCryptoDashChartLast30Days(coin, currency) {
           if(data['Response'] === "Error"){
 
             console.error("Crypto Compare API Error: " + data['Message']);
-    
-            document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker</p>`;
+            document.getElementById("cryptodash-30-days-chart-title").innerHTML = "";
+            document.getElementById("cryptodash-30-days-chart-status").innerHTML = '';
+            document.querySelector("#cryptodash-30-days-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Last month chart is unavailable for ` + coin + ` tracker</p>`;
             showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Month Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
             
           } else {
@@ -5757,20 +6201,20 @@ async function getCryptoDashChartLast30Days(coin, currency) {
               }],
               chart: {
                 id: 'cryptodash-chart-apex-30-days',
-                height: 280,
+                height: 270,
                 width: '98%',
                 type: 'area',
                 toolbar: {
-                  offsetX: "-70",
+                  offsetX: "-30",
                   offsetY: "-40",
                   tools: {
-                    download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                    download: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
                     //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
-                    zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
-                    zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
-                    zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
-                    pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
-                    reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                    zoom: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoomin: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                    zoomout: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                    pan: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                    reset: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-recycle"> </i><div>',
                     customIcons: []
                   },
                   export: {
@@ -5795,14 +6239,14 @@ async function getCryptoDashChartLast30Days(coin, currency) {
                 animations: {
                   enabled: true,
                   easing: 'easeinout',
-                  speed: 300,
+                  speed: 800,
                   animateGradually: {
                       enabled: true,
-                      delay: 550
+                      delay: 150
                   },
                   dynamicAnimation: {
                       enabled: true,
-                      speed: 1000
+                      speed: 350
                   }
                 },
                 
@@ -5825,7 +6269,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
                 position: 'top',
                 fontSize: '14px',
               },
-              tooltip: {
+              tooltip: {               
                 x: {
                   format: 'dd MMM yyyy HH:mm'
                 },
@@ -5838,16 +6282,16 @@ async function getCryptoDashChartLast30Days(coin, currency) {
                   },
                 },
               }, 
-              fill: {
+              /* fill: {
                 type: "gradient",
                 gradient: {
                   shade: CryptoDashCurrentTheme,
                   shadeIntensity: 0.5,
-                  opacityFrom: 0.7,
-                  opacityTo: 0.9,
+                  opacityFrom: 0.1,
+                  opacityTo: 0.5,
                   stops: [0, 90, 100]
-                }
-              },
+                } 
+              },*/
               theme: {
                 mode: CryptoDashCurrentTheme,
                 palette: CryptoDashChartPalette,
@@ -5897,11 +6341,7 @@ async function getCryptoDashChartLast30Days(coin, currency) {
 
   }
 
-  document.querySelector("#cryptodash-30-days-chart-status").innerHTML = '';
-
-
-
-
+ 
 }
 
 async function getCryptoDashChartLast1Day(coin, currency) {
@@ -5930,9 +6370,9 @@ async function getCryptoDashChartLast1Day(coin, currency) {
     }
   }
 
-  document.querySelector("#cryptodash-1-day-chart-status").innerHTML = '<i class="fa fa-cog fa-spin"></i> Loading ...';
+  document.getElementById("cryptodash-1-day-chart-status").innerHTML = '<i class="fa fa-cog fa-spin"></i>';
 
-  document.querySelector("#cryptodash-1-day-chart-title").innerHTML = "<strong>Last day " + coin + " to " + currency + " chart<strong>";
+  document.getElementById("cryptodash-1-day-chart-title").innerHTML = "<strong>Last day " + coin + " to " + currency + " chart<strong>";
 
   if (CryptoDashDataSource === "CryptoCompareFree" ) {
 
@@ -5949,8 +6389,9 @@ async function getCryptoDashChartLast1Day(coin, currency) {
       if(data['Response'] === "Error"){
 
         console.error("Crypto Compare API Error: " + data['Message']);
-
-        document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker </p>`;
+        document.getElementById("cryptodash-1-day-chart-title").innerHTML = "";
+        document.getElementById("cryptodash-1-day-chart-status").innerHTML = '';
+        document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Last day chart is unavailable for ` + coin + ` tracker </p>`;
         showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Day Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
         
       } else {
@@ -6026,20 +6467,20 @@ async function getCryptoDashChartLast1Day(coin, currency) {
           }],
           chart: {
             id: 'cryptodash-chart-apex-1-day',
-            height: 280,
+            height: 270,
             width: '98%',
             type: 'area',
             toolbar: {
-              offsetX: "-70",
+              offsetX: "-30",
               offsetY: "-40",
               tools: {
-                download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                download: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
                 //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
-                zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
-                zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
-                zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
-                pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
-                reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                zoom: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                zoomin: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                zoomout: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                pan: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                reset: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-recycle"> </i><div>',
                 customIcons: []
               },
               export: {
@@ -6064,14 +6505,14 @@ async function getCryptoDashChartLast1Day(coin, currency) {
             animations: {
               enabled: true,
               easing: 'easeinout',
-              speed: 300,
+              speed: 800,
               animateGradually: {
                   enabled: true,
-                  delay: 550
+                  delay: 150
               },
               dynamicAnimation: {
                   enabled: true,
-                  speed: 1000
+                  speed: 350
               }
             },
             
@@ -6108,16 +6549,16 @@ async function getCryptoDashChartLast1Day(coin, currency) {
             },
         
           }, 
-          fill: {
-            type: "gradient",
-            gradient: {
-              shade: CryptoDashCurrentTheme,
-              shadeIntensity: 0.5,
-              opacityFrom: 0.7,
-              opacityTo: 0.9,
-              stops: [0, 90, 100]
-            }
-          },
+          /* fill: {
+                type: "gradient",
+                gradient: {
+                  shade: CryptoDashCurrentTheme,
+                  shadeIntensity: 0.5,
+                  opacityFrom: 0.1,
+                  opacityTo: 0.5,
+                  stops: [0, 90, 100]
+                } 
+              },*/
           theme: {
             mode: CryptoDashCurrentTheme,
             palette: CryptoDashChartPalette,
@@ -6179,8 +6620,9 @@ async function getCryptoDashChartLast1Day(coin, currency) {
           if(data['Response'] === "Error"){
 
             console.error("Crypto Compare API Error: " + data['Message']);
-    
-            document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Chart is unavailable for ` + coin + ` tracker </p> `;
+            document.getElementById("cryptodash-1-day-chart-title").innerHTML = "";
+            document.getElementById("cryptodash-1-day-chart-status").innerHTML = '';
+            document.querySelector("#cryptodash-1-day-chart-content").innerHTML = `<p><i class="fa fa-exclamation-circle"></i> Last day chart is unavailable for ` + coin + ` tracker </p> `;
             showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Last Day Chart Error</strong> <br>` + ` Chart is unavailable for ` + coin + ` tracker. <br> Please try a different currency.`, 10000, true);
             
           } else {
@@ -6260,20 +6702,20 @@ async function getCryptoDashChartLast1Day(coin, currency) {
               }],
               chart: {
                 id: 'cryptodash-chart-apex-1-day',
-                height: 280,
+                height: 270,
                 width: '98%',
                 type: 'area',
                 toolbar: {
-                  offsetX: "-70",
+                  offsetX: "-30",
                   offsetY: "-40",
                   tools: {
-                    download: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
+                    download: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-download"> </i><div>',
                     //selection: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+'"><i class="fa fa-arrows-h"> </i><div>',
-                    zoom: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
-                    zoomin: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
-                    zoomout: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
-                    pan: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
-                    reset: '<div class="btn btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-refresh"> </i><div>',
+                    zoom: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-arrows-h"> </i><div>',
+                    zoomin: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-plus"> </i><div>',
+                    zoomout: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-search-minus"> </i><div>',
+                    pan: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-hand-paper-o"> </i><div>',
+                    reset: '<div class="btn btn-sm btn-outline-'+CryptoDashCurrentTheme+' text-'+CryptoDashCurrentTextColor+'"><i class="fa fa-recycle"> </i><div>',
                     customIcons: []
                   },
                   export: {
@@ -6298,14 +6740,14 @@ async function getCryptoDashChartLast1Day(coin, currency) {
                 animations: {
                   enabled: true,
                   easing: 'easeinout',
-                  speed: 300,
+                  speed: 800,
                   animateGradually: {
                       enabled: true,
-                      delay: 550
+                      delay: 150
                   },
                   dynamicAnimation: {
                       enabled: true,
-                      speed: 1000
+                      speed: 350
                   }
                 },
 
@@ -6331,7 +6773,7 @@ async function getCryptoDashChartLast1Day(coin, currency) {
               tooltip: {
                 x: {
                   format: 'HH:mm',
-                },
+                },                
               },
               xaxis: {
                 type: 'datetime',
@@ -6343,16 +6785,16 @@ async function getCryptoDashChartLast1Day(coin, currency) {
                 
               },  
                          
-              fill: {
+              /* fill: {
                 type: "gradient",
                 gradient: {
                   shade: CryptoDashCurrentTheme,
                   shadeIntensity: 0.5,
-                  opacityFrom: 0.7,
-                  opacityTo: 0.9,
+                  opacityFrom: 0.1,
+                  opacityTo: 0.5,
                   stops: [0, 90, 100]
-                }
-              },
+                } 
+              },*/
               theme: {
                 mode: CryptoDashCurrentTheme,
                 palette: CryptoDashChartPalette,
@@ -6401,8 +6843,7 @@ async function getCryptoDashChartLast1Day(coin, currency) {
 
   }
 
-  document.querySelector("#cryptodash-1-day-chart-status").innerHTML = '';
-
+  
 }
 
 function removeCryptoDashSelectedItem(coin){
@@ -6495,38 +6936,54 @@ var CryptoDashTrackerDetailsOpener = function (event) {
   var CryptoDashCurrentSelectedCurrency = window.localStorage.getItem("CryptoDashCurrency");
 
   showCryptoDashNotification(`<i class="fa fa-cog fa-spin"></i> Loading charts ...`, 3000);
-    var CryptoChart365DaysData = getCryptoDashChartLast365Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
-    var CryptoChart30DaysData = getCryptoDashChartLast30Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
-    var CryptoChart1DayData = getCryptoDashChartLast1Day(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+  var CryptoChart365DaysData = getCryptoDashChartLast365Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+  var CryptoChart30DaysData = getCryptoDashChartLast30Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+  var CryptoChart1DayData = getCryptoDashChartLast1Day(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+
+  
+  
+  
 
 
   CryptoDashTrackerDetailsChartsButton.addEventListener('shown.bs.tab', function (event) {
     event.stopPropagation();
-    if(chart365days && chart365days != null ){
-      document.getElementById("cryptodash-365-days-chart-content").innerHTML = "";  
-      chart365days.render();
-      //chart365days.hideSeries('Open Market Price');
-      //chart365days.hideSeries('Close Market Price');
-      //chart365days.updateOptions({redrawPaths: true});
-    }
+    
+    
+    
+            
+      if(chart365days && chart365days != null ){
+        setTimeout(function() {
+          document.getElementById("cryptodash-365-days-chart-status").innerHTML = '';   
+          document.getElementById("cryptodash-365-days-chart-content").innerHTML = '';         
+          chart365days.render();
+          chart365days.hideSeries('Open Market Price'); 
+          chart365days.hideSeries('Close Market Price');            
+        }, 1000)
+      }
 
-    if(chart30days && chart30days != null ){
-      document.getElementById("cryptodash-30-days-chart-content").innerHTML = "";
-      chart30days.render();
-      //chart30days.hideSeries('Open Market Price');
-      //chart30days.hideSeries('Close Market Price');
-      //chart30days.updateOptions({redrawPaths: true});
-    }
+      if(chart30days && chart30days != null ){                
+        setTimeout(function() {
+          document.getElementById("cryptodash-30-days-chart-status").innerHTML = '';
+          document.getElementById("cryptodash-30-days-chart-content").innerHTML = '';
+          chart30days.render();          
+            chart30days.hideSeries('Open Market Price');
+            chart30days.hideSeries('Close Market Price');               
+        }, 3000)
+      }
 
-    if(chart1day && chart1day != null ){
-      document.getElementById("cryptodash-1-day-chart-content").innerHTML = "";   
-      chart1day.render();
-      //chart1day.hideSeries('Open Market Price');
-      //chart1day.hideSeries('Close Market Price');
-      //chart1day.updateOptions({redrawPaths: true});
-    }
+      if(chart1day && chart1day != null ){        
+        setTimeout(function() {
+          document.getElementById("cryptodash-1-day-chart-status").innerHTML = '';
+          document.getElementById("cryptodash-1-day-chart-content").innerHTML = ''; 
+          chart1day.render();
+          chart1day.hideSeries('Open Market Price');
+          chart1day.hideSeries('Close Market Price');    
+        }, 3000)
+      }
 
-      
+    
+    
+
     /*
     window.ApexCharts.exec('apexchartscryptodashxchartxapexx365xdays', 'hideSeries', 'Open Market Price');
     window.ApexCharts.exec('apexchartscryptodashxchartxapexx365xdays', 'hideSeries', 'Close Market Price');
@@ -6535,7 +6992,7 @@ var CryptoDashTrackerDetailsOpener = function (event) {
     window.ApexCharts.exec('apexchartscryptodashxchartxapexx1xday', 'hideSeries', 'Open Market Price');
     window.ApexCharts.exec('apexchartscryptodashxchartxapexx1xday', 'hideSeries', 'Close Market Price');
   
-    //window.resize();
+    
     /*
     window.ApexCharts.exec('cryptodash-apexchart-chart-365-days', 'toggleSeries', 'Open Market Price');
     window.ApexCharts.exec('cryptodash-apexchart-chart-365-days', 'toggleSeries', 'Close Market Price');
