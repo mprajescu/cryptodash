@@ -513,6 +513,8 @@ transition: all .05s ease-in-out;
   padding: 5px;
 }
 
+
+
 /* tracker content style */
 .cryptodash-tracker-content {
   border-radius: 1rem;
@@ -1193,6 +1195,202 @@ border-radius: 1rem;
   right: 5px;
 }
 
+/*
+#cryptodash-tracker-details-stats {
+  margin: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem; 
+}*/
+
+/* cryptodash stats content paragraph that is specifically targeting the last 24 hours change in percent element with a dynamically built ID attribute ending with a specific value in ID */
+#cryptodash-tracker-details-stats-changepcthour {
+  border-radius: 1rem;
+  border: 1px solid var(--cryptodash-border-color);
+  /*margin-left: 1rem;
+  margin-right: 1rem;*/
+  padding: 0.5rem;
+  
+  
+}
+
+#cryptodash-tracker-details-stats-changepcthour i{
+  position: relative;
+  left: -0.5rem;
+}
+
+/* cryptodash stats content paragraph that is specifically targeting the last hour change in percent element with a dynamically built ID attribute ending with a specific value in ID */
+#cryptodash-tracker-details-stats-changepct24 {
+  border-radius: 1rem;
+  border: 1px solid var(--cryptodash-border-color);
+  /*margin-left: 1rem;
+  margin-right: 1rem;*/
+  padding: 0.5rem;
+}
+
+#cryptodash-tracker-details-stats-changepct24 i{
+  position: relative;
+  left: -0.5rem;
+}
+
+/* cryptodash stats price in H2 */
+#cryptodash-tracker-details-stats-price {
+  border-radius: 1rem;
+  border: 1px solid var(--cryptodash-border-color);
+  /*margin-left: 1rem;
+  margin-right: 1rem;*/
+  padding: 0.5rem;
+}
+
+/* cryptodash stats content paragraph that is specifically targeting the updated time element with a dynamically created ID*/
+#cryptodash-tracker-details-stats-updatetime {
+  border-radius: 1rem;
+  border: 1px solid var(--cryptodash-border-color);
+  /*margin-left: 1rem;
+  margin-right: 1rem;*/
+  padding: 0.5rem;
+}
+
+/*
+#cryptodash-tracker-details-platform-info {
+  border-radius: 1rem;
+  border: 1px solid var(--cryptodash-border-color);
+  /*margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem;
+}
+*/
+#cryptodash-tracker-details-platform-info, #cryptodash-tracker-details-blockchain-info {
+  margin-right: 0px !important; margin-left: 0px !important;
+}
+
+#cryptodash-tracker-details-platform-info p, #cryptodash-tracker-details-blockchain-info p {
+  margin-bottom: 0.1rem;
+}
+#cryptodash-tracker-details-description h5 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#cryptodash-tracker-details-launch-date {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+#cryptodash-tracker-details-website {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+#cryptodash-tracker-details-platform-type {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+
+#cryptodash-tracker-details-block-number {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+#cryptodash-tracker-details-block-reward {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+#cryptodash-tracker-details-algorithm {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+#cryptodash-tracker-details-net-hash-per-second {
+  border-radius: 1rem;
+  
+  margin-top: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  margin-bottom: 0.5rem; */
+  padding: 0.5rem;
+  text-align: center;
+  height: calc(90px - 0.5rem);
+}
+
+#cryptodash-tracker-details-about-content-image {
+  border-radius: 1rem;
+  /*border: 1px solid var(--cryptodash-border-color);
+  padding: 0.5rem;*/
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 300px;
+}
+
+#cryptodash-tracker-details-about-content-image img{
+  border-radius: 1rem;
+  /*width: 100%; 
+  max-width: calc(33vh - 1rem);
+  max-height: calc(33vh - 3rem);*/
+  max-width: 100%;
+}
+
+#cryptodash-7-days-echart-content, #cryptodash-365-days-echart-content, #cryptodash-30-days-echart-content, #cryptodash-1-day-echart-content {
+    border-radius: 1rem;
+    /*border: 1px solid var(--cryptodash-border-color); */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  
+  }
+
+  #cryptodash-7-days-echart-content {
+    /*border: 1px solid var(--cryptodash-border-color);
+    max-height: 300px;
+    min-height: calc(33vh - 3rem);*/
+    height: 300px;
+  }
+
+
 
 .cryptodash-animated-bg {
   position: fixed;
@@ -1203,7 +1401,7 @@ border-radius: 1rem;
   
 }
 
-#cryptoDashCarousel {
+#cryptodash-carousel {
   position: relative;
   top: -60px !important;
   left: -30px;
@@ -1527,10 +1725,10 @@ padding-bottom: 3px;
     <i id="cryptodash-refresh-icon" class="fa fa-refresh "></i>
   </button>
 
-  <div id="cryptoDashCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="false" data-bs-touch="false">
+  <div id="cryptodash-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" data-bs-touch="false">
     <!-- to fade, add "carousel-fade" class -->
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div id="cryptodash-carousel-dashboard" class="carousel-item active">
 
         <!-- Container grid where trackers are created dynamically-->
         <div class="cryptodash-grid row " id="CryptoDashContentTrackers"></div>
@@ -1554,9 +1752,9 @@ padding-bottom: 3px;
       </div>
      
     </div>
-    <div id="cryptodash-indicator" class="carousel-indicators backdrop-blur top-left-position">
-      <button type="button" data-bs-target="#cryptoDashCarousel" data-bs-slide-to="0" class="btn btn-lg btn-outline-light active" aria-current="true" aria-label="Dashboard"><i class="fa fa-th-large"></i></button>
-      <button type="button" data-bs-target="#cryptoDashCarousel" data-bs-slide-to="1" class="btn btn-lg btn-outline-light " aria-label="News"><i class="fa fa-newspaper-o"></i></button>
+    <div id="cryptodash-indicator" class="carousel-indicators backdrop-blur bottom-center-position">
+      <button id="cryptodash-carousel-indicator-dashboard" type="button" data-bs-target="#cryptodash-carousel" data-bs-slide-to="0" class="btn btn-lg btn-outline-light active" aria-current="true" aria-label="Dashboard"><i id="cryptodash-tracker-dashboard-icon" class="fa fa-th-large"></i></button>
+      <button type="button" data-bs-target="#cryptodash-carousel" data-bs-slide-to="1" class="btn btn-lg btn-outline-light " aria-label="News"><i class="fa fa-newspaper-o"></i></button>
      
     </div>
     
@@ -1614,7 +1812,7 @@ padding-bottom: 3px;
 
                       <p class="mt-2" style="font-size: 0.775rem;">
                         <i class="fa fa-info-circle"></i>
-                        The default data source used and currently available CryptoDash is Crypto Compare. 
+                        The default data source used and currently available in CryptoDash is Crypto Compare. 
                         Other data sources will become available in the near future.
                       </p>
                       
@@ -1778,7 +1976,7 @@ padding-bottom: 3px;
           <label for="cryptodash-currency" class="form-label badge bg-secondary"><i class="fa fa-money"></i> Currency</label>
           <div id="cryptodash-currency" class="gap-2 d-flex justify-content-center"> 
             <div class="form-check form-check-inline">
-              <input class="btn-check" type="radio" name="cryptodash-currency" id="cryptodash-currency-usd" value="USD" checked>
+              <input class="btn-check" type="radio" name="cryptodash-currency" id="cryptodash-currency-usd" value="USD">
               <label class="btn btn-outline-dark" for="cryptodash-currency-usd"><i class="fa fa-usd"></i> USD</label>
             </div>
             <div class="form-check form-check-inline">
@@ -2674,18 +2872,18 @@ padding-bottom: 3px;
       <div>
         <ul id="cryptodash-tracker-details-buttons" class="nav nav-pills nav-justified" role="tablist" aria-label="Crypto Tracker Details">
             
-          <li class="nav-item me-3" role="trackerdetails">
+          <li class="nav-item mt-1 me-3" role="trackerdetails">
             <button class="btn btn-outline-dark btn-sm active " id="cryptodash-tracker-details-about-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-about-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-about-tab" aria-selected="true"><i class="fa fa-info-circle"></i> Details</button>
           </li>
 
-          <li class="nav-item me-3" role="trackerdetails">
-            <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-tab" aria-selected="false"><i class="fa fa-area-chart"></i> Charts</button>
+          <li class="nav-item mt-1 me-3" role="trackerdetails">
+            <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-tab" aria-selected="false" disabled><i class="fa fa-area-chart"></i> Charts</button>
           </li>
   
         </ul>
       </div>
       
-      <div id="cryptodash-chart-remove-button"></div>
+      <div class="mt-1" id="cryptodash-chart-remove-button"></div>
       <button id="cryptodash-tracker-details-close" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       
     </div>
@@ -2695,48 +2893,149 @@ padding-bottom: 3px;
   
         <div class="tab-content" id="cryptodash-tracker-details-content">
 
+          <div class="" id="cryptodash-tracker-details-stats">
+            <div class="row">
+              <div class="col-sm-6 col-md-3 ">
+                <h2 class="d-flex justify-content-center align-items-center" id="cryptodash-tracker-details-stats-price"></h2>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <h2 class="d-flex justify-content-center align-items-center" id="cryptodash-tracker-details-stats-changepct24"></h2>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <h2 class="d-flex justify-content-center align-items-center" id="cryptodash-tracker-details-stats-changepcthour"></h2>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <h2 class="d-flex justify-content-center align-items-center" id="cryptodash-tracker-details-stats-updatetime"></h2>
+              </div>
+
+            </div>
+            
+            
+            
+            
+          </div>
+
           <div class="tab-pane fade show active" id="cryptodash-tracker-details-about-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-about-button">
             
             <!-- https://min-api.cryptocompare.com/data/v2/news/?lang=EN -->
  
             <div id="cryptodash-tracker-details-about-content">
              <!--CryptoDashCoinListData[property]['Symbol'] -->
-             <div><i class="fa fa-cog fa-spin"></i> Loading ... </div>
+             <!-- <div><i class="fa fa-cog fa-spin"></i> Loading ... </div> -->
+              <div class="row">
+                <div class="col-sm-4 col-md-3 d-flex justify-content-center align-items-center">
+                  <div class="d-flex justify-content-center align-items-center" id="cryptodash-tracker-details-about-content-image"></div>
+                </div>                
+                <div class="col-sm-8 col-md-9 col-xl-6 col-xxl-3 d-flex justify-content-center align-items-center">
+                  <div id="cryptodash-7-days-echart-content"></div> 
+                </div>
+                <div class="col-lg-12 col-xl-3">
+                  <div class="row" id="cryptodash-tracker-details-platform-info">
+                    <div class="col-sm-3 col-md-4 col-lg-4 col-xl-12" id="cryptodash-tracker-details-launch-date"></div>
+                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-12" id="cryptodash-tracker-details-website"></div>
+                    <div class="col-sm-3 col-md-4 col-lg-4 col-xl-12" id="cryptodash-tracker-details-platform-type"></div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-xxl-3">
+                  <div class="row"id="cryptodash-tracker-details-blockchain-info">
+                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-6" id="cryptodash-tracker-details-block-number"></div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-6" id="cryptodash-tracker-details-block-reward"></div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-12" id="cryptodash-tracker-details-algorithm"></div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-12" id="cryptodash-tracker-details-net-hash-per-second"></div>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div id="cryptodash-tracker-details-description">
+
+                </div>
+              </div>
+              
+                
+
+              <div id="cryptodash-7-days-chart-status" class=""></div>
+              <div >
+                  
+              </div>
+              
+              <div id="cryptodash-tracker-details-about-content-title">
+
+              </div>
+              
+
             </div>
              
            </div>
 
           <div class="tab-pane fade" id="cryptodash-tracker-details-charts-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-button">
             
-            <div id="cryptodash-chart-status"></div>
-            <!--<div id="cryptodash-chart-buttons"></div> -->
-            
-            <div class="row">
+           
 
-              <div class="col-12" id="cryptodash-365-days-chart">
-                <!--<div id="cryptodash-365-days-chart-title"><strong>Last Year</strong></div> -->
-                <div id="cryptodash-365-days-chart-status" class=""></div>
-                <div id="cryptodash-365-days-chart-content" class="d-none"></div>
-                <div id="cryptodash-365-days-echart-content" width="calc(100vw - 40px)" style="height: 400px;"></div> 
+            <div>
+              <ul id="cryptodash-charts-buttons" class="nav nav-pills justify-content-center" role="tablist" aria-label="Crypto Tracker Charts">
+                <li class="nav-item mt-1 me-3" role="trackercharts">
+                  <button class="btn btn-outline-dark btn-sm active " id="cryptodash-tracker-details-charts-day-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-day-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-day-tab" aria-selected="true"><i class="fa fa-circle"></i> Day</button>
+                </li>
+      
+                <li class="nav-item mt-1 me-3" role="trackercharts">
+                  <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-month-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-month-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-month-tab" aria-selected="true"><i class="fa fa-circle"></i> Month</button>
+                </li>
+
+                <li class="nav-item mt-1 me-3" role="trackercharts">
+                  <button class="btn btn-outline-dark btn-sm" id="cryptodash-tracker-details-charts-year-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-year-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-year-tab" aria-selected="true"><i class="fa fa-circle"></i> Year</button>
+                </li>                
+        
+              </ul>
+            </div>
+
+
+
+
+
+            <div class="tab-content" id="cryptodash-tracker-details-charts-content">
+              <div class="tab-pane fade show active" id="cryptodash-tracker-details-charts-day-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-day-button">
+                <div class="col-12" id="cryptodash-1-day-chart">
+                  <!--<div id="cryptodash-1-day-chart-title"><strong>Last Day</strong></div>-->
+                  <div id="cryptodash-1-day-chart-status" class=""></div>
+                  <div id="cryptodash-1-day-chart-content" class="d-none"></div>
+                  <div id="cryptodash-1-day-echart-content" width="calc(100vw - 40px)" style="height: calc(100vh - 200px)"></div> 
+                </div> 
               </div>
-              <br><br>
-            
-              <div class="col-12" id="cryptodash-30-days-chart">
-                <!--<div id="cryptodash-30-days-chart-title"><strong>Last Month</strong></div>-->
-                <div id="cryptodash-30-days-chart-status" class=""></div>
-                <div id="cryptodash-30-days-chart-content" class="d-none"></div>
-                <div id="cryptodash-30-days-echart-content" width="calc(100vw - 40px)" style="height: 400px;"></div> 
+
+              <div class="tab-pane fade" id="cryptodash-tracker-details-charts-month-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-month-button">              
+                <div class="col-12" id="cryptodash-30-days-chart">
+                  <!--<div id="cryptodash-30-days-chart-title"><strong>Last Month</strong></div>-->
+                  <div id="cryptodash-30-days-chart-status" class=""></div>
+                  <div id="cryptodash-30-days-chart-content" class="d-none"></div>
+                  <div id="cryptodash-30-days-echart-content" width="calc(100vw - 40px)" style="height: calc(100vh - 200px)"></div> 
+                </div>
               </div>
-              <br><br>
               
-              <div class="col-12" id="cryptodash-1-day-chart">
-                <!--<div id="cryptodash-1-day-chart-title"><strong>Last Day</strong></div>-->
-                <div id="cryptodash-1-day-chart-status" class=""></div>
-                <div id="cryptodash-1-day-chart-content" class="d-none"></div>
-                <div id="cryptodash-1-day-echart-content" width="calc(100vw - 40px)" style="height: 400px;"></div> 
+              <div class="tab-pane fade" id="cryptodash-tracker-details-charts-year-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-year-button"> 
+                <div class="col-12" id="cryptodash-365-days-chart">
+                  <!--<div id="cryptodash-365-days-chart-title"><strong>Last Year</strong></div> -->
+                  <div id="cryptodash-365-days-chart-status" class=""></div>
+                  <div id="cryptodash-365-days-chart-content" class="d-none"></div>
+                  <div id="cryptodash-365-days-echart-content" width="calc(100vw - 40px)" style="height: calc(100vh - 200px)"></div> 
+                </div>
               </div>
 
             </div>
+
+            
+
+
+
+
+
+
+
+            <div id="cryptodash-chart-status"></div>
+            <!--<div id="cryptodash-chart-buttons"></div> -->
+            
+            
 
           </div>
 
@@ -2748,7 +3047,29 @@ padding-bottom: 3px;
 
   </div>
     
-  
+  <!-- Remove Tracker Confirmation Modal -->
+  <div class="modal fade" id="cryptodash-tracker-confirm-remove-modal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="cryptodash-tracker-confirm-remove-modal-label">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content backdrop-blur" id="cryptodash-tracker-confirm-remove-modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cryptodash-tracker-confirm-remove-modal-label"><i class="fa fa-trash"></i> Remove Tracker</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cryptodash-tracker-confirm-remove-modal-close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="cryptodash-tracker-confirm-remove-modal-text">Are you sure you want remove the " " Tracker?</p>
+          <p>You can add the tracker again at a later time from "Manage Tracker" option in CryptoDash settings.</p>
+        </div>
+        <div class="modal-footer">
+          <div class="me-auto" id="cryptodash-tracker-confirm-remove-modal-ok-button">
+            <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal"><i class="fa fa-trash"></i> Remove</button>  
+          </div>
+          
+                    
+          <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Reset Config Modal Modal -->
   <div class="modal fade" id="resetCryptoDashConfigModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="resetCryptoDashConfigModalLabel">
@@ -3057,6 +3378,8 @@ function showCryptoDash() {
   unfade(document.getElementById("cryptodash-settings-button"));
   unfade(document.getElementById("cryptodash-clock"));
   enableCryptoDashNotifications();   
+
+  
   
 }
 
@@ -3912,6 +4235,26 @@ function CryptoDashClockTimer() {
   document.getElementById("cryptodash-clock").innerHTML = " <i class=\"fa fa-clock-o\"></i> " + clockTime.toLocaleTimeString();
 };
 
+// generate csv from array 
+// use with variable 
+
+//var csv = CryptoDashArrayToCSV( data variable );
+ 
+// use manually 
+// var csv = CryptoDashArrayToCSV([
+//   [1, '2', '"3"'],
+//   [true, null, undefined],
+// ]);
+
+function CryptoDashArrayToCSV(data){
+  return data.map(row =>
+    row
+    .map(String)  // convert every value to String
+    .map(v => v.replaceAll('"', '""'))  // escape double colons
+    .map(v => `"${v}"`)  // quote it
+    .join(',')  // comma-separated
+  ).join('\r\n');  // rows starting on new lines
+}
 
 // generate file to be downloaded 
 function CryptoDashDownloader(content, fileName, contentType) {
@@ -4094,13 +4437,27 @@ function pullCryptoDashCoinList() {
 
             };
 
-            var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+            
+           
+          
 
-            if(CryptoDashLayout && CryptoDashLayout !== "[]") {
+            var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+            
+            
+            //var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+
+
+
+            if(CryptoDashLayout && CryptoDashLayout !== "[]" && CryptoDashLayout.length !== 0) {
                 
               for (var i = 0; i < CryptoDashLayout.length; i++) {
                 var itemId = CryptoDashLayout[i];
-                CryptoDashCoinsSelector.addItem(itemId);
+                /*
+                CryptoDashCoinsSelector.addItem(itemId);*/
+                if(itemId != "CryptoDashNews") {
+                  CryptoDashCoinsSelector.addItem(itemId);
+                }
+                
               }
                   
               CryptoDashCoinsSelector.refreshItems();
@@ -4214,7 +4571,11 @@ function pullCryptoDashCoinList() {
                   
                 for (var i = 0; i < CryptoDashLayout.length; i++) {
                   var itemId = CryptoDashLayout[i];
-                  CryptoDashCoinsSelector.addItem(itemId);
+                  /*
+                  CryptoDashCoinsSelector.addItem(itemId);*/
+                  if(itemId != "CryptoDashNews") {
+                    CryptoDashCoinsSelector.addItem(itemId);
+                  }
                 }
                     
                 CryptoDashCoinsSelector.refreshItems();
@@ -4278,6 +4639,48 @@ function updateCryptoDashTrackerFontSize() {
   });
 }
 
+function updateCryptoDashTrackerDetailsFontSize() {
+  document.querySelectorAll("#cryptodash-tracker-details-stats h2").forEach((element) => {
+    window.fitText( element, 1.35 );
+  });
+
+  document.querySelectorAll("#cryptodash-tracker-details-platform-info h2").forEach((element) => {
+    window.fitText( element, 1.35 );
+  });
+
+  document.querySelectorAll("#cryptodash-tracker-details-blockchain-info h2").forEach((element) => {
+    window.fitText( element, 1.35 );
+  });
+
+  document.querySelectorAll("#cryptodash-tracker-details-description h5").forEach((element) => {
+    window.fitText( element, 3.35 );
+  });
+
+  echartCryptoDash365days.resize();
+  echartCryptoDash30days.resize();
+  echartCryptoDash1day.resize();
+  echartCryptoDash7days.resize();
+  /*
+  document.querySelectorAll("#cryptodash-tracker-details-about-content-image img").forEach((element) => {
+    console.log(element.clientHeight);
+    document.getElementById("cryptodash-7-days-echart-content").style.height = element.clientHeight;
+  });
+  */
+}
+
+window.addEventListener('resize', updateCryptoDashTrackerDetailsFontSize);
+
+function BlockCryptoDashTrackerFontSize() {
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    window.fitText( element, 1.35 );
+  });
+}
+
+function HorizontalCryptoDashTrackerFontSize() {
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    window.fitText( element, 3.85 );
+  });
+}
 
 
 // show current allowed trackers in the tracker info in settings menu
@@ -4345,7 +4748,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
 
   create: false,
   // Find dynamic list of all coins based on all coin list from data source
- /* options: [
+  /* options: [
     { value: "BTC", text: "Bitcoin" },
     { value: "ETH", text: "Etherium" },
     { value: "XRP", text: "Ripple" },
@@ -4354,6 +4757,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     { value: "KAT", text: "Kambria" },
     { value: "SHIB", text: "Shiba Inu" },
     { value: "XMR", text: "Monero" },
+    { value: "CryptoDashNews", text: "CryptoDashNews" },
   ], */
 
   optgroups: [
@@ -4418,6 +4822,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
     this.setTextboxValue('');
     this.refreshOptions();
     createCryptoDashTracker(value);
+    
     updateCryptoDashTrackerFontSize();
     //document.querySelector('.clear-button').style.display = "block";
     showCryptoDashCurrentTrackerCount();
@@ -4457,7 +4862,7 @@ var CryptoDashCoinsSelector = new TomSelect("#CryptoDashCoinsSelector",{
 			return '<div class="optgroup-header">' + escape(data.label) + '</div>';
 		},
     dropdown:function(){
-			return '<div id="bibi"></div>';
+			return '<div id="cryptodash-dropdown-trackers"></div>';
 		}
   }
 });
@@ -4509,6 +4914,7 @@ if (CryptoDashTrackerWidth && CryptoDashTrackerHeight) {
   itemSizeRanger.title = itemSizeRanger.value + 'px';
   document.getElementById("gridsizeSpan").innerHTML = itemSizeRanger.title; 
   CryptoDashGrid.refreshItems();
+  // rearrange items on screen
   CryptoDashGrid.layout(true);
 
 } else {
@@ -4540,13 +4946,55 @@ function loadCryptoDashLayout(CryptoDashGrid, serializedCryptoDashLayout){
   var CryptoDashLayout = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
           
   for (var i = 0; i < CryptoDashLayout.length; i++) {
-    var itemId = CryptoDashLayout[i];
+    var itemId = CryptoDashLayout[i];/*
     CryptoDashCoinsSelector.addItem(itemId);
+    */
+    
+    if(itemId != "CryptoDashNews") {
+      CryptoDashCoinsSelector.addItem(itemId);
+    }
+    
   }
           
   CryptoDashGrid.layout(true);
   
 }
+
+function moveCryptoDashSearchTrackerBar() {
+
+  var  cryptodashDropdownTrackers = document.getElementById('cryptodash-dropdown-trackers');
+  var  cryptodashDropdownSearchInput = document.getElementById('CryptoDashCoinsSelector-ts-control');
+  var parentDiv = cryptodashDropdownTrackers.parentNode;
+  var cryptodashContainer = cryptodashDropdownTrackers.parentNode.parentNode;
+  
+
+  cryptodashDropdownSearchInput.addEventListener("focus",(event) => {
+    //event.target.style.background = 'pink';
+    cryptodashContainer.classList.add("focus", "input-active", "dropdown-active");
+  });
+
+  parentDiv.insertBefore(cryptodashDropdownSearchInput, cryptodashDropdownTrackers);
+ 
+}
+/*
+<div id="parentElement">
+  <span id="childElement">foo bar</span>
+</div>
+
+
+// Create a new, plain <span> element
+let sp1 = document.createElement("span")
+
+// Get the reference element
+let sp2 = document.getElementById("childElement")
+// Get the parent element
+let parentDiv = sp2.parentNode
+
+// Insert the new element into before sp2
+parentDiv.insertBefore(sp1, sp2)
+
+*/
+
 
 // Notification function
 function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotificationDuration, CryptoDashNotificationClose) {
@@ -4668,6 +5116,9 @@ function showCryptoDashNotification(CryptoDashNotificationText, CryptoDashNotifi
     //reset config modal close button & modal
     document.getElementById("resetCryptoDashConfigModalClose").classList.add("bg-light");
     document.getElementById("resetCryptoDashConfigModalClose").classList.remove("bg-dark");
+
+    document.getElementById("cryptodash-tracker-confirm-remove-modal-close").classList.add("bg-light");
+    document.getElementById("cryptodash-tracker-confirm-remove-modal-close").classList.remove("bg-dark");
 
 	  document.getElementById("alarmCryptoDashModalClose").classList.add("bg-light");
     document.getElementById("alarmCryptoDashModalClose").classList.remove("bg-dark");
@@ -5047,9 +5498,11 @@ var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDrop
 
 if(CryptoDashCurrentTheme == "light") {
   var CryptoDashCurrentTextColor = "dark";
+  var CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
 }
 if(CryptoDashCurrentTheme == "dark") {
   var CryptoDashCurrentTextColor = "light";
+  var CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
 }
 
 // last 365 days chart
@@ -5468,6 +5921,11 @@ function eChartSetCryptoDashColorPalette() {
 // Specify the configuration items and data for the last year chart
 var echartsCryptoDashOptions = {
   color: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+  title: {
+    textStyle: {
+      color: CryptoDashCurrentTextColorValue
+    } 
+  },
   tooltip: {
     confine: true,
     trigger: 'axis',
@@ -5480,7 +5938,10 @@ var echartsCryptoDashOptions = {
   },
   legend: {
     orient: 'horizontal',
-    className: 'echarts-tooltip',
+    
+    textStyle: {
+      color: CryptoDashCurrentTextColorValue
+    },
     top: 10,
     selected: {
       'Highest Price': true,
@@ -5497,6 +5958,7 @@ var echartsCryptoDashOptions = {
   },  
   xAxis: {
     type: 'time',
+    //boundaryGap: ['2%', '2%'],
     axisLabel: {
       borderRadius: 16,    
     },
@@ -5515,12 +5977,86 @@ var echartsCryptoDashOptions = {
   },
   yAxis: {
     type: 'value',
+    scale: true,
+    boundaryGap: ['10%', '10%'],
   }, 
   
   dataset: [],
   series: [],
 };
 
+
+// Specify the configuration items and data for the last year chart
+var echarts7DaysCryptoDashOptions = {
+  color: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+  title: {
+    textStyle: {
+      color: CryptoDashCurrentTextColorValue
+    } 
+  },
+  tooltip: {
+    confine: true,
+    trigger: 'axis',
+    className: 'echarts-tooltip',
+    axisPointer: 
+    { 
+      type: 'shadow',
+      snap: true,
+    }
+  },
+  legend: {
+    orient: 'horizontal',
+    show: false,
+    textStyle: {
+      color: CryptoDashCurrentTextColorValue
+    },
+    top: 10,
+    selected: {
+      
+      'Average Price': true
+    }
+  },
+  grid: {
+    show: false,
+    left: '0%',
+    right: '0%',    
+    borderRadius: 16,
+    containLabel: false
+  },  
+  xAxis: {
+    type: 'time',
+    show: false,
+    boundaryGap: ['5%', '5%'],
+    axisLabel: {
+      show: false,
+      formatter: '{dd}-{MMM}-{yyyy}',
+      rotate: -45,
+      borderRadius: 16,    
+    },
+    axisPointer: {      
+      label: {
+        show: false,
+        borderRadius: 50,
+        //formatter: '{dd}-{MMM}-{yyyy}',
+        padding: [
+          12,  // up
+          10, // right
+          10,  // down
+          10, // left
+        ]        
+      },
+    },
+  },
+  yAxis: {
+    show: false,
+    type: 'value',
+    scale: true,
+    boundaryGap: ['30%', '30%'],
+  }, 
+  
+  dataset: [],
+  series: [],
+};
 
 // Specify the configuration items and data for last 30 days the chart
 /*
@@ -5730,21 +6266,25 @@ var echartsCryptoDashToolboxOptions = {
 
 }
 
-
-
-
-
-
-
-
-
-
 // Initialize the echarts instance based on the prepared dom
 var echartCryptoDash365days = "";
 var echartCryptoDash30days = "";
 var echartCryptoDash1day = "";
 
+var echartCryptoDash7days = "";
+
 function eChartCryptoDash365Start() {
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
 
   document.getElementById("cryptodash-365-days-echart-content").innerHTML = '';
 
@@ -5757,6 +6297,11 @@ function eChartCryptoDash365Start() {
   eChartSetCryptoDashColorPalette();
 
   echartCryptoDash365days.setOption({
+    title: {
+      textStyle: {
+        color: CryptoDashCurrentTextColorValue
+      } 
+    },
     color: eChartCryptoDashColorPaletteColors,
   });
 
@@ -5767,7 +6312,7 @@ function eChartCryptoDash365Start() {
   echartCryptoDash365days.showLoading({
     text: 'Loading ...',
       color: eChartCryptoDashColorPaletteColors[0],
-      textColor: '#fff',
+      textColor: CryptoDashCurrentTextColorValue,
       maskColor: 'rgba(0, 0, 0, 0.0)',
       //zlevel: 0,          
       // Font size. Available since `v4.8.0`.
@@ -5791,6 +6336,18 @@ function eChartCryptoDash365Start() {
 
 function eChartCryptoDash30Start() {
 
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
+
   document.getElementById("cryptodash-30-days-echart-content").innerHTML = '';
 
   echartCryptoDash30days = echarts.init(document.getElementById('cryptodash-30-days-echart-content'));
@@ -5802,6 +6359,11 @@ function eChartCryptoDash30Start() {
   eChartSetCryptoDashColorPalette();
 
   echartCryptoDash30days.setOption({
+    title: {
+      textStyle: {
+        color: CryptoDashCurrentTextColorValue
+      } 
+    },
     color: eChartCryptoDashColorPaletteColors,
   });
 
@@ -5812,7 +6374,7 @@ function eChartCryptoDash30Start() {
   echartCryptoDash30days.showLoading({
     text: 'Loading ...',
       color: eChartCryptoDashColorPaletteColors[0],
-      textColor: '#fff',
+      textColor: CryptoDashCurrentTextColorValue,
       maskColor: 'rgba(0, 0, 0, 0.0)',
       //zlevel: 0,          
       // Font size. Available since `v4.8.0`.
@@ -5836,6 +6398,18 @@ function eChartCryptoDash30Start() {
 
 function eChartCryptoDash1Start() {
 
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
+
   document.getElementById("cryptodash-1-day-echart-content").innerHTML = '';
 
   echartCryptoDash1day = echarts.init(document.getElementById('cryptodash-1-day-echart-content'));
@@ -5847,6 +6421,11 @@ function eChartCryptoDash1Start() {
   eChartSetCryptoDashColorPalette();
 
   echartCryptoDash1day.setOption({
+    title: {
+      textStyle: {
+        color: CryptoDashCurrentTextColorValue
+      } 
+    },
     color: eChartCryptoDashColorPaletteColors,
   });
 
@@ -5857,7 +6436,7 @@ function eChartCryptoDash1Start() {
   echartCryptoDash1day.showLoading({
     text: 'Loading ...',
       color: eChartCryptoDashColorPaletteColors[0],
-      textColor: '#fff',
+      textColor: CryptoDashCurrentTextColorValue,
       maskColor: 'rgba(0, 0, 0, 0.0)',
       //zlevel: 0,          
       // Font size. Available since `v4.8.0`.
@@ -5879,16 +6458,77 @@ function eChartCryptoDash1Start() {
   echartCryptoDash1day.resize();
 }
 
+function eChartCryptoDash7Start() {
+
+  var CryptoDashChartDropShadow = window.localStorage.getItem("CryptoDashChartDropShadow");
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
+
+  document.getElementById("cryptodash-7-days-echart-content").innerHTML = '';
+
+  echartCryptoDash7days = echarts.init(document.getElementById('cryptodash-7-days-echart-content'));
+
+  // Display the chart using the configuration items and data just specified.
+  echartCryptoDash7days.setOption(echarts7DaysCryptoDashOptions);
+  echartCryptoDash7days.resize();
+
+  eChartSetCryptoDashColorPalette();
+
+  echartCryptoDash7days.setOption({
+    title: {
+      textStyle: {
+        color: CryptoDashCurrentTextColorValue
+      } 
+    },
+    color: eChartCryptoDashColorPaletteColors,
+  });
+
+  window.onresize = function() {
+    echartCryptoDash7days.resize();
+  };      
+
+  echartCryptoDash7days.showLoading({
+    text: 'Loading ...',
+      color: eChartCryptoDashColorPaletteColors[0],
+      textColor: CryptoDashCurrentTextColorValue,
+      maskColor: 'rgba(0, 0, 0, 0.0)',
+      //zlevel: 0,          
+      // Font size. Available since `v4.8.0`.
+      fontSize: 12,
+      // Show an animated "spinner" or not. Available since `v4.8.0`.
+      showSpinner: true,
+      // Radius of the "spinner". Available since `v4.8.0`.
+      spinnerRadius: 10,
+      // Line width of the "spinner". Available since `v4.8.0`.
+      lineWidth: 5,
+      // Font thick weight. Available since `v5.0.1`.
+      fontWeight: 'normal',
+      // Font style. Available since `v5.0.1`.
+      fontStyle: 'normal',
+      // Font family. Available since `v5.0.1`.
+      fontFamily: 'sans-serif'
+  });
+
+  echartCryptoDash7days.resize();
+}
 
 eChartCryptoDash365Start();
 eChartCryptoDash30Start();
 eChartCryptoDash1Start();
-
+eChartCryptoDash7Start();
 
 document.getElementById("cryptodash-365-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin" style="left: calc(50vw - 25px);"></i>';
 document.getElementById("cryptodash-30-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin" style="left: calc(50vw - 25px);></i>';
 document.getElementById("cryptodash-1-day-chart-status").innerHTML = '<i class="fa fa-cog fa-spin" style="left: calc(50vw - 25px);></i>';
-
+document.getElementById("cryptodash-7-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin" style="left: calc(50vw - 25px);></i>';
 
 // create chart objects with the declared options and assign them to the previously created empty variables
 chartCryptoDash365days = new ApexCharts(document.querySelector("#cryptodash-365-days-chart-content"), chart365DaysCryptoDashOptions);
@@ -5899,7 +6539,6 @@ chartCryptoDash1day = new ApexCharts(document.querySelector("#cryptodash-1-day-c
 chartCryptoDash365days.render();
 chartCryptoDash30days.render();
 chartCryptoDash1day.render();
-
 
 function checkCryptoDashDataSourceAPIKey(CryptoDashDataSourceAPIKey) {
   if (CryptoDashDataSourceAPIKey == null) {
@@ -5917,6 +6556,17 @@ async function getCryptoDashChartLast365Days(coin, currency) {
  
   var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey"); 
+
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
 
   if (CryptoDashDataSource == null) {
     window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
@@ -5991,24 +6641,30 @@ async function getCryptoDashChartLast365Days(coin, currency) {
         echartCryptoDash365days.setOption({
           title: {
             text: 'Last Year ' + coin + ' to ' + currency + ' chart',
-            subtext: '(Every Day)',
+            subtext: '(Every Day Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
           },
           toolbox: {
             show: false
           },
-          dataZoom:[
-          {
-            type: 'inside',
+          xAxis: {            
             show: false,
-            start: 0,
-            end: 100
           },
-          {
-            show: false,
-            start: 0,
-            end: 100
-          }
-        ], 
+          dataZoom:[
+            {
+              type: 'inside',
+              show: false,
+              start: 0,
+              end: 100
+            },
+            {
+              show: false,
+              start: 0,
+              end: 100
+            }
+          ], 
           
         });
         
@@ -6017,8 +6673,8 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           
             text: 'Chart data unavailable',
             color: eChartCryptoDashColorPaletteColors[0],
-            textColor: '#fff',
-            maskColor: 'rgba(0, 0, 0, 0.5)',
+            textColor: CryptoDashCurrentTextColorValue,
+            maskColor: 'rgba(0, 0, 0, 0)',
             //zlevel: 0,
             
             borderRadius: 16,
@@ -6057,7 +6713,7 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           
           text: 'Loading ...',
           color: eChartCryptoDashColorPaletteColors[0],
-          textColor: '#fff',
+          textColor: CryptoDashCurrentTextColorValue,
           maskColor: 'rgba(0, 0, 0, 0)',
           //zlevel: 0,
           
@@ -6179,6 +6835,14 @@ async function getCryptoDashChartLast365Days(coin, currency) {
           title: {
             text: 'Last Year ' + coin + ' to ' + currency + ' chart',
             subtext: '(Every Day Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
+          },
+          legend: {           
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            },            
           },
           dataset: [
           {
@@ -6359,6 +7023,17 @@ async function getCryptoDashChartLast30Days(coin, currency) {
   
   var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
   
   if (CryptoDashDataSource == null) {
     window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
@@ -6431,10 +7106,16 @@ async function getCryptoDashChartLast30Days(coin, currency) {
         echartCryptoDash30days.setOption({
           title: {
             text: 'Last Month ' + coin + ' to ' + currency + ' chart',
-            subtext: '(Hourly)',
+            subtext: '(Every Hour Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
           },
           toolbox: {
             show: false
+          },
+          xAxis: {            
+            show: false,
           },
           dataZoom:[
           {
@@ -6457,8 +7138,8 @@ async function getCryptoDashChartLast30Days(coin, currency) {
           
           text: 'Chart data unavailable',
           color: eChartCryptoDashColorPaletteColors[0],
-          textColor: '#fff',
-          maskColor: 'rgba(0, 0, 0, 0.5)',
+          textColor: CryptoDashCurrentTextColorValue,
+          maskColor: 'rgba(0, 0, 0, 0)',
           //zlevel: 0,
           
           borderRadius: 16,
@@ -6485,13 +7166,13 @@ async function getCryptoDashChartLast30Days(coin, currency) {
 
       } else {
 
-        echartCryptoDash365days.hideLoading();
+        echartCryptoDash30days.hideLoading();
         
-        echartCryptoDash365days.showLoading({
+        echartCryptoDash30days.showLoading({
           
           text: 'Loading ...',
           color: eChartCryptoDashColorPaletteColors[0],
-          textColor: '#fff',
+          textColor: CryptoDashCurrentTextColorValue,
           maskColor: 'rgba(0, 0, 0, 0)',
           //zlevel: 0,
           
@@ -6591,6 +7272,14 @@ async function getCryptoDashChartLast30Days(coin, currency) {
           title: {
             text: 'Last Month ' + coin + ' to ' + currency + ' chart',
             subtext: '(Every Hour Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
+          },
+          legend: {           
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            },            
           },
           dataset: [
           {
@@ -6762,6 +7451,17 @@ async function getCryptoDashChartLast1Day(coin, currency) {
     
   var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
   var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
   
   if (CryptoDashDataSource == null) {
     window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
@@ -6833,9 +7533,15 @@ async function getCryptoDashChartLast1Day(coin, currency) {
           title: {
             text: 'Last Day ' + coin + ' to ' + currency + ' chart',
             subtext: '(Every Minute Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
           },
           toolbox: {
             show: false
+          },
+          xAxis: {            
+            show: false,
           },
           dataZoom:[
           {
@@ -6858,8 +7564,8 @@ async function getCryptoDashChartLast1Day(coin, currency) {
           
             text: 'Chart data unavailable',
             color: eChartCryptoDashColorPaletteColors[0],
-            textColor: '#fff',
-            maskColor: 'rgba(0, 0, 0, 0.5)',
+            textColor: CryptoDashCurrentTextColorValue,
+            maskColor: 'rgba(0, 0, 0, 0)',
             //zlevel: 0,
             
             borderRadius: 16,
@@ -6893,7 +7599,7 @@ async function getCryptoDashChartLast1Day(coin, currency) {
           
           text: 'Loading ...',
           color: eChartCryptoDashColorPaletteColors[0],
-          textColor: '#fff',
+          textColor: CryptoDashCurrentTextColorValue,
           maskColor: 'rgba(0, 0, 0, 0)',
           //zlevel: 0,
           
@@ -6994,7 +7700,15 @@ async function getCryptoDashChartLast1Day(coin, currency) {
         echartCryptoDash1day.setOption({
           title: {
             text: 'Last Day ' + coin + ' to ' + currency + ' chart',
-            subtext: '(Minute)',
+            subtext: '(Every Minute Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
+          },
+          legend: {           
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            },            
           },
           dataset: [
           {
@@ -7164,6 +7878,310 @@ async function getCryptoDashChartLast1Day(coin, currency) {
 }
 
 
+
+async function getCryptoDashChartLast7Days(coin, currency) {
+  
+  var CryptoDashDataSource = window.localStorage.getItem("CryptoDashDataSource");
+  var CryptoDashDataSourceAPIKey = window.localStorage.getItem("CryptoDashAPIKey");
+
+  CryptoDashCurrentTheme = window.localStorage.getItem('CryptoDashLightSwitch');
+
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
+  
+  if (CryptoDashDataSource == null) {
+    window.localStorage.setItem("CryptoDashDataSource", "CryptoCompareFree");
+  }
+
+  document.getElementById("cryptodash-7-days-chart-status").innerHTML = '<i class="fa fa-cog fa-spin" style="left: calc(50vw - 25px);></i>';
+
+  //document.getElementById("cryptodash-7-days-chart-title").innerHTML = "<strong>Last month " + coin + " to " + currency + " chart</strong>";
+
+  if (CryptoDashDataSource === "CryptoCompareFree" ) {
+    // set the fetch query
+    var queryCryptoDashLast7Days = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=' + coin + '&tsym=' + currency + '&limit=7';
+  }
+
+  if (CryptoDashDataSource === "CryptoCompareAPI" ) {    
+    try {
+      // verify if key exists
+      checkCryptoDashDataSourceAPIKey(CryptoDashDataSourceAPIKey);
+      try {
+        // set the fetch query with api key
+        var queryCryptoDashLast7Days = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=' + coin + '&tsym=' + currency + '&limit=7' + '&api_key=' + CryptoDashDataSourceAPIKey;
+      } catch(e) { console.error(e); showCryptoDashNotification(e, 10000, true); }
+    } catch(e) { console.error(e); showCryptoDashNotification(e, 10000, true); }
+  }
+
+  if(queryCryptoDashLast7Days && queryCryptoDashLast7Days != null) {
+    try {
+
+      const response = await fetch(queryCryptoDashLast7Days);
+
+      document.getElementById("cryptodash-7-days-chart-status").innerHTML = '';
+      
+      eChartSetCryptoDashColorPalette();
+
+      echartCryptoDash7days.setOption({
+        color: eChartCryptoDashColorPaletteColors,
+      });
+          
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if(data['Response'] === "Error"){
+
+        console.error("Crypto Compare API Error: " + data['Message']);
+        
+        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Charts Data Error</strong> <br>` + ` Charts are unavailable for ` + coin + ` tracker.`, 3000, true);
+        
+        document.getElementById("cryptodash-tracker-details-charts-button").disabled = true;
+
+        echartCryptoDash7days.hideLoading();
+
+        echartCryptoDash7days.setOption({
+          title: {
+            text: 'Last week ' + coin + ' to ' + currency + ' chart',
+            subtext: '(Every Day Value)', 
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }           
+          },
+          toolbox: {
+            show: false
+          },
+          xAxis: {            
+            show: false,
+          },
+          dataZoom:[
+          {
+            type: 'inside',
+            show: false,
+            start: 0,
+            end: 100
+          },
+          {
+            show: false,
+            start: 0,
+            end: 100
+          }
+        ], 
+          
+        });
+        
+        echartCryptoDash7days.showLoading({
+          
+          text: 'Chart data unavailable',
+          color: eChartCryptoDashColorPaletteColors[0],
+          textColor: CryptoDashCurrentTextColorValue,
+          maskColor: 'rgba(0, 0, 0, 0)',
+          //zlevel: 0,
+          
+          borderRadius: 16,
+          // Font size. Available since `v4.8.0`.
+          fontSize: 12,
+          // Show an animated "spinner" or not. Available since `v4.8.0`.
+          showSpinner: false,
+          // Radius of the "spinner". Available since `v4.8.0`.
+          spinnerRadius: 10,
+          // Line width of the "spinner". Available since `v4.8.0`.
+          lineWidth: 5,
+          // Font thick weight. Available since `v5.0.1`.
+          fontWeight: 'normal',
+          // Font style. Available since `v5.0.1`.
+          fontStyle: 'normal',
+          // Font family. Available since `v5.0.1`.
+          fontFamily: 'sans-serif'
+          
+        });
+         
+        echartCryptoDash7days.resize();
+
+      } else {
+
+
+        // Data is there, getting all the other charts
+        document.getElementById("cryptodash-tracker-details-charts-button").disabled = false;
+
+        setTimeout(function() {
+          var CryptoChart365DaysData = getCryptoDashChartLast365Days(coin, currency);
+        }, 5000)
+      
+        setTimeout(function() {
+          var CryptoChart30DaysData = getCryptoDashChartLast30Days(coin, currency);
+        }, 5000)
+      
+        setTimeout(function() {
+          var CryptoChart1DayData = getCryptoDashChartLast1Day(coin, currency);
+        }, 5000)
+      
+
+        echartCryptoDash7days.hideLoading();
+        
+        echartCryptoDash7days.showLoading({
+          
+          text: 'Loading ...',
+          color: eChartCryptoDashColorPaletteColors[0],
+          textColor: CryptoDashCurrentTextColorValue,
+          maskColor: 'rgba(0, 0, 0, 0)',
+          //zlevel: 0,
+          
+          borderRadius: 16,
+          // Font size. Available since `v4.8.0`.
+          fontSize: 12,
+          // Show an animated "spinner" or not. Available since `v4.8.0`.
+          showSpinner: true,
+          // Radius of the "spinner". Available since `v4.8.0`.
+          spinnerRadius: 10,
+          // Line width of the "spinner". Available since `v4.8.0`.
+          lineWidth: 5,
+          // Font thick weight. Available since `v5.0.1`.
+          fontWeight: 'normal',
+          // Font style. Available since `v5.0.1`.
+          fontStyle: 'normal',
+          // Font family. Available since `v5.0.1`.
+          fontFamily: 'sans-serif'
+        
+      });
+
+        
+
+        var CryptoDashTimeFrom = data['Data']['TimeFrom'];
+        var CryptoDashTimeTo = data['Data']['TimeTo'];
+        var CryptoDashTimeArray = data['Data']['Data']['0']['high'];
+        var CryptoChartData = data;        
+
+        var CryptoDashHighSeries = [];
+        var CryptoDashLowSeries = [];
+        var CryptoDashOpenMarketSeries = [];
+        var CryptoDashCloseMarketSeries = [];
+        var CryptoDashMedianSeries = [];
+
+        for (const item of data['Data']['Data']) {
+          var unixTimestamp = item.time * 1000;
+          var timeStamp = new Date(unixTimestamp);
+          var highValue = item.high;
+          var lowValue = item.low;
+          var OpenMarket = item.open;
+          var CloseMarket = item.close;
+
+          var pairTimeStampWithHighValue = [];
+          var pairTimeStampWithLowValue = [];
+          var pairTimeStampWithOpenMarket = [];
+          var pairTimeStampWithCloseMarket = [];
+          var pairTimeStampWithMedianValue = [];
+
+          pairTimeStampWithHighValue.push(timeStamp, highValue);
+          CryptoDashHighSeries.push(pairTimeStampWithHighValue); 
+
+          pairTimeStampWithLowValue.push(timeStamp, lowValue);
+          CryptoDashLowSeries.push(pairTimeStampWithLowValue);           
+
+          pairTimeStampWithOpenMarket.push(timeStamp, OpenMarket);
+          CryptoDashOpenMarketSeries.push(pairTimeStampWithOpenMarket); 
+
+          pairTimeStampWithCloseMarket.push(timeStamp, CloseMarket);
+          CryptoDashCloseMarketSeries.push(pairTimeStampWithCloseMarket);           
+
+          var averageValue = (parseFloat(highValue) + parseFloat(lowValue) ) / 2;
+          pairTimeStampWithMedianValue.push(timeStamp, averageValue.toFixed(2));
+          CryptoDashMedianSeries.push(pairTimeStampWithMedianValue); 
+        }
+
+        
+
+
+        echartCryptoDash7days.setOption({
+          title: {
+            text: 'Last week ' + coin + ' to ' + currency + ' chart',
+            subtext: '(Every Day Value)',
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            }
+          },
+          legend: {           
+            textStyle: {
+              color: CryptoDashCurrentTextColorValue
+            },            
+          },
+          dataset: [
+          
+          {
+            // 5th Dataset。
+            dimensions: [
+            null,
+            { name: 'Average Price', type: 'float' }
+            ],
+            source: CryptoDashMedianSeries
+
+          }],
+
+          series: [
+          {
+            // Use 1st dataset
+            datasetIndex: 0,
+            type: 'line',
+            
+            
+            showSymbol: false,
+            symbolSize: 10,
+            legendHoverLink: true,
+            smooth: true,
+            lineStyle: {
+              width: 4,
+              shadowColor: 'rgba(0,0,0,0.8)',
+              shadowBlur: 10,
+            },
+            //areaStyle: {
+            //  opacity: 0.5,              
+            //},
+          },
+          
+          
+        ]
+
+
+
+        });
+
+        //echartCryptoDash7days.setOption(echartsCryptoDashToolboxOptions);
+        
+        setTimeout(function() {
+          echartCryptoDash7days.hideLoading();
+        }, 2000)
+        
+        echartCryptoDash7days.resize();
+
+      }
+
+    } catch(e) { console.error(e); showCryptoDashNotification(e, 10000, true); }
+  }
+ 
+}
+
+// Carousel fix when switching dashboard and resizing window 
+var cryptoDashCarouselElement = document.querySelector('#cryptodash-carousel');
+
+cryptoDashCarouselElement.addEventListener('slid.bs.carousel', function (event) {
+
+  //console.log("clicked the dashboard button : " + event );
+  event.stopPropagation();
+
+  CryptoDashGrid.synchronize();
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+  updateCryptoDashTrackerFontSize(); 
+});
+
 // Offcanvas coming from the top (CryptoDash Coin Details, Charts, Alarm and other tracker replated tasks)
 var CryptoDashChartOffCanvas = new bootstrap.Offcanvas(document.getElementById('cryptodash-tracker-details'));
 var CryptoDashTrackerDetailsOpener = function (event) {
@@ -7181,18 +8199,27 @@ var CryptoDashTrackerDetailsOpener = function (event) {
 
   var CryptoDashTrackerDetailsAboutTab = document.getElementById('cryptodash-tracker-details-about-tab');
   var CryptoDashTrackerDetailsChartsTab = document.getElementById('cryptodash-tracker-details-charts-tab');
-  var CryptoDashTrackerDetailsAboutContent = document.getElementById('cryptodash-tracker-details-about-content');
+  //var CryptoDashTrackerDetailsAboutContent = document.getElementById('cryptodash-tracker-details-about-content');
   
   CryptoDashTrackerDetailsLabel.innerHTML = '<strong>' + CryptoDashCoinListData[CryptoDashChartTitle]["FullName"] + '</strong>';
   CryptoDashTrackerDetailsAboutButton.innerHTML = `<i class="fa fa-info-circle"></i> ` + CryptoDashChartTitle + ` details`;
    
-  var CryptoDashCurrentTheme = window.localStorage.getItem("CryptoDashLightSwitch");
+  CryptoDashCurrentTheme = window.localStorage.getItem("CryptoDashLightSwitch");
   if(CryptoDashCurrentTheme === "dark") {
     var CryptoDashButtonTextColor = "light";
   } else {
     var CryptoDashButtonTextColor = "dark";
   }
 
+  if(CryptoDashCurrentTheme == "light") {
+    CryptoDashCurrentTextColor = "dark";
+    CryptoDashCurrentTextColorValue = "rgb(0, 0, 0)";
+  }
+  if(CryptoDashCurrentTheme == "dark") {
+    CryptoDashCurrentTextColor = "light";
+    CryptoDashCurrentTextColorValue = "rgb(248,249,250)";
+  }
+  
 
   // Clearing tab and active buttons
   CryptoDashTrackerDetailsChartsTab.classList.remove('active', 'show');
@@ -7209,17 +8236,117 @@ var CryptoDashTrackerDetailsOpener = function (event) {
   CryptoDashTrackerDetailsAboutButton.classList.add('active');
   CryptoDashTrackerDetailsAboutTab.classList.add('active', 'show');
 
-  CryptoDashTrackerDetailsAboutButton.addEventListener('show.bs.tab', function (event) {
+ 
 
-  })
-
-    showCryptoDashNotification(`<i class="fa fa-cog fa-spin"></i> Loading tracker info ...`, 3000);
+  showCryptoDashNotification(`<i class="fa fa-cog fa-spin"></i> Loading tracker info ...`, 3000);
     
-    CryptoDashTrackerDetailsAboutContent.innerHTML = 
+  document.getElementById('cryptodash-tracker-details-about-content-image').innerHTML = ` <img src="https://www.cryptocompare.com` + CryptoDashCoinListData[CryptoDashChartTitle]["ImageUrl"] +` "> `;
+  
+  var cryptoDashTrackerPrice = document.getElementById(CryptoDashChartTitle + '-price').innerHTML;
+  var cryptoDashTrackerChangePct24 = document.getElementById(CryptoDashChartTitle + '-changepct24').innerHTML;
+  var cryptoDashTrackerChangePctHour = document.getElementById(CryptoDashChartTitle + '-changepcthour').innerHTML;
+  var cryptoDashTrackerUpdateTime = document.getElementById(CryptoDashChartTitle + '-updatetime').innerHTML;
+
+  
+
+  
+  
+
+  document.getElementById('cryptodash-tracker-details-stats-price').innerHTML = cryptoDashTrackerPrice;
+  document.getElementById('cryptodash-tracker-details-stats-changepct24').innerHTML = cryptoDashTrackerChangePct24;
+  document.getElementById('cryptodash-tracker-details-stats-changepcthour').innerHTML = cryptoDashTrackerChangePctHour;
+  
+
+  if(cryptoDashTrackerPrice == "Price Data N/A") {
+    document.getElementById('cryptodash-tracker-details-stats-updatetime').innerHTML = "Last Update: N/A";
+  } else {
+    document.getElementById('cryptodash-tracker-details-stats-updatetime').innerHTML = cryptoDashTrackerUpdateTime.replace(/(<|&lt;)br\s*\/*(>|&gt;)/g,' ');
+  }
+
+
+  document.getElementById('cryptodash-tracker-details-launch-date').innerHTML = `  
+  <p>Launch Date</p>
+  <h2>` + CryptoDashCoinListData[CryptoDashChartTitle]["AssetLaunchDate"] + `</h2>  
+  `;
+
+  document.getElementById('cryptodash-tracker-details-website').innerHTML = `
+  <p>Website</p>
+  <h2><a class="btn btn-sm btn-outline-dark text-`+CryptoDashCurrentTextColor+`" target="_blank" href="` + CryptoDashCoinListData[CryptoDashChartTitle]["AssetWebsiteUrl"] + `"> <i class="fa fa-link"></i> ` + CryptoDashCoinListData[CryptoDashChartTitle]["AssetWebsiteUrl"] + `</a></h2>
+  
+  `;
+
+  document.getElementById('cryptodash-tracker-details-description').innerHTML = 
+  
+  `<h5>` + CryptoDashCoinListData[CryptoDashChartTitle]["FullName"] + `</h5>` + 
+  `<p>` + CryptoDashCoinListData[CryptoDashChartTitle]["Description"] + `</p>` ;
+  
+
+  
+  document.getElementById('cryptodash-tracker-details-platform-type').innerHTML = `
+  <p>Platform Type</p>
+  <h2>` + CryptoDashCoinListData[CryptoDashChartTitle]["PlatformType"] + `</h2>
+  `;
+
+  if (CryptoDashCoinListData[CryptoDashChartTitle]["BlockNumber"]) {
+    var BlockNumber = CryptoDashCoinListData[CryptoDashChartTitle]["BlockNumber"];
+  } else {
+    var BlockNumber = "N/A";
+  }
+
+  if (CryptoDashCoinListData[CryptoDashChartTitle]["BlockReward"]) {
+    var BlockReward = CryptoDashCoinListData[CryptoDashChartTitle]["BlockReward"];
+  } else {
+    var BlockReward = "N/A";
+  }
+
+  if (CryptoDashCoinListData[CryptoDashChartTitle]["Algorithm"]) {
+    var Algorithm = CryptoDashCoinListData[CryptoDashChartTitle]["Algorithm"];
+  } else {
+    var Algorithm = "N/A";
+  }
+
+  
+  if (CryptoDashCoinListData[CryptoDashChartTitle]["NetHashesPerSecond"]) {
+    var NetHashesPerSecond = CryptoDashCoinListData[CryptoDashChartTitle]["NetHashesPerSecond"];
+  } else {
+    var NetHashesPerSecond = "N/A";
+  }
+  
+
+
+  document.getElementById('cryptodash-tracker-details-block-number').innerHTML = `
+  <p>Block Number</p>
+  <h2>` + BlockNumber + `</h2>
+  `;
+
+  document.getElementById('cryptodash-tracker-details-block-reward').innerHTML = `
+  <p>Block Reward</p>
+  <h2>` + BlockReward + `</h2>
+  `;
+
+  document.getElementById('cryptodash-tracker-details-algorithm').innerHTML = `
+  <p>Algorithm</p>
+  <h2>` + Algorithm + `</h2>
+  `;
+
+  
+  document.getElementById('cryptodash-tracker-details-net-hash-per-second').innerHTML = `
+  <p>Net Hashes/Second</p>
+  <h2>` + NetHashesPerSecond + `</h2>
+  `;
+
+  
+
+  updateCryptoDashTrackerDetailsFontSize();
+
+  
+
+/*
+    CryptoDashTrackerDetailsAboutContent = 
 
     `<div class="row">
       <div class="col-6">
-        <h1><img src="https://www.cryptocompare.com` + CryptoDashCoinListData[CryptoDashChartTitle]["ImageUrl"] +` "> ` + CryptoDashCoinListData[CryptoDashChartTitle]["FullName"] + `</h1>
+        <h1></h1>
       </div>
       <div class="col-6">
 
@@ -7233,9 +8360,9 @@ var CryptoDashTrackerDetailsOpener = function (event) {
     </div>` +
 
 
-   
+    
 
-    `<h5>Description</h5>` + 
+    `<h5>` + CryptoDashCoinListData[CryptoDashChartTitle]["FullName"] + `</h5>` + 
     `<p>` + CryptoDashCoinListData[CryptoDashChartTitle]["Description"] + `</p>` +
 
     
@@ -7263,7 +8390,7 @@ var CryptoDashTrackerDetailsOpener = function (event) {
     </a>` 
     
   
-
+    */
   
 
   //cryptodash-tracker-details-label
@@ -7334,6 +8461,18 @@ var CryptoDashTrackerDetailsOpener = function (event) {
     
   }, false, true);
 
+
+  //document.getElementById('cryptodash-tracker-details-charts-button').innerHTML = '<i class="fa fa-area-chart"></i> Charts <i class="fa fa-cog fa-spin"></i>';
+
+  setTimeout(function() {
+    var CryptoChart7DaysData = getCryptoDashChartLast7Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
+    
+  }, 1000)
+
+  // The CryptoChart7DaysData triggers the other charts. If there is no last week chart, there will be no other charts
+
+
+  /*
   setTimeout(function() {
     var CryptoChart365DaysData = getCryptoDashChartLast365Days(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
   }, 5000)
@@ -7345,6 +8484,30 @@ var CryptoDashTrackerDetailsOpener = function (event) {
   setTimeout(function() {
     var CryptoChart1DayData = getCryptoDashChartLast1Day(CryptoDashChartTitle, CryptoDashCurrentSelectedCurrency);
   }, 5000)
+
+  */
+
+ // document.getElementById('cryptodash-tracker-details-charts-button').innerHTML = '<i class="fa fa-area-chart"></i> Charts Test';
+
+ 
+
+ 
+ //cryptodash-tracker-details-charts-year-tab
+
+  document.getElementById("cryptodash-tracker-details-charts-day-button").addEventListener('shown.bs.tab', function (event) {
+    event.stopPropagation();
+    echartCryptoDash1day.resize();
+  });
+  document.getElementById("cryptodash-tracker-details-charts-month-button").addEventListener('shown.bs.tab', function (event) {
+    event.stopPropagation();
+    echartCryptoDash30days.resize();
+  });
+  document.getElementById("cryptodash-tracker-details-charts-year-button").addEventListener('shown.bs.tab', function (event) {
+    event.stopPropagation();
+    echartCryptoDash365days.resize();
+  });
+
+
 
   CryptoDashTrackerDetailsChartsButton.addEventListener('shown.bs.tab', function (event) {
     event.stopPropagation();
@@ -7397,7 +8560,14 @@ var CryptoDashTrackerDetailsOpener = function (event) {
     
   })
 
-  
+  CryptoDashTrackerDetailsAboutButton.addEventListener('show.bs.tab', function (event) {
+    //echartCryptoDash7days.resize();
+    event.stopPropagation();
+    
+    echartCryptoDash7days.resize();
+  })
+
+
   // add event when the offcanvas is closed
   document.getElementById('cryptodash-tracker-details').addEventListener('hidden.bs.offcanvas', function () {
     event.stopPropagation();
@@ -7461,6 +8631,9 @@ var CryptoDashTrackerDetailsOpener = function (event) {
     echartCryptoDash1day.dispose();
     eChartCryptoDash1Start();
 
+    echartCryptoDash7days.clear();
+    echartCryptoDash7days.dispose();
+    eChartCryptoDash7Start();
 
     //echartCryptoDash365days.resize();
     
@@ -7468,7 +8641,7 @@ var CryptoDashTrackerDetailsOpener = function (event) {
       
         text: 'Loading ...',
         color: eChartCryptoDashColorPaletteColors[0],
-        textColor: '#fff',
+        textColor: CryptoDashCurrentTextColorValue,
         maskColor: 'rgba(0, 0, 0, 0)',
         //zlevel: 0,
         borderRadius: 16,
@@ -7494,7 +8667,7 @@ var CryptoDashTrackerDetailsOpener = function (event) {
       
       text: 'Loading ...',
       color: eChartCryptoDashColorPaletteColors[0],
-      textColor: '#fff',
+      textColor: CryptoDashCurrentTextColorValue,
       maskColor: 'rgba(0, 0, 0, 0)',
       //zlevel: 0,
       borderRadius: 16,
@@ -7514,33 +8687,59 @@ var CryptoDashTrackerDetailsOpener = function (event) {
       // Font family. Available since `v5.0.1`.
       fontFamily: 'sans-serif'
     
-  });
+    });
 
-  echartCryptoDash1day.showLoading({
+    echartCryptoDash1day.showLoading({
+        
+      text: 'Loading ...',
+      color: eChartCryptoDashColorPaletteColors[0],
+      textColor: CryptoDashCurrentTextColorValue,
+      maskColor: 'rgba(0, 0, 0, 0)',
+      //zlevel: 0,
+      borderRadius: 16,
+    
+      // Font size. Available since `v4.8.0`.
+      fontSize: 12,
+      // Show an animated "spinner" or not. Available since `v4.8.0`.
+      showSpinner: true,
+      // Radius of the "spinner". Available since `v4.8.0`.
+      spinnerRadius: 10,
+      // Line width of the "spinner". Available since `v4.8.0`.
+      lineWidth: 5,
+      // Font thick weight. Available since `v5.0.1`.
+      fontWeight: 'normal',
+      // Font style. Available since `v5.0.1`.
+      fontStyle: 'normal',
+      // Font family. Available since `v5.0.1`.
+      fontFamily: 'sans-serif'
+    
+    });
+
+    echartCryptoDash7days.showLoading({
       
-    text: 'Loading ...',
-    color: eChartCryptoDashColorPaletteColors[0],
-    textColor: '#fff',
-    maskColor: 'rgba(0, 0, 0, 0)',
-    //zlevel: 0,
-    borderRadius: 16,
-  
-    // Font size. Available since `v4.8.0`.
-    fontSize: 12,
-    // Show an animated "spinner" or not. Available since `v4.8.0`.
-    showSpinner: true,
-    // Radius of the "spinner". Available since `v4.8.0`.
-    spinnerRadius: 10,
-    // Line width of the "spinner". Available since `v4.8.0`.
-    lineWidth: 5,
-    // Font thick weight. Available since `v5.0.1`.
-    fontWeight: 'normal',
-    // Font style. Available since `v5.0.1`.
-    fontStyle: 'normal',
-    // Font family. Available since `v5.0.1`.
-    fontFamily: 'sans-serif'
-  
-});
+      text: 'Loading ...',
+      color: eChartCryptoDashColorPaletteColors[0],
+      textColor: CryptoDashCurrentTextColorValue,
+      maskColor: 'rgba(0, 0, 0, 0)',
+      //zlevel: 0,
+      borderRadius: 16,
+    
+      // Font size. Available since `v4.8.0`.
+      fontSize: 12,
+      // Show an animated "spinner" or not. Available since `v4.8.0`.
+      showSpinner: true,
+      // Radius of the "spinner". Available since `v4.8.0`.
+      spinnerRadius: 10,
+      // Line width of the "spinner". Available since `v4.8.0`.
+      lineWidth: 5,
+      // Font thick weight. Available since `v5.0.1`.
+      fontWeight: 'normal',
+      // Font style. Available since `v5.0.1`.
+      fontStyle: 'normal',
+      // Font family. Available since `v5.0.1`.
+      fontFamily: 'sans-serif'
+    
+    });
 
     
     
@@ -7560,7 +8759,9 @@ var CryptoDashTrackerDetailsOpener = function (event) {
   }) 
 
         
-  var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + CryptoDashChartTitle + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-tracker-details" aria-controls="cryptodash-tracker-details"><i class="fa fa-trash"></i> Remove Tracker</button>`;
+  //var removeTrackerButton = `<button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" onclick="removeCryptoDashSelectedItem('` + CryptoDashChartTitle + `')" data-bs-toggle="offcanvas" data-bs-target="#cryptodash-tracker-details" aria-controls="cryptodash-tracker-details"><i class="fa fa-trash"></i> Remove Tracker</button>`;
+
+  var removeTrackerButton = `<button type="button" class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" data-bs-toggle="modal" data-bs-target="#cryptodash-tracker-confirm-remove-modal" onclick="injectTrackerRemovalConfirmationCoin('` + CryptoDashChartTitle + `')"><i class="fa fa-trash"></i> Remove Tracker</button>`;
 
   var cryptoDashAlarmKey = "CryptoDashAlarm-" + CryptoDashChartTitle;
 
@@ -7581,13 +8782,285 @@ var CryptoDashTrackerDetailsOpener = function (event) {
 
   document.getElementById('cryptodash-chart-remove-button').innerHTML = alarmTrackerButton + " " + removeTrackerButton;
 
+  var cryptoDashAlarmButton = document.getElementById('cryptodash-set-alarm-' + CryptoDashChartTitle);
+
+  if(cryptoDashTrackerPrice == "Price Data N/A") {
+    //console.log('cryptodash-set-alarm-' + CryptoDashChartTitle);
+    cryptoDashAlarmButton.disabled = true;
+  } else {
+    cryptoDashAlarmButton.disabled = false;
+  }
   
+}
 
 
+function injectTrackerRemovalConfirmationCoin(coin) {
+
+  CryptoDashCurrentTheme = window.localStorage.getItem("CryptoDashLightSwitch");
+  if(CryptoDashCurrentTheme === "dark") {
+    var CryptoDashButtonTextColor = "light";
+  } else {
+    var CryptoDashButtonTextColor = "dark";
+  }
+
+  document.getElementById("cryptodash-tracker-confirm-remove-modal-label").innerHTML = `<i class="fa fa-trash"></i> Remove ` + coin + ` Tracker`;
+  document.getElementById("cryptodash-tracker-confirm-remove-modal-text").innerHTML = `Are you sure you want remove the "` + coin + `" Tracker?`;
+  document.getElementById("cryptodash-tracker-confirm-remove-modal-ok-button").innerHTML = `<button type="button" class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + ` text-`+ CryptoDashButtonTextColor +`" data-bs-dismiss="modal" onclick="removeCryptoDashTracker('` + coin + `')"><i class="fa fa-trash"></i> Remove</button>  `;
+
+}
+
+function blockTrackers() {
+  // get current Tracker size
+  var CurrentCryptoDashTrackerWidth = window.localStorage.getItem('CryptoDashTrackerWidth');
+  var CurrentCryptoDashTrackerHeight = window.localStorage.getItem('CryptoDashTrackerHeight');
+
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    element.style.width = CurrentCryptoDashTrackerWidth;
+    element.style.height = CurrentCryptoDashTrackerHeight;
+  });
+
+
+  document.querySelectorAll(".cryptodash-tracker-content").forEach((element) => {
+    element.style.paddingLeft = "10px";
+    element.style.paddingRight = "10px";
+    element.style.paddingTop = "5px";
+    element.style.paddingBottom = "5px";
+    
+    element.classList.remove("d-flex", "flex-row", "align-items-center", "justify-content-around");
+
+  });
+  document.querySelectorAll(".cryptodash-tracker-content h1").forEach((element) => {
+    element.removeAttribute('style');
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content h2").forEach((element) => {    
+    element.removeAttribute('style');
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content p").forEach((element) => {
+    element.removeAttribute('style');
+  });
+
+  /*
+  document.querySelectorAll(".cryptodash-tracker-content p[id$=updatetime]").forEach((element) => {
+    element.removeAttribute('style');
+  });
+
+  */
+
+  document.querySelectorAll(".cryptodash-tracker-content img").forEach((element) => {
+    element.removeAttribute('style');
+  });
+
+  document.getElementById("cryptodash-tracker-dashboard-icon").classList.add("fa-th-large");
+  document.getElementById("cryptodash-tracker-dashboard-icon").classList.remove("fa-th-list");
+
+  /*
+
+  document.querySelectorAll(".cryptodash-tracker-content img").forEach((element) => {
+    element.style.width = "calc(100% - 85%)";
+    element.style.height = "auto";
+    element.style.right = "calc(100% - 96%)";
+    element.style.left = "auto";
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content h1").forEach((element) => {
+    element.style.width = "auto";
+    element.style.height = "calc(85%)";
+    element.style.left = "calc(1%)";
+    element.style.right = "auto";
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content p[id$=updatetime]").forEach((element) => {
+    element.style.bottom = "calc(100% - 97%)";
+    element.style.right = "10px";
+    element.style.left = "auto";
+    element.style.position = "absolute";
+    element.style.textAlign = "center";
+    element.style.marginBottom = "0px !important";
+    element.style.fontSize = "0.7em";
+  });
+
+  */
+
+  updateCryptoDashTrackerFontSize(); 
+  CryptoDashGrid.synchronize();
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+  saveCryptoDashLayout(CryptoDashGrid);
+}
+
+function horizontalTrackers() {
+
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    element.style.width = "calc(33vw - 60px)";
+    element.style.height = "100px";
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content").forEach((element) => {
+    element.style.paddingLeft = "0px";
+    element.style.paddingRight = "0px";
+    element.style.paddingTop = "0px";
+    element.style.paddingBottom = "0px";
+
+    element.classList.add("d-flex", "flex-row", "align-items-center", "justify-content-around");
+
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content h1").forEach((element) => {
+    //element.style.marginTop = "auto";
+    element.style.marginBottom = "0";
+    //element.style.fontSize = "auto";
+    //element.style.position = "relative";
+    //element.style.bottom = "auto";
+    element.style.paddingLeft = "100px";
+    
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content h2").forEach((element) => {
+    element.style.marginTop = "0";
+    element.style.marginBottom = "0";
+    //element.style.fontSize = "auto";
+    //element.style.position = "relative";
+    //element.style.bottom = "auto";
+    
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content p").forEach((element) => {
+    //element.style.marginTop = "auto";
+    element.style.marginBottom = "auto";
+    element.style.fontSize = "auto";
+    element.style.position = "relative";
+    element.style.bottom = "auto";
+    
+  });
+
+  /*
+  document.querySelectorAll(".cryptodash-tracker-content p[id$=updatetime]").forEach((element) => {
+    
+    element.style.bottom = "calc(100% - 97%)";
+    
+  });
+  */
+
+
+  document.querySelectorAll(".cryptodash-tracker-content img").forEach((element) => {
+    element.style.width = "auto";
+    element.style.height = "80px";
+    element.style.left = "10px";
+    element.style.right = "auto";
+    element.style.top = "auto";
+  });
+
+  document.getElementById("cryptodash-tracker-dashboard-icon").classList.remove("fa-th-large");
+  document.getElementById("cryptodash-tracker-dashboard-icon").classList.add("fa-th-list");
+
+  /*
+  document.querySelectorAll(".cryptodash-tracker-content").forEach((element) => {
+    
+    var CrpytoDashPercentDiv = document.createElement('div');
+
+    document.querySelectorAll("p[id$=changepct24]").forEach((element) => {
+    
+      element.style.bottom = "calc(100% - 97%)";
+      
+    });
+    
+  });
+  */
   
 
+  /*
+  document.querySelectorAll(".cryptodash-tracker").forEach((element) => {
+    element.style.width = "calc(100vw - 60px)";
+    element.style.height = "100px";
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content img").forEach((element) => {
+    element.style.width = "auto";
+    element.style.height = "calc(85%)";
+    element.style.left = "calc(1%)";
+    element.style.right = "auto";
+  });
+
+  document.querySelectorAll(".cryptodash-tracker-content p[id$=updatetime]").forEach((element) => {
+    element.style.bottom = "calc(10%)";
+    element.style.right = "10px";
+    element.style.left = "auto";
+    element.style.position = "absolute";
+    element.style.textAlign = "center";
+    element.style.marginBottom = "0px !important";
+    element.style.fontSize = "0.7em";
+   
+    
+  });
+
+  */
+
+  HorizontalCryptoDashTrackerFontSize(); 
+  CryptoDashGrid.synchronize();
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+  saveCryptoDashLayout(CryptoDashGrid);
+}
+
+
+function createCryptoDashNews() {
+  var CryptoDashContentTrackers = document.getElementById("CryptoDashContentTrackers");
+  var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
+  var CryptoDashFrostedSettings = window.localStorage.getItem("CryptoDashFrostedThemeSwitch");
+
+  var NewsPanel = document.createElement("div");
+  var NewsPanelIDAttribute = document.createAttribute("id");
+  var NewsPanelAttribute = document.createAttribute("crypto-dash-id");
+
+  var NewsPanelContent = document.createElement("div");
+  var NewsPanelContentIDAttribute = document.createAttribute("id");
+
+  NewsPanel.setAttributeNode(NewsPanelIDAttribute);
+  NewsPanel.setAttributeNode(NewsPanelAttribute);
+  NewsPanelContent.setAttributeNode(NewsPanelContentIDAttribute);
+
+  NewsPanelAttribute.value = "CryptoDashNews";
+
+  NewsPanel.appendChild(NewsPanelContent);
+
+  NewsPanel.style.width = "calc(100vw - 60px)";
+  NewsPanel.style.height = "50px";
   
+
+  if (CryptoDashFrostedSettings == null) {
+    window.localStorage.setItem("CryptoDashFrostedThemeSwitch", "Frosted");
+    NewsPanel.classList.add("cryptodash-tracker", "tracker-backdrop-blur");
+  }
   
+  if (CryptoDashFrostedSettings == "Frosted") {
+    NewsPanel.classList.add("cryptodash-tracker", "tracker-backdrop-blur");
+    if(CryptoDashLightSwitch && CryptoDashLightSwitch === "dark") {
+      NewsPanel.classList.remove("bg-dark");
+    } else {
+      NewsPanel.classList.remove("bg-light");
+    }
+  }
+
+  if (CryptoDashFrostedSettings == "Defrosted") {
+    NewsPanel.classList.add("cryptodash-tracker");
+    if(CryptoDashLightSwitch && CryptoDashLightSwitch === "dark") {
+      NewsPanel.classList.add("bg-dark");
+    } else {
+      NewsPanel.classList.add("bg-light");
+    }
+  }
+  
+
+  // add the Tracker to the screen 
+  CryptoDashContentTrackers.appendChild(NewsPanel);
+  CryptoDashGrid.add(NewsPanel);
+
+  CryptoDashGrid.synchronize();
+  CryptoDashGrid.refreshItems();
+  CryptoDashGrid.layout();
+  saveCryptoDashLayout(CryptoDashGrid);
 }
 
 function createCryptoDashTracker(coinAbr) {
@@ -7595,6 +9068,7 @@ function createCryptoDashTracker(coinAbr) {
   var CryptoDashContentTrackers = document.getElementById("CryptoDashContentTrackers");
   var CryptoDashLightSwitch = window.localStorage.getItem("CryptoDashLightSwitch");
   var Tracker = document.createElement("div");
+  var TrackerIDAttribute = document.createAttribute("id");
 
   var TrackerItemContent = document.createElement("div");
   var TrackerItemContentIDAttribute = document.createAttribute("id");
@@ -7603,8 +9077,6 @@ function createCryptoDashTracker(coinAbr) {
   var TrackerNameIDAttribute = document.createAttribute("id");
 
   var TrackerAttribute = document.createAttribute("crypto-dash-id");
-
-  var TrackerIDAttribute = document.createAttribute("id");
 
   var TrackerPrice = document.createElement("H2");
   var TrackerPriceIDAttribute = document.createAttribute("id");
@@ -7621,6 +9093,9 @@ function createCryptoDashTracker(coinAbr) {
 
   var TrackerChangeValue24 = document.createElement("p");
   var TrackerChangePCTValue24 = document.createElement("p");
+
+  var TrackerPercentDiv = document.createElement('div');
+
   var TrackerChangeValue24IDAttribute = document.createAttribute("id");
   var TrackerChangePCTValue24IDAttribute = document.createAttribute("id");
 
@@ -7726,9 +9201,12 @@ function createCryptoDashTracker(coinAbr) {
   TrackerItemContent.appendChild(TrackerHighestValueHour);
   TrackerItemContent.appendChild(TrackerLowestValueHour);
   TrackerItemContent.appendChild(TrackerChangeValue24);
-  TrackerItemContent.appendChild(TrackerChangePCTValue24);
   TrackerItemContent.appendChild(TrackerChangeValueHour);
-  TrackerItemContent.appendChild(TrackerChangePCTValueHour);
+
+  TrackerPercentDiv.appendChild(TrackerChangePCTValue24); 
+  TrackerPercentDiv.appendChild(TrackerChangePCTValueHour); 
+  TrackerItemContent.appendChild(TrackerPercentDiv);
+
   TrackerItemContent.appendChild(TrackerImg);
   TrackerItemContent.appendChild(TrackerUpdateTime);
 
@@ -7807,6 +9285,8 @@ function removeCryptoDashTracker(coinAbr) {
   CryptoDashGrid.synchronize();
   CryptoDashGrid.refreshItems();
   CryptoDashGrid.layout();
+
+  CryptoDashChartOffCanvas.hide();
   
 }
 
@@ -8066,8 +9546,11 @@ async function manualCryptoDashFetchTrackerData() {
     document.getElementById("cryptodash-refresh-button").innerHTML = `<i id="cryptodash-refresh-icon" class="fa fa-refresh fa-spin"></i> <i class="fa fa-cloud-download"></i>`;
   }
   */
-  
+ 
+
   var CryptoDashTrackerInfo = JSON.parse(window.localStorage.getItem('CryptoDashLayout'));
+
+  //console.log(CryptoDashTrackerInfo);
 
   // get the API key from local storage 
   // api key stored when interracting with data source
@@ -8191,7 +9674,9 @@ async function manualCryptoDashFetchTrackerData() {
                   //animateCryptoDashValue(cryptoDashTrackerID + "-price", 0, cryptodashPriceValue, 2000);
 
                 } catch (e) {
-                  document.getElementById(cryptoDashTrackerID + "-price").innerHTML = "Data N/A";
+                  document.getElementById(cryptoDashTrackerID + "-name").style.setProperty('text-shadow', "0px 0px 8px #000");
+                  document.getElementById(cryptoDashTrackerID + "-name").style.setProperty('color', "#F73718");
+                  document.getElementById(cryptoDashTrackerID + "-price").innerHTML = "Price Data N/A";
                   console.error("Data not available for tracker: " + cryptoDashTrackerID);
                   // Usually if price is not available then none of the data is available 
                 }
@@ -8213,7 +9698,7 @@ async function manualCryptoDashFetchTrackerData() {
                 try {
                   document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + " %";
                 } catch (e) {
-                  //document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "N/A";
+                  document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24H: Data N/A";
                   //console.error("Data not available for tracker: " + cryptoDashTrackerID);
                 }
 
@@ -8221,7 +9706,7 @@ async function manualCryptoDashFetchTrackerData() {
                 try {
                   document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + " %";
                 } catch (e) {
-                  //document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "N/A";
+                  document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "H: Data N/A";
                   //console.error("Data not available for tracker: " + cryptoDashTrackerID);
                 }
                 
@@ -8270,7 +9755,7 @@ async function manualCryptoDashFetchTrackerData() {
 
 
                   // insert button to remove the bad tracker if it fails
-                  document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = `<button class='btn btn-outline-` + CryptoDashCurrentTheme + ` btn-sm' onclick='CryptoDashCoinsSelector.removeItem("`+cryptoDashTrackerID+`")'>Remove</button>`;
+                  document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = `<button class='btn btn-outline-` + CryptoDashCurrentTheme + ` btn-sm' data-bs-toggle="modal" data-bs-target="#cryptodash-tracker-confirm-remove-modal" onclick='injectTrackerRemovalConfirmationCoin("`+cryptoDashTrackerID+`")'><i class="fa fa-trash"></i> Remove</button>`;
                   
                   
 
@@ -8706,7 +10191,9 @@ async function manualCryptoDashFetchTrackerData() {
                     // COMPARE PRICE FOR NOTIFICATION WITH data['RAW'][cryptoDashTrackerID][CryptoDashCurrency]['PRICE'];
 
                   } catch (e) {
-                    document.getElementById(cryptoDashTrackerID + "-price").innerHTML = "Data N/A";
+                    document.getElementById(cryptoDashTrackerID + "-name").style.setProperty('text-shadow', "0px 0px 8px #000");
+                    document.getElementById(cryptoDashTrackerID + "-name").style.setProperty('color', "#F73718");
+                    document.getElementById(cryptoDashTrackerID + "-price").innerHTML = "Price Data N/A";
                     console.error("Data not available for tracker: " + cryptoDashTrackerID);
                     // Usually if price is not available then none of the data is available 
                   }
@@ -8730,7 +10217,7 @@ async function manualCryptoDashFetchTrackerData() {
                   try {
                     document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCT24HOUR'] + " %";
                   } catch (e) {
-                    //document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "N/A";
+                    document.getElementById(cryptoDashTrackerID + "-changepct24").innerHTML = "24H: Data N/A";
                     //console.error("Data not available for tracker: " + cryptoDashTrackerID);
                   }
 
@@ -8738,7 +10225,7 @@ async function manualCryptoDashFetchTrackerData() {
                   try {
                     document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "H: " + data['DISPLAY'][cryptoDashTrackerID][CryptoDashCurrency]['CHANGEPCTHOUR'] + " %";
                   } catch (e) {
-                    //document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "N/A";
+                    document.getElementById(cryptoDashTrackerID + "-changepcthour").innerHTML = "H: Data N/A";
                     //console.error("Data not available for tracker: " + cryptoDashTrackerID);
                   }
                   
@@ -8777,7 +10264,7 @@ async function manualCryptoDashFetchTrackerData() {
                     //document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = "N/A";
 
                     // insert button to remove the bad tracker if it fails
-                    document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = `<button class='btn btn-outline-dark btn-sm' onclick='CryptoDashCoinsSelector.removeItem("`+cryptoDashTrackerID+`")'>Remove</button>`;
+                    document.getElementById(cryptoDashTrackerID + "-updatetime").innerHTML = `<button class='btn btn-outline-dark btn-sm' data-bs-toggle="modal" data-bs-target="#cryptodash-tracker-confirm-remove-modal" onclick='injectTrackerRemovalConfirmationCoin("`+cryptoDashTrackerID+`")'> <i class="fa fa-trash"></i> Remove</button>`;
                     
                     //console.error("Data not available for tracker: " + cryptoDashTrackerID);
                     //console.error(e);
@@ -11812,6 +13299,15 @@ const cryptoDashDeviceType = function () {
 };
 
 
+
+
+
+
+
+
+
+
+
 /* Font resize 
 https://github.com/adactio/FitText.js
 */
@@ -11908,6 +13404,8 @@ pullCryptoDashCoinList();
 
 // Initial call to update font size on first page load
 updateCryptoDashTrackerFontSize();
+
+
 
 
 </script>
