@@ -1892,7 +1892,7 @@ padding-bottom: 3px;
               
               <div class="accordion accordion-flush" id="cryptodash-data-and-trackers">
 
-                <div class="accordion-item mt-3 mb-3">
+                <div class="mt-3 mb-3 accordion-item">
                   <h2 class="accordion-header" id="cryptodash-datasource-acc-title">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-datasource-acc" aria-expanded="false" aria-controls="cryptodash-datasource-acc">
                       <i class="fa fa-database"></i>&nbsp Data Source
@@ -1908,7 +1908,7 @@ padding-bottom: 3px;
                         Other data sources will become available in the near future.
                       </p>
                       
-                      <div id="cryptodash-rate-limit-datasource" class="d-flex justify-content-center gap-2 mt-3 mb-3">
+                      <div id="cryptodash-rate-limit-datasource" class="gap-2 mt-3 mb-3 d-flex justify-content-center">
                         <button type="button" id="cryptodash-rate-limit-datasource-button" class="btn btn-outline-dark btn-sm" onclick="checkDataSourceRateLimit()"><i class="fa fa-signal"></i> Check Rate Limits</button>
                         <div id="cryptodash-rate-limit-datasource-result" class="d-none"></div> 
                       </div>
@@ -1932,22 +1932,22 @@ padding-bottom: 3px;
                           <i class="fa fa-info-circle"></i> This is the default data source used in CryptoDash.
                         </p>
 
-                        <div class="row d-flex justify-content-center mt-3">
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                        <div class="mt-3 row d-flex justify-content-center">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <input class="btn-check" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-cryptocompare-free" value="CryptoCompareFree" checked>
                             <label class="btn btn-outline-dark" for="cryptodash-datasource-cryptocompare-free"><i class="fa fa-key"></i> No API Key <br> (Default) </label>
                           </div>
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <input class="btn-check" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-cryptocompare-api" value="CryptoCompareAPI">
                             <label class="btn btn-outline-dark" for="cryptodash-datasource-cryptocompare-api">Use API Key</label>
                           </div>
 
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                        <div class="mt-3 row d-flex justify-content-center">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <a href="https://min-api.cryptocompare.com/pricing" target="_blank" class="btn btn-outline-dark btn-sm "><i class="fa fa-link "></i> Get an API Key</a>
                           </div>
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <a href="https://cryptocompare.com" target="_blank" class="btn btn-outline-dark btn-sm"> <i class="fa fa-link "></i> Visit Site</a>
                           </div>
 
@@ -1967,18 +1967,18 @@ padding-bottom: 3px;
                       
                       <div id="cryptodash-datasource-livecoinwatch" class="gap-2 cryptodash-datasources justify-content-center"> 
 
-                        <div class="row d-flex justify-content-center mt-3">                          
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                        <div class="mt-3 row d-flex justify-content-center">                          
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <input class="btn-check" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-livecoinwatch-api" value="LiveCoinWatchAPI" disabled>
                             <label class="btn btn-outline-dark" for="cryptodash-datasource-livecoinwatch-api">Use API Key</label>
                           </div>
                         </div>
 
-                        <div class="row d-flex justify-content-center mt-3">
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                        <div class="mt-3 row d-flex justify-content-center">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <a href="https://www.livecoinwatch.com/tools/api#try" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fa fa-link "></i> Get an API Key</a>
                           </div>
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <a href="https://livecoinwatch.com" target="_blank" class="btn btn-outline-dark btn-sm"> <i class="fa fa-link"></i> Visit Site</a>
                           </div>
                         </div>
@@ -2000,18 +2000,18 @@ padding-bottom: 3px;
                             -->
                         </p>
   
-                        <div class="row d-flex justify-content-center mt-3">                          
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                        <div class="mt-3 row d-flex justify-content-center">                          
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <input class="btn-check" type="radio" name="cryptodash-datasource" id="cryptodash-datasource-coinmarketcap-api" value="CoinMarketCapAPI" disabled>
                             <label class="btn btn-outline-dark" for="cryptodash-datasource-coinmarketcap-api">Use API Key</label>
                           </div>
                         </div>
   
-                        <div class="row d-flex justify-content-center mt-3">
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                        <div class="mt-3 row d-flex justify-content-center">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <a href="https://coinmarketcap.com/api/pricing/" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fa fa-link "></i> Get an API Key</a>
                           </div>
-                          <div class="col-6 d-flex justify-content-center align-items-center gap-2">
+                          <div class="gap-2 col-6 d-flex justify-content-center align-items-center">
                             <a href="https://coinmarketcap.com" target="_blank" class="btn btn-outline-dark btn-sm"> <i class="fa fa-link"></i> Visit Site</a>
                           </div>
                         </div>
@@ -2025,7 +2025,7 @@ padding-bottom: 3px;
 
                 </div>
 
-                <div class="accordion-item mt-3 mb-3">
+                <div class="mt-3 mb-3 accordion-item">
                   <h2 class="accordion-header" id="cryptodash-tracker-acc-title">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-tracker-acc" aria-expanded="false" aria-controls="cryptodash-tracker-acc">
                       <i class="fa fa-th-large"></i>&nbsp Manage Trackers
@@ -2044,7 +2044,7 @@ padding-bottom: 3px;
                   </div>
                 </div>
 
-                <div class="accordion-item mt-3 mb-3">
+                <div class="mt-3 mb-3 accordion-item">
                   <h2 class="accordion-header" id="cryptodash-alarmtracker-acc-title">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-alarmtracker-acc" aria-expanded="false" aria-controls="cryptodash-alarmtracker-acc">
                       <i class="fa fa-bell-o"></i>&nbsp Tracker Alarms
@@ -2129,9 +2129,9 @@ padding-bottom: 3px;
           
           
           <!-- Color Themes -->
-          <div class="accordion accordion-flush mt-2" id="cryptodash-color-themes-accordion">
+          <div class="mt-2 accordion accordion-flush" id="cryptodash-color-themes-accordion">
 
-            <div class="accordion-item mt-3 mb-3">
+            <div class="mt-3 mb-3 accordion-item">
               <h2 class="accordion-header" id="cryptodash-color-theme-acc-title">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-color-theme-acc" aria-expanded="false" aria-controls="cryptodash-color-theme-acc">
                 <i class="fa fa-eye"></i>&nbsp Themes
@@ -2143,49 +2143,49 @@ padding-bottom: 3px;
                   <div id="cryptodash-color-themes" class="gap-2">
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-default" value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-default"> Default</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-default"> Default</label>
                    
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-yeti" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/yeti/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-yeti"> Yeti</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-yeti"> Yeti</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-vapor" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/vapor/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-vapor"> Vapor</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-vapor"> Vapor</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-united" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/united/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-united"> United</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-united"> United</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-superhero" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/superhero/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-superhero"> Superhero</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-superhero"> Superhero</label>
                   
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-solar" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/solar/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-solar"> Solar</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-solar"> Solar</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-slate" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/slate/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-slate"> Slate</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-slate"> Slate</label>
                     
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-simplex" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/simplex/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-simplex"> Simplex</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-simplex"> Simplex</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-sandstone" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/sandstone/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-sandstone"> Sandstone</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-sandstone"> Sandstone</label>
                                       
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-minty" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/minty/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-minty"> Minty</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-minty"> Minty</label>
                     
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-litera" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/litera/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-litera"> Litera</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-litera"> Litera</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-journal" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/journal/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-journal"> Journal</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-journal"> Journal</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-flatly" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/flatly/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-flatly"> Flatly</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-flatly"> Flatly</label>
 
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-darkly" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/darkly/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-darkly"> Darkly</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-darkly"> Darkly</label>
                     
                     <input class="btn-check" type="radio" name="cryptodash-color-themes" id="cryptodash-color-theme-cerulean" value="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/cerulean/bootstrap.min.css" >
-                    <label class="btn btn-outline-dark ml-3 mb-3" for="cryptodash-color-theme-cerulean"> Cerulean</label>
+                    <label class="mb-3 ml-3 btn btn-outline-dark" for="cryptodash-color-theme-cerulean"> Cerulean</label>
                   
                   </div>
                 </div>
@@ -2205,12 +2205,12 @@ padding-bottom: 3px;
           
           <!-- Notifications -->
           <label for="cryptoDashNotifications" class="form-label badge bg-secondary"><i class="fa fa-bell-o "></i> Notifications</label>
-          <div class="form-check form-switch mb-2">
+          <div class="mb-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" id="cryptodash-alarm-toggle">
             <label class="form-check-label" for="cryptodash-alarm-toggle"><i class="fa fa-volume-up"></i> Alarm notification sound</label>
           </div>
 
-          <div class="accordion-item mt-3 mb-3">
+          <div class="mt-3 mb-3 accordion-item">
             <h2 class="accordion-header" id="cryptodash-notification-position-acc-title">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-notification-position-acc" aria-expanded="false" aria-controls="cryptodash-notification-position-acc">
                 <i class="fa fa-arrows"></i>&nbsp Position
@@ -2220,18 +2220,18 @@ padding-bottom: 3px;
               <div class="accordion-body">
                 
                 <!-- Notification Orientation -->
-                <label for="cryptodash-notification-orientation" class="form-label badge bg-secondary mt-3"><i class="fa fa-sort" ></i> Orientation</label>
+                <label for="cryptodash-notification-orientation" class="mt-3 form-label badge bg-secondary"><i class="fa fa-sort" ></i> Orientation</label>
 
                 <div id="cryptodash-notification-orientation" class="row d-flex justify-content-center"> 
                 
-                  <div class="col-6 d-flex justify-content-center gap-2">
+                  <div class="gap-2 col-6 d-flex justify-content-center">
                   
                       <input class="btn-check" type="radio" name="cryptodash-notification-orientation" id="cryptodash-notification-orientation-top" value="TOP">
                       <label class="btn btn-outline-dark" for="cryptodash-notification-orientation-top"><i class="fa fa-arrow-circle-down"></i> Going Down</label>
                                         
                   </div>
 
-                  <div class="col-6 d-flex justify-content-center gap-2">
+                  <div class="gap-2 col-6 d-flex justify-content-center">
                     
                       <input class="btn-check" type="radio" name="cryptodash-notification-orientation" id="cryptodash-notification-orientation-bottom" value="BOTTOM">
                       <label class="btn btn-outline-dark" for="cryptodash-notification-orientation-bottom"><i class="fa fa-arrow-circle-up"></i> Going Up</label>
@@ -2241,22 +2241,22 @@ padding-bottom: 3px;
                 </div>
 
                 <!-- Notification Location -->
-                <label for="cryptodash-notification-location" class="form-label badge bg-secondary mt-3"><i class="fa fa-sort fa-rotate-90"></i> Location</label>
+                <label for="cryptodash-notification-location" class="mt-3 form-label badge bg-secondary"><i class="fa fa-sort fa-rotate-90"></i> Location</label>
                 <div id="cryptodash-notification-location" class="row d-flex justify-content-center"> 
-                  <div class="col-4 d-flex justify-content-center gap-2">
+                  <div class="gap-2 col-4 d-flex justify-content-center">
                   
                       <input class="btn-check" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-left" value="LEFT" >
                       <label class="btn btn-outline-dark" for="cryptodash-notification-location-left"><i class="fa fa-arrow-circle-left"></i> Left</label>
                     
                   </div>
-                  <div class="col-4 d-flex justify-content-center gap-2">
+                  <div class="gap-2 col-4 d-flex justify-content-center">
                     
                       <input class="btn-check" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-center" value="CENTER">
                       <label class="btn btn-outline-dark" for="cryptodash-notification-location-center"><i class="fa fa-circle"></i> Center</label>
                     
                   </div>
 
-                  <div class="col-4 d-flex justify-content-center gap-2">
+                  <div class="gap-2 col-4 d-flex justify-content-center">
                     
                     <input class="btn-check" type="radio" name="cryptodash-notification-location" id="cryptodash-notification-location-right" value="RIGHT">
                     <label class="btn btn-outline-dark" for="cryptodash-notification-location-right"><i class="fa fa-arrow-circle-right"></i> Right</label>
@@ -2277,7 +2277,7 @@ padding-bottom: 3px;
               
             <div class="accordion accordion-flush" id="cryptodash-backgrounds">
 
-              <div class="accordion-item mt-3 mb-3">
+              <div class="mt-3 mb-3 accordion-item">
                 <h2 class="accordion-header" id="cryptodash-background-simple-acc-title">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-simple-acc" aria-expanded="false" aria-controls="cryptodash-background-simple-acc">
                     <i class="fa fa-image"></i>&nbsp Classic
@@ -2286,9 +2286,9 @@ padding-bottom: 3px;
                 <div id="cryptodash-background-simple-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-background-simple-acc-title" data-bs-parent="#cryptodash-backgrounds">
                   <div class="accordion-body">
 
-                    <div class="d-grid gap-2"> 
+                    <div class="gap-2 d-grid"> 
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="cryptodash-preview-classic-background-container">
                             <div id="cryptodash-classic-background-default-preview" class="cryptodash-preview-classic-background"> </div>
@@ -2302,7 +2302,7 @@ padding-bottom: 3px;
                         </div>
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="cryptodash-preview-classic-background-container">
                             <div id="cryptodash-classic-background-random-preview" class="cryptodash-preview-classic-background"> </div>
@@ -2317,7 +2317,7 @@ padding-bottom: 3px;
                         </div>
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="cryptodash-preview-classic-background-container">
                             <div id="cryptodash-classic-custom-color-background-preview" class="cryptodash-preview-classic-background"> </div>
@@ -2332,11 +2332,11 @@ padding-bottom: 3px;
                         </div>
                       </div>
 
-                      <div class="row mt-3 d-none" id="cryptodash-classic-background-custom-color-picker-content">
+                      <div class="mt-3 row d-none" id="cryptodash-classic-background-custom-color-picker-content">
                         <span style="font-size: .775rem;">
                           <i class="fa fa-info-circle "></i> Choose your favourite color 
                         </span>
-                        <div class="col-6 d-flex justify-content-center mt-3">
+                        <div class="mt-3 col-6 d-flex justify-content-center">
                             <div class="cryptodash-classic-background-custom-color-picker"></div>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-items-center flex-column">
@@ -2346,7 +2346,7 @@ padding-bottom: 3px;
                         </div>
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="cryptodash-preview-classic-background-container">
                             <div id="cryptodash-classic-custom-image-background-preview" class="cryptodash-preview-classic-background"> </div>
@@ -2361,12 +2361,12 @@ padding-bottom: 3px;
                         </div>
                       </div>
 
-                      <div class="row mt-3 d-flex justify-content-center d-none" id="cryptodash-classic-background-custom-image-picker-content">
+                      <div class="mt-3 row d-flex justify-content-center d-none" id="cryptodash-classic-background-custom-image-picker-content">
                         <span style="font-size: .775rem;">
                           <i class="fa fa-info-circle "></i> Custom image background file size limit is 1.5 MB
                         </span>
 
-                        <div class="col-12 d-flex justify-content-center mt-3">
+                        <div class="mt-3 col-12 d-flex justify-content-center">
                             
                             <div class="input-group" id="cryptodash-classic-background-custom-image-group">
                               <input type="file" accept="image/jpg, image/jpeg, image/png" class="form-control text-dark" id="cryptodash-classic-background-custom-image-input" aria-describedby="inputGroupFileAddon04" placeholder="Custom Image URL" aria-label="Upload">                             
@@ -2374,7 +2374,7 @@ padding-bottom: 3px;
 
                         </div>
 
-                        <div class="row mt-3" id="cryptodash-classic-background-custom-image-buttons">
+                        <div class="mt-3 row" id="cryptodash-classic-background-custom-image-buttons">
                           <div class="col-3 d-flex justify-content-center align-items-center">
                             <div style="font-size: .775rem;" class="d-flex flex-column justify-content-center align-items-center" id="cryptodash-classic-background-custom-image-size">
                               <i style="padding: 5px" class="fa fa-image "></i> N/A
@@ -2407,7 +2407,7 @@ padding-bottom: 3px;
 
                             
               <!-- Animated background selection -->
-              <div class="accordion-item mt-3 mb-3">
+              <div class="mt-3 mb-3 accordion-item">
                 <h2 class="accordion-header" id="cryptodash-background-animated-acc-title">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-background-animated-acc" aria-expanded="false" aria-controls="cryptodash-background-animated-acc">
                     <i class="fa fa-film"></i>&nbsp Animated
@@ -2420,9 +2420,9 @@ padding-bottom: 3px;
                       <label for="cryptodash-background-animated-abstract" class="form-label badge bg-secondary"><i class="fa fa-star "></i> Abstract</label>
                       <br>
                       
-                      <div class="d-grid gap-2"> 
+                      <div class="gap-2 d-grid"> 
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-abstract-preview" class="cryptodash-preview-animated-background d-flex justify-content-center align-items-center"> 
@@ -2452,9 +2452,9 @@ padding-bottom: 3px;
                       <i class="fa fa-info-circle "></i> The TS Particles animated backgrounds are applied on top of the chosen classic background choice.
                       </div>
 
-                      <div class="d-grid gap-2"> 
+                      <div class="gap-2 d-grid"> 
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-tsparticles-preview-1" class="cryptodash-preview-animated-background"> </div>
@@ -2468,7 +2468,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-tsparticles-preview-2" class="cryptodash-preview-animated-background"> </div>
@@ -2482,7 +2482,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-tsparticles-preview-3" class="cryptodash-preview-animated-background"> </div>
@@ -2497,7 +2497,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-tsparticles-preview-4" class="cryptodash-preview-animated-background"> </div>
@@ -2525,9 +2525,9 @@ padding-bottom: 3px;
                       <label for="cryptodash-animated-backgrounds-vanta" class="form-label badge bg-secondary"><i class="fa fa-star "></i> Vanta</label>
                       <br>
 
-                      <div class="d-grid gap-2"> 
+                      <div class="gap-2 d-grid"> 
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-vanta-preview-wave" class="cryptodash-preview-animated-background"> </div>
@@ -2541,7 +2541,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-vanta-preview-cells" class="cryptodash-preview-animated-background"> </div>
@@ -2555,7 +2555,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-vanta-preview-fog" class="cryptodash-preview-animated-background"> </div>
@@ -2569,7 +2569,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="mt-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-vanta-preview-halo" class="cryptodash-preview-animated-background"> </div>
@@ -2583,7 +2583,7 @@ padding-bottom: 3px;
                           </div>
                         </div>
 
-                        <div class="row mt-3 mb-3">
+                        <div class="mt-3 mb-3 row">
                           <div class="col-6 d-flex justify-content-center">
                             <div class="cryptodash-preview-animated-background-container">
                               <div id="cryptodash-vanta-preview-cloud" class="cryptodash-preview-animated-background"> </div>
@@ -2623,7 +2623,7 @@ padding-bottom: 3px;
           <!-- Charts Customization -->
           <label for="cryptodash-charts-settings" class="form-label badge bg-secondary"><i class="fa fa-area-chart"></i> Charts</label>
 
-          <div class="form-check form-switch mb-2">
+          <div class="mb-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" id="cryptodash-charts-drop-shadow">
             <label class="form-check-label" for="cryptodash-charts-drop-shadow"><i class="fa fa-area-chart"></i> Charts Shadow</label>
           </div>
@@ -2632,7 +2632,7 @@ padding-bottom: 3px;
               
             <div class="accordion accordion-flush" id="cryptodash-charts">
 
-              <div class="accordion-item mt-3 mb-3">
+              <div class="mt-3 mb-3 accordion-item">
                 <h2 class="accordion-header" id="cryptodash-charts-acc-title">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-charts-acc" aria-expanded="false" aria-controls="cryptodash-charts-acc">
                     <i class="fa fa-paint-brush"></i>&nbsp Color Palettes
@@ -2641,9 +2641,9 @@ padding-bottom: 3px;
                 <div id="cryptodash-charts-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-charts-title" data-bs-parent="#cryptodash-charts">
                   <div class="accordion-body">
 
-                    <div class="d-grid gap-2"> 
+                    <div class="gap-2 d-grid"> 
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-1" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2663,7 +2663,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-2" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2683,7 +2683,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-3" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2703,7 +2703,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-4" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2723,7 +2723,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-5" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2743,7 +2743,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-6" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2763,7 +2763,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-7" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2783,7 +2783,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-8" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2803,7 +2803,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-9" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2823,7 +2823,7 @@ padding-bottom: 3px;
                         </div>                
                       </div>
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-6 d-flex justify-content-center">
                           <div class="d-flex justify-content-center align-items-center cryptodash-preview-charts-palette-container">
                             <div id="cryptodash-preview-charts-palette-10" class="cryptodash-preview-charts-palette d-flex justify-content-center align-items-center "> 
@@ -2856,7 +2856,7 @@ padding-bottom: 3px;
           <!-- Dashboard Customization -->
           <label for="cryptodash-dashboard-settings" class="form-label badge bg-secondary"><i class="fa fa-newspaper-o"></i> News</label>
 
-          <div class="form-check form-switch mb-2">
+          <div class="mb-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" id="cryptodash-dashboard-highlight">
             <label class="form-check-label" for="cryptodash-dashboard-highlight"><i class="fa fa-newspaper-o"></i> News Panel</label>
           </div>
@@ -2865,7 +2865,7 @@ padding-bottom: 3px;
               
             <div class="accordion accordion-flush" id="cryptodash-dashboard">
 
-              <div class="accordion-item mt-3 mb-3">
+              <div class="mt-3 mb-3 accordion-item">
                 <h2 class="accordion-header" id="cryptodash-dashboard-acc-title">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cryptodash-dashboard-position-acc" aria-expanded="false" aria-controls="cryptodash-dashboard-position-acc">
                     <i class="fa fa-arrows"></i>&nbsp Indicator Position
@@ -2874,9 +2874,9 @@ padding-bottom: 3px;
                 <div id="cryptodash-dashboard-position-acc" class="accordion-collapse collapse" aria-labelledby="cryptodash-dashboard-position-title" data-bs-parent="#cryptodash-dashboard">
                   <div class="accordion-body">
 
-                    <div class="d-grid gap-2"> 
+                    <div class="gap-2 d-grid"> 
 
-                      <div class="row mt-3">
+                      <div class="mt-3 row">
                         <div class="col-4 d-flex justify-content-center">
                           <div class="form-check form-check-inline">
                             <input class="btn-check" type="radio" name="cryptodash-dashboard-indicator-position" id="cryptodash-dashboard-indicator-position-top-left" value="Top-Left">
@@ -2917,7 +2917,7 @@ padding-bottom: 3px;
               From here you can save a copy of your configured settings and load it anywhere you are running CryptoDash. 
             </p>
 
-            <div id="cryptodashsettings" class="d-grid gap-2">
+            <div id="cryptodashsettings" class="gap-2 d-grid">
                           
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center">
@@ -2943,7 +2943,7 @@ padding-bottom: 3px;
           
           <hr>
 
-          <div id="cryptodash-about" class="d-grid gap-2">
+          <div id="cryptodash-about" class="gap-2 d-grid">
             <a class="btn btn-outline-dark btn-sm" href="https://github.com/mprajescu/cryptodash" target="_blank"><i class="fa fa-github"></i> CryptoDash <span id="cryptodash-date"></span></a>
           </div>
           
@@ -2964,19 +2964,19 @@ padding-bottom: 3px;
       <div>
         <ul id="cryptodash-tracker-details-buttons" class="nav nav-pills nav-justified" role="tablist" aria-label="Crypto Tracker Details">
             
-          <li class="nav-item m-1" role="trackerdetails">
+          <li class="m-1 nav-item" role="trackerdetails">
             <button class="btn btn-outline-dark btn-sm active " id="cryptodash-tracker-details-about-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-about-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-about-tab" aria-selected="true"><i class="fa fa-info-circle"></i> About</button>
           </li>
 
-          <li class="nav-item m-1" role="trackerdetails">
+          <li class="m-1 nav-item" role="trackerdetails">
             <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-tab" aria-selected="false" disabled><i class="fa fa-area-chart"></i> Charts</button>
           </li>
 
-          <li class="nav-item m-1" role="trackerdetails">
+          <li class="m-1 nav-item" role="trackerdetails">
             <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-alarms-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-alarms-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-alarms-tab" aria-selected="false" ><i class="fa fa-bell-o"></i> Alarms</button>
           </li>
 
-          <li class="nav-item m-1" role="trackerdetails" id="cryptodash-chart-remove-button">
+          <li class="m-1 nav-item" role="trackerdetails" id="cryptodash-chart-remove-button">
 
           </li>
   
@@ -3078,19 +3078,19 @@ padding-bottom: 3px;
 
             <div>
               <ul id="cryptodash-charts-buttons" class="nav nav-pills justify-content-center" role="tablist" aria-label="Crypto Tracker Charts">
-                <li class="nav-item m-1" role="trackercharts">
+                <li class="m-1 nav-item" role="trackercharts">
                   <button class="btn btn-outline-dark btn-sm active " id="cryptodash-tracker-details-charts-allview-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-allview-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-day-tab" aria-selected="true"><i class="fa fa-circle"></i> All</button>
                 </li>
 
-                <li class="nav-item m-1" role="trackercharts">
+                <li class="m-1 nav-item" role="trackercharts">
                   <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-day-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-day-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-day-tab" aria-selected="true"><i class="fa fa-circle"></i> Day</button>
                 </li>
       
-                <li class="nav-item m-1" role="trackercharts">
+                <li class="m-1 nav-item" role="trackercharts">
                   <button class="btn btn-outline-dark btn-sm " id="cryptodash-tracker-details-charts-month-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-month-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-month-tab" aria-selected="true"><i class="fa fa-circle"></i> Month</button>
                 </li>
 
-                <li class="nav-item m-1" role="trackercharts">
+                <li class="m-1 nav-item" role="trackercharts">
                   <button class="btn btn-outline-dark btn-sm" id="cryptodash-tracker-details-charts-year-button" data-bs-toggle="pill" data-bs-target="#cryptodash-tracker-details-charts-year-tab" type="button" role="tab" aria-controls="cryptodash-tracker-details-charts-year-tab" aria-selected="true"><i class="fa fa-circle"></i> Year</button>
                 </li>                
         
@@ -3106,11 +3106,11 @@ padding-bottom: 3px;
               <div class="tab-pane fade show active" id="cryptodash-tracker-details-charts-allview-tab" role="tabpanel" aria-labelledby="cryptodash-tracker-details-charts-allview-button">
                 <div class="row" id="cryptodash-allview-chart" style="height: calc(100vh - 200px); "> 
                 
-                      <div class="col-md-6 mt-3 d-flex justify-content-center align-items-center" id="cryptodash-allview-day-echart-content" style="height: 33vh"></div> 
-                      <div class="col-md-6 mt-3 d-flex justify-content-center align-items-center" id="cryptodash-allview-week-echart-content" style="height: 33vh"></div>
+                      <div class="mt-3 col-md-6 d-flex justify-content-center align-items-center" id="cryptodash-allview-day-echart-content" style="height: 33vh"></div> 
+                      <div class="mt-3 col-md-6 d-flex justify-content-center align-items-center" id="cryptodash-allview-week-echart-content" style="height: 33vh"></div>
                     
-                      <div class="col-md-6 mt-3 d-flex justify-content-center align-items-center" id="cryptodash-allview-month-echart-content" style="height: 33vh;"></div> 
-                      <div class="col-md-6 mt-3 d-flex justify-content-center align-items-center" id="cryptodash-allview-year-echart-content" style="height: 33vh;"></div> 
+                      <div class="mt-3 col-md-6 d-flex justify-content-center align-items-center" id="cryptodash-allview-month-echart-content" style="height: 33vh;"></div> 
+                      <div class="mt-3 col-md-6 d-flex justify-content-center align-items-center" id="cryptodash-allview-year-echart-content" style="height: 33vh;"></div> 
                     
                 
 
@@ -4851,7 +4851,7 @@ function showCryptoDashCurrentTrackerCount() {
     document.getElementById("cryptodash-tracker-info").innerHTML = `
     <i class="fa fa-info-circle"></i> Error loading data. Please check data source and refresh. 
     
-    <button class="btn btn-sm btn-outline-dark mt-3" onclick="pullCryptoDashCoinList()"><i class="fa fa-refresh"></i> Refresh List</button> 
+    <button class="mt-3 btn btn-sm btn-outline-dark" onclick="pullCryptoDashCoinList()"><i class="fa fa-refresh"></i> Refresh List</button> 
     `;
     document.getElementById("CryptoDashCoinsSelector").style.display = "none";
     document.querySelector(".ts-control").style.display = "none";
@@ -10622,19 +10622,19 @@ async function checkDataSourceRateLimit() {
         `
         <p class="justify-content-center" style="font-size: .775rem;"><i class="fa fa-signal"></i> You are currently using the<strong>&nbspFREE Crypto Compare </strong> </p>
         <div class="row">
-          <div class="col-6 d-flex flex-wrap">
+          <div class="flex-wrap col-6 d-flex">
             <strong class="d-flex justify-content-center" style="font-size: .775rem;">Current API Calls</strong> 
             <br> 
             <span style="font-size: .775rem;">` + cryptodashcallsmadeCCFree + `</span>
           </div>
-          <div class="col-6 d-flex flex-wrap">
+          <div class="flex-wrap col-6 d-flex">
             <strong class="d-flex justify-content-center" style="font-size: .775rem;">Current API Calls Left</strong>             
             <br>
             <span style="font-size: .775rem;">` + cryptodashcallsleftCCFree + `</span>
           </div>
         </div>
                 
-        <div class="d-flex justify-content-center gap-2 mt-3">
+        <div class="gap-2 mt-3 d-flex justify-content-center">
           <button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + `" onclick="setCryptoDashDataSourceRateCheckResultEmpty()">
             <i class="fa fa-close"></i> Close results panel
           </button>
@@ -10703,19 +10703,19 @@ async function checkDataSourceRateLimit() {
           `
           <p class="justify-content-center" style="font-size: .775rem;"><i class="fa fa-signal"></i> You are currently using the<strong> &nbsp API Crypto Compare </strong> </p>
           <div class="row">
-            <div class="col-6 d-flex flex-wrap">
+            <div class="flex-wrap col-6 d-flex">
               <strong class="d-flex justify-content-center" style="font-size: .775rem;">Current API Calls</strong> 
               <br> 
               <span style="font-size: .775rem;">` + cryptodashcallsmadeCCApi + `</span>
             </div>
-            <div class="col-6 d-flex flex-wrap">
+            <div class="flex-wrap col-6 d-flex">
               <strong class="d-flex justify-content-center" style="font-size: .775rem;">Current API Calls Left</strong>             
               <br>
               <span style="font-size: .775rem;">` + cryptodashcallsleftCCApi + `</span>
             </div>
           </div>
                   
-          <div class="d-flex justify-content-center gap-2 mt-3">
+          <div class="gap-2 mt-3 d-flex justify-content-center">
             <button class="btn btn-sm btn-outline-` + CryptoDashCurrentTheme + `" onclick="setCryptoDashDataSourceRateCheckResultEmpty()">
               <i class="fa fa-close"></i> Close results panel
             </button>
