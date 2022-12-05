@@ -1,8 +1,8 @@
 # Crypto Dash
 
-Welcome to Crypto Dash! 
+Welcome to CryptoDash! 
 
-I've created Crypto Dash to easily keep track of different crypto currency coins and tokens. 
+I've created CryptoDash to easily keep track of different crypto currency coins and tokens. 
 It doesn't require any server to run, you just download the HTML file and open it in your browser. 
 Currently the only browsers supported are Chrome, Edge and Firefox. 
 
@@ -63,7 +63,8 @@ Bootswatch - Bootstrap themes
 
 # Special Thanks 
 
-A special thanks goes to George because without his idea, CryptoDash would not have seen the light of day. 
+
+A special thanks goes to George because without his idea, CryptoDash would have not seen the light of day. 
 
 
 
@@ -73,4 +74,4 @@ A special thanks goes to George because without his idea, CryptoDash would not h
 
 # Buy me a coffee
 
-Buy me a coffee -> https://ko-fi.com/
+Buy me a coffee -> [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C1GUGMV)
