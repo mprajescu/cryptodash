@@ -1,4 +1,4 @@
-# Crypto Dash
+# CryptoDash
 
 Welcome to CryptoDash! 
 
@@ -10,25 +10,25 @@ Currently the only browsers supported are Chrome, Edge and Firefox.
 
 # Disclaimers
 
-# No Investment Advice
+## No Investment Advice
 The information provided in this application does not constitute investment advice, financial advice, trading advice, or any other sort of advice and you should not treat any of the application's content as such. CryptoDash does not recommend that any cryptocurrency should be bought, sold, or held by you. Do conduct your own due diligence and consult your financial advisor before making any investment decisions.
 
-# Accuracy of Information
+## Accuracy of Information
 CryptoDash will strive to ensure accuracy of information listed on this application although it will not hold any responsibility for any missing or wrong information. CryptoDash provides all information as is given that the information is retreived via API from third-party websites.
 You understand that you are using any and all information available here at your own risk.
 
 
-# Data Sources
+## Data Sources
 
 Crypto Compare: https://min-api.cryptocompare.com/
 
-# API Keys
+## API Keys
 
 Please note that CryptoDash does not have access to your wallet or can do any transactions by utilizing the API key in the data source. 
 The API Key is only utilized to pull information from the selected data source. 
 
 
-# Credits
+## Credits
 I want to give thanks to all the open source projects that are currently used in this project:
 
 Bootstrap 5 
@@ -68,10 +68,10 @@ A special thanks goes to George because without his idea, CryptoDash would have 
 
 
 
-# License Type
+## License Type
 
 
 
-# Support/Donations
+## Support/Donations
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C1GUGMV)
