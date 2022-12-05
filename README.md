@@ -69,7 +69,7 @@ A special thanks goes to [George](https://github.com/razvanfloreasoftware) becau
 
 
 ## License Type
-
+[GNU Affero General Public License v3.0](https://github.com/mprajescu/cryptodash/blob/main/LICENSE)
 
 
 ## Support/Donations
