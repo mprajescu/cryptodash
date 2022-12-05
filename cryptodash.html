@@ -4,13 +4,13 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="application-name" content="Crypto Dash">
+<meta name="application-name" content="CryptoDash">
 <meta name="description" content="Crypto Currency Tracker Dashboard">
 <meta name="keywords" content="HTML, CSS, JavaScript, Crypto">
 <meta name="author" content="Mihail-Vlad Prajescu">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title> Crypto Dash </title>
+<title> CryptoDash </title>
 
 <!-- FontAwesome 4.6.3 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
@@ -1777,6 +1777,11 @@ padding-bottom: 3px;
 .cryptodash-chart-legend {
   border-radius: 1rem !important;
 }
+
+.cryptodash-logo {
+  font-size: 4rem;
+  text-align: center;
+}
 </style>
 
 </head>
@@ -1794,7 +1799,10 @@ padding-bottom: 3px;
 
 <!-- Loader when page starts -->
 <div id="cryptodash-loader" class="text-light">
-  <i class="fa fa-gear fa-spin"></i>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="cryptodash-logo">CryptoDash</div>
+    <i class="fa fa-gear fa-spin"></i>
+  </div>  
 </div>
 
 <!-- Crypto Dashboard Main Content -->
@@ -1830,10 +1838,11 @@ padding-bottom: 3px;
         <div id="cryptodash-news" class="backdrop-blur" >
          <div id="cryptodash-news-content">
           <h1>News</h1>
-          <ul>
+          <p>The news section is still work in progress!</p>
+          <!--<ul>
             <li>Will pull only when the news carousel is triggered</li>
             <li>going back to the dashboard will trigger a refresh on the rendering on murri</li>
-          </ul>
+          </ul> -->
           <i class="fa fa-gear fa-spin"></i>
 
           
@@ -3206,11 +3215,11 @@ padding-bottom: 3px;
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content backdrop-blur" id="resetCryptoDashConfigModalContent">
         <div class="modal-header">
-          <h5 class="modal-title" id="resetCryptoDashConfigModalLabel"><i class="fa fa-recycle"></i> Reset Crypto Dash</h5>
+          <h5 class="modal-title" id="resetCryptoDashConfigModalLabel"><i class="fa fa-recycle"></i> Reset CryptoDash</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="resetCryptoDashConfigModalClose"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want reset the Crypto Dash?</p>
+          <p>Are you sure you want reset the CryptoDash?</p>
           <p>You can also save a backup of the configuration in case you want to restore at a later time.</p>
         </div>
         <div class="modal-footer">
@@ -3227,13 +3236,13 @@ padding-bottom: 3px;
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content backdrop-blur" id="uploadCryptoDashConfigModalContent">
         <div class="modal-header">
-          <h5 class="modal-title" id="uploadCryptoDashConfigModalLabel"><i class="fa fa-upload"></i> Restore Crypto Dash</h5>
+          <h5 class="modal-title" id="uploadCryptoDashConfigModalLabel"><i class="fa fa-upload"></i> Restore CryptoDash</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="uploadCryptoDashConfigModalClose"></button>
         </div>
 
         <form id="uploadCryptoDashConfigForm">
           <div class="modal-body">
-            <p><i class="fa fa-info-circle"></i> Select your Crypto Dash backup file then click restore to load your custom configuration.</p>
+            <p><i class="fa fa-info-circle"></i> Select your CryptoDash backup file then click restore to load your custom configuration.</p>
             <input class="form-control" type="file" id="uploadCryptoDashConfigInput" accept=".cdbackup" >
           </div>
           <div class="modal-footer">                        
@@ -3324,7 +3333,7 @@ padding-bottom: 3px;
           <li>Auto refresh pulls only once, every X amount of time. It's just like a manual refresh, meaning you only multiply by the amount of time it runs.</li>
 
         </ul>
-        <p>You can calculate and see your API calls in realtime on Crypto Compare or use the Data Source Rate Limits option from the Crypto Dash settings.</p>
+        <p>You can calculate and see your API calls in realtime on Crypto Compare or use the Data Source Rate Limits option from the CryptoDash settings.</p>
       
         <!-- To implement these API data sources -->
         		
@@ -12954,7 +12963,7 @@ function cryptoDashRemoveClassByPrefix(node, prefix) {
         CryptoDashClassicBackgroundDefault.checked = true;
         CryptoDashClassicBackgroundCustomImage.checked = false;
 
-        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Custom Image Error</strong> <br>` + `Cannot apply background image. Image not found in Crypto Dash. `, 10000, true);
+        showCryptoDashNotification(`<i class="fa fa-exclamation-circle"></i> <strong>Custom Image Error</strong> <br>` + `Cannot apply background image. Image not found in CryptoDash. `, 10000, true);
                     
       } else {
         
