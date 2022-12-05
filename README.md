@@ -64,7 +64,7 @@ Bootswatch - Bootstrap themes
 # Special Thanks 
 
 
-A special thanks goes to George because without his idea, CryptoDash would have not seen the light of day. 
+A special thanks goes to [George](https://github.com/razvanfloreasoftware) because without his idea, CryptoDash would have not seen the light of day. 
 
 
 
