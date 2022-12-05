@@ -6,7 +6,7 @@ I've created CryptoDash to easily keep track of different crypto currency coins 
 It doesn't require any server to run, you just download the HTML file and open it in your browser. 
 Currently the only browsers supported are Chrome, Edge and Firefox. 
 
-LIVE PREVIEW: https://github.com/mprajescu/cryptodash/cryptodash
+LIVE PREVIEW: https://mprajescu.github.io/cryptodash/cryptodash
 
 # Disclaimers
 
