@@ -72,6 +72,6 @@ A special thanks goes to George because without his idea, CryptoDash would have 
 
 
 
-# Buy me a coffee
+# Support/Donations
 
-Buy me a coffee -> [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C1GUGMV)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C1GUGMV)
